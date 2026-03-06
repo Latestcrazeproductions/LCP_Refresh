@@ -6,52 +6,53 @@ import { useContent } from '@/context/ContentContext';
 export default function Work() {
   const { work } = useContent();
   const clients = Array.isArray(work?.clients) ? work.clients : [];
+  const duplicated = [...clients, ...clients];
 
   return (
-    <section id="work" className="relative z-20">
-      {/* Client logos / names marquee */}
-      <div className="py-10 md:py-12 bg-white border-y border-gray-200 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 mb-6 md:mb-8">
-          <p className="text-sm uppercase tracking-widest text-gray-600 text-center font-medium">
-            {work?.clientsLabel ?? 'Trusted by Industry Leaders'}
-          </p>
-        </div>
+    <section id="work" className="relative z-20 bg-nexus-black py-12 md:py-16">
+      <div className="flex flex-col items-center gap-6">
+        {/* Trusted label — outside white band, on dark background */}
+        <p className="text-sm uppercase tracking-widest text-gray-500 text-center font-normal">
+          {work?.clientsLabel ?? 'Trusted by Industry Leaders'}
+        </p>
 
-        <div className="flex overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-          <motion.div
-            className="flex gap-16 md:gap-24 whitespace-nowrap pr-16 md:pr-24 items-center"
-            animate={{ x: '-50%' }}
-            transition={{
-              repeat: Infinity,
-              duration: 90,
-              ease: 'linear',
-            }}
-          >
-            {[...clients, ...clients, ...clients, ...clients].map(
-              (client, index) =>
+        {/* White band — snug, scroll marquee inside */}
+        <div className="w-full overflow-hidden rounded-none">
+          <div className="bg-white py-4 md:py-5 overflow-hidden">
+            <motion.div
+              className="flex gap-12 md:gap-16 items-center whitespace-nowrap"
+              animate={{ x: '-50%' }}
+              transition={{
+                repeat: Infinity,
+                duration: 45,
+                ease: 'linear',
+              }}
+            >
+              {duplicated.map((client, index) =>
                 client.type === 'logo' ? (
                   <div
                     key={`${index}-${client.src}`}
-                    className="shrink-0 h-14 w-28 md:h-20 md:w-40 flex items-center justify-center transition-opacity hover:opacity-100 opacity-90"
+                    className="shrink-0 h-10 w-20 md:h-12 md:w-24 flex items-center justify-center"
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       src={client.src}
                       alt={client.alt}
-                      className="h-14 w-auto max-w-[112px] md:h-20 md:max-w-[160px] object-contain object-center"
+                      className="h-10 w-auto max-w-[80px] md:h-12 md:max-w-[96px] object-contain object-center opacity-80"
                       loading="lazy"
                     />
                   </div>
                 ) : (
                   <span
                     key={`${index}-${client.value}`}
-                    className="text-xl md:text-3xl font-display font-bold text-gray-300 uppercase tracking-tighter hover:text-gray-500 transition-colors cursor-default shrink-0"
+                    className="text-xs md:text-sm font-display font-semibold text-gray-500 uppercase tracking-wider shrink-0"
                   >
                     {client.value}
                   </span>
                 )
-            )}
-          </motion.div>
+              )}
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>

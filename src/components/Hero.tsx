@@ -51,13 +51,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="text-sm md:text-base tracking-[0.3em] uppercase text-white/90 font-semibold mb-6 drop-shadow-md"
+          className="font-display text-sm md:text-base tracking-[0.3em] uppercase text-white/90 font-semibold mb-6 drop-shadow-md"
         >
           {hero?.eyebrow ?? 'The Future of Live Events'}
         </motion.p>
 
         <motion.h1
-          className="text-5xl md:text-7xl lg:text-9xl font-bold tracking-tighter text-white mb-8 leading-[0.9] drop-shadow-2xl"
+          className="font-display text-5xl md:text-7xl lg:text-9xl font-bold tracking-tighter text-white mb-8 leading-[0.9] drop-shadow-2xl uppercase"
           initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
@@ -68,7 +68,7 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p
-          className="text-lg md:text-2xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-lg"
+          className="font-display text-lg md:text-2xl text-white/90 max-w-2xl mx-auto font-semibold leading-relaxed drop-shadow-lg uppercase"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
@@ -85,7 +85,7 @@ export default function Hero() {
         transition={{ delay: 1.5, duration: 1 }}
       >
         <div className="flex flex-col items-center gap-2">
-          <span className="text-[10px] uppercase tracking-widest text-gray-500">Scroll</span>
+          <span className="font-display font-bold text-[10px] uppercase tracking-widest text-gray-500">Scroll</span>
           <ChevronDown className="w-6 h-6 text-white/50 animate-bounce" />
         </div>
       </motion.div>
