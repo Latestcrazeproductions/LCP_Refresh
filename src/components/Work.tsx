@@ -10,8 +10,8 @@ export default function Work() {
   return (
     <section id="work" className="relative z-20">
       {/* Client logos / names marquee */}
-      <div className="py-12 bg-black border-y border-white/5 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 mb-8">
+      <div className="py-12 bg-white border-y border-white/5 overflow-hidden">
+        <div className="max-w-7xl  px-6 mb-8">
           <p className="text-xs uppercase tracking-widest text-gray-600 text-center">
             {work?.clientsLabel ?? 'Trusted by Industry Leaders'}
           </p>
