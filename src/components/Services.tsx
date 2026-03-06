@@ -1,84 +1,21 @@
+'use client';
+
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'motion/react';
 import { Monitor, Zap, Mic2, Layers, ArrowUpRight, X, CheckCircle2 } from 'lucide-react';
 import { useState, useEffect } from 'react';
+import { useContent } from '@/context/ContentContext';
+import type { ServiceItem } from '@/lib/content';
 
-const services = [
-  {
-    id: "led-walls",
-    icon: <Monitor className="w-6 h-6" />,
-    title: "Ultra-Wide LED Walls",
-    description: "40ft+ seamless displays that dominate the visual field.",
-    image: "https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop",
-    details: {
-      headline: "Unrivaled Visual Immersion",
-      text: "Our flagship 40ft+ LED walls redefine corporate presentations. By eliminating bezels and pushing resolution to the limit, we create a canvas that allows for true cinematic storytelling. Whether it's a high-stakes keynote or an immersive brand reveal, our displays deliver perfect color accuracy and HDR contrast that standard projection simply cannot match.",
-      features: [
-        "1.5mm Fine Pixel Pitch for 4K/8K clarity",
-        "High Dynamic Range (HDR10) Support",
-        "Custom Aspect Ratios (32:9 Ultra-Wide)",
-        "Curved & Corner Configurations",
-        "Full Redundancy for Mission-Critical Events"
-      ]
-    }
-  },
-  {
-    id: "lighting",
-    icon: <Zap className="w-6 h-6" />,
-    title: "Intelligent Lighting",
-    description: "Architectural and atmospheric lighting design.",
-    image: "https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=2070&auto=format&fit=crop",
-    details: {
-      headline: "Atmosphere & Emotion",
-      text: "Lighting is the heartbeat of any event. Our intelligent lighting systems go beyond simple illumination to create dynamic, emotional landscapes. From subtle, brand-aligned ambient washes to high-energy, music-synchronized strobe sequences, we design lighting that guides the audience's attention and amplifies the impact of every moment.",
-      features: [
-        "Moving Head Beam & Spot Fixtures",
-        "Pixel-Mapped LED Bars & Tubes",
-        "Wireless Uplighting for Architectural Highlights",
-        "Timecode Synchronization with Video & Audio",
-        "Haze & Atmospheric Effects"
-      ]
-    }
-  },
-  {
-    id: "stage",
-    icon: <Layers className="w-6 h-6" />,
-    title: "Stage Design",
-    description: "Custom fabrication blending physical and digital worlds.",
-    image: "https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop",
-    details: {
-      headline: "Physical meets Digital",
-      text: "We believe the stage is more than a platform; it's a statement. Our scenic design team combines custom fabrication with digital elements to build stages that feel like modern art installations. We integrate LED surfaces into physical structures, create multi-dimensional depth, and ensure every angle looks perfect for both the live audience and the camera.",
-      features: [
-        "Custom Scenic Fabrication & Carpentry",
-        "Integrated LED & Projection Surfaces",
-        "Modular Staging Systems",
-        "High-Gloss & Matte Flooring Options",
-        "3D Renderings & CAD Planning"
-      ]
-    }
-  },
-  {
-    id: "audio",
-    icon: <Mic2 className="w-6 h-6" />,
-    title: "Precision Audio",
-    description: "Crystal clear line-array systems for immersive sound.",
-    image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop",
-    details: {
-      headline: "Sonic Perfection",
-      text: "In a corporate environment, clarity is king. Our precision audio systems are tuned to ensure every word of a keynote is heard with crystal-clear intelligibility, no matter where you sit. But we also bring the power. When the walk-on music hits or the video plays, our line-array systems deliver a full-range, immersive soundscape that you can feel.",
-      features: [
-        "Premium Line-Array Systems (L-Acoustics, d&b)",
-        "Digital Mixing Consoles with Redundancy",
-        "RF Coordination & Wireless Microphones",
-        "Immersive Surround Sound Configurations",
-        "Acoustic Analysis & Room Tuning"
-      ]
-    }
-  }
-];
+const ICON_MAP = {
+  monitor: Monitor,
+  zap: Zap,
+  mic2: Mic2,
+  layers: Layers,
+} as const;
 
 export default function Services() {
-  const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
+  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
 
   // Lock body scroll when modal is open
   useEffect(() => {
@@ -92,26 +29,32 @@ export default function Services() {
     };
   }, [selectedService]);
 
+  const { services } = useContent();
+  const items = Array.isArray(services?.items) ? services.items : [];
+
   return (
-    <section className="py-24 bg-[#050505] relative overflow-hidden">
+    <section id="expertise" className="py-24 bg-[#050505] relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-20 border-b border-white/10 pb-8 flex flex-col md:flex-row justify-between items-end gap-8">
           <div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Technical Precision</h2>
-            <p className="text-gray-400 max-w-md">Our toolkit for creating unforgettable experiences.</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">{services?.sectionTitle ?? 'Technical Precision'}</h2>
+            <p className="text-gray-400 max-w-md">{services?.sectionSubhead ?? 'Our toolkit for creating unforgettable experiences.'}</p>
           </div>
           <div className="text-right hidden md:block">
-             <span className="text-xs uppercase tracking-widest text-gray-600">Capabilities 01 — 04</span>
+             <span className="text-xs uppercase tracking-widest text-gray-600">Capabilities 01 — {String(items.length).padStart(2, '0')}</span>
           </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
-          {services.map((service, index) => (
-            <motion.div 
-              key={index}
+          {items.map((service, index) => {
+            const IconComponent = ICON_MAP[service.iconKey as keyof typeof ICON_MAP];
+            const serviceWithIcon = { ...service, icon: IconComponent ? <IconComponent className="w-6 h-6" /> : null };
+            return (
+            <motion.div
+              key={service.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -120,11 +63,12 @@ export default function Services() {
               onClick={() => service.details && setSelectedService(service)}
             >
               {/* Background Image */}
-              <img 
-                src={service.image} 
+              <Image
+                src={service.image}
                 alt={service.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                referrerPolicy="no-referrer"
+                fill
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, 50vw"
               />
               
               {/* Overlay */}
@@ -135,7 +79,7 @@ export default function Services() {
                 <div className="flex justify-between items-end">
                   <div>
                     <div className="mb-4 p-3 w-fit rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white">
-                      {service.icon}
+                      {serviceWithIcon.icon}
                     </div>
                     <h3 className="text-3xl font-bold mb-2 text-white">{service.title}</h3>
                     <p className="text-gray-300 max-w-sm">{service.description}</p>
@@ -148,7 +92,8 @@ export default function Services() {
                 </div>
               </div>
             </motion.div>
-          ))}
+          );
+          })}
         </div>
       </div>
 
@@ -172,11 +117,11 @@ export default function Services() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="relative h-48 md:h-80 shrink-0">
-                <img 
-                  src={selectedService.image} 
+                <Image
+                  src={selectedService.image}
                   alt={selectedService.title}
-                  className="w-full h-full object-cover"
-                  referrerPolicy="no-referrer"
+                  fill
+                  className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] to-transparent" />
                 <button 
@@ -189,7 +134,10 @@ export default function Services() {
               
               <div className="p-6 md:p-10 -mt-12 relative">
                 <div className="mb-6 p-3 w-fit rounded-xl bg-blue-600 text-white shadow-lg shadow-blue-900/20 relative z-10">
-                  {selectedService.icon}
+                  {(() => {
+                    const Icon = ICON_MAP[selectedService.iconKey as keyof typeof ICON_MAP];
+                    return Icon ? <Icon className="w-6 h-6" /> : null;
+                  })()}
                 </div>
                 
                 <h3 className="text-3xl md:text-4xl font-bold mb-4 text-white">{selectedService.title}</h3>

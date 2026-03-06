@@ -1,40 +1,53 @@
-import { motion } from 'motion/react';
+'use client';
+
 import { ArrowRight, Mail, Phone, MapPin } from 'lucide-react';
+import { useContent } from '@/context/ContentContext';
 
 export default function Contact() {
+  const { contact } = useContent();
+  const safeContact = {
+    headline: contact?.headline ?? "LET'S MAKE YOU\nTHE HERO.",
+    subhead: contact?.subhead ?? "We're here to help.",
+    email: contact?.email ?? 'production@nexusav.com',
+    phone: contact?.phone ?? '+1 (555) 012-3456',
+    address: contact?.address ?? '101 Tech Plaza, San Francisco, CA',
+    ctaText: contact?.ctaText ?? 'Initiate Project',
+    copyright: contact?.copyright ?? '© 2025 Nexus AV Productions.',
+    footerLinks: Array.isArray(contact?.footerLinks) ? contact.footerLinks : [],
+  };
+
   return (
-    <section className="py-24 bg-black text-white relative overflow-hidden">
+    <section id="contact" className="py-24 bg-black text-white relative overflow-hidden">
       <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-blue-900/10 to-transparent pointer-events-none" />
-      
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-          
           <div>
             <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8">
-              LET'S MAKE YOU<br />THE HERO.
+              {safeContact.headline.split('\n').map((line, i, arr) => (
+                <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
+              ))}
             </h2>
-            <p className="text-xl text-gray-400 mb-12 max-w-md">
-              The pressure is on. We're here to carry it. Reach out to discuss how we can turn your vision into a career-defining moment.
-            </p>
-            
+            <p className="text-xl text-gray-400 mb-12 max-w-md">{safeContact.subhead}</p>
+
             <div className="space-y-6">
-              <div className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors cursor-pointer group">
+              <a href={`mailto:${safeContact.email}`} className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors cursor-pointer group">
                 <div className="p-3 rounded-full bg-white/5 group-hover:bg-white/10">
                   <Mail className="w-5 h-5" />
                 </div>
-                <span>production@nexusav.com</span>
-              </div>
-              <div className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors cursor-pointer group">
+                <span>{safeContact.email}</span>
+              </a>
+              <a href={`tel:${(safeContact.phone ?? '').replace(/\D/g, '')}`} className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors cursor-pointer group">
                 <div className="p-3 rounded-full bg-white/5 group-hover:bg-white/10">
                   <Phone className="w-5 h-5" />
                 </div>
-                <span>+1 (555) 012-3456</span>
-              </div>
+                <span>{safeContact.phone}</span>
+              </a>
               <div className="flex items-center gap-4 text-gray-300 hover:text-white transition-colors cursor-pointer group">
                 <div className="p-3 rounded-full bg-white/5 group-hover:bg-white/10">
                   <MapPin className="w-5 h-5" />
                 </div>
-                <span>101 Tech Plaza, San Francisco, CA</span>
+                <span>{safeContact.address}</span>
               </div>
             </div>
           </div>
@@ -79,7 +92,7 @@ export default function Contact() {
               </div>
 
               <button className="w-full bg-white text-black font-bold py-4 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 group">
-                <span>Initiate Project</span>
+                <span>{safeContact.ctaText}</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </form>
@@ -88,11 +101,13 @@ export default function Contact() {
         </div>
         
         <div className="mt-24 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
-          <p>© 2025 Nexus AV Productions. All rights reserved.</p>
+          <p>{safeContact.copyright}</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
-            <a href="#" className="hover:text-white transition-colors">Instagram</a>
+            {safeContact.footerLinks.map((link) => (
+              <a key={link.label} href={link.href} className="hover:text-white transition-colors">
+                {link.label}
+              </a>
+            ))}
           </div>
         </div>
       </div>
