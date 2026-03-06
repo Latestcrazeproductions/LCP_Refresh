@@ -79,3 +79,28 @@ The CMS mirrors the structure in `public/CONTENT_GUIDE.md`:
 - **Contact** — Headline, subhead, email, phone, address, footer links
 
 Edits are stored in Supabase. The public site reads from Supabase when configured; otherwise it falls back to `src/content/site-content.ts`.
+
+## Contact Form & Thank-You Emails
+
+The contact form saves submissions to Supabase (`contact_submissions` table) and sends a thank-you email via [Resend](https://resend.com) (Supabase's recommended email partner). The email uses your site's logo, hero image, and service images from the CMS.
+
+### Setup
+
+1. **Run the contact_submissions migration**
+
+   Apply `supabase/migrations/20250306100000_create_contact_submissions.sql` via CLI or SQL Editor.
+
+2. **Configure Resend**
+
+   - Create an account at [resend.com](https://resend.com)
+   - Add to `.env.local`:
+     ```
+     RESEND_API_KEY=re_xxxxxxxxxxxx
+     RESEND_FROM_EMAIL=onboarding@resend.dev
+     RESEND_FROM_NAME=Nexus AV Productions
+     ```
+   - For production, verify your domain in Resend and use e.g. `noreply@yourdomain.com`
+
+3. **Form behavior**
+
+   Submissions are always saved to Supabase. If `RESEND_API_KEY` is missing, no email is sent but the form still succeeds.

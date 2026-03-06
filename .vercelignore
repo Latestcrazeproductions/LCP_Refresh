@@ -1,0 +1,5 @@
+# Local env — use Vercel dashboard for production secrets
+.env
+.env.local
+.env.*.local
+!.env.example
