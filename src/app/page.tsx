@@ -14,7 +14,7 @@ export default async function HomePage() {
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'Nexus AV Productions',
+    name: 'Latest Craze Productions',
     url: SITE_URL,
     logo: `${SITE_URL}/logo.png`,
     description:

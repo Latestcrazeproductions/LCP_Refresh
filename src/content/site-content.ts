@@ -8,8 +8,8 @@
 export const siteContent = {
   /** Company branding — used in Navbar, footer, meta */
   brand: {
-    name: 'Nexus',
-    nameFull: 'Nexus AV Productions',
+    name: 'Latest Craze',
+    nameFull: 'Latest Craze Productions',
     /** Path to company logo. Use /logos/company/logo.svg or logo.png. Falls back to text if null. */
     logo: null as string | null,
     /** Optional: dark/light logo variants for different backgrounds */
@@ -180,7 +180,7 @@ export const siteContent = {
     phone: '+1 (555) 012-3456',
     address: '101 Tech Plaza, San Francisco, CA',
     ctaText: 'Initiate Project',
-    copyright: '© 2025 Nexus AV Productions. All rights reserved.',
+    copyright: '© 2026 Latest Craze Productions. All rights reserved.',
     footerLinks: [
       { label: 'Privacy', href: '#' },
       { label: 'Terms', href: '#' },

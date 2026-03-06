@@ -43,7 +43,7 @@ export default function Contact() {
     phone: contact?.phone ?? '+1 (555) 012-3456',
     address: contact?.address ?? '101 Tech Plaza, San Francisco, CA',
     ctaText: contact?.ctaText ?? 'Initiate Project',
-    copyright: contact?.copyright ?? '© 2025 Nexus AV Productions.',
+    copyright: contact?.copyright ?? '© 2026 Latest Craze Productions.',
     footerLinks: Array.isArray(contact?.footerLinks) ? contact.footerLinks : [],
   };
 

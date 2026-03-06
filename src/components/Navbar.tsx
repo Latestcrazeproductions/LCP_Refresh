@@ -9,8 +9,8 @@ import { useContent } from '@/context/ContentContext';
 export default function Navbar() {
   const { brand } = useContent();
   const safeBrand = brand ?? {
-    name: 'Nexus',
-    nameFull: 'Nexus AV Productions',
+    name: 'Latest Craze',
+    nameFull: 'Latest Craze Productions',
     logo: null as string | null,
     logoDark: null as string | null,
     logoHeight: 64,
