@@ -87,12 +87,27 @@ export function mergeContent(
       : siteContent.work.projects,
   };
 
+  const dbItems = (fromDb.services as SiteContent['services'])?.items;
+  const defaultItems = siteContent.services.items;
+  const PLACEHOLDER_IMAGE =
+    'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop';
+  const mergedItems: SiteContent['services']['items'] = Array.isArray(dbItems)
+    ? dbItems.map((item, i) => {
+        const fallback = defaultItems[i];
+        const image =
+          item.image?.trim() || fallback?.image?.trim() || PLACEHOLDER_IMAGE;
+        return {
+          ...(fallback ?? item),
+          ...item,
+          image,
+        };
+      })
+    : defaultItems;
+
   const services: SiteContent['services'] = {
     ...siteContent.services,
     ...(fromDb.services as Partial<SiteContent['services']>),
-    items: Array.isArray((fromDb.services as SiteContent['services'])?.items)
-      ? ((fromDb.services as SiteContent['services']).items as SiteContent['services']['items'])
-      : siteContent.services.items,
+    items: mergedItems,
   };
 
   const contact: SiteContent['contact'] = {

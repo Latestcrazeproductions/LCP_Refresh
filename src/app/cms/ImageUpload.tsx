@@ -41,7 +41,14 @@ export function ImageUpload({ folder, mode = 'single', accept = 'image/*', onUpl
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
         const ext = file.name.split('.').pop() || 'jpg';
-        const name = `${folder}/${Date.now()}-${i}.${ext}`;
+        
+        // Preserve original filename (sanitized) with timestamp for uniqueness
+        const baseName = file.name.replace(/\.[^.]+$/, '');
+        const safe = baseName
+          .replace(/[^a-zA-Z0-9-_]/g, '-')
+          .replace(/-+/g, '-')
+          .slice(0, 80) || 'image';
+        const name = `${folder}/${safe}-${Date.now()}.${ext}`;
 
         const { error: err } = await supabase.storage.from(BUCKET).upload(name, file, {
           contentType: file.type,

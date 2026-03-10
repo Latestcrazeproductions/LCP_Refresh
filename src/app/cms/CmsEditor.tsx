@@ -14,16 +14,98 @@ import {
   Briefcase,
   Mail,
   Trash2,
+  GripVertical,
+  Plus,
 } from 'lucide-react';
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  type DragEndEvent,
+} from '@dnd-kit/core';
+import {
+  arrayMove,
+  SortableContext,
+  sortableKeyboardCoordinates,
+  useSortable,
+  rectSortingStrategy,
+} from '@dnd-kit/sortable';
+import { CSS } from '@dnd-kit/utilities';
 import { createClient } from '@/lib/supabase/client';
 import { saveContent } from './actions';
 import { ImageUpload } from './ImageUpload';
+import { ServiceItemEditor } from './ServiceItemEditor';
 import type { SiteContent, EditableSiteContent } from '@/lib/content';
 
 async function fetchContent(): Promise<SiteContent> {
   const res = await fetch('/api/content');
   if (!res.ok) throw new Error('Failed to fetch content');
   return res.json();
+}
+
+function getImageLabel(url: string, index: number): string {
+  const part = url.split('/').pop() ?? '';
+  // Remove query params if present
+  const filename = part.split('?')[0];
+  // Truncate if too long
+  return filename.length > 30 ? filename.slice(0, 27) + '...' : filename || `Slide ${index + 1}`;
+}
+
+function SortableImageCard({
+  url,
+  index,
+  onRemove,
+}: {
+  url: string;
+  index: number;
+  onRemove: () => void;
+}) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id: url });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.5 : 1,
+  };
+
+  return (
+    <div
+      ref={setNodeRef}
+      style={style}
+      className="relative group rounded-lg overflow-hidden bg-white/5 border border-white/10 aspect-video"
+    >
+      <img src={url} alt={getImageLabel(url, index)} className="w-full h-full object-cover" />
+      <button
+        type="button"
+        onClick={onRemove}
+        className="absolute top-2 right-2 p-1.5 bg-red-600 hover:bg-red-500 text-white rounded transition-colors opacity-90 group-hover:opacity-100 z-10"
+        title="Remove from slideshow"
+      >
+        <Trash2 className="w-4 h-4" />
+      </button>
+      <div
+        {...attributes}
+        {...listeners}
+        className="absolute top-2 left-2 p-1.5 bg-black/60 hover:bg-black/80 text-white rounded cursor-grab active:cursor-grabbing transition-colors z-10"
+        title="Drag to reorder"
+      >
+        <GripVertical className="w-4 h-4" />
+      </div>
+      <span className="absolute bottom-2 left-2 text-[10px] text-white/80 bg-black/60 px-1.5 py-0.5 rounded max-w-[calc(100%-4rem)] truncate">
+        {getImageLabel(url, index)}
+      </span>
+    </div>
+  );
 }
 
 export default function CmsEditor() {
@@ -66,6 +148,35 @@ export default function CmsEditor() {
 
   function toggleSection(id: string) {
     setExpanded((p) => ({ ...p, [id]: !p[id] }));
+  }
+
+  const sensors = useSensors(
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
+
+  function handleHeroDragEnd(event: DragEndEvent) {
+    const { active, over } = event;
+    if (!over || active.id === over.id || !content) return;
+
+    const oldIndex = content.hero.images.findIndex((url) => url === active.id);
+    const newIndex = content.hero.images.findIndex((url) => url === over.id);
+
+    if (oldIndex !== -1 && newIndex !== -1) {
+      setContent((p) =>
+        p
+          ? {
+              ...p,
+              hero: {
+                ...p.hero,
+                images: arrayMove(p.hero.images, oldIndex, newIndex),
+              },
+            }
+          : null
+      );
+    }
   }
 
   if (loading) {
@@ -166,23 +277,40 @@ export default function CmsEditor() {
           </div>
           {content.hero.images.length > 0 && (
             <div className="space-y-2 mb-4">
-              <p className="text-xs text-gray-500">Current slideshow images — click remove to delete:</p>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
-                {content.hero.images.map((url, i) => (
-                  <div key={i} className="relative group rounded-lg overflow-hidden bg-white/5 border border-white/10 aspect-video">
-                    <img src={url} alt={`Slide ${i + 1}`} className="w-full h-full object-cover" />
-                    <button
-                      type="button"
-                      onClick={() => setContent((p) => p && { ...p, hero: { ...p.hero, images: p.hero.images.filter((_, j) => j !== i) } })}
-                      className="absolute top-2 right-2 p-1.5 bg-red-600 hover:bg-red-500 text-white rounded transition-colors opacity-90 group-hover:opacity-100"
-                      title="Remove from slideshow"
-                    >
-                      <Trash2 className="w-4 h-4" />
-                    </button>
-                    <span className="absolute bottom-2 left-2 text-[10px] text-white/80 bg-black/60 px-1.5 py-0.5 rounded">Slide {i + 1}</span>
+              <p className="text-xs text-gray-500">Current slideshow images — drag to reorder, click remove to delete:</p>
+              <DndContext
+                sensors={sensors}
+                collisionDetection={closestCenter}
+                onDragEnd={handleHeroDragEnd}
+              >
+                <SortableContext
+                  items={content.hero.images}
+                  strategy={rectSortingStrategy}
+                >
+                  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+                    {content.hero.images.map((url, i) => (
+                      <SortableImageCard
+                        key={url}
+                        url={url}
+                        index={i}
+                        onRemove={() =>
+                          setContent((p) =>
+                            p
+                              ? {
+                                  ...p,
+                                  hero: {
+                                    ...p.hero,
+                                    images: p.hero.images.filter((_, j) => j !== i),
+                                  },
+                                }
+                              : null
+                          )
+                        }
+                      />
+                    ))}
                   </div>
-                ))}
-              </div>
+                </SortableContext>
+              </DndContext>
             </div>
           )}
           <div className="text-xs text-gray-500 mt-2">Or edit URLs directly (one per line):</div>
@@ -259,7 +387,7 @@ export default function CmsEditor() {
         <SectionField label="Section subhead" value={content.services.sectionSubhead} onChange={(v) => setContent((p) => p && { ...p, services: { ...p.services, sectionSubhead: v } })} />
         <div>
           <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">Service images</label>
-          <p className="text-gray-500 text-xs mb-2">Bulk upload (order: LED Walls, Lighting, Stage, Audio).</p>
+          <p className="text-gray-500 text-xs mb-2">Bulk upload (order matches service order below).</p>
           <ImageUpload folder="services" mode="bulk" label="Bulk upload service images" onUpload={(urls) => setContent((p) => {
             if (!p) return p;
             const items = p.services.items.map((item, i) =>
@@ -268,19 +396,86 @@ export default function CmsEditor() {
             return { ...p, services: { ...p.services, items } };
           })} />
         </div>
-        <div className="mt-4">
-          <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">Service items (JSON)</label>
-          <textarea
-            value={JSON.stringify(content.services.items, null, 2)}
-            onChange={(e) => {
-              try {
-                const items = JSON.parse(e.target.value);
-                setContent((p) => p && { ...p, services: { ...p.services, items } });
-              } catch {}
-            }}
-            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white font-mono text-sm min-h-[300px] focus:outline-none focus:border-blue-500"
-          />
-          <p className="text-gray-500 text-xs mt-1">Edit titles, descriptions, images, and details.</p>
+        <div className="mt-6">
+          <div className="flex items-center justify-between mb-4">
+            <label className="block text-xs uppercase tracking-widest text-gray-500">
+              Service Items ({content.services.items.length})
+            </label>
+            <button
+              onClick={() => {
+                const newService = {
+                  id: `service-${Date.now()}`,
+                  iconKey: 'monitor',
+                  title: 'New Service',
+                  description: '',
+                  image: '',
+                  details: {
+                    headline: '',
+                    text: '',
+                    features: [],
+                  },
+                };
+                setContent((p) =>
+                  p
+                    ? {
+                        ...p,
+                        services: {
+                          ...p.services,
+                          items: [...p.services.items, newService],
+                        },
+                      }
+                    : null
+                );
+              }}
+              className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors"
+            >
+              <Plus className="w-4 h-4" />
+              Add New Service
+            </button>
+          </div>
+          <div className="space-y-3">
+            {content.services.items.map((service, index) => (
+              <ServiceItemEditor
+                key={service.id || index}
+                service={service}
+                index={index}
+                onChange={(updated) => {
+                  const items = [...content.services.items];
+                  items[index] = updated;
+                  setContent((p) =>
+                    p
+                      ? {
+                          ...p,
+                          services: {
+                            ...p.services,
+                            items,
+                          },
+                        }
+                      : null
+                  );
+                }}
+                onDelete={() => {
+                  const items = content.services.items.filter((_, i) => i !== index);
+                  setContent((p) =>
+                    p
+                      ? {
+                          ...p,
+                          services: {
+                            ...p.services,
+                            items,
+                          },
+                        }
+                      : null
+                  );
+                }}
+              />
+            ))}
+            {content.services.items.length === 0 && (
+              <p className="text-gray-500 text-sm text-center py-8">
+                No services yet. Click "Add New Service" to create one.
+              </p>
+            )}
+          </div>
         </div>
         <SaveButton saving={saving === 'services'} onSave={() => handleSave('services', content.services)} />
       </Section>

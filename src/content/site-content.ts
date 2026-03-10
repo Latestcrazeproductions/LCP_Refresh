@@ -168,6 +168,46 @@ export const siteContent = {
           ],
         },
       },
+      {
+        id: 'scenic',
+        iconKey: 'boxes',
+        title: 'Scenic Design',
+        description: 'Custom fabrication and scenic elements that transform spaces.',
+        image:
+          'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2070&auto=format&fit=crop',
+        details: {
+          headline: 'Artistry Meets Engineering',
+          text: "Every event deserves a stage that tells a story. Our scenic design team brings your vision to life through custom fabrication, intricate set pieces, and transformative backdrops. From elegant corporate environments to bold brand activations, we craft scenic elements that seamlessly blend with lighting, video, and audio to create cohesive, immersive experiences that leave lasting impressions.",
+          features: [
+            'Custom Scenic Fabrication & Construction',
+            'Hand-Painted Backdrops & Murals',
+            'Modular Set Pieces & Structures',
+            'Fabric Draping & Soft Goods',
+            'Props & Decorative Elements',
+            'Installation & Strike Services',
+          ],
+        },
+      },
+      {
+        id: 'projection',
+        iconKey: 'projector',
+        title: 'Projection Mapping',
+        description: '3D projection mapping that transforms surfaces into dynamic canvases.',
+        image:
+          'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2070&auto=format&fit=crop',
+        details: {
+          headline: 'Surfaces Come Alive',
+          text: "Projection mapping turns any surface into a dynamic storytelling medium. Our team specializes in architectural projection, 3D mapping, and content creation that transforms buildings, stages, and custom structures into breathtaking visual experiences. Whether it's a brand reveal, product launch, or immersive installation, we map content precisely to physical geometry, creating illusions that blur the line between reality and digital art.",
+          features: [
+            '3D Architectural Projection Mapping',
+            'Custom Content Creation & Animation',
+            'Multi-Projector Blending & Calibration',
+            'Interactive Projection Experiences',
+            'Real-Time Content Control Systems',
+            'Mapping on Custom Structures & Props',
+          ],
+        },
+      },
     ],
   },
 
