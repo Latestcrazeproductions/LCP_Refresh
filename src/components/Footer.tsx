@@ -10,12 +10,29 @@ export default function Footer() {
     name: 'Latest Craze',
     nameFull: 'Latest Craze Productions',
   };
+  const defaultFooterLinks = [
+    { label: 'Privacy', href: '/privacy' },
+    { label: 'Terms', href: '/terms' },
+    { label: 'Instagram', href: 'https://www.instagram.com/latestcrazeproductions/?hl=en' },
+  ];
+  const hrefOverrides: Record<string, string> = {
+    Privacy: '/privacy',
+    Terms: '/terms',
+    Instagram: 'https://www.instagram.com/latestcrazeproductions/?hl=en',
+  };
+  const rawLinks = Array.isArray(contact?.footerLinks) && contact.footerLinks.length > 0
+    ? contact.footerLinks
+    : defaultFooterLinks;
+  const footerLinks = rawLinks.map((link) => ({
+    ...link,
+    href: hrefOverrides[link.label] ?? link.href,
+  }));
   const safeContact = {
     email: contact?.email ?? 'info@latestcrazeproductions.com',
     phone: contact?.phone ?? '+1 (480) 626-5231',
     address: contact?.address ?? '4035 E Magnolia St Phoenix, AZ 85034',
     copyright: contact?.copyright ?? '© 2025 Latest Craze Productions. All rights reserved.',
-    footerLinks: Array.isArray(contact?.footerLinks) ? contact.footerLinks : [],
+    footerLinks,
   };
 
   return (
@@ -100,16 +117,38 @@ export default function Footer() {
           <p className="text-gray-600 text-sm">{safeContact.copyright}</p>
           <nav aria-label="Legal and social">
             <ul className="flex flex-wrap justify-center gap-6">
-              {safeContact.footerLinks.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-gray-500 hover:text-white transition-colors text-sm"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
+              <li>
+                <Link
+                  href="/cms/login"
+                  className="text-gray-500 hover:text-white transition-colors text-sm"
+                >
+                  Log in
+                </Link>
+              </li>
+              {safeContact.footerLinks.map((link) => {
+                const isExternal = link.href.startsWith('http');
+                return (
+                  <li key={link.label}>
+                    {isExternal ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-500 hover:text-white transition-colors text-sm"
+                      >
+                        {link.label}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        className="text-gray-500 hover:text-white transition-colors text-sm"
+                      >
+                        {link.label}
+                      </Link>
+                    )}
+                  </li>
+                );
+              })}
               <li>
                 <button
                   type="button"

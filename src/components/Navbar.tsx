@@ -57,13 +57,12 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-5">
           {[
-            { label: 'Services', href: '/services' },
-            { label: 'Events', href: '/events' },
+            
+            
+            { label: 'Events', href: '/#events' },
             { label: 'Expertise', href: '/#expertise' },
-            { label: 'Work', href: '/#work' },
             { label: 'FAQ', href: '/#faq' },
-            { label: 'About', href: '/about' },
-            { label: 'Contact', href: '/contact' },
+            { label: 'Contact', href: '#contact' },
           ].map((item) => (
             <a
               key={item.label}
@@ -73,18 +72,6 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
-          <a
-            href="/cms/login"
-            className="text-[10px] uppercase tracking-wider text-gray-500 hover:text-gray-400 transition-colors"
-          >
-            Log in
-          </a>
-          <a
-            href="#contact"
-            className="px-4 py-1.5 bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-gray-200 transition-colors"
-          >
-            Book Demo
-          </a>
         </div>
 
         {/* Mobile Toggle */}
@@ -121,13 +108,6 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
-          <a
-            href="/cms/login"
-            className="text-xs text-gray-500 hover:text-gray-400 pt-2 border-t border-white/5"
-            onClick={() => setIsOpen(false)}
-          >
-            Log in
-          </a>
         </motion.div>
       )}
     </motion.nav>
