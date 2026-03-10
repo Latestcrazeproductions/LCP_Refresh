@@ -35,7 +35,7 @@ export default function Navbar() {
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-        <a href="#vision" className="flex items-center gap-1">
+        <a href="/" className="flex items-center gap-1">
           {safeBrand.logo ? (
             <Image
               src={safeBrand.logo}
@@ -57,9 +57,13 @@ export default function Navbar() {
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-5">
           {[
-            { label: 'Expertise', href: '#expertise' },
-            { label: 'Work', href: '#work' },
-            { label: 'Contact', href: '#contact' },
+            { label: 'Services', href: '/services' },
+            { label: 'Events', href: '/events' },
+            { label: 'Expertise', href: '/#expertise' },
+            { label: 'Work', href: '/#work' },
+            { label: 'FAQ', href: '/#faq' },
+            { label: 'About', href: '/about' },
+            { label: 'Contact', href: '/contact' },
           ].map((item) => (
             <a
               key={item.label}
@@ -100,9 +104,13 @@ export default function Navbar() {
           animate={{ opacity: 1, y: 0 }}
         >
           {[
-            { label: 'Expertise', href: '#expertise' },
-            { label: 'Work', href: '#work' },
-            { label: 'Contact', href: '#contact' },
+            { label: 'Services', href: '/services' },
+            { label: 'Events', href: '/events' },
+            { label: 'Expertise', href: '/#expertise' },
+            { label: 'Work', href: '/#work' },
+            { label: 'FAQ', href: '/#faq' },
+            { label: 'About', href: '/about' },
+            { label: 'Contact', href: '/contact' },
           ].map((item) => (
             <a
               key={item.label}

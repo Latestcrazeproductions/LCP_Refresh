@@ -1,9 +1,10 @@
 import { createClient } from '@/lib/supabase/server';
 import { siteContent } from '@/content/site-content';
 
-export type SiteContentKey = 'brand' | 'hero' | 'work' | 'services' | 'contact';
+export type SiteContentKey = 'brand' | 'hero' | 'work' | 'services' | 'eventTypes' | 'contact';
 
 export type ServiceItem = (typeof siteContent.services.items)[number];
+export type EventTypeItem = (typeof siteContent.eventTypes.items)[number];
 
 export type SiteContent = typeof siteContent;
 
@@ -32,6 +33,18 @@ export type EditableSiteContent = {
         text: string;
         features: string[];
       };
+    }>;
+  };
+  eventTypes: {
+    sectionTitle: string;
+    sectionSubhead: string;
+    items: Array<{
+      id: string;
+      iconKey?: string;
+      title: string;
+      description: string;
+      image: string;
+      details?: { headline: string; text: string; features: string[] };
     }>;
   };
   contact: {
@@ -87,12 +100,46 @@ export function mergeContent(
       : siteContent.work.projects,
   };
 
+  const dbItems = (fromDb.services as SiteContent['services'])?.items;
+  const defaultItems = siteContent.services.items;
+  const PLACEHOLDER_IMAGE =
+    'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop';
+  const mergedItems = (Array.isArray(dbItems)
+    ? dbItems.map((item, i) => {
+        const fallback = defaultItems[i];
+        const image =
+          item.image?.trim() || fallback?.image?.trim() || PLACEHOLDER_IMAGE;
+        return {
+          ...(fallback ?? item),
+          ...item,
+          image,
+        };
+      })
+    : defaultItems) as SiteContent['services']['items'];
+
   const services: SiteContent['services'] = {
     ...siteContent.services,
     ...(fromDb.services as Partial<SiteContent['services']>),
-    items: Array.isArray((fromDb.services as SiteContent['services'])?.items)
-      ? ((fromDb.services as SiteContent['services']).items as SiteContent['services']['items'])
-      : siteContent.services.items,
+    items: mergedItems,
+  };
+
+  const dbEventItems = (fromDb.eventTypes as SiteContent['eventTypes'])?.items;
+  const defaultEventItems = siteContent.eventTypes.items;
+  const EVENT_PLACEHOLDER =
+    'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=2070&auto=format&fit=crop';
+  const mergedEventItems = (Array.isArray(dbEventItems)
+    ? dbEventItems.map((item, i) => {
+        const fallback = defaultEventItems[i];
+        const image =
+          item.image?.trim() || fallback?.image?.trim() || EVENT_PLACEHOLDER;
+        return { ...(fallback ?? item), ...item, image };
+      })
+    : defaultEventItems) as SiteContent['eventTypes']['items'];
+
+  const eventTypes: SiteContent['eventTypes'] = {
+    ...siteContent.eventTypes,
+    ...(fromDb.eventTypes as Partial<SiteContent['eventTypes']>),
+    items: mergedEventItems,
   };
 
   const contact: SiteContent['contact'] = {
@@ -103,7 +150,7 @@ export function mergeContent(
       : siteContent.contact.footerLinks,
   };
 
-  return { brand, hero, work, services, contact };
+  return { brand, hero, work, services, eventTypes, contact };
 }
 
 /** Fetch site content from Supabase, falling back to static site-content.ts */

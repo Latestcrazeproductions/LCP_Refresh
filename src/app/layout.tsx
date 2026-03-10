@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
+import CookieConsent from '@/components/CookieConsent';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -14,7 +15,7 @@ const spaceGrotesk = Space_Grotesk({
   variable: '--font-display',
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nexusav.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://latestcrazeproductions.com';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     'live events',
     'lighting design',
     'AV production',
-    'San Francisco',
+    'Phoenix',
     'Latest Craze Productions',
   ],
   authors: [{ name: 'Latest Craze Productions' }],
@@ -96,6 +97,7 @@ export default function RootLayout({
         }}
       >
         {children}
+        <CookieConsent />
       </body>
     </html>
   );

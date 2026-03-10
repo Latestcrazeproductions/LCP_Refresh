@@ -26,7 +26,7 @@ Get these from your project's **Settings → API**.
 
 ### 3. Run the Migration
 
-Apply the `site_content` table migration. You can either:
+Apply the `site_content` table migrations. You can either:
 
 **Option A: Supabase CLI**
 
@@ -37,7 +37,28 @@ npx supabase db push
 
 **Option B: SQL Editor**
 
-Run the contents of `supabase/migrations/20250306000000_create_site_content.sql` in your project's SQL Editor.
+1. Run `supabase/migrations/20250306000000_create_site_content.sql`
+2. Run `supabase/migrations/20250307000000_add_event_types_key.sql` (adds `eventTypes` to allowed keys)
+
+**If you get `site_content_key_check` violation when saving Event Types**, run the contents of `supabase/migrations/20250307000000_add_event_types_key.sql` in the SQL Editor. Or run this (finds and drops the constraint regardless of name):
+
+```sql
+do $$
+declare r record;
+begin
+  for r in
+    select c.conname from pg_constraint c
+    join pg_class t on c.conrelid = t.oid
+    join pg_namespace n on t.relnamespace = n.oid
+    where n.nspname = 'public' and t.relname = 'site_content'
+      and c.contype = 'c' and pg_get_constraintdef(c.oid) like '%(key)%'
+  loop
+    execute format('alter table public.site_content drop constraint %I', r.conname);
+  end loop;
+end $$;
+alter table public.site_content add constraint site_content_key_check
+  check (key in ('brand', 'hero', 'work', 'services', 'eventTypes', 'contact'));
+```
 
 ### 4. Create a User
 
@@ -97,7 +118,7 @@ The contact form saves submissions to Supabase (`contact_submissions` table) and
      ```
      RESEND_API_KEY=re_xxxxxxxxxxxx
      RESEND_FROM_EMAIL=onboarding@resend.dev
-     RESEND_FROM_NAME=Nexus AV Productions
+     RESEND_FROM_NAME=Latest Craze Productions
      ```
    - For production, verify your domain in Resend and use e.g. `noreply@yourdomain.com`
 

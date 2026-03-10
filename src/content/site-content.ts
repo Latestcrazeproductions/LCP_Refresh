@@ -20,10 +20,9 @@ export const siteContent = {
 
   /** Hero section */
   hero: {
-    eyebrow: 'The Future of Live Events',
-    headline: 'IMMERSIVE\nIMPACT',
-    subhead:
-      'We engineer 40ft video walls and lighting experiences that define moments.',
+    eyebrow: '', // optional; left empty per design
+    headline: 'IMMERSIVE IMPACT',
+    subhead: 'WE DESIGN EVENTS THAT MOVE PEOPLE',
     /** Add images to public/images/hero/ and list paths. Use /images/hero/hero-1.jpg etc. when ready. */
     images: [
       'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2012&auto=format&fit=crop',
@@ -42,7 +41,7 @@ export const siteContent = {
       { type: 'text' as const, value: 'FUTURE_SYSTEMS' },
       { type: 'text' as const, value: 'GLOBAL_MEDIA' },
       { type: 'text' as const, value: 'APEX_DIGITAL' },
-      { type: 'text' as const, value: 'NEXUS_LABS' },
+      { type: 'text' as const, value: 'LATEST_CRAZE' },
       { type: 'text' as const, value: 'OMEGA_INDUSTRIES' },
       { type: 'text' as const, value: 'PRIME_EVENTS' },
       // Logo example: { type: 'logo' as const, src: '/logos/clients/client-1.svg', alt: 'Client Name' }
@@ -168,7 +167,157 @@ export const siteContent = {
           ],
         },
       },
+      {
+        id: 'scenic',
+        iconKey: 'boxes',
+        title: 'Scenic Design',
+        description: 'Custom fabrication and scenic elements that transform spaces.',
+        image:
+          'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2070&auto=format&fit=crop',
+        details: {
+          headline: 'Artistry Meets Engineering',
+          text: "Every event deserves a stage that tells a story. Our scenic design team brings your vision to life through custom fabrication, intricate set pieces, and transformative backdrops. From elegant corporate environments to bold brand activations, we craft scenic elements that seamlessly blend with lighting, video, and audio to create cohesive, immersive experiences that leave lasting impressions.",
+          features: [
+            'Custom Scenic Fabrication & Construction',
+            'Hand-Painted Backdrops & Murals',
+            'Modular Set Pieces & Structures',
+            'Fabric Draping & Soft Goods',
+            'Props & Decorative Elements',
+            'Installation & Strike Services',
+          ],
+        },
+      },
+      {
+        id: 'projection',
+        iconKey: 'projector',
+        title: 'Projection Mapping',
+        description: '3D projection mapping that transforms surfaces into dynamic canvases.',
+        image:
+          'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2070&auto=format&fit=crop',
+        details: {
+          headline: 'Surfaces Come Alive',
+          text: "Projection mapping turns any surface into a dynamic storytelling medium. Our team specializes in architectural projection, 3D mapping, and content creation that transforms buildings, stages, and custom structures into breathtaking visual experiences. Whether it's a brand reveal, product launch, or immersive installation, we map content precisely to physical geometry, creating illusions that blur the line between reality and digital art.",
+          features: [
+            '3D Architectural Projection Mapping',
+            'Custom Content Creation & Animation',
+            'Multi-Projector Blending & Calibration',
+            'Interactive Projection Experiences',
+            'Real-Time Content Control Systems',
+            'Mapping on Custom Structures & Props',
+          ],
+        },
+      },
     ],
+  },
+
+  /** Event Types section — types of events we create */
+  eventTypes: {
+    sectionTitle: 'Events We Create',
+    sectionSubhead: 'From high-stakes keynotes to immersive brand activations.',
+    items: [
+      {
+        id: 'corporate-keynotes',
+        iconKey: 'mic2',
+        title: 'Corporate Keynotes',
+        description: 'Executive presentations, all-hands, and leadership summits with cinematic production value.',
+        image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=2070&auto=format&fit=crop',
+        details: {
+          headline: 'Executive Impact',
+          text: 'From C-suite reveals to all-hands meetings, we deliver main-stage productions that command attention. Our LED walls, intelligent lighting, and precision audio ensure every word lands—whether you’re addressing 50 or 5,000. Leadership summits and town halls become moments that move people.',
+          features: [
+            'Main stage keynote production',
+            'All-hands & town hall events',
+            'Leadership summits',
+            'LED reveal moments',
+            'Multi-camera live stream',
+            'Executive coaching & rehearsals',
+          ],
+        },
+      },
+      {
+        id: 'product-launches',
+        iconKey: 'package',
+        title: 'Product Launches',
+        description: 'Reveal moments that make products unforgettable—LED reveals, projection mapping, and stage drama.',
+        image: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2070&auto=format&fit=crop',
+        details: {
+          headline: 'Reveal the Moment',
+          text: 'Product launches deserve a stage that matches the hype. We create reveal moments—dramatic LED walls, projection-mapped surfaces, and theatrical staging—that make your product the hero. From intimate press events to massive launch parties, we turn announcements into unforgettable experiences.',
+          features: [
+            'LED & projection reveal moments',
+            'Product demo staging',
+            'Press conference setup',
+            'Virtual & hybrid integration',
+            'Brand activation zones',
+            'Pre-launch teaser experiences',
+          ],
+        },
+      },
+      {
+        id: 'galas-awards',
+        iconKey: 'award',
+        title: 'Galas & Awards',
+        description: 'Red-carpet elegance meets dynamic lighting and audio for nights that inspire.',
+        image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop',
+        details: {
+          headline: 'Red Carpet Excellence',
+          text: 'Galas and awards ceremonies demand elegance and energy in equal measure. We bring red-carpet polish, dramatic lighting transitions, and crystal-clear audio so every acceptance speech and trophy moment feels cinematic. From dinner to awards to after-party, we keep the energy flowing.',
+          features: [
+            'Red carpet & photo ops',
+            'Awards ceremony staging',
+            'Trophy reveal moments',
+            'Dinner and program flow',
+            'After-party transitions',
+            'Live video to screens',
+          ],
+        },
+      },
+      {
+        id: 'conferences',
+        iconKey: 'users',
+        title: 'Conferences',
+        description: 'Multi-day events with main stages, breakout sessions, and seamless AV transitions.',
+        image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop',
+        details: {
+          headline: 'Multi-Day Mastery',
+          text: 'Conferences are marathons, not sprints. We manage main stages, breakout rooms, speaker-ready spaces, and networking zones with seamless AV transitions throughout. Whether it’s a two-day summit or a week-long industry gathering, we keep every session sharp and every transition smooth.',
+          features: [
+            'Main stage & breakout sessions',
+            'Speaker-ready rooms',
+            'Registration & lobby experiences',
+            'Networking zones',
+            'Streaming & on-demand capture',
+            'Hybrid audience integration',
+          ],
+        },
+      },
+      {
+        id: 'brand-activations',
+        iconKey: 'sparkles',
+        title: 'Brand Activations',
+        description: 'Pop-ups, installations, and experiential marketing that stops people in their tracks.',
+        image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=2070&auto=format&fit=crop',
+        details: {
+          headline: 'Experiential Impact',
+          text: 'Brand activations turn spaces into experiences. We design pop-ups, installations, and experiential moments that create shareable, memorable encounters with your brand. From retail takeovers to festival activations, we build environments that stop people in their tracks.',
+          features: [
+            'Pop-up & installation design',
+            'Photo-worthy moments',
+            'Product sampling zones',
+            'Retail & event integration',
+            'Interactive tech experiences',
+            'Activation-to-event handoffs',
+          ],
+        },
+      },
+    ] as Array<{
+      id: string;
+      iconKey?: string;
+      title: string;
+      description: string;
+      image: string;
+      details?: { headline: string; text: string; features: string[] };
+    }>,
   },
 
   /** Contact section */
@@ -176,13 +325,13 @@ export const siteContent = {
     headline: "LET'S MAKE YOU\nTHE HERO.",
     subhead:
       "The pressure is on. We're here to carry it. Reach out to discuss how we can turn your vision into a career-defining moment.",
-    email: 'production@nexusav.com',
-    phone: '+1 (555) 012-3456',
-    address: '101 Tech Plaza, San Francisco, CA',
+    email: 'info@latestcrazeproductions.com',
+    phone: '+1 (480) 626-5231',
+    address: '4035 E Magnolia St Phoenix, AZ 85034',
     ctaText: 'Initiate Project',
-    copyright: '© 2026 Latest Craze Productions. All rights reserved.',
+    copyright: '© 2025 Latest Craze Productions. All rights reserved.',
     footerLinks: [
-      { label: 'Privacy', href: '#' },
+      { label: 'Privacy', href: '/privacy' },
       { label: 'Terms', href: '#' },
       { label: 'Instagram', href: '#' },
     ],
