@@ -1,6 +1,6 @@
 # Deploy to Vercel
 
-This guide walks through deploying the Nexus AV landing page to Vercel.
+This guide walks through deploying the Latest Craze Productions landing page to Vercel.
 
 ## Prerequisites
 

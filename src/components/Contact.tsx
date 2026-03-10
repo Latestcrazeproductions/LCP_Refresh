@@ -39,11 +39,11 @@ export default function Contact() {
   const safeContact = {
     headline: contact?.headline ?? "LET'S MAKE YOU\nTHE HERO.",
     subhead: contact?.subhead ?? "We're here to help.",
-    email: contact?.email ?? 'production@nexusav.com',
-    phone: contact?.phone ?? '+1 (555) 012-3456',
-    address: contact?.address ?? '101 Tech Plaza, San Francisco, CA',
+    email: contact?.email ?? 'info@latestcrazeproductions.com',
+    phone: contact?.phone ?? '+1 (480) 626-5231',
+    address: contact?.address ?? '4035 E Magnolia St Phoenix, AZ 85034',
     ctaText: contact?.ctaText ?? 'Initiate Project',
-    copyright: contact?.copyright ?? '© 2025 Nexus AV Productions.',
+    copyright: contact?.copyright ?? '© 2025 Latest Craze Productions.',
     footerLinks: Array.isArray(contact?.footerLinks) ? contact.footerLinks : [],
   };
 
@@ -162,17 +162,6 @@ export default function Contact() {
             </form>
           </div>
 
-        </div>
-        
-        <div className="mt-24 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
-          <p>{safeContact.copyright}</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            {safeContact.footerLinks.map((link) => (
-              <a key={link.label} href={link.href} className="hover:text-white transition-colors">
-                {link.label}
-              </a>
-            ))}
-          </div>
         </div>
       </div>
     </section>

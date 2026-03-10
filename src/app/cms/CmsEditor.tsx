@@ -32,12 +32,14 @@ import {
   sortableKeyboardCoordinates,
   useSortable,
   rectSortingStrategy,
+  verticalListSortingStrategy,
 } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
 import { createClient } from '@/lib/supabase/client';
 import { saveContent } from './actions';
 import { ImageUpload } from './ImageUpload';
 import { ServiceItemEditor } from './ServiceItemEditor';
+import { EventTypeItemEditor } from './EventTypeItemEditor';
 import type { SiteContent, EditableSiteContent } from '@/lib/content';
 
 async function fetchContent(): Promise<SiteContent> {
@@ -52,6 +54,56 @@ function getImageLabel(url: string, index: number): string {
   const filename = part.split('?')[0];
   // Truncate if too long
   return filename.length > 30 ? filename.slice(0, 27) + '...' : filename || `Slide ${index + 1}`;
+}
+
+function SortableEventTypeItem({
+  eventType,
+  index,
+  sortableId,
+  onChange,
+  onDelete,
+}: {
+  eventType: EditableSiteContent['eventTypes']['items'][0];
+  index: number;
+  sortableId: string;
+  onChange: (eventType: EditableSiteContent['eventTypes']['items'][0]) => void;
+  onDelete: () => void;
+}) {
+  const {
+    attributes,
+    listeners,
+    setNodeRef,
+    transform,
+    transition,
+    isDragging,
+  } = useSortable({ id: sortableId });
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.5 : 1,
+  };
+
+  return (
+    <div ref={setNodeRef} style={style} className="flex items-stretch gap-2">
+      <div
+        {...attributes}
+        {...listeners}
+        className="flex items-center justify-center w-8 shrink-0 bg-white/5 hover:bg-white/10 border border-white/10 rounded cursor-grab active:cursor-grabbing transition-colors"
+        title="Drag to reorder"
+      >
+        <GripVertical className="w-4 h-4 text-gray-400" />
+      </div>
+      <div className="flex-1 min-w-0">
+        <EventTypeItemEditor
+          eventType={eventType}
+          index={index}
+          onChange={onChange}
+          onDelete={onDelete}
+        />
+      </div>
+    </div>
+  );
 }
 
 function SortableImageCard({
@@ -117,6 +169,7 @@ export default function CmsEditor() {
     hero: true,
     work: false,
     services: false,
+    eventTypes: false,
     contact: true,
   });
   const router = useRouter();
@@ -172,6 +225,30 @@ export default function CmsEditor() {
               hero: {
                 ...p.hero,
                 images: arrayMove(p.hero.images, oldIndex, newIndex),
+              },
+            }
+          : null
+      );
+    }
+  }
+
+  function handleEventTypesDragEnd(event: DragEndEvent) {
+    const { active, over } = event;
+    if (!over || active.id === over.id || !content) return;
+
+    const items = content.eventTypes?.items ?? [];
+    const getId = (item: (typeof items)[0], i: number) => item.id || `et-${i}`;
+    const oldIndex = items.findIndex((item, i) => getId(item, i) === active.id);
+    const newIndex = items.findIndex((item, i) => getId(item, i) === over.id);
+
+    if (oldIndex !== -1 && newIndex !== -1) {
+      setContent((p) =>
+        p
+          ? {
+              ...p,
+              eventTypes: {
+                ...p.eventTypes!,
+                items: arrayMove(p.eventTypes?.items ?? [], oldIndex, newIndex),
               },
             }
           : null
@@ -478,6 +555,122 @@ export default function CmsEditor() {
           </div>
         </div>
         <SaveButton saving={saving === 'services'} onSave={() => handleSave('services', content.services)} />
+      </Section>
+
+      {/* Event Types */}
+      <Section
+        id="eventTypes"
+        icon={<Briefcase className="w-4 h-4" />}
+        title="Event Types"
+        expanded={expanded.eventTypes}
+        onToggle={() => toggleSection('eventTypes')}
+      >
+        <SectionField
+          label="Section title"
+          value={content.eventTypes?.sectionTitle ?? ''}
+          onChange={(v) =>
+            setContent((p) =>
+              p ? { ...p, eventTypes: { ...p.eventTypes!, sectionTitle: v } } : null
+            )
+          }
+        />
+        <SectionField
+          label="Section subhead"
+          value={content.eventTypes?.sectionSubhead ?? ''}
+          onChange={(v) =>
+            setContent((p) =>
+              p ? { ...p, eventTypes: { ...p.eventTypes!, sectionSubhead: v } } : null
+            )
+          }
+        />
+        <div className="mt-6">
+          <div className="flex items-center justify-between mb-4">
+            <label className="block text-xs uppercase tracking-widest text-gray-500">
+              Event Type Items ({content.eventTypes?.items?.length ?? 0})
+            </label>
+            <button
+              onClick={() => {
+                const newItem = {
+                  id: `event-type-${Date.now()}`,
+                  title: 'New Event Type',
+                  description: '',
+                  image: '',
+                };
+                setContent((p) =>
+                  p
+                    ? {
+                        ...p,
+                        eventTypes: {
+                          ...p.eventTypes!,
+                          items: [...(p.eventTypes?.items ?? []), newItem],
+                        },
+                      }
+                    : null
+                );
+              }}
+              className="flex items-center gap-2 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium rounded-lg transition-colors"
+            >
+              <Plus className="w-4 h-4" />
+              Add New Event Type
+            </button>
+          </div>
+          <p className="text-xs text-gray-500 mb-2">Drag the grip handle to reorder event types.</p>
+          <div className="space-y-3">
+            <DndContext
+              sensors={sensors}
+              collisionDetection={closestCenter}
+              onDragEnd={handleEventTypesDragEnd}
+            >
+              <SortableContext
+                items={(content.eventTypes?.items ?? []).map((item, i) => item.id || `et-${i}`)}
+                strategy={verticalListSortingStrategy}
+              >
+                {(content.eventTypes?.items ?? []).map((eventType, index) => (
+                  <SortableEventTypeItem
+                    key={eventType.id || `et-${index}`}
+                    eventType={eventType}
+                    index={index}
+                    sortableId={eventType.id || `et-${index}`}
+                    onChange={(updated) => {
+                      const items = [...(content.eventTypes?.items ?? [])];
+                      items[index] = updated;
+                      setContent((p) =>
+                        p
+                          ? {
+                              ...p,
+                              eventTypes: { ...p.eventTypes!, items },
+                            }
+                          : null
+                      );
+                    }}
+                    onDelete={() => {
+                      const items = (content.eventTypes?.items ?? []).filter(
+                        (_, i) => i !== index
+                      );
+                      setContent((p) =>
+                        p
+                          ? {
+                              ...p,
+                              eventTypes: { ...p.eventTypes!, items },
+                            }
+                          : null
+                      );
+                    }}
+                  />
+                ))}
+              </SortableContext>
+            </DndContext>
+            {(content.eventTypes?.items?.length ?? 0) === 0 && (
+              <p className="text-gray-500 text-sm text-center py-8">
+                No event types yet. Click &quot;Add New Event Type&quot; to create one.
+              </p>
+            )}
+          </div>
+        </div>
+        <SaveButton
+          saving={saving === 'eventTypes'}
+          onSave={() => handleSave('eventTypes', content.eventTypes!)}
+        />
       </Section>
 
       {/* Contact */}

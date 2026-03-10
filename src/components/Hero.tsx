@@ -23,7 +23,7 @@ export default function Hero() {
   }, [images.length]);
 
   return (
-    <section id="vision" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+    <section id="vision" className="relative h-screen w-full flex items-start justify-center overflow-hidden">
       {/* Background Image Slideshow with Overlay */}
       <div className="absolute inset-0 z-0">
         <AnimatePresence mode="popLayout">
@@ -34,7 +34,7 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1.5 }}
-            alt="Corporate event setup" 
+            alt="Latest Craze Productions corporate event - LED video walls and live event production setup" 
             className="absolute inset-0 w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
@@ -45,35 +45,24 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black/20 z-10" /> {/* Subtle overall tint for text contrast */}
       </div>
 
-      {/* Content */}
-      <div className="relative z-20 text-center px-4 max-w-7xl mx-auto mt-20">
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="text-sm md:text-base tracking-[0.3em] uppercase text-white/90 font-semibold mb-6 drop-shadow-md"
-        >
-          {hero?.eyebrow ?? 'The Future of Live Events'}
-        </motion.p>
-
+      {/* Content — aligned to top so image remains visible */}
+      <div className="relative z-20 text-center px-4 max-w-7xl mx-auto pt-24 md:pt-28">
         <motion.h1
-          className="text-5xl md:text-7xl lg:text-9xl font-bold tracking-tighter text-white mb-8 leading-[0.9] drop-shadow-2xl"
+          className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter text-white mb-8 leading-[0.9] drop-shadow-2xl whitespace-nowrap"
           initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
           animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
         >
-          {(hero?.headline ?? 'IMMERSIVE\nIMPACT').split('\n').map((line, i, arr) => (
-            <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
-          ))}
+          {(hero?.headline ?? 'IMMERSIVE IMPACT').replace(/\n/g, ' ')}
         </motion.h1>
 
         <motion.p
-          className="text-lg md:text-2xl text-white/90 max-w-2xl mx-auto font-light leading-relaxed drop-shadow-lg"
+          className="text-lg md:text-2xl text-white font-bold uppercase tracking-wide max-w-2xl mx-auto drop-shadow-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
         >
-          {hero?.subhead ?? 'We engineer 40ft video walls and lighting experiences that define moments.'}
+          {hero?.subhead ?? 'WE DESIGN EVENTS THAT MOVE PEOPLE'}
         </motion.p>
       </div>
 

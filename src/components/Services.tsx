@@ -1,20 +1,13 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
-import { Monitor, Zap, Mic2, Layers, Boxes, Projector, ArrowUpRight, X, CheckCircle2 } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, X, CheckCircle2 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { useContent } from '@/context/ContentContext';
 import type { ServiceItem } from '@/lib/content';
-
-const ICON_MAP = {
-  monitor: Monitor,
-  zap: Zap,
-  mic2: Mic2,
-  layers: Layers,
-  boxes: Boxes,
-  projector: Projector,
-} as const;
+import { SERVICE_ICON_MAP } from '@/lib/service-icons';
 
 export default function Services() {
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
@@ -52,7 +45,7 @@ export default function Services() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
           {items.map((service, index) => {
-            const IconComponent = ICON_MAP[service.iconKey as keyof typeof ICON_MAP];
+            const IconComponent = SERVICE_ICON_MAP[service.iconKey as keyof typeof SERVICE_ICON_MAP];
             const serviceWithIcon = { ...service, icon: IconComponent ? <IconComponent className="w-6 h-6" /> : null };
             return (
             <motion.div
@@ -145,7 +138,7 @@ export default function Services() {
               <div className="p-6 md:p-10 -mt-12 relative">
                 <div className="mb-6 p-3 w-fit rounded-xl bg-blue-600 text-white shadow-lg shadow-blue-900/20 relative z-10">
                   {(() => {
-                    const Icon = ICON_MAP[selectedService.iconKey as keyof typeof ICON_MAP];
+                    const Icon = SERVICE_ICON_MAP[selectedService.iconKey as keyof typeof SERVICE_ICON_MAP];
                     return Icon ? <Icon className="w-6 h-6" /> : null;
                   })()}
                 </div>
@@ -173,12 +166,20 @@ export default function Services() {
                   </div>
                 )}
 
-                <div className="mt-8 pt-8 border-t border-white/10 flex justify-end">
+                <div className="mt-8 pt-8 border-t border-white/10 flex flex-wrap justify-end gap-3">
+                  <Link
+                    href={`/services/${selectedService.id}`}
+                    className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-colors"
+                    onClick={() => setSelectedService(null)}
+                  >
+                    See more details
+                    <ArrowRight className="w-5 h-5" />
+                  </Link>
                   <button 
                     onClick={() => setSelectedService(null)}
-                    className="px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-colors"
+                    className="px-6 py-3 bg-white/10 text-white font-bold rounded-lg hover:bg-white/20 border border-white/10 transition-colors"
                   >
-                    Close Details
+                    Close
                   </button>
                 </div>
               </div>

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
+import CookieConsent from '@/components/CookieConsent';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -14,7 +15,7 @@ const spaceGrotesk = Space_Grotesk({
   variable: '--font-display',
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nexusav.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://latestcrazeproductions.com';
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -24,8 +25,8 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: 'Nexus AV | Immersive Live Event Production',
-    template: '%s | Nexus AV',
+    default: 'Latest Craze Productions | Immersive Live Event Production',
+    template: '%s | Latest Craze Productions',
   },
   description:
     'We engineer 40ft video walls and lighting experiences that define moments. Ultra-wide LED displays, intelligent lighting, stage design, and precision audio for corporate events.',
@@ -36,19 +37,19 @@ export const metadata: Metadata = {
     'live events',
     'lighting design',
     'AV production',
-    'San Francisco',
-    'Nexus AV',
+    'Phoenix',
+    'Latest Craze Productions',
   ],
-  authors: [{ name: 'Nexus AV Productions' }],
-  creator: 'Nexus AV Productions',
-  publisher: 'Nexus AV Productions',
+  authors: [{ name: 'Latest Craze Productions' }],
+  creator: 'Latest Craze Productions',
+  publisher: 'Latest Craze Productions',
   metadataBase: new URL(SITE_URL),
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: SITE_URL,
-    siteName: 'Nexus AV Productions',
-    title: 'Nexus AV | Immersive Live Event Production',
+    siteName: 'Latest Craze Productions',
+    title: 'Latest Craze Productions | Immersive Live Event Production',
     description:
       'We engineer 40ft video walls and lighting experiences that define moments.',
     images: [
@@ -56,13 +57,13 @@ export const metadata: Metadata = {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Nexus AV - The Future of Live Events',
+        alt: 'Latest Craze Productions - The Future of Live Events',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nexus AV | Immersive Live Event Production',
+    title: 'Latest Craze Productions | Immersive Live Event Production',
     description:
       'We engineer 40ft video walls and lighting experiences that define moments.',
   },
@@ -96,6 +97,7 @@ export default function RootLayout({
         }}
       >
         {children}
+        <CookieConsent />
       </body>
     </html>
   );

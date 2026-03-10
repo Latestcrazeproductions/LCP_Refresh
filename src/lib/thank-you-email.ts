@@ -1,6 +1,6 @@
 import type { SiteContent } from './content';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nexusav.com';
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://latestcrazeproductions.com';
 
 function absUrl(src: string | null): string {
   if (!src) return '';
