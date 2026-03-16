@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import { useContent } from '@/context/ContentContext';
+import { getOptimizedImageUrl } from '@/lib/image-utils';
 
 export default function Work() {
   const { work } = useContent();
@@ -27,7 +28,7 @@ export default function Work() {
                     className="shrink-0 h-10 w-20 md:h-12 md:w-24 flex items-center justify-center"
                   >
                     <Image
-                      src={client.src}
+                      src={getOptimizedImageUrl(client.src, { width: 256, quality: 60 })}
                       alt={client.alt}
                       width={96}
                       height={48}

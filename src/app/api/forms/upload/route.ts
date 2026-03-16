@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 
 const BUCKET = 'site-assets';
-const MAX_SIZE = 10 * 1024 * 1024; // 10 MB
+const MAX_SIZE = 5 * 1024 * 1024; // 5 MB
 const CACHE_CONTROL = '31536000';
 
 export async function POST(request: NextRequest) {

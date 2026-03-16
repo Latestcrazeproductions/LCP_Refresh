@@ -5,8 +5,9 @@ import { ArrowUpRight } from 'lucide-react';
 import { getSiteContent } from '@/lib/content';
 import { ContentProvider } from '@/context/ContentContext';
 import { getServiceIcon } from '@/lib/service-icons';
+import { getOptimizedImageUrl } from '@/lib/image-utils';
 import Navbar from '@/components/Navbar';
-import Contact from '@/components/Contact';
+import ContactCta from '@/components/ContactCta';
 import Footer from '@/components/Footer';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://latestcrazeproductions.com';
@@ -69,7 +70,7 @@ export default async function ServicesPage() {
                 >
                   {service.image ? (
                     <Image
-                      src={service.image}
+                      src={getOptimizedImageUrl(service.image, { width: 1280, quality: 68 })}
                       alt={service.title}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -111,7 +112,7 @@ export default async function ServicesPage() {
           </ul>
         </section>
 
-        <Contact />
+        <ContactCta content={content} />
         <Footer />
       </main>
     </ContentProvider>

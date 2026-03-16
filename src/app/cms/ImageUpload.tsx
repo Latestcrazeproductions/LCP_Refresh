@@ -8,6 +8,7 @@ const BUCKET = 'site-assets';
 const MAX_IMAGE_DIMENSION = 1920;
 const IMAGE_QUALITY = 0.82;
 const CACHE_CONTROL = '31536000';
+const MAX_UPLOAD_SIZE = 3 * 1024 * 1024;
 
 function getPublicUrl(path: string): string {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -89,6 +90,10 @@ export function ImageUpload({ folder, mode = 'single', accept = 'image/*', onUpl
       for (let i = 0; i < files.length; i++) {
         const originalFile = files[i];
         const file = await compressImage(originalFile);
+        if (file.size > MAX_UPLOAD_SIZE) {
+          setError('Images must be 3 MB or less after compression.');
+          return;
+        }
         const ext = file.name.split('.').pop() || 'jpg';
         
         // Preserve original filename (sanitized) with timestamp for uniqueness
@@ -145,6 +150,9 @@ export function ImageUpload({ folder, mode = 'single', accept = 'image/*', onUpl
         {uploading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Upload className="w-4 h-4" />}
         {uploading ? 'Uploading...' : `${label} (${mode === 'bulk' ? 'multiple' : 'single'})`}
       </button>
+      <p className="mt-1 text-[11px] text-gray-500">
+        Images are resized to 1920px max and limited to 3 MB for lower storage and egress.
+      </p>
       {error && <p className="text-red-400 text-xs mt-1">{error}</p>}
     </div>
   );

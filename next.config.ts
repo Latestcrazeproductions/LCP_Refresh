@@ -11,6 +11,8 @@ const nextConfig: NextConfig = {
     NEXT_PUBLIC_SEMRUSH_API_URL: process.env.NEXT_PUBLIC_SEMRUSH_API_URL || 'http://localhost:6000',
   },
   images: {
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 31536000,
     remotePatterns: [
       {
         protocol: 'https',
@@ -26,6 +28,11 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: supabaseHost,
         pathname: '/storage/v1/object/public/**',
+      },
+      {
+        protocol: 'https',
+        hostname: supabaseHost,
+        pathname: '/storage/v1/render/image/public/**',
       },
     ],
   },

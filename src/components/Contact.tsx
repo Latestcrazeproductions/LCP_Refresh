@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { ArrowRight, Mail, Phone, MapPin, Loader2, CheckCircle2 } from 'lucide-react';
 import { useContent } from '@/context/ContentContext';
+import { getOptimizedImageUrl } from '@/lib/image-utils';
 
 const CONTACT_IMAGE_FALLBACK =
   'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop';
@@ -137,7 +138,7 @@ export default function Contact() {
 
             <div className="relative aspect-[4/3] max-w-md rounded-2xl overflow-hidden border border-white/10 mb-12">
               <Image
-                src={contactImage}
+                src={getOptimizedImageUrl(contactImage, { width: 1200, quality: 68 })}
                 alt="Latest Craze Productions"
                 fill
                 className="object-cover"

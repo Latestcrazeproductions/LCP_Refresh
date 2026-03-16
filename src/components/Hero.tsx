@@ -5,6 +5,7 @@ import { ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 import { useContent } from '@/context/ContentContext';
+import { getOptimizedImageUrl } from '@/lib/image-utils';
 
 export default function Hero() {
   const { hero } = useContent();
@@ -26,19 +27,29 @@ export default function Hero() {
     <section id="vision" className="relative h-screen w-full flex items-start justify-center overflow-hidden">
       {/* Background Image Slideshow with Overlay */}
       <div className="absolute inset-0 z-0">
-        {images.map((image, index) => (
+        <Image
+          key={`${images[currentImageIndex]}-${currentImageIndex}`}
+          src={getOptimizedImageUrl(images[currentImageIndex], { width: 1600, quality: 68 })}
+          alt="Latest Craze Productions corporate event - LED video walls and live event production setup"
+          fill
+          priority={currentImageIndex === 0}
+          sizes="100vw"
+          className="absolute inset-0 object-cover transition-opacity duration-[1500ms] opacity-100"
+        />
+        {images.length > 1 && (
           <Image
-            key={`${image}-${index}`}
-            src={image}
+            key={`${images[(currentImageIndex + 1) % images.length]}-next`}
+            src={getOptimizedImageUrl(images[(currentImageIndex + 1) % images.length], {
+              width: 1200,
+              quality: 60,
+            })}
             alt="Latest Craze Productions corporate event - LED video walls and live event production setup"
             fill
-            priority={index === 0}
+            priority={false}
             sizes="100vw"
-            className={`absolute inset-0 object-cover transition-opacity duration-[1500ms] ${
-              index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-            }`}
+            className="absolute inset-0 object-cover opacity-0 pointer-events-none"
           />
-        ))}
+        )}
         
         {/* Gradient overlay for text readability, but keeping image visible */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-[#050505] z-10" />
