@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { getSiteContent } from '@/lib/content';
 
+export const revalidate = 3600;
+
 const baseUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://latestcrazeproductions.com';
 
 function escapeXml(s: string): string {
@@ -110,6 +112,7 @@ export async function GET(request: Request) {
       headers: {
         'Content-Type': 'text/html; charset=utf-8',
         'Cache-Control': 'public, max-age=3600, s-maxage=3600',
+        Vary: 'Accept',
       },
     });
   }
@@ -134,6 +137,7 @@ ${entries
     headers: {
       'Content-Type': 'application/xml',
       'Cache-Control': 'public, max-age=3600, s-maxage=3600',
+      Vary: 'Accept',
     },
   });
 }

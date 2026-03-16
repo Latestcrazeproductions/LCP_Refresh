@@ -1,6 +1,6 @@
 'use client';
 
-import { motion, AnimatePresence } from 'motion/react';
+import Image from 'next/image';
 import { ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
@@ -26,19 +26,19 @@ export default function Hero() {
     <section id="vision" className="relative h-screen w-full flex items-start justify-center overflow-hidden">
       {/* Background Image Slideshow with Overlay */}
       <div className="absolute inset-0 z-0">
-        <AnimatePresence mode="popLayout">
-          <motion.img 
-            key={currentImageIndex}
-            src={images[currentImageIndex]}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 1.5 }}
-            alt="Latest Craze Productions corporate event - LED video walls and live event production setup" 
-            className="absolute inset-0 w-full h-full object-cover"
-            referrerPolicy="no-referrer"
+        {images.map((image, index) => (
+          <Image
+            key={`${image}-${index}`}
+            src={image}
+            alt="Latest Craze Productions corporate event - LED video walls and live event production setup"
+            fill
+            priority={index === 0}
+            sizes="100vw"
+            className={`absolute inset-0 object-cover transition-opacity duration-[1500ms] ${
+              index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+            }`}
           />
-        </AnimatePresence>
+        ))}
         
         {/* Gradient overlay for text readability, but keeping image visible */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-transparent to-[#050505] z-10" />
@@ -47,37 +47,26 @@ export default function Hero() {
 
       {/* Content — aligned to top so image remains visible */}
       <div className="relative z-20 text-center px-4 max-w-7xl mx-auto pt-24 md:pt-28">
-        <motion.h1
+        <h1
           className="text-4xl md:text-6xl lg:text-8xl font-bold tracking-tighter text-white mb-8 leading-[0.9] drop-shadow-2xl whitespace-nowrap"
-          initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-          animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          transition={{ duration: 1.2, delay: 0.2, ease: "easeOut" }}
         >
           {(hero?.headline ?? 'IMMERSIVE IMPACT').replace(/\n/g, ' ')}
-        </motion.h1>
+        </h1>
 
-        <motion.p
+        <p
           className="text-lg md:text-2xl text-white font-bold uppercase tracking-wide max-w-2xl mx-auto drop-shadow-lg"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.6 }}
         >
           {hero?.subhead ?? 'WE DESIGN EVENTS THAT MOVE PEOPLE'}
-        </motion.p>
+        </p>
       </div>
 
       {/* Scroll Indicator */}
-      <motion.div 
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-      >
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20">
         <div className="flex flex-col items-center gap-2">
           <span className="font-display font-bold text-[10px] uppercase tracking-widest text-gray-500">Scroll</span>
           <ChevronDown className="w-6 h-6 text-white/50 animate-bounce" />
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

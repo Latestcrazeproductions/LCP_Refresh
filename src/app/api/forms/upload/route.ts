@@ -3,6 +3,7 @@ import { createClient } from '@/lib/supabase/server';
 
 const BUCKET = 'site-assets';
 const MAX_SIZE = 10 * 1024 * 1024; // 10 MB
+const CACHE_CONTROL = '31536000';
 
 export async function POST(request: NextRequest) {
   try {
@@ -33,7 +34,11 @@ export async function POST(request: NextRequest) {
 
     const { data: uploadData, error } = await supabase.storage
       .from(BUCKET)
-      .upload(path, file, { contentType: file.type });
+      .upload(path, file, {
+        cacheControl: CACHE_CONTROL,
+        contentType: file.type,
+        upsert: false,
+      });
 
     if (error) {
       console.error('Upload error:', error);

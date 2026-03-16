@@ -1,4 +1,5 @@
-import { createClient } from '@/lib/supabase/server';
+import { unstable_cache } from 'next/cache';
+import { createPublicClient } from '@/lib/supabase/server';
 import { siteContent } from '@/content/site-content';
 
 export type SiteContentKey = 'brand' | 'hero' | 'work' | 'services' | 'eventTypes' | 'contact';
@@ -154,24 +155,38 @@ export function mergeContent(
 }
 
 /** Fetch site content from Supabase, falling back to static site-content.ts */
+const getCachedSiteContent = unstable_cache(
+  async (): Promise<SiteContent> => {
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+      return siteContent as SiteContent;
+    }
+    try {
+      const supabase = createPublicClient();
+      const { data, error } = await supabase.from('site_content').select('key, value');
+
+      if (error || !data?.length) {
+        return siteContent as SiteContent;
+      }
+
+      const fromDb = Object.fromEntries(
+        data.map((row: { key: string; value: unknown }) => [row.key, row.value])
+      ) as Partial<Record<SiteContentKey, unknown>>;
+
+      return mergeContent(fromDb);
+    } catch {
+      return siteContent as SiteContent;
+    }
+  },
+  ['site-content'],
+  {
+    revalidate: 3600,
+    tags: ['site-content'],
+  }
+);
+
 export async function getSiteContent(): Promise<SiteContent> {
   if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
     return siteContent as SiteContent;
   }
-  try {
-    const supabase = await createClient();
-    const { data, error } = await supabase.from('site_content').select('key, value');
-
-    if (error || !data?.length) {
-      return siteContent as SiteContent;
-    }
-
-    const fromDb = Object.fromEntries(
-      data.map((row: { key: string; value: unknown }) => [row.key, row.value])
-    ) as Partial<Record<SiteContentKey, unknown>>;
-
-    return mergeContent(fromDb);
-  } catch {
-    return siteContent as SiteContent;
-  }
+  return getCachedSiteContent();
 }

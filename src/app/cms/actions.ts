@@ -1,6 +1,6 @@
 'use server';
 
-import { revalidatePath } from 'next/cache';
+import { revalidatePath, revalidateTag } from 'next/cache';
 import { createClient } from '@/lib/supabase/server';
 import type { SiteContentKey } from '@/lib/content';
 
@@ -23,6 +23,7 @@ export async function saveContent(key: SiteContentKey, value: unknown) {
     return { error: error.message };
   }
 
+  revalidateTag('site-content');
   revalidatePath('/');
   revalidatePath('/cms');
   return { success: true };
