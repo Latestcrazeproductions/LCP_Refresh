@@ -50,6 +50,20 @@ export default async function CmsDashboardPage() {
               Open →
             </span>
           </Link>
+
+          <Link
+            href="/cms/forms"
+            className="block p-8 bg-white/5 border border-white/10 rounded-xl hover:border-white/20 hover:bg-white/[0.07] transition-all group"
+          >
+            <span className="text-4xl mb-4 block">📋</span>
+            <h2 className="text-xl font-semibold text-white mb-2">Internal Forms</h2>
+            <p className="text-gray-400 text-sm">
+              Invoice requests, AR forms, and other internal workflows
+            </p>
+            <span className="inline-block mt-4 text-blue-400 text-sm font-medium group-hover:translate-x-1 transition-transform">
+              Open →
+            </span>
+          </Link>
         </div>
 
         <p className="mt-10 text-center">

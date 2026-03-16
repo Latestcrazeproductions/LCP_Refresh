@@ -79,7 +79,49 @@ For now, create the user manually in the dashboard.
 
 ## Image & Logo Uploads
 
-The CMS uses Supabase Storage (bucket: `site-assets`) for uploads. The bucket and policies are already configured. Use the upload buttons in each section:
+The CMS uses Supabase Storage (bucket: `site-assets`) for uploads. **You must create this bucket first.**
+
+### Create the site-assets bucket
+
+1. In the Supabase Dashboard, go to **Storage**
+2. Click **New bucket**
+3. Name: `site-assets`
+4. Enable **Public bucket** (so uploaded images can be displayed on the site)
+5. Click **Create bucket**
+6. After creation, click the bucket → **Policies** → **New policy**
+7. For uploads, add a policy that allows authenticated users to insert:
+   - Policy name: `Authenticated users can upload`
+   - Allowed operation: **INSERT**
+   - Target roles: `authenticated`
+   - With check expression: `true` (or `bucket_id = 'site-assets'`)
+8. Add a policy for public read access (or rely on the bucket being public):
+   - Policy name: `Public read`
+   - Allowed operation: **SELECT**
+   - Target roles: `public` (or leave empty for anonymous)
+   - With check: `true`
+
+**Quick policy via SQL (optional):** In the SQL Editor, run:
+
+```sql
+-- Create the bucket via Storage API isn't possible in SQL; use Dashboard.
+-- After creating bucket manually, add policies:
+insert into storage.buckets (id, name, public)
+values ('site-assets', 'site-assets', true)
+on conflict (id) do update set public = true;
+
+-- Allow authenticated uploads
+create policy "Authenticated upload" on storage.objects
+  for insert to authenticated with check (bucket_id = 'site-assets');
+
+create policy "Public read" on storage.objects
+  for select to public using (bucket_id = 'site-assets');
+```
+
+If the bucket already exists, the first `insert` will no-op and the policies will be created.
+
+### Using the upload buttons
+
+Use the upload buttons in each section:
 
 - **Brand** — Single upload for logo and logo dark
 - **Hero** — Bulk upload for slideshow images

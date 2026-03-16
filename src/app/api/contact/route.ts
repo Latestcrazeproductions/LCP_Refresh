@@ -9,7 +9,19 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, company, email, projectDetails } = body;
+    const {
+      name,
+      company,
+      email,
+      phone,
+      eventLocation,
+      eventType,
+      eventDate,
+      attendeeCount,
+      timeline,
+      referralSource,
+      projectDetails,
+    } = body;
 
     if (!name || !email) {
       return NextResponse.json(
@@ -24,6 +36,13 @@ export async function POST(request: NextRequest) {
       name: String(name).trim(),
       company: company ? String(company).trim() : null,
       email: String(email).trim(),
+      phone: phone ? String(phone).trim() : null,
+      event_location: eventLocation ? String(eventLocation).trim() : null,
+      event_type: eventType ? String(eventType).trim() : null,
+      event_date: eventDate ? String(eventDate).trim() : null,
+      attendee_count: attendeeCount ? String(attendeeCount).trim() : null,
+      timeline: timeline ? String(timeline).trim() : null,
+      referral_source: referralSource ? String(referralSource).trim() : null,
       project_details: projectDetails ? String(projectDetails).trim() : null,
     });
 

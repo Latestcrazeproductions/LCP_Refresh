@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin } from 'lucide-react';
 import { useContent } from '@/context/ContentContext';
 
 export default function Footer() {
-  const { brand, contact } = useContent();
+  const { brand, contact, services, eventTypes } = useContent();
   const safeBrand = brand ?? {
     name: 'Latest Craze',
     nameFull: 'Latest Craze Productions',
@@ -86,28 +86,52 @@ export default function Footer() {
             </ul>
           </nav>
 
-          {/* Services — keyword-rich links */}
+          {/* Services — direct links to service pages */}
           <nav aria-label="Services">
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
-              <li><Link href="/services" className="text-gray-400 hover:text-white transition-colors text-sm">LED Video Wall Rental Phoenix</Link></li>
-              <li><Link href="/services" className="text-gray-400 hover:text-white transition-colors text-sm">Corporate Event Lighting Design</Link></li>
-              <li><Link href="/services" className="text-gray-400 hover:text-white transition-colors text-sm">Stage Design & Fabrication</Link></li>
-              <li><Link href="/services" className="text-gray-400 hover:text-white transition-colors text-sm">Event Audio Production</Link></li>
-              <li><Link href="/services" className="text-gray-400 hover:text-white transition-colors text-sm">Projection Mapping</Link></li>
-              <li><Link href="/services" className="text-gray-400 hover:text-white transition-colors text-sm">Scenic Design Phoenix</Link></li>
+              {(Array.isArray(services?.items) ? services.items : []).length > 0
+                ? services!.items.map((s) => (
+                    <li key={s.id}>
+                      <Link href={`/services/${s.id}`} className="text-gray-400 hover:text-white transition-colors text-sm">
+                        {s.title}
+                      </Link>
+                    </li>
+                  ))
+                : (
+                  <>
+                    <li><Link href="/services/led-walls" className="text-gray-400 hover:text-white transition-colors text-sm">Ultra-Wide LED Walls</Link></li>
+                    <li><Link href="/services/lighting" className="text-gray-400 hover:text-white transition-colors text-sm">Intelligent Lighting</Link></li>
+                    <li><Link href="/services/stage" className="text-gray-400 hover:text-white transition-colors text-sm">Stage Design</Link></li>
+                    <li><Link href="/services/audio" className="text-gray-400 hover:text-white transition-colors text-sm">Precision Audio</Link></li>
+                    <li><Link href="/services/scenic" className="text-gray-400 hover:text-white transition-colors text-sm">Scenic Design</Link></li>
+                    <li><Link href="/services/projection" className="text-gray-400 hover:text-white transition-colors text-sm">Projection Mapping</Link></li>
+                  </>
+                )}
             </ul>
           </nav>
 
-          {/* Events — keyword-rich links */}
+          {/* Event Types — direct links to event type pages */}
           <nav aria-label="Event types">
             <h3 className="text-lg font-semibold mb-4">Event Types</h3>
             <ul className="space-y-2">
-              <li><Link href="/events" className="text-gray-400 hover:text-white transition-colors text-sm">Corporate Keynotes Phoenix</Link></li>
-              <li><Link href="/events" className="text-gray-400 hover:text-white transition-colors text-sm">Product Launches</Link></li>
-              <li><Link href="/events" className="text-gray-400 hover:text-white transition-colors text-sm">Galas & Awards</Link></li>
-              <li><Link href="/events" className="text-gray-400 hover:text-white transition-colors text-sm">Conferences</Link></li>
-              <li><Link href="/events" className="text-gray-400 hover:text-white transition-colors text-sm">Brand Activations</Link></li>
+              {(Array.isArray(eventTypes?.items) ? eventTypes.items : []).length > 0
+                ? eventTypes!.items.map((e) => (
+                    <li key={e.id}>
+                      <Link href={`/events/${e.id}`} className="text-gray-400 hover:text-white transition-colors text-sm">
+                        {e.title}
+                      </Link>
+                    </li>
+                  ))
+                : (
+                  <>
+                    <li><Link href="/events/corporate-keynotes" className="text-gray-400 hover:text-white transition-colors text-sm">Corporate Keynotes</Link></li>
+                    <li><Link href="/events/product-launches" className="text-gray-400 hover:text-white transition-colors text-sm">Product Launches</Link></li>
+                    <li><Link href="/events/galas-awards" className="text-gray-400 hover:text-white transition-colors text-sm">Galas & Awards</Link></li>
+                    <li><Link href="/events/conferences" className="text-gray-400 hover:text-white transition-colors text-sm">Conferences</Link></li>
+                    <li><Link href="/events/brand-activations" className="text-gray-400 hover:text-white transition-colors text-sm">Brand Activations</Link></li>
+                  </>
+                )}
             </ul>
           </nav>
         </div>
