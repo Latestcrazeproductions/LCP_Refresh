@@ -1,15 +1,70 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { useContent } from '@/context/ContentContext';
 import { SERVICE_ICON_MAP } from '@/lib/service-icons';
 import { getOptimizedImageUrl } from '@/lib/image-utils';
+import type { ServiceItem } from '@/lib/content';
+
+const LazyServiceModalContent = dynamic(() => import('@/components/ServiceModalContent'));
+
+function canUseDesktopModal() {
+  return typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)').matches;
+}
 
 export default function Services() {
   const { services } = useContent();
   const items = Array.isArray(services?.items) ? services.items : [];
+  const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [shouldLoadModal, setShouldLoadModal] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 768px)');
+    const update = () => setIsDesktop(mediaQuery.matches);
+    update();
+    mediaQuery.addEventListener('change', update);
+    return () => mediaQuery.removeEventListener('change', update);
+  }, []);
+
+  useEffect(() => {
+    if (selectedService) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedService]);
+
+  useEffect(() => {
+    if (!selectedService) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedService(null);
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [selectedService]);
+
+  function handleCardActivate(
+    event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
+    service: ServiceItem
+  ) {
+    if (!isDesktop || !service.details || !canUseDesktopModal()) {
+      return;
+    }
+
+    event.preventDefault();
+    setShouldLoadModal(true);
+    setSelectedService(service);
+  }
 
   return (
     <section id="expertise" className="py-24 bg-[#050505] relative overflow-hidden">
@@ -36,6 +91,12 @@ export default function Services() {
               href={`/services/${service.id}`}
               className="group relative h-[400px] rounded-2xl overflow-hidden block"
               prefetch={index < 2}
+              onClick={(event) => handleCardActivate(event, service)}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  handleCardActivate(event, service);
+                }
+              }}
             >
               {/* Background Image */}
               {service.image ? (
@@ -73,6 +134,13 @@ export default function Services() {
           })}
         </div>
       </div>
+
+      {shouldLoadModal ? (
+        <LazyServiceModalContent
+          service={selectedService}
+          onClose={() => setSelectedService(null)}
+        />
+      ) : null}
     </section>
   );
 }

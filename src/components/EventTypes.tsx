@@ -1,10 +1,19 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { useContent } from '@/context/ContentContext';
 import { getOptimizedImageUrl } from '@/lib/image-utils';
+import type { EventTypeItem } from '@/lib/content';
+
+const LazyEventTypeModalContent = dynamic(() => import('@/components/EventTypeModalContent'));
+
+function canUseDesktopModal() {
+  return typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)').matches;
+}
 
 /** Bento sizes matching featured projects gallery — col-span-2, col-span-1 */
 const GALLERY_SIZES = [
@@ -24,6 +33,52 @@ function getSize(index: number): string {
 export default function EventTypes() {
   const { eventTypes } = useContent();
   const items = Array.isArray(eventTypes?.items) ? eventTypes.items : [];
+  const [selectedEventType, setSelectedEventType] = useState<EventTypeItem | null>(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [shouldLoadModal, setShouldLoadModal] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 768px)');
+    const update = () => setIsDesktop(mediaQuery.matches);
+    update();
+    mediaQuery.addEventListener('change', update);
+    return () => mediaQuery.removeEventListener('change', update);
+  }, []);
+
+  useEffect(() => {
+    if (selectedEventType) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedEventType]);
+
+  useEffect(() => {
+    if (!selectedEventType) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedEventType(null);
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [selectedEventType]);
+
+  function handleCardActivate(
+    event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
+    eventType: EventTypeItem
+  ) {
+    if (!isDesktop || !eventType.details || !canUseDesktopModal()) {
+      return;
+    }
+
+    event.preventDefault();
+    setShouldLoadModal(true);
+    setSelectedEventType(eventType);
+  }
 
   return (
     <section id="events" className="py-24 bg-[#080808]">
@@ -45,6 +100,12 @@ export default function EventTypes() {
               href={`/events/${eventType.id}`}
               className={`relative group overflow-hidden rounded-xl cursor-pointer ${getSize(index)}`}
               prefetch={index < 2}
+              onClick={(event) => handleCardActivate(event, eventType)}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  handleCardActivate(event, eventType);
+                }
+              }}
             >
               {eventType.image ? (
                 <Image
@@ -77,6 +138,13 @@ export default function EventTypes() {
           ))}
         </div>
       </div>
+
+      {shouldLoadModal ? (
+        <LazyEventTypeModalContent
+          eventType={selectedEventType}
+          onClose={() => setSelectedEventType(null)}
+        />
+      ) : null}
     </section>
   );
 }
