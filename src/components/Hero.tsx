@@ -14,19 +14,57 @@ export default function Hero() {
     ? hero.images
     : ['https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2012&auto=format&fit=crop'];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [previousImageIndex, setPreviousImageIndex] = useState<number | null>(null);
+  const [isFading, setIsFading] = useState(false);
+  const [isCurrentVisible, setIsCurrentVisible] = useState(true);
 
   useEffect(() => {
-    if (images.length === 0) return;
+    if (images.length <= 1) return;
     const timer = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+      setCurrentImageIndex((prev) => {
+        setPreviousImageIndex(prev);
+        setIsFading(true);
+        setIsCurrentVisible(false);
+        return (prev + 1) % images.length;
+      });
     }, 5000);
     return () => clearInterval(timer);
   }, [images.length]);
+
+  useEffect(() => {
+    if (!isFading) return;
+    const frame = window.requestAnimationFrame(() => {
+      setIsCurrentVisible(true);
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [currentImageIndex, isFading]);
+
+  useEffect(() => {
+    if (!isFading) return;
+    const timer = setTimeout(() => {
+      setIsFading(false);
+      setPreviousImageIndex(null);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, [isFading]);
 
   return (
     <section id="vision" className="relative h-screen w-full flex items-start justify-center overflow-hidden">
       {/* Background Image Slideshow with Overlay */}
       <div className="absolute inset-0 z-0">
+        {previousImageIndex !== null && (
+          <Image
+            key={`${images[previousImageIndex]}-${previousImageIndex}-previous`}
+            src={getOptimizedImageUrl(images[previousImageIndex], { width: 1600, quality: 68 })}
+            alt="Latest Craze Productions corporate event - LED video walls and live event production setup"
+            fill
+            priority={false}
+            sizes="100vw"
+            className={`absolute inset-0 object-cover transition-opacity duration-[1500ms] ${
+              isFading ? 'opacity-100' : 'opacity-0'
+            }`}
+          />
+        )}
         <Image
           key={`${images[currentImageIndex]}-${currentImageIndex}`}
           src={getOptimizedImageUrl(images[currentImageIndex], { width: 1600, quality: 68 })}
@@ -34,7 +72,9 @@ export default function Hero() {
           fill
           priority={currentImageIndex === 0}
           sizes="100vw"
-          className="absolute inset-0 object-cover transition-opacity duration-[1500ms] opacity-100"
+          className={`absolute inset-0 object-cover transition-opacity duration-[1500ms] ${
+            isCurrentVisible ? 'opacity-100' : 'opacity-0'
+          }`}
         />
         {images.length > 1 && (
           <Image
