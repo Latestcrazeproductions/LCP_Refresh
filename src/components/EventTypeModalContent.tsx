@@ -38,7 +38,7 @@ export default function EventTypeModalContent({
             <div className="relative h-48 md:h-80 shrink-0">
               {eventType.image ? (
                 <Image
-                  src={getOptimizedImageUrl(eventType.image, { width: 1400, quality: 68 })}
+                  src={eventType.image}
                   alt={eventType.title}
                   fill
                   className="object-cover"

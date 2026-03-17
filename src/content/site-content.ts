@@ -32,6 +32,12 @@ export const siteContent = {
     ] as string[],
   },
 
+  /** Featured video on homepage — YouTube embed between Events and Clients sections */
+  featuredVideo: {
+    /** Full YouTube URL (e.g. https://www.youtube.com/watch?v=VIDEO_ID) — editable in CMS */
+    youtubeUrl: 'https://www.youtube.com/watch?v=qrix9EAM_js&t=30s',
+  },
+
   /** Work section — client logos + featured projects */
   work: {
     /** Marquee text or logos. Use logo path for image, or string for text-only. */
@@ -98,6 +104,11 @@ export const siteContent = {
         description: '40ft+ seamless displays that dominate the visual field.',
         image:
           'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop',
+        gallery: [
+          'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1200&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1200&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?q=80&w=1200&auto=format&fit=crop',
+        ] as string[],
         details: {
           headline: 'Unrivaled Visual Immersion',
           text: "Our flagship 40ft+ LED walls redefine corporate presentations. By eliminating bezels and pushing resolution to the limit, we create a canvas that allows for true cinematic storytelling. Whether it's a high-stakes keynote or an immersive brand reveal, our displays deliver perfect color accuracy and HDR contrast that standard projection simply cannot match.",
@@ -117,6 +128,11 @@ export const siteContent = {
         description: 'Architectural and atmospheric lighting design.',
         image:
           'https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=2070&auto=format&fit=crop',
+        gallery: [
+          'https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=1200&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?q=80&w=1200&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop',
+        ] as string[],
         details: {
           headline: 'Atmosphere & Emotion',
           text: "Lighting is the heartbeat of any event. Our intelligent lighting systems go beyond simple illumination to create dynamic, emotional landscapes. From subtle, brand-aligned ambient washes to high-energy, music-synchronized strobe sequences, we design lighting that guides the audience's attention and amplifies the impact of every moment.",
@@ -136,6 +152,11 @@ export const siteContent = {
         description: 'Custom fabrication blending physical and digital worlds.',
         image:
           'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop',
+        gallery: [
+          'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=1200&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1200&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=1200&auto=format&fit=crop',
+        ] as string[],
         details: {
           headline: 'Physical meets Digital',
           text: "We believe the stage is more than a platform; it's a statement. Our scenic design team combines custom fabrication with digital elements to build stages that feel like modern art installations. We integrate LED surfaces into physical structures, create multi-dimensional depth, and ensure every angle looks perfect for both the live audience and the camera.",
@@ -155,6 +176,11 @@ export const siteContent = {
         description: 'Crystal clear line-array systems for immersive sound.',
         image:
           'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop',
+        gallery: [
+          'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1200&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1571330735066-03aaa9429d89?q=80&w=1200&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1590602847861-f357a9332bbc?q=80&w=1200&auto=format&fit=crop',
+        ] as string[],
         details: {
           headline: 'Sonic Perfection',
           text: "In a corporate environment, clarity is king. Our precision audio systems are tuned to ensure every word of a keynote is heard with crystal-clear intelligibility, no matter where you sit. But we also bring the power. When the walk-on music hits or the video plays, our line-array systems deliver a full-range, immersive soundscape that you can feel.",
@@ -174,6 +200,11 @@ export const siteContent = {
         description: 'Custom fabrication and scenic elements that transform spaces.',
         image:
           'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2070&auto=format&fit=crop',
+        gallery: [
+          'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=1200&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=1200&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=1200&auto=format&fit=crop',
+        ] as string[],
         details: {
           headline: 'Artistry Meets Engineering',
           text: "Every event deserves a stage that tells a story. Our scenic design team brings your vision to life through custom fabrication, intricate set pieces, and transformative backdrops. We build everything from elegant corporate environments and branded entrance arches to bold product launch structures and immersive installation spaces. Our craftspeople combine carpentry, metalwork, and finishing with fabric draping and hand-painted details—creating scenic elements that seamlessly integrate with LED, lighting, and audio. Whether you need a commanding keynote backdrop, modular structures for multiple breakout zones, or photo-worthy installations for brand activations, we deliver scenic design that elevates the entire experience.",
@@ -194,6 +225,11 @@ export const siteContent = {
         description: '3D projection mapping that transforms surfaces into dynamic canvases.',
         image:
           'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2070&auto=format&fit=crop',
+        gallery: [
+          'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1200&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1550745165-9bc0b252726f?q=80&w=1200&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1200&auto=format&fit=crop',
+        ] as string[],
         details: {
           headline: 'Surfaces Come Alive',
           text: "Projection mapping turns any surface into a dynamic storytelling medium. Our team specializes in architectural projection, 3D mapping, and custom content that transforms buildings, stages, and scenic structures into breathtaking visual experiences. We warp and blend imagery precisely to physical geometry—so content fits curves, angles, and irregular shapes without distortion. From brand logos that appear to emerge from walls, to product reveals that unfold across 3D set pieces, to immersive environments that envelop the audience, we create illusions that blur the line between reality and digital art. Partner with us for product launches, keynotes, brand activations, and experiential installations where projection is the hero.",
@@ -221,6 +257,11 @@ export const siteContent = {
         title: 'Corporate Keynotes',
         description: 'Executive presentations, all-hands, and leadership summits with cinematic production value.',
         image: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=2070&auto=format&fit=crop',
+        gallery: [
+          'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=2070&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2070&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2070&auto=format&fit=crop',
+        ] as string[],
         details: {
           headline: 'Executive Impact',
           text: 'From C-suite reveals to all-hands meetings, we deliver main-stage productions that command attention. Our LED walls, intelligent lighting, and precision audio ensure every word lands—whether you’re addressing 50 or 5,000. Leadership summits and town halls become moments that move people.',
@@ -240,6 +281,11 @@ export const siteContent = {
         title: 'Product Launches',
         description: 'Reveal moments that make products unforgettable—LED reveals, projection mapping, and stage drama.',
         image: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2070&auto=format&fit=crop',
+        gallery: [
+          'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2070&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2070&auto=format&fit=crop',
+        ] as string[],
         details: {
           headline: 'Reveal the Moment',
           text: 'Product launches deserve a stage that matches the hype. We create reveal moments—dramatic LED walls, projection-mapped surfaces, and theatrical staging—that make your product the hero. From intimate press events to massive launch parties, we turn announcements into unforgettable experiences.',
@@ -259,6 +305,11 @@ export const siteContent = {
         title: 'Galas & Awards',
         description: 'Red-carpet elegance meets dynamic lighting and audio for nights that inspire.',
         image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop',
+        gallery: [
+          'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1514525253440-b393452e8d26?q=80&w=2070&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=2070&auto=format&fit=crop',
+        ] as string[],
         details: {
           headline: 'Red Carpet Excellence',
           text: 'Galas and awards ceremonies demand elegance and energy in equal measure. We bring red-carpet polish, dramatic lighting transitions, and crystal-clear audio so every acceptance speech and trophy moment feels cinematic. From dinner to awards to after-party, we keep the energy flowing.',
@@ -278,6 +329,11 @@ export const siteContent = {
         title: 'Conferences',
         description: 'Multi-day events with main stages, breakout sessions, and seamless AV transitions.',
         image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop',
+        gallery: [
+          'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2070&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?q=80&w=2070&auto=format&fit=crop',
+        ] as string[],
         details: {
           headline: 'Multi-Day Mastery',
           text: 'Conferences are marathons, not sprints. We manage main stages, breakout rooms, speaker-ready spaces, and networking zones with seamless AV transitions throughout. Whether it’s a two-day summit or a week-long industry gathering, we keep every session sharp and every transition smooth.',
@@ -297,6 +353,11 @@ export const siteContent = {
         title: 'Brand Activations',
         description: 'Pop-ups, installations, and experiential marketing that stops people in their tracks.',
         image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=2070&auto=format&fit=crop',
+        gallery: [
+          'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?q=80&w=2070&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1514525253440-b393452e8d26?q=80&w=2070&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop',
+        ] as string[],
         details: {
           headline: 'Experiential Impact',
           text: 'Brand activations turn spaces into experiences. We design pop-ups, installations, and experiential moments that create shareable, memorable encounters with your brand. From retail takeovers to festival activations, we build environments that stop people in their tracks.',
@@ -316,6 +377,7 @@ export const siteContent = {
       title: string;
       description: string;
       image: string;
+      gallery?: string[];
       details?: { headline: string; text: string; features: string[] };
     }>,
   },
@@ -328,7 +390,8 @@ export const siteContent = {
     email: 'info@latestcrazeproductions.com',
     phone: '+1 (480) 626-5231',
     address: '4035 E Magnolia St Phoenix, AZ 85034',
-    ctaText: 'Initiate Project',
+    image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&auto=format&fit=crop',
+    ctaText: 'Contact Us',
     copyright: '© 2025 Latest Craze Productions. All rights reserved.',
     footerLinks: [
       { label: 'Privacy', href: '/privacy' },

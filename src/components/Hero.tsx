@@ -55,7 +55,7 @@ export default function Hero() {
         {previousImageIndex !== null && (
           <Image
             key={`${images[previousImageIndex]}-${previousImageIndex}-previous`}
-            src={getOptimizedImageUrl(images[previousImageIndex], { width: 1600, quality: 68 })}
+            src={images[previousImageIndex]}
             alt="Latest Craze Productions corporate event - LED video walls and live event production setup"
             fill
             priority={false}
@@ -67,7 +67,7 @@ export default function Hero() {
         )}
         <Image
           key={`${images[currentImageIndex]}-${currentImageIndex}`}
-          src={getOptimizedImageUrl(images[currentImageIndex], { width: 1600, quality: 68 })}
+          src={images[currentImageIndex]}
           alt="Latest Craze Productions corporate event - LED video walls and live event production setup"
           fill
           priority={currentImageIndex === 0}
@@ -79,10 +79,7 @@ export default function Hero() {
         {images.length > 1 && (
           <Image
             key={`${images[(currentImageIndex + 1) % images.length]}-next`}
-            src={getOptimizedImageUrl(images[(currentImageIndex + 1) % images.length], {
-              width: 1200,
-              quality: 60,
-            })}
+            src={images[(currentImageIndex + 1) % images.length]}
             alt="Latest Craze Productions corporate event - LED video walls and live event production setup"
             fill
             priority={false}

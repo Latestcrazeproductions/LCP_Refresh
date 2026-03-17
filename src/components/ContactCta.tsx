@@ -14,7 +14,7 @@ type ContactCtaProps = {
 export default function ContactCta({ content }: ContactCtaProps) {
   const contact = content.contact;
   const contactImage =
-    content.hero?.images?.[0] ?? content.work?.projects?.[0]?.image ?? CONTACT_IMAGE_FALLBACK;
+    contact?.image ?? content.hero?.images?.[0] ?? content.work?.projects?.[0]?.image ?? CONTACT_IMAGE_FALLBACK;
 
   const safeContact = {
     headline: contact?.headline ?? "LET'S MAKE YOU\nTHE HERO.",
@@ -22,7 +22,7 @@ export default function ContactCta({ content }: ContactCtaProps) {
     email: contact?.email ?? 'info@latestcrazeproductions.com',
     phone: contact?.phone ?? '+1 (480) 626-5231',
     address: contact?.address ?? '4035 E Magnolia St Phoenix, AZ 85034',
-    ctaText: contact?.ctaText ?? 'Initiate Project',
+    ctaText: contact?.ctaText ?? 'Contact Us',
   };
 
   return (
@@ -73,7 +73,7 @@ export default function ContactCta({ content }: ContactCtaProps) {
 
           <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10">
             <Image
-              src={getOptimizedImageUrl(contactImage, { width: 1200, quality: 70 })}
+              src={contactImage}
               alt="Latest Craze Productions"
               fill
               className="object-cover"

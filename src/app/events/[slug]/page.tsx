@@ -8,6 +8,7 @@ import { ContentProvider } from '@/context/ContentContext';
 import { getServiceIcon } from '@/lib/service-icons';
 import { getOptimizedImageUrl } from '@/lib/image-utils';
 import Navbar from '@/components/Navbar';
+import { ImageGallery } from '@/components/ImageGallery';
 import ContactCta from '@/components/ContactCta';
 import Footer from '@/components/Footer';
 
@@ -183,6 +184,11 @@ export default async function EventTypePage({ params }: Props) {
               )}
             </div>
           </section>
+
+          {/* Gallery — 3 images */}
+          {eventType.gallery && eventType.gallery.length > 0 && (
+            <ImageGallery images={eventType.gallery} alt={eventType.title} />
+          )}
 
           {/* Other event types — thumbnail cards matching services "Other Capabilities" */}
           {otherEventTypes.length > 0 && (

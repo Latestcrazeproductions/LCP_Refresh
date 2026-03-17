@@ -29,6 +29,9 @@ In your Vercel project **Settings → Environment Variables**, add:
 | `RESEND_FROM_EMAIL` | No | Sender email (default: `onboarding@resend.dev`) |
 | `RESEND_FROM_NAME` | No | Sender name (default: from site content) |
 | `NEXT_PUBLIC_SITE_URL` | Yes** | Production URL (e.g. `https://yourdomain.com`) |
+| `NEXT_PUBLIC_SEMRUSH_API_URL` | No | Semrush proxy API URL (default: localhost; set for CMS reports) |
+| `NEXT_PUBLIC_SEMRUSH_ENABLED` | No | Set to `true` to enable Semrush Reports in CMS |
+| `GOOGLE_SHEETS_*_URL` | No | Apps Script web app URLs for forms (see `docs/FORMS_GOOGLE_SHEETS.md`) |
 
 \* Without `RESEND_API_KEY`, form submissions still save to Supabase but no email is sent.
 
@@ -65,6 +68,40 @@ For production emails from your domain:
 1. Verify your domain in [Resend Dashboard](https://resend.com/domains)
 2. Set `RESEND_FROM_EMAIL` to e.g. `noreply@yourdomain.com`
 3. Set `RESEND_FROM_NAME` to your company name
+
+## Deploy via Vercel CLI
+
+For quick deploys from the terminal:
+
+```bash
+# Install Vercel CLI (if not installed)
+npm i -g vercel
+
+# First time: link project
+vercel link
+
+# Deploy to preview
+vercel
+
+# Deploy to production
+vercel --prod
+```
+
+Before first deploy, add env vars via **Vercel Dashboard → Settings → Environment Variables**, or use `vercel env pull` after linking to pull from an existing project.
+
+## Vercel MCP (Optional)
+
+If you use Cursor or another MCP client to deploy or manage this project:
+
+```bash
+# Link project first (if not already)
+vercel link
+
+# Set up project-specific MCP access
+vercel mcp --project
+```
+
+This configures your local MCP client to talk to this Vercel project for deployments and project management.
 
 ## Build Settings (Default)
 

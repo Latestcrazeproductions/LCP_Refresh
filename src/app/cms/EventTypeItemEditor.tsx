@@ -48,6 +48,11 @@ export function EventTypeItemEditor({
           <span className="font-display font-medium text-white">
             {eventType.title || `Event Type ${index + 1}`}
           </span>
+          {(eventType.gallery?.length ?? 0) > 0 ? (
+            <span className="text-xs text-green-400 ml-2">• Gallery: {eventType.gallery?.length} image{eventType.gallery?.length !== 1 ? 's' : ''}</span>
+          ) : (
+            <span className="text-xs text-amber-500/80 ml-2">• Gallery: add images</span>
+          )}
         </button>
         <button
           onClick={() => {
@@ -125,6 +130,44 @@ export function EventTypeItemEditor({
                 onUpload={(url) => updateField('image', url)}
               />
             </div>
+          </div>
+
+          <div>
+            <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">
+              Gallery (up to 3 images)
+            </label>
+            <p className="text-gray-500 text-xs mb-2">Upload images to showcase this event type. Shown in a 3-column gallery at the bottom of the page.</p>
+            <div className="flex flex-wrap items-center gap-2 mb-2">
+              <ImageUpload
+                folder="event-types"
+                mode="bulk"
+                label="Upload gallery images"
+                onUpload={(urls) => {
+                  const current = eventType.gallery || [];
+                  const next = [...current, ...urls].slice(0, 3);
+                  updateField('gallery', next);
+                }}
+              />
+            </div>
+            {(eventType.gallery || []).length > 0 && (
+              <div className="flex flex-wrap gap-2">
+                {(eventType.gallery || []).map((url, idx) => (
+                  <div key={idx} className="relative group">
+                    <img src={url} alt="" className="w-16 h-16 object-cover rounded border border-white/10" />
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const next = (eventType.gallery || []).filter((_, i) => i !== idx);
+                        updateField('gallery', next.length ? next : undefined);
+                      }}
+                      className="absolute -top-1 -right-1 p-1 bg-red-600 hover:bg-red-500 text-white rounded text-xs"
+                    >
+                      <Trash2 className="w-3 h-3" />
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       )}

@@ -73,7 +73,7 @@ export default function Contact() {
   const content = useContent();
   const contact = content.contact;
   const contactImage =
-    content.hero?.images?.[0] ?? content.work?.projects?.[0]?.image ?? CONTACT_IMAGE_FALLBACK;
+    content.contact?.image ?? content.hero?.images?.[0] ?? content.work?.projects?.[0]?.image ?? CONTACT_IMAGE_FALLBACK;
   const [formData, setFormData] = useState<IntakeFormData>(initialFormState);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
@@ -117,7 +117,7 @@ export default function Contact() {
     email: contact?.email ?? 'info@latestcrazeproductions.com',
     phone: contact?.phone ?? '+1 (480) 626-5231',
     address: contact?.address ?? '4035 E Magnolia St Phoenix, AZ 85034',
-    ctaText: contact?.ctaText ?? 'Initiate Project',
+      ctaText: contact?.ctaText ?? 'Contact Us',
     copyright: contact?.copyright ?? '© 2025 Latest Craze Productions.',
     footerLinks: Array.isArray(contact?.footerLinks) ? contact.footerLinks : [],
   };
@@ -138,7 +138,7 @@ export default function Contact() {
 
             <div className="relative aspect-[4/3] max-w-md rounded-2xl overflow-hidden border border-white/10 mb-12">
               <Image
-                src={getOptimizedImageUrl(contactImage, { width: 1200, quality: 68 })}
+                src={contactImage}
                 alt="Latest Craze Productions"
                 fill
                 className="object-cover"

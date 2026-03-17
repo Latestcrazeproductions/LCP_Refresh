@@ -108,8 +108,8 @@ export default function EventTypes() {
               }}
             >
               {eventType.image ? (
-                <Image
-                  src={getOptimizedImageUrl(eventType.image, { width: 1280, quality: 68 })}
+                  <Image
+                  src={eventType.image}
                   alt={eventType.title}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"

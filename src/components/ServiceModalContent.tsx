@@ -39,7 +39,7 @@ export default function ServiceModalContent({
             <div className="relative h-48 md:h-80 shrink-0">
               {service.image ? (
                 <Image
-                  src={getOptimizedImageUrl(service.image, { width: 1400, quality: 68 })}
+                  src={service.image}
                   alt={service.title}
                   fill
                   className="object-cover"

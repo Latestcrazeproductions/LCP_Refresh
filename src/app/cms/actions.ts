@@ -2,9 +2,11 @@
 
 import { revalidatePath, revalidateTag } from 'next/cache';
 import { createClient } from '@/lib/supabase/server';
-import type { SiteContentKey } from '@/lib/content';
 
-export async function saveContent(key: SiteContentKey, value: unknown) {
+const CMS_KEYS = ['brand', 'hero', 'featuredVideo', 'work', 'services', 'eventTypes', 'contact'] as const;
+type CmsKey = (typeof CMS_KEYS)[number];
+
+export async function saveContent(key: CmsKey, value: unknown) {
   const supabase = await createClient();
   const { data: { user } } = await supabase.auth.getUser();
 

@@ -7,6 +7,7 @@ import { ContentProvider } from '@/context/ContentContext';
 import { getServiceIcon } from '@/lib/service-icons';
 import { getOptimizedImageUrl } from '@/lib/image-utils';
 import Navbar from '@/components/Navbar';
+import { ImageGallery } from '@/components/ImageGallery';
 import ContactCta from '@/components/ContactCta';
 import Footer from '@/components/Footer';
 

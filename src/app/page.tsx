@@ -5,6 +5,7 @@ import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
 import Services from '@/components/Services';
 import EventTypes from '@/components/EventTypes';
+import FeaturedVideo from '@/components/FeaturedVideo';
 import Work from '@/components/Work';
 import FAQ from '@/components/FAQ';
 import ContactCta from '@/components/ContactCta';
@@ -89,6 +90,7 @@ export default async function HomePage() {
           <Hero />
           <EventTypes />
           <Services />
+          <FeaturedVideo />
           <Work />
           <FAQ items={FAQ_ITEMS} />
           <section className="py-12 px-6 max-w-4xl mx-auto border-t border-white/5">

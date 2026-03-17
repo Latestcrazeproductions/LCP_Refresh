@@ -2,10 +2,10 @@ import { unstable_cache } from 'next/cache';
 import { createPublicClient } from '@/lib/supabase/server';
 import { siteContent } from '@/content/site-content';
 
-export type SiteContentKey = 'brand' | 'hero' | 'work' | 'services' | 'eventTypes' | 'contact';
+export type SiteContentKey = 'brand' | 'hero' | 'featuredVideo' | 'work' | 'services' | 'eventTypes' | 'contact';
 
-export type ServiceItem = (typeof siteContent.services.items)[number];
-export type EventTypeItem = (typeof siteContent.eventTypes.items)[number];
+export type ServiceItem = (typeof siteContent.services.items)[number] & { gallery?: string[] };
+export type EventTypeItem = (typeof siteContent.eventTypes.items)[number] & { gallery?: string[] };
 
 export type SiteContent = typeof siteContent;
 
@@ -13,6 +13,7 @@ export type SiteContent = typeof siteContent;
 export type EditableSiteContent = {
   brand: { name: string; nameFull: string; logo: string | null; logoDark: string | null; logoHeight: number };
   hero: { eyebrow: string; headline: string; subhead: string; images: string[] };
+  featuredVideo: { youtubeUrl: string };
   work: {
     clientsLabel: string;
     clients: Array<{ type: 'text'; value: string } | { type: 'logo'; src: string; alt: string }>;
@@ -29,6 +30,7 @@ export type EditableSiteContent = {
       title: string;
       description: string;
       image: string;
+      gallery?: string[];
       details?: {
         headline: string;
         text: string;
@@ -45,6 +47,7 @@ export type EditableSiteContent = {
       title: string;
       description: string;
       image: string;
+      gallery?: string[];
       details?: { headline: string; text: string; features: string[] };
     }>;
   };
@@ -54,6 +57,7 @@ export type EditableSiteContent = {
     email: string;
     phone: string;
     address: string;
+    image: string | null;
     ctaText: string;
     copyright: string;
     footerLinks: Array<{ label: string; href: string }>;
@@ -90,6 +94,12 @@ export function mergeContent(
       : siteContent.hero.images,
   };
 
+  const featuredVideo: SiteContent['featuredVideo'] = {
+    ...siteContent.featuredVideo,
+    ...(fromDb.featuredVideo as Partial<SiteContent['featuredVideo']>),
+    youtubeUrl: ((fromDb.featuredVideo as SiteContent['featuredVideo'])?.youtubeUrl?.trim() || siteContent.featuredVideo.youtubeUrl) as SiteContent['featuredVideo']['youtubeUrl'],
+  };
+
   const work: SiteContent['work'] = {
     ...siteContent.work,
     ...(fromDb.work as Partial<SiteContent['work']>),
@@ -110,13 +120,17 @@ export function mergeContent(
         const fallback = defaultItems[i];
         const image =
           item.image?.trim() || fallback?.image?.trim() || PLACEHOLDER_IMAGE;
+        const dbGallery = Array.isArray(item.gallery) ? item.gallery.slice(0, 3).filter(Boolean) : [];
+        const defaultGallery = Array.isArray(fallback?.gallery) ? (fallback.gallery as string[]).slice(0, 3).filter(Boolean) : [];
+        const gallery = dbGallery.length > 0 ? dbGallery : defaultGallery;
         return {
           ...(fallback ?? item),
           ...item,
           image,
+          gallery,
         };
       })
-    : defaultItems) as SiteContent['services']['items'];
+    : defaultItems.map((item) => ({ ...item, gallery: (item as { gallery?: string[] }).gallery ?? [] }))) as unknown as SiteContent['services']['items'];
 
   const services: SiteContent['services'] = {
     ...siteContent.services,
@@ -133,9 +147,12 @@ export function mergeContent(
         const fallback = defaultEventItems[i];
         const image =
           item.image?.trim() || fallback?.image?.trim() || EVENT_PLACEHOLDER;
-        return { ...(fallback ?? item), ...item, image };
+        const dbGallery = Array.isArray(item.gallery) ? item.gallery.slice(0, 3).filter(Boolean) : [];
+        const defaultGallery = Array.isArray(fallback?.gallery) ? (fallback.gallery as string[]).slice(0, 3).filter(Boolean) : [];
+        const gallery = dbGallery.length > 0 ? dbGallery : defaultGallery;
+        return { ...(fallback ?? item), ...item, image, gallery };
       })
-    : defaultEventItems) as SiteContent['eventTypes']['items'];
+    : defaultEventItems.map((item) => ({ ...item, gallery: (item.gallery ?? []) }))) as SiteContent['eventTypes']['items'];
 
   const eventTypes: SiteContent['eventTypes'] = {
     ...siteContent.eventTypes,
@@ -151,7 +168,7 @@ export function mergeContent(
       : siteContent.contact.footerLinks,
   };
 
-  return { brand, hero, work, services, eventTypes, contact };
+  return { brand, hero, featuredVideo, work, services, eventTypes, contact };
 }
 
 /** Fetch site content from Supabase, falling back to static site-content.ts */

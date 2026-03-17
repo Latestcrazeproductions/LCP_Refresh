@@ -8,6 +8,7 @@ import { ContentProvider } from '@/context/ContentContext';
 import { getServiceIcon } from '@/lib/service-icons';
 import { getOptimizedImageUrl } from '@/lib/image-utils';
 import Navbar from '@/components/Navbar';
+import { ImageGallery } from '@/components/ImageGallery';
 import ContactCta from '@/components/ContactCta';
 import Footer from '@/components/Footer';
 
@@ -185,6 +186,11 @@ export default async function ServiceDetailPage({ params }: Props) {
               )}
             </div>
           </section>
+
+          {/* Gallery — 3 images */}
+          {service.gallery && service.gallery.length > 0 && (
+            <ImageGallery images={service.gallery} alt={service.title} />
+          )}
 
           {/* Other services — thumbnail cards matching homepage */}
           {otherServices.length > 0 && (

@@ -9,6 +9,7 @@ import {
   Save,
   Loader2,
   FileText,
+  Video,
   Building2,
   Zap,
   Briefcase,
@@ -167,6 +168,7 @@ export default function CmsEditor() {
   const [expanded, setExpanded] = useState<Record<string, boolean>>({
     brand: true,
     hero: true,
+    featuredVideo: false,
     work: false,
     services: false,
     eventTypes: false,
@@ -400,6 +402,26 @@ export default function CmsEditor() {
           />
         </div>
         <SaveButton saving={saving === 'hero'} onSave={() => handleSave('hero', content.hero)} />
+      </Section>
+
+      {/* Featured Video */}
+      <Section
+        id="featuredVideo"
+        icon={<Video className="w-4 h-4" />}
+        title="Featured Video"
+        expanded={expanded.featuredVideo}
+        onToggle={() => toggleSection('featuredVideo')}
+      >
+        <SectionField
+          label="YouTube URL"
+          value={content.featuredVideo?.youtubeUrl ?? ''}
+          onChange={(v) => setContent((p) => p && { ...p, featuredVideo: { ...p.featuredVideo!, youtubeUrl: v } })}
+          placeholder="https://www.youtube.com/watch?v=..."
+        />
+        <p className="text-gray-500 text-xs mt-1">
+          Embedded on homepage between Events/Services and Clients. Supports watch URLs and youtu.be links. Use &amp;t=30s for start time.
+        </p>
+        <SaveButton saving={saving === 'featuredVideo'} onSave={() => handleSave('featuredVideo', content.featuredVideo!)} />
       </Section>
 
       {/* Work */}
@@ -683,6 +705,10 @@ export default function CmsEditor() {
       >
         <SectionField label="Headline" value={content.contact.headline} onChange={(v) => setContent((p) => p && { ...p, contact: { ...p.contact, headline: v } })} textarea />
         <SectionField label="Subhead" value={content.contact.subhead} onChange={(v) => setContent((p) => p && { ...p, contact: { ...p.contact, subhead: v } })} textarea />
+        <div className="flex flex-wrap items-end gap-4">
+          <SectionField label="Contact image" value={content.contact.image ?? ''} onChange={(v) => setContent((p) => p && { ...p, contact: { ...p.contact, image: v || null } })} placeholder="Image URL or upload below" />
+          <ImageUpload folder="contact" mode="single" label="Upload image" onUpload={(url: string) => setContent((p) => p && { ...p, contact: { ...p.contact, image: url } })} />
+        </div>
         <SectionField label="Email" value={content.contact.email} onChange={(v) => setContent((p) => p && { ...p, contact: { ...p.contact, email: v } })} />
         <SectionField label="Phone" value={content.contact.phone} onChange={(v) => setContent((p) => p && { ...p, contact: { ...p.contact, phone: v } })} />
         <SectionField label="Address" value={content.contact.address} onChange={(v) => setContent((p) => p && { ...p, contact: { ...p.contact, address: v } })} />

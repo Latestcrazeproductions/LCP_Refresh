@@ -101,7 +101,7 @@ export default function Services() {
               {/* Background Image */}
               {service.image ? (
                 <Image
-                  src={getOptimizedImageUrl(service.image, { width: 1280, quality: 68 })}
+                  src={service.image}
                   alt={service.title}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
