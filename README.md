@@ -1,20 +1,55 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Latest Craze Productions
 
-# Run and deploy your AI Studio app
+Marketing and events website for Latest Craze Productions, built with Next.js 15.
 
-This contains everything you need to run your app locally.
+## Tech Stack
 
-View your app in AI Studio: https://ai.studio/apps/baf8dc49-ef0f-46b8-9b1c-64a6ddb83b6f
+- **Framework:** Next.js 15 (App Router)
+- **Styling:** Tailwind CSS
+- **Backend:** Supabase (content, forms, storage)
+- **Email:** Resend (contact form thank-you emails)
 
-## Run Locally
+## Local Setup
 
-**Prerequisites:**  Node.js
+1. Clone and install:
 
+   ```bash
+   npm install
+   ```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+2. Copy environment variables:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+3. Fill in `.env` with your Supabase and Resend credentials (see [docs](docs/) for details).
+
+4. Run the dev server:
+
+   ```bash
+   npm run dev
+   ```
+
+   Open [http://localhost:3000](http://localhost:3000).
+
+## Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start dev server on port 3000 |
+| `npm run build` | Production build |
+| `npm run start` | Run production server |
+| `npm run lint` | Run ESLint |
+| `npm run sync-contacts` | Sync LASSO contacts (see `docs/LASSO_CONTACTS_CRON.md`) |
+
+## Docs
+
+- [Deploy to Vercel](docs/DEPLOY_VERCEL.md)
+- [CMS Setup](docs/CMS_SETUP.md)
+- [Forms & Google Sheets](docs/FORMS_GOOGLE_SHEETS.md)
+- [LASSO Contacts](docs/LASSO_CONTACTS_CRON.md)
+
+## Deployment
+
+Deployed on [Vercel](https://vercel.com). Pushes to `main` trigger production deployments. See [docs/DEPLOY_VERCEL.md](docs/DEPLOY_VERCEL.md) for environment variables and setup.
