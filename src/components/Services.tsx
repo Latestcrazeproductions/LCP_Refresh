@@ -1,31 +1,70 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'motion/react';
-import { ArrowUpRight, ArrowRight, X, CheckCircle2 } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { ArrowUpRight } from 'lucide-react';
 import { useContent } from '@/context/ContentContext';
-import type { ServiceItem } from '@/lib/content';
 import { SERVICE_ICON_MAP } from '@/lib/service-icons';
+import { getOptimizedImageUrl } from '@/lib/image-utils';
+import type { ServiceItem } from '@/lib/content';
+
+const LazyServiceModalContent = dynamic(() => import('@/components/ServiceModalContent'));
+
+function canUseDesktopModal() {
+  return typeof window !== 'undefined' && window.matchMedia('(min-width: 768px)').matches;
+}
 
 export default function Services() {
+  const { services } = useContent();
+  const items = Array.isArray(services?.items) ? services.items : [];
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+  const [shouldLoadModal, setShouldLoadModal] = useState(false);
 
-  // Lock body scroll when modal is open
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(min-width: 768px)');
+    const update = () => setIsDesktop(mediaQuery.matches);
+    update();
+    mediaQuery.addEventListener('change', update);
+    return () => mediaQuery.removeEventListener('change', update);
+  }, []);
+
   useEffect(() => {
     if (selectedService) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     };
   }, [selectedService]);
 
-  const { services } = useContent();
-  const items = Array.isArray(services?.items) ? services.items : [];
+  useEffect(() => {
+    if (!selectedService) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setSelectedService(null);
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [selectedService]);
+
+  function handleCardActivate(
+    event: React.MouseEvent<HTMLAnchorElement> | React.KeyboardEvent<HTMLAnchorElement>,
+    service: ServiceItem
+  ) {
+    if (!isDesktop || !service.details || !canUseDesktopModal()) {
+      return;
+    }
+
+    event.preventDefault();
+    setShouldLoadModal(true);
+    setSelectedService(service);
+  }
 
   return (
     <section id="expertise" className="py-24 bg-[#050505] relative overflow-hidden">
@@ -46,21 +85,23 @@ export default function Services() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
           {items.map((service, index) => {
             const IconComponent = SERVICE_ICON_MAP[service.iconKey as keyof typeof SERVICE_ICON_MAP];
-            const serviceWithIcon = { ...service, icon: IconComponent ? <IconComponent className="w-6 h-6" /> : null };
             return (
-            <motion.div
+            <Link
               key={service.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group relative h-[400px] rounded-2xl overflow-hidden cursor-pointer"
-              onClick={() => service.details && setSelectedService(service)}
+              href={`/services/${service.id}`}
+              className="group relative h-[400px] rounded-2xl overflow-hidden block"
+              prefetch={index < 2}
+              onClick={(event) => handleCardActivate(event, service)}
+              onKeyDown={(event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                  handleCardActivate(event, service);
+                }
+              }}
             >
               {/* Background Image */}
               {service.image ? (
                 <Image
-                  src={service.image}
+                  src={getOptimizedImageUrl(service.image, { width: 1280, quality: 68 })}
                   alt={service.title}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -78,115 +119,28 @@ export default function Services() {
                 <div className="flex justify-between items-end">
                   <div>
                     <div className="mb-4 p-3 w-fit rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white">
-                      {serviceWithIcon.icon}
+                      {IconComponent ? <IconComponent className="w-6 h-6" /> : null}
                     </div>
                     <h3 className="text-3xl font-bold mb-2 text-white">{service.title}</h3>
                     <p className="text-gray-300 max-w-sm">{service.description}</p>
                   </div>
-                  {service.details && (
-                    <div className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                      <ArrowUpRight className="w-6 h-6" />
-                    </div>
-                  )}
+                  <div className="p-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                    <ArrowUpRight className="w-6 h-6" />
+                  </div>
                 </div>
               </div>
-            </motion.div>
+            </Link>
           );
           })}
         </div>
       </div>
 
-      {/* Modal */}
-      <AnimatePresence>
-        {selectedService && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6">
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="absolute inset-0 bg-black/90 backdrop-blur-md"
-              onClick={() => setSelectedService(null)}
-            />
-            <motion.div 
-              layoutId={`card-${selectedService.id}`}
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative bg-[#0A0A0A] border border-white/10 w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl z-50 flex flex-col scrollbar-hide"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="relative h-48 md:h-80 shrink-0">
-                {selectedService.image ? (
-                  <Image
-                    src={selectedService.image}
-                    alt={selectedService.title}
-                    fill
-                    className="object-cover"
-                  />
-                ) : (
-                  <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800" />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0A0A0A] to-transparent" />
-                <button 
-                  onClick={() => setSelectedService(null)}
-                  className="absolute top-4 right-4 p-2 bg-black/50 backdrop-blur-md rounded-full text-white hover:bg-white hover:text-black transition-colors z-10"
-                >
-                  <X className="w-6 h-6" />
-                </button>
-              </div>
-              
-              <div className="p-6 md:p-10 -mt-12 relative">
-                <div className="mb-6 p-3 w-fit rounded-xl bg-blue-600 text-white shadow-lg shadow-blue-900/20 relative z-10">
-                  {(() => {
-                    const Icon = SERVICE_ICON_MAP[selectedService.iconKey as keyof typeof SERVICE_ICON_MAP];
-                    return Icon ? <Icon className="w-6 h-6" /> : null;
-                  })()}
-                </div>
-                
-                <h3 className="text-3xl md:text-4xl font-bold mb-4 text-white">{selectedService.title}</h3>
-                
-                {selectedService.details && (
-                  <div className="space-y-8">
-                    <div>
-                      <h4 className="text-xl font-semibold text-blue-400 mb-2">{selectedService.details.headline}</h4>
-                      <p className="text-gray-300 leading-relaxed text-lg">{selectedService.details.text}</p>
-                    </div>
-                    
-                    <div className="bg-white/5 rounded-2xl p-6 border border-white/5">
-                      <h5 className="text-sm uppercase tracking-widest text-gray-500 mb-4">Key Specifications</h5>
-                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {selectedService.details.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start gap-3 text-gray-300">
-                            <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0 mt-0.5" />
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                )}
-
-                <div className="mt-8 pt-8 border-t border-white/10 flex flex-wrap justify-end gap-3">
-                  <Link
-                    href={`/services/${selectedService.id}`}
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-white text-black font-bold rounded-lg hover:bg-gray-200 transition-colors"
-                    onClick={() => setSelectedService(null)}
-                  >
-                    See more details
-                    <ArrowRight className="w-5 h-5" />
-                  </Link>
-                  <button 
-                    onClick={() => setSelectedService(null)}
-                    className="px-6 py-3 bg-white/10 text-white font-bold rounded-lg hover:bg-white/20 border border-white/10 transition-colors"
-                  >
-                    Close
-                  </button>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
+      {shouldLoadModal ? (
+        <LazyServiceModalContent
+          service={selectedService}
+          onClose={() => setSelectedService(null)}
+        />
+      ) : null}
     </section>
   );
 }

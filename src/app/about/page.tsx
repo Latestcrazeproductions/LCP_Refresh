@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { getSiteContent } from '@/lib/content';
 import { ContentProvider } from '@/context/ContentContext';
 import Navbar from '@/components/Navbar';
-import Contact from '@/components/Contact';
+import ContactCta from '@/components/ContactCta';
 import Footer from '@/components/Footer';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://latestcrazeproductions.com';
@@ -67,7 +67,7 @@ export default async function AboutPage() {
           </ul>
         </section>
 
-        <Contact />
+        <ContactCta content={content} />
         <Footer />
       </main>
     </ContentProvider>

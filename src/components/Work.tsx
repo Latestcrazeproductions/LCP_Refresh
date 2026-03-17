@@ -1,7 +1,8 @@
 'use client';
 
-import { motion } from 'motion/react';
+import Image from 'next/image';
 import { useContent } from '@/context/ContentContext';
+import { getOptimizedImageUrl } from '@/lib/image-utils';
 
 export default function Work() {
   const { work } = useContent();
@@ -19,25 +20,18 @@ export default function Work() {
         {/* White band — snug, scroll marquee inside */}
         <div className="w-full overflow-hidden rounded-none">
           <div className="bg-white py-4 md:py-5 overflow-hidden">
-            <motion.div
-              className="flex gap-12 md:gap-16 items-center whitespace-nowrap"
-              animate={{ x: '-50%' }}
-              transition={{
-                repeat: Infinity,
-                duration: 45,
-                ease: 'linear',
-              }}
-            >
+            <div className="lcp-marquee flex gap-12 md:gap-16 items-center whitespace-nowrap">
               {duplicated.map((client, index) =>
                 client.type === 'logo' ? (
                   <div
                     key={`${index}-${client.src}`}
                     className="shrink-0 h-10 w-20 md:h-12 md:w-24 flex items-center justify-center"
                   >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={client.src}
+                    <Image
+                      src={getOptimizedImageUrl(client.src, { width: 256, quality: 60 })}
                       alt={client.alt}
+                      width={96}
+                      height={48}
                       className="h-10 w-auto max-w-[80px] md:h-12 md:max-w-[96px] object-contain object-center opacity-80"
                       loading="lazy"
                     />
@@ -51,7 +45,7 @@ export default function Work() {
                   </span>
                 )
               )}
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

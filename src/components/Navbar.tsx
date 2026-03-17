@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import { motion, useScroll } from 'motion/react';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useContent } from '@/context/ContentContext';
@@ -16,23 +15,20 @@ export default function Navbar() {
     logoHeight: 64,
   };
   const [isOpen, setIsOpen] = useState(false);
-  const { scrollY } = useScroll();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    return scrollY.on("change", (latest) => {
-      setIsScrolled(latest > 50);
-    });
-  }, [scrollY]);
+    const onScroll = () => setIsScrolled(window.scrollY > 50);
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
-  const navBackground = isScrolled ? "bg-black/80 backdrop-blur-md border-b border-white/10" : "bg-transparent";
+  const navBackground = isScrolled ? 'bg-black/80 backdrop-blur-md border-b border-white/10' : 'bg-transparent';
 
   return (
-    <motion.nav 
+    <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBackground}`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
         <a href="/" className="flex items-center gap-1">
@@ -85,10 +81,8 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <motion.div
+        <div
           className="md:hidden absolute top-14 left-0 w-full bg-black border-b border-white/10 p-4 flex flex-col gap-4"
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
         >
           {[
             { label: 'Services', href: '/services' },
@@ -108,8 +102,8 @@ export default function Navbar() {
               {item.label}
             </a>
           ))}
-        </motion.div>
+        </div>
       )}
-    </motion.nav>
+    </nav>
   );
 }

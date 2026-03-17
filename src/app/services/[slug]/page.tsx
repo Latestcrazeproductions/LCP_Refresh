@@ -6,8 +6,9 @@ import { CheckCircle2, ArrowUpRight } from 'lucide-react';
 import { getSiteContent } from '@/lib/content';
 import { ContentProvider } from '@/context/ContentContext';
 import { getServiceIcon } from '@/lib/service-icons';
+import { getOptimizedImageUrl } from '@/lib/image-utils';
 import Navbar from '@/components/Navbar';
-import Contact from '@/components/Contact';
+import ContactCta from '@/components/ContactCta';
 import Footer from '@/components/Footer';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://latestcrazeproductions.com';
@@ -91,7 +92,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             <div className="relative h-[45vh] min-h-[320px] max-h-[500px] w-full">
               {service.image ? (
                 <Image
-                  src={service.image}
+                  src={getOptimizedImageUrl(service.image, { width: 1600, quality: 68 })}
                   alt={service.title}
                   fill
                   className="object-cover"
@@ -209,7 +210,7 @@ export default async function ServiceDetailPage({ params }: Props) {
                       >
                         {s.image ? (
                           <Image
-                            src={s.image}
+                            src={getOptimizedImageUrl(s.image, { width: 1200, quality: 68 })}
                             alt={s.title}
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -250,7 +251,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             </ul>
           </section>
 
-          <Contact />
+          <ContactCta content={content} />
           <Footer />
         </main>
       </ContentProvider>

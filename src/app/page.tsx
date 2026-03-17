@@ -7,7 +7,7 @@ import Services from '@/components/Services';
 import EventTypes from '@/components/EventTypes';
 import Work from '@/components/Work';
 import FAQ from '@/components/FAQ';
-import Contact from '@/components/Contact';
+import ContactCta from '@/components/ContactCta';
 import Footer from '@/components/Footer';
 import {
   buildOrganizationSchema,
@@ -100,7 +100,7 @@ export default async function HomePage() {
               <li><Link href="/contact" className="text-blue-400 hover:text-blue-300 underline">Contact</Link></li>
             </ul>
           </section>
-          <Contact />
+          <ContactCta content={content} />
           <Footer />
         </main>
       </ContentProvider>
