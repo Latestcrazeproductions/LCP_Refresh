@@ -4,8 +4,6 @@ import { createClient } from '@/lib/supabase/server';
 import { getSiteContent } from '@/lib/content';
 import { buildThankYouEmailHtml } from '@/lib/thank-you-email';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -58,6 +56,7 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: true });
     }
 
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const content = await getSiteContent();
     const html = buildThankYouEmailHtml(content, String(name).trim().split(' ')[0] || 'there');
     const fromEmail =
