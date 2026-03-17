@@ -69,7 +69,7 @@ Create a user to sign in to the CMS:
 3. Enter email and password
 4. Or enable **Email** auth and use **Sign up** on the login page (you’d need to add a sign-up flow)
 
-For now, create the user manually in the dashboard.
+For now, create the user manually in the dashboard. To invite users by email with a password setup flow and redirect to the login page, see [INVITE_SETUP.md](./INVITE_SETUP.md).
 
 ### 5. Access the CMS
 
