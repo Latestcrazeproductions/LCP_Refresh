@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Inter, Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import DeferredCookieConsent from '@/components/DeferredCookieConsent';
+import AuthHashHandler from '@/components/AuthHashHandler';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -97,6 +98,7 @@ export default function RootLayout({
         }}
       >
         {children}
+        <AuthHashHandler />
         <DeferredCookieConsent />
       </body>
     </html>
