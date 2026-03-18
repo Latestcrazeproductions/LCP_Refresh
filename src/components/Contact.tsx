@@ -46,6 +46,7 @@ type IntakeFormData = {
   company: string;
   email: string;
   phone: string;
+  venue: string;
   eventLocation: string;
   eventType: string;
   eventDate: string;
@@ -60,6 +61,7 @@ const initialFormState: IntakeFormData = {
   company: '',
   email: '',
   phone: '',
+  venue: '',
   eventLocation: '',
   eventType: '',
   eventDate: '',
@@ -91,6 +93,7 @@ export default function Contact() {
           company: formData.company,
           email: formData.email,
           phone: formData.phone,
+          venue: formData.venue,
           eventLocation: formData.eventLocation,
           eventType: formData.eventType,
           eventDate: formData.eventDate,
@@ -173,7 +176,7 @@ export default function Contact() {
               {status === 'success' && (
                 <div className="flex items-center gap-2 p-4 rounded-lg bg-green-500/10 text-green-400 border border-green-500/20">
                   <CheckCircle2 className="w-5 h-5 shrink-0" />
-                  <p>Thank you! We&apos;ve received your message and sent a confirmation to your email.</p>
+                  <p>Thank you! We&apos;ve received your message.</p>
                 </div>
               )}
               {status === 'error' && (
@@ -233,16 +236,29 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <label htmlFor="contact-location" className={labelClass}>Event Location</label>
-                <input
-                  id="contact-location"
-                  type="text"
-                  value={formData.eventLocation}
-                  onChange={(e) => setFormData((p) => ({ ...p, eventLocation: e.target.value }))}
-                  className={inputClass}
-                  placeholder="City, state or venue name"
-                />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="contact-venue" className={labelClass}>Venue</label>
+                  <input
+                    id="contact-venue"
+                    type="text"
+                    value={formData.venue}
+                    onChange={(e) => setFormData((p) => ({ ...p, venue: e.target.value }))}
+                    className={inputClass}
+                    placeholder="Hotel, Convention Center, etc."
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="contact-location" className={labelClass}>City / State</label>
+                  <input
+                    id="contact-location"
+                    type="text"
+                    value={formData.eventLocation}
+                    onChange={(e) => setFormData((p) => ({ ...p, eventLocation: e.target.value }))}
+                    className={inputClass}
+                    placeholder="Phoenix, AZ"
+                  />
+                </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

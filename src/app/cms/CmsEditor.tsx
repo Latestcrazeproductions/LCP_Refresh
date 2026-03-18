@@ -17,7 +17,8 @@ import {
   Plus,
   CalendarDays,
   Edit2,
-  HelpCircle
+  HelpCircle,
+  Inbox
 } from 'lucide-react';
 import {
   DndContext,
@@ -41,6 +42,7 @@ import { saveContent } from './actions';
 import { ImageUpload } from './ImageUpload';
 import { ServiceItemEditor } from './ServiceItemEditor';
 import { EventTypeItemEditor } from './EventTypeItemEditor';
+import { SubmissionsViewer } from './SubmissionsViewer';
 import type { SiteContent, EditableSiteContent } from '@/lib/content';
 
 async function fetchContent(): Promise<SiteContent> {
@@ -145,7 +147,7 @@ function SortableCard({
 // MAIN EDITOR COMPONENT
 // ----------------------------------------------------------------------
 
-type TabKey = 'brand' | 'hero' | 'featuredVideo' | 'work' | 'services' | 'eventTypes' | 'faq' | 'contact';
+type TabKey = 'brand' | 'hero' | 'featuredVideo' | 'work' | 'services' | 'eventTypes' | 'faq' | 'contact' | 'submissions';
 
 const TABS: { id: TabKey; label: string; icon: React.ElementType }[] = [
   { id: 'brand', label: 'Brand', icon: Building2 },
@@ -156,6 +158,7 @@ const TABS: { id: TabKey; label: string; icon: React.ElementType }[] = [
   { id: 'eventTypes', label: 'Event Types', icon: CalendarDays },
   { id: 'faq', label: 'FAQ', icon: HelpCircle },
   { id: 'contact', label: 'Contact & Footer', icon: Mail },
+  { id: 'submissions', label: 'Form Submissions', icon: Inbox },
 ];
 
 export default function CmsEditor() {
@@ -542,6 +545,8 @@ export default function CmsEditor() {
             </div>
           </div>
         );
+      case 'submissions':
+        return <SubmissionsViewer />;
     }
   };
 
@@ -603,14 +608,16 @@ export default function CmsEditor() {
             </h2>
           </div>
           
-          <button
-            onClick={() => handleSave(activeTab, content[activeTab])}
-            disabled={saving === activeTab}
-            className="flex items-center gap-2 px-5 py-2.5 bg-green-600 hover:bg-green-700 disabled:bg-gray-700 disabled:text-gray-500 text-white font-medium rounded-lg transition-colors"
-          >
-            {saving === activeTab ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-            {saving === activeTab ? 'Publishing...' : 'Publish Changes'}
-          </button>
+          {activeTab !== 'submissions' && (
+            <button
+              onClick={() => handleSave(activeTab, content[activeTab])}
+              disabled={saving === activeTab}
+              className="flex items-center gap-2 px-5 py-2.5 bg-green-600 hover:bg-green-700 disabled:bg-gray-700 disabled:text-gray-500 text-white font-medium rounded-lg transition-colors"
+            >
+              {saving === activeTab ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
+              {saving === activeTab ? 'Publishing...' : 'Publish Changes'}
+            </button>
+          )}
         </header>
 
         {/* Scrollable Content */}
