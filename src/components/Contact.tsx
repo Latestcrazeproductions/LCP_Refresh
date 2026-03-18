@@ -5,6 +5,9 @@ import Image from 'next/image';
 import { ArrowRight, Mail, Phone, MapPin, Loader2, CheckCircle2 } from 'lucide-react';
 import { useContent } from '@/context/ContentContext';
 import { getOptimizedImageUrl } from '@/lib/image-utils';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { format } from 'date-fns';
 
 const CONTACT_IMAGE_FALLBACK =
   'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop';
@@ -79,6 +82,20 @@ export default function Contact() {
   const [formData, setFormData] = useState<IntakeFormData>(initialFormState);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
+  const [startDate, endDate] = dateRange;
+
+  const handleDateChange = (update: [Date | null, Date | null]) => {
+    setDateRange(update);
+    const [start, end] = update;
+    if (start && end) {
+      setFormData(p => ({ ...p, eventDate: `${format(start, 'MMM d, yyyy')} - ${format(end, 'MMM d, yyyy')}` }));
+    } else if (start) {
+      setFormData(p => ({ ...p, eventDate: format(start, 'MMM d, yyyy') }));
+    } else {
+      setFormData(p => ({ ...p, eventDate: '' }));
+    }
+  };
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -277,14 +294,17 @@ export default function Contact() {
                   </select>
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="contact-event-date" className={labelClass}>Event Date</label>
-                  <input
+                  <label htmlFor="contact-event-date" className={labelClass}>Event Date Range</label>
+                  <DatePicker
                     id="contact-event-date"
-                    type="text"
-                    value={formData.eventDate}
-                    onChange={(e) => setFormData((p) => ({ ...p, eventDate: e.target.value }))}
+                    selectsRange={true}
+                    startDate={startDate}
+                    endDate={endDate}
+                    onChange={handleDateChange}
+                    dateFormat="MMM d, yyyy"
                     className={inputClass}
-                    placeholder="e.g. March 2026 or TBD"
+                    placeholderText="Select date(s)"
+                    isClearable={true}
                   />
                 </div>
               </div>
