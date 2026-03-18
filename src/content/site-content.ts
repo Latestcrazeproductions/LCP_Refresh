@@ -382,6 +382,41 @@ export const siteContent = {
     }>,
   },
 
+  /** FAQ section */
+  faq: {
+    sectionTitle: 'Frequently Asked Questions',
+    items: [
+      {
+        question: 'What types of events does Latest Craze Productions handle?',
+        answer: 'We specialize in corporate keynotes, product launches, galas and awards ceremonies, conferences, and brand activations. Our services include LED video walls, intelligent lighting, stage design, precision audio, scenic design, and projection mapping.',
+      },
+      {
+        question: 'Where is Latest Craze Productions based?',
+        answer: 'We are based in Phoenix, Arizona, and serve corporate events across North America. Our team travels to venues nationwide for high-profile productions.',
+      },
+      {
+        question: 'What is the typical lead time for an event?',
+        answer: 'We recommend 4–8 weeks for standard corporate events. Large-scale productions with custom fabrication may require 8–12 weeks. Contact us as soon as your event is confirmed to secure availability.',
+      },
+      {
+        question: 'How much does an AV setup cost for my event?',
+        answer: 'We work closely with you to understand your budget and design an AV solution that fits within your means. Every event is different, so pricing depends on factors like size, scope, and technical requirements. With our extensive inventory and flexible options, we’re able to tailor the right setup to maximize impact without overspending.',
+      },
+      {
+        question: 'Do you provide LED video wall rentals?',
+        answer: 'Yes. We offer ultra-wide LED walls (40ft+), fine pixel pitch displays for 4K/8K clarity, and custom configurations including curved and corner setups. All displays include full redundancy for mission-critical events.',
+      },
+      {
+        question: 'How does Latest Craze Productions handle lighting design?',
+        answer: 'Our intelligent lighting systems include moving heads, pixel-mapped LED bars, wireless uplighting, timecode sync with video and audio, and atmospheric effects. We design lighting that creates emotion and guides audience attention.',
+      },
+      {
+        question: 'What audio equipment do you use?',
+        answer: 'We deploy premium line-array systems from L-Acoustics and d&b, digital mixing consoles with redundancy, RF coordination for wireless mics, and immersive surround configurations. Every system is tuned for crystal-clear intelligibility.',
+      }
+    ]
+  },
+
   /** Contact section */
   contact: {
     headline: "LET'S MAKE YOU\nTHE HERO.",

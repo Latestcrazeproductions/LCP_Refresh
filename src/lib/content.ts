@@ -2,7 +2,7 @@ import { unstable_cache } from 'next/cache';
 import { createPublicClient } from '@/lib/supabase/server';
 import { siteContent } from '@/content/site-content';
 
-export type SiteContentKey = 'brand' | 'hero' | 'featuredVideo' | 'work' | 'services' | 'eventTypes' | 'contact';
+export type SiteContentKey = 'brand' | 'hero' | 'featuredVideo' | 'work' | 'services' | 'eventTypes' | 'faq' | 'contact';
 
 export type ServiceItem = (typeof siteContent.services.items)[number] & { gallery?: string[] };
 export type EventTypeItem = (typeof siteContent.eventTypes.items)[number] & { gallery?: string[] };
@@ -50,6 +50,10 @@ export type EditableSiteContent = {
       gallery?: string[];
       details?: { headline: string; text: string; features: string[] };
     }>;
+  };
+  faq: {
+    sectionTitle: string;
+    items: Array<{ question: string; answer: string }>;
   };
   contact: {
     headline: string;
@@ -168,7 +172,15 @@ export function mergeContent(
       : siteContent.contact.footerLinks,
   };
 
-  return { brand, hero, featuredVideo, work, services, eventTypes, contact };
+  const faq: SiteContent['faq'] = {
+    ...siteContent.faq,
+    ...(fromDb.faq as Partial<SiteContent['faq']>),
+    items: Array.isArray((fromDb.faq as SiteContent['faq'])?.items)
+      ? ((fromDb.faq as SiteContent['faq']).items as SiteContent['faq']['items'])
+      : siteContent.faq.items,
+  };
+
+  return { brand, hero, featuredVideo, work, services, eventTypes, faq, contact };
 }
 
 /** Fetch site content from Supabase, falling back to static site-content.ts */
