@@ -1,6 +1,7 @@
 'use client';
 
-import { Trash2, Plus, X, ArrowLeft } from 'lucide-react';
+import { useState } from 'react';
+import { ChevronDown, ChevronRight, Trash2 } from 'lucide-react';
 import { ImageUpload } from './ImageUpload';
 import type { EventTypeItem } from '@/lib/content';
 
@@ -11,7 +12,7 @@ type EventTypeItemEditorProps = {
   index: number;
   onChange: (eventType: EditableEventTypeItem) => void;
   onDelete: () => void;
-  onBack: () => void;
+  defaultExpanded?: boolean;
 };
 
 export function EventTypeItemEditor({
@@ -19,8 +20,10 @@ export function EventTypeItemEditor({
   index,
   onChange,
   onDelete,
-  onBack,
+  defaultExpanded,
 }: EventTypeItemEditorProps) {
+  const [expanded, setExpanded] = useState(defaultExpanded ?? false);
+
   const updateField = <K extends keyof EditableEventTypeItem>(
     field: K,
     value: EditableEventTypeItem[K]
@@ -28,70 +31,46 @@ export function EventTypeItemEditor({
     onChange({ ...eventType, [field]: value });
   };
 
-  const updateDetailsField = <K extends keyof NonNullable<EditableEventTypeItem['details']>>(
-    field: K,
-    value: NonNullable<EditableEventTypeItem['details']>[K]
-  ) => {
-    onChange({
-      ...eventType,
-      details: {
-        ...(eventType.details || { headline: '', text: '', features: [] }),
-        [field]: value,
-      },
-    });
-  };
-
-  const addFeature = () => {
-    const features = eventType.details?.features || [];
-    updateDetailsField('features', [...features, '']);
-  };
-
-  const updateFeature = (idx: number, value: string) => {
-    const features = [...(eventType.details?.features || [])];
-    features[idx] = value;
-    updateDetailsField('features', features);
-  };
-
-  const removeFeature = (idx: number) => {
-    const features = [...(eventType.details?.features || [])];
-    features.splice(idx, 1);
-    updateDetailsField('features', features);
-  };
-
   const inputClass =
     'w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500';
-  const textareaClass = `${inputClass} min-h-[120px] resize-y`;
+  const textareaClass = `${inputClass} min-h-[80px] resize-y`;
 
   return (
-    <div className="space-y-8 pb-12">
-      {/* Header Actions */}
-      <div className="flex items-center justify-between border-b border-white/10 pb-4">
+    <div className="border border-white/10 rounded-lg overflow-hidden bg-white/5">
+      <div className="flex items-center justify-between px-4 py-3 hover:bg-white/10 transition-colors">
         <button
-          onClick={onBack}
-          className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+          onClick={() => setExpanded(!expanded)}
+          className="flex-1 flex items-center gap-3 text-left"
         >
-          <ArrowLeft className="w-4 h-4" />
-          Back to Events
+          {expanded ? (
+            <ChevronDown className="w-4 h-4 text-gray-400" />
+          ) : (
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+          )}
+          <span className="font-display font-medium text-white">
+            {eventType.title || `Event Type ${index + 1}`}
+          </span>
+          {(eventType.gallery?.length ?? 0) > 0 ? (
+            <span className="text-xs text-green-400 ml-2">• Gallery: {eventType.gallery?.length} image{eventType.gallery?.length !== 1 ? 's' : ''}</span>
+          ) : (
+            <span className="text-xs text-amber-500/80 ml-2">• Gallery: add images</span>
+          )}
         </button>
         <button
           onClick={() => {
-            if (confirm('Delete this event type? This action cannot be undone.')) {
+            if (confirm('Delete this event type?')) {
               onDelete();
-              onBack();
             }
           }}
-          className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-red-400 hover:text-white hover:bg-red-500/20 rounded-lg transition-colors"
+          className="p-1.5 text-red-400 hover:text-red-300 hover:bg-red-500/20 rounded transition-colors ml-2 shrink-0"
+          title="Delete event type"
         >
           <Trash2 className="w-4 h-4" />
-          Delete Event Type
         </button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Core Info */}
-        <div className="space-y-6 bg-white/5 border border-white/10 rounded-xl p-6">
-          <h2 className="text-lg font-display font-semibold text-white mb-4">Event Details</h2>
-          
+      {expanded && (
+        <div className="p-4 space-y-4 border-t border-white/10">
           <div>
             <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">
               ID
@@ -103,7 +82,9 @@ export function EventTypeItemEditor({
               className={inputClass}
               placeholder="event-type-id"
             />
-            <p className="text-gray-500 text-xs mt-1">Unique identifier (e.g., "corporate-keynotes")</p>
+            <p className="text-gray-500 text-xs mt-1">
+              Unique identifier (e.g., &quot;corporate-keynotes&quot;)
+            </p>
           </div>
 
           <div>
@@ -128,18 +109,13 @@ export function EventTypeItemEditor({
               onChange={(e) => updateField('description', e.target.value)}
               className={textareaClass}
               placeholder="Brief description shown on the card"
-              rows={4}
+              rows={3}
             />
           </div>
-        </div>
-
-        {/* Media & Gallery */}
-        <div className="space-y-6 bg-white/5 border border-white/10 rounded-xl p-6">
-          <h2 className="text-lg font-display font-semibold text-white mb-4">Media</h2>
 
           <div>
             <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">
-              Primary Image URL
+              Image URL
             </label>
             <div className="flex gap-2">
               <input
@@ -156,17 +132,14 @@ export function EventTypeItemEditor({
                 onUpload={(url) => updateField('image', url)}
               />
             </div>
-            {eventType.image && (
-              <img src={eventType.image} alt="Preview" className="mt-4 w-full h-48 object-cover rounded-lg border border-white/10" />
-            )}
           </div>
 
-          <div className="pt-4 border-t border-white/10">
+          <div>
             <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">
               Gallery (up to 3 images)
             </label>
-            <p className="text-gray-500 text-xs mb-4">Shown in a 3-column gallery at the bottom of the page.</p>
-            <div className="mb-4">
+            <p className="text-gray-500 text-xs mb-2">Upload images to showcase this event type. Shown in a 3-column gallery at the bottom of the page.</p>
+            <div className="flex flex-wrap items-center gap-2 mb-2">
               <ImageUpload
                 folder="event-types"
                 mode="bulk"
@@ -179,19 +152,19 @@ export function EventTypeItemEditor({
               />
             </div>
             {(eventType.gallery || []).length > 0 && (
-              <div className="grid grid-cols-3 gap-2">
+              <div className="flex flex-wrap gap-2">
                 {(eventType.gallery || []).map((url, idx) => (
-                  <div key={idx} className="relative group aspect-square">
-                    <img src={url} alt="" className="w-full h-full object-cover rounded-lg border border-white/10" />
+                  <div key={idx} className="relative group">
+                    <img src={url} alt="" className="w-16 h-16 object-cover rounded border border-white/10" />
                     <button
                       type="button"
                       onClick={() => {
                         const next = (eventType.gallery || []).filter((_, i) => i !== idx);
                         updateField('gallery', next.length ? next : undefined);
                       }}
-                      className="absolute top-2 right-2 p-1.5 bg-red-600/90 hover:bg-red-500 text-white rounded opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="absolute -top-1 -right-1 p-1 bg-red-600 hover:bg-red-500 text-white rounded text-xs"
                     >
-                      <Trash2 className="w-4 h-4" />
+                      <Trash2 className="w-3 h-3" />
                     </button>
                   </div>
                 ))}
@@ -199,86 +172,7 @@ export function EventTypeItemEditor({
             )}
           </div>
         </div>
-
-        {/* Modal Details */}
-        <div className="lg:col-span-2 bg-white/5 border border-white/10 rounded-xl p-6">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-lg font-display font-semibold text-white">Modal Details</h2>
-            <p className="text-sm text-gray-500">Expanded information shown when clicking an event type.</p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">
-                  Headline
-                </label>
-                <input
-                  type="text"
-                  value={eventType.details?.headline || ''}
-                  onChange={(e) => updateDetailsField('headline', e.target.value)}
-                  className={inputClass}
-                  placeholder="Modal headline"
-                />
-              </div>
-
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">
-                  Description Text
-                </label>
-                <textarea
-                  value={eventType.details?.text || ''}
-                  onChange={(e) => updateDetailsField('text', e.target.value)}
-                  className={textareaClass}
-                  placeholder="Detailed description shown in modal"
-                  rows={6}
-                />
-              </div>
-            </div>
-
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <label className="block text-xs uppercase tracking-widest text-gray-500">
-                  Key Features
-                </label>
-                <button
-                  onClick={addFeature}
-                  className="flex items-center gap-1 px-3 py-1.5 text-xs font-medium bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
-                >
-                  <Plus className="w-3 h-3" />
-                  Add Feature
-                </button>
-              </div>
-              
-              <div className="space-y-3">
-                {(eventType.details?.features || []).map((feature, idx) => (
-                  <div key={idx} className="flex gap-2">
-                    <input
-                      type="text"
-                      value={feature}
-                      onChange={(e) => updateFeature(idx, e.target.value)}
-                      className={inputClass}
-                      placeholder={`Feature ${idx + 1}`}
-                    />
-                    <button
-                      onClick={() => removeFeature(idx)}
-                      className="p-3 text-red-400 hover:text-red-300 hover:bg-red-500/20 rounded-lg transition-colors shrink-0"
-                      title="Remove feature"
-                    >
-                      <X className="w-4 h-4" />
-                    </button>
-                  </div>
-                ))}
-                {(!eventType.details?.features || eventType.details.features.length === 0) && (
-                  <div className="py-8 text-center text-sm text-gray-500 border border-dashed border-white/20 rounded-lg">
-                    No features added. Click "Add Feature" to create a list.
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      )}
     </div>
   );
 }

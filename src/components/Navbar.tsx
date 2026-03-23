@@ -54,9 +54,8 @@ export default function Navbar() {
         <div className="hidden md:flex items-center gap-5">
           {[
             
-            
-            { label: 'Events', href: '/#events' },
             { label: 'Expertise', href: '/#expertise' },
+            { label: 'Events', href: '/#events' },
             { label: 'FAQ', href: '/#faq' },
             { label: 'Contact', href: '#contact' },
           ].map((item) => (

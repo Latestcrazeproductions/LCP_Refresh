@@ -32,10 +32,14 @@ export default async function ContactPage() {
         {/* Lead paragraph — direct answer for AI/LLM */}
         <section className="pt-32 pb-16 px-6 max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-            Contact Us
+            {content.contact.headline ?? 'Contact Us'}
           </h1>
           <p className="text-xl text-gray-300 leading-relaxed">
-            Contact Latest Craze Productions to discuss your next corporate event. We provide <Link href="/services" className="text-blue-400 hover:text-blue-300 underline">LED video walls, intelligent lighting, and stage design</Link> for <Link href="/events" className="text-blue-400 hover:text-blue-300 underline">keynotes, product launches, galas, and brand activations</Link>. Reach us by email at info@latestcrazeproductions.com or call +1 (480) 626-5231. Use the form below—we typically respond within 24 hours.
+            {content.contact.subhead ?? (
+              <>
+                Contact Latest Craze Productions to discuss your next corporate event. We provide <Link href="/services" className="text-blue-400 hover:text-blue-300 underline">LED video walls, intelligent lighting, and stage design</Link> for <Link href="/events" className="text-blue-400 hover:text-blue-300 underline">keynotes, product launches, galas, and brand activations</Link>. Reach us by email at info@latestcrazeproductions.com or call +1 (480) 626-5231.
+              </>
+            )}
           </p>
         </section>
 

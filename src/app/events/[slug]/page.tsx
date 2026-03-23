@@ -186,7 +186,7 @@ export default async function EventTypePage({ params }: Props) {
           </section>
 
           {/* Gallery — 3 images */}
-          {eventType.gallery && eventType.gallery.length > 0 && (
+          {eventType.gallery && eventType.gallery.length > 0 && !['conferences', 'event-type-1773372334847', 'product-launches', 'galas-awards'].includes(slug) && (
             <ImageGallery images={eventType.gallery} alt={eventType.title} />
           )}
 

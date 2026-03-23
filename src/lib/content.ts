@@ -2,7 +2,15 @@ import { unstable_cache } from 'next/cache';
 import { createPublicClient } from '@/lib/supabase/server';
 import { siteContent } from '@/content/site-content';
 
-export type SiteContentKey = 'brand' | 'hero' | 'featuredVideo' | 'work' | 'services' | 'eventTypes' | 'faq' | 'contact';
+export type SiteContentKey =
+  | 'brand'
+  | 'hero'
+  | 'about'
+  | 'featuredVideo'
+  | 'work'
+  | 'services'
+  | 'eventTypes'
+  | 'contact';
 
 export type ServiceItem = (typeof siteContent.services.items)[number] & { gallery?: string[] };
 export type EventTypeItem = (typeof siteContent.eventTypes.items)[number] & { gallery?: string[] };
@@ -13,6 +21,11 @@ export type SiteContent = typeof siteContent;
 export type EditableSiteContent = {
   brand: { name: string; nameFull: string; logo: string | null; logoDark: string | null; logoHeight: number };
   hero: { eyebrow: string; headline: string; subhead: string; images: string[] };
+  about: {
+    headline: string;
+    lead: string;
+    sections: Array<{ title: string; body: string }>;
+  };
   featuredVideo: { youtubeUrl: string };
   work: {
     clientsLabel: string;
@@ -50,10 +63,6 @@ export type EditableSiteContent = {
       gallery?: string[];
       details?: { headline: string; text: string; features: string[] };
     }>;
-  };
-  faq: {
-    sectionTitle: string;
-    items: Array<{ question: string; answer: string }>;
   };
   contact: {
     headline: string;
@@ -96,6 +105,14 @@ export function mergeContent(
     images: Array.isArray((fromDb.hero as SiteContent['hero'])?.images)
       ? ((fromDb.hero as SiteContent['hero']).images as string[])
       : siteContent.hero.images,
+  };
+
+  const about: SiteContent['about'] = {
+    ...siteContent.about,
+    ...(fromDb.about as Partial<SiteContent['about']>),
+    sections: Array.isArray((fromDb.about as SiteContent['about'])?.sections)
+      ? ((fromDb.about as SiteContent['about'])?.sections as SiteContent['about']['sections'])
+      : siteContent.about.sections,
   };
 
   const featuredVideo: SiteContent['featuredVideo'] = {
@@ -172,15 +189,7 @@ export function mergeContent(
       : siteContent.contact.footerLinks,
   };
 
-  const faq: SiteContent['faq'] = {
-    ...siteContent.faq,
-    ...(fromDb.faq as Partial<SiteContent['faq']>),
-    items: Array.isArray((fromDb.faq as SiteContent['faq'])?.items)
-      ? ((fromDb.faq as SiteContent['faq']).items as SiteContent['faq']['items'])
-      : siteContent.faq.items,
-  };
-
-  return { brand, hero, featuredVideo, work, services, eventTypes, faq, contact };
+  return { brand, hero, about, featuredVideo, work, services, eventTypes, contact };
 }
 
 /** Fetch site content from Supabase, falling back to static site-content.ts */

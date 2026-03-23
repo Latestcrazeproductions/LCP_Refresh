@@ -72,10 +72,13 @@ export default function Services() {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-900/10 rounded-full blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-20 border-b border-white/10 pb-8">
+        <div className="mb-20 border-b border-white/10 pb-8 flex flex-col md:flex-row justify-between items-end gap-8">
           <div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4">{services?.sectionTitle ?? 'Technical Precision'}</h2>
             <p className="text-gray-400 max-w-md">{services?.sectionSubhead ?? 'Our toolkit for creating unforgettable experiences.'}</p>
+          </div>
+          <div className="text-right hidden md:block">
+             <span className="text-xs uppercase tracking-widest text-gray-600">Capabilities 01 — {String(items.length).padStart(2, '0')}</span>
           </div>
         </div>
 

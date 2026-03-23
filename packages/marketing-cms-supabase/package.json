@@ -1,0 +1,10 @@
+{
+  "name": "@marketing-cms/supabase",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "dependencies": {
+    "@marketing-cms/core": "0.1.0",
+    "@supabase/supabase-js": "^2.98.0"
+  }
+}

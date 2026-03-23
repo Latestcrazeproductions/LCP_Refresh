@@ -1,10 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { Trash2, Plus, X, ArrowLeft } from 'lucide-react';
+import { ChevronDown, ChevronRight, Trash2, Plus, X } from 'lucide-react';
 import { ImageUpload } from './ImageUpload';
 import type { ServiceItem } from '@/lib/content';
 
+/** Service item shape accepted by the editor (includes editable id) */
 type EditableServiceItem = {
   id: string;
   iconKey: string;
@@ -29,10 +30,13 @@ type ServiceItemEditorProps = {
   index: number;
   onChange: (service: EditableServiceItem) => void;
   onDelete: () => void;
-  onBack: () => void;
+  defaultExpanded?: boolean;
 };
 
-export function ServiceItemEditor({ service, index, onChange, onDelete, onBack }: ServiceItemEditorProps) {
+export function ServiceItemEditor({ service, index, onChange, onDelete, defaultExpanded }: ServiceItemEditorProps) {
+  const [expanded, setExpanded] = useState(defaultExpanded ?? false);
+  const [detailsExpanded, setDetailsExpanded] = useState(false);
+
   const updateField = <K extends keyof EditableServiceItem>(field: K, value: EditableServiceItem[K]) => {
     onChange({ ...service, [field]: value });
   };
@@ -69,38 +73,50 @@ export function ServiceItemEditor({ service, index, onChange, onDelete, onBack }
 
   const inputClass =
     'w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500';
-  const textareaClass = `${inputClass} min-h-[100px] resize-y`;
+  const textareaClass = `${inputClass} min-h-[80px] resize-y`;
 
   return (
-    <div className="space-y-8 pb-12">
-      {/* Header Actions */}
-      <div className="flex items-center justify-between border-b border-white/10 pb-4">
+    <div className="border border-white/10 rounded-lg overflow-hidden bg-white/5">
+      {/* Header */}
+      <div className="flex items-center justify-between px-4 py-3 hover:bg-white/10 transition-colors">
         <button
-          onClick={onBack}
-          className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+          onClick={() => setExpanded(!expanded)}
+          className="flex-1 flex items-center gap-3 text-left"
         >
-          <ArrowLeft className="w-4 h-4" />
-          Back to Services
+          {expanded ? (
+            <ChevronDown className="w-4 h-4 text-gray-400" />
+          ) : (
+            <ChevronRight className="w-4 h-4 text-gray-400" />
+          )}
+          <span className="font-display font-medium text-white">
+            {service.title || `Service ${index + 1}`}
+          </span>
+          {!service.details && (
+            <span className="text-xs text-gray-500">(No details)</span>
+          )}
+          {(service.gallery?.length ?? 0) > 0 ? (
+            <span className="text-xs text-green-400 ml-2">• Gallery: {(service.gallery ?? []).length} image{(service.gallery ?? []).length !== 1 ? 's' : ''}</span>
+          ) : (
+            <span className="text-xs text-amber-500/80 ml-2">• Gallery: add images</span>
+          )}
         </button>
         <button
           onClick={() => {
-            if (confirm('Delete this service? This action cannot be undone.')) {
+            if (confirm('Delete this service?')) {
               onDelete();
-              onBack();
             }
           }}
-          className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-red-400 hover:text-white hover:bg-red-500/20 rounded-lg transition-colors"
+          className="p-1.5 text-red-400 hover:text-red-300 hover:bg-red-500/20 rounded transition-colors ml-2 shrink-0"
+          title="Delete service"
         >
           <Trash2 className="w-4 h-4" />
-          Delete Service
         </button>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Core Info */}
-        <div className="space-y-6 bg-white/5 border border-white/10 rounded-xl p-6">
-          <h2 className="text-lg font-display font-semibold text-white mb-4">Core Information</h2>
-          
+      {/* Content */}
+      {expanded && (
+        <div className="p-4 space-y-4 border-t border-white/10">
+          {/* Basic Fields */}
           <div>
             <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">
               ID
@@ -113,19 +129,6 @@ export function ServiceItemEditor({ service, index, onChange, onDelete, onBack }
               placeholder="service-id"
             />
             <p className="text-gray-500 text-xs mt-1">Unique identifier (e.g., "led-walls")</p>
-          </div>
-
-          <div>
-            <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">
-              Title
-            </label>
-            <input
-              type="text"
-              value={service.title}
-              onChange={(e) => updateField('title', e.target.value)}
-              className={inputClass}
-              placeholder="Service Title"
-            />
           </div>
 
           <div>
@@ -147,6 +150,19 @@ export function ServiceItemEditor({ service, index, onChange, onDelete, onBack }
 
           <div>
             <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">
+              Title
+            </label>
+            <input
+              type="text"
+              value={service.title}
+              onChange={(e) => updateField('title', e.target.value)}
+              className={inputClass}
+              placeholder="Service Title"
+            />
+          </div>
+
+          <div>
+            <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">
               Description
             </label>
             <textarea
@@ -154,18 +170,13 @@ export function ServiceItemEditor({ service, index, onChange, onDelete, onBack }
               onChange={(e) => updateField('description', e.target.value)}
               className={textareaClass}
               placeholder="Brief description shown on the card"
-              rows={3}
+              rows={2}
             />
           </div>
-        </div>
-
-        {/* Media & Gallery */}
-        <div className="space-y-6 bg-white/5 border border-white/10 rounded-xl p-6">
-          <h2 className="text-lg font-display font-semibold text-white mb-4">Media</h2>
 
           <div>
             <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">
-              Primary Image URL
+              Image URL
             </label>
             <div className="flex gap-2">
               <input
@@ -182,17 +193,14 @@ export function ServiceItemEditor({ service, index, onChange, onDelete, onBack }
                 onUpload={(url) => updateField('image', url)}
               />
             </div>
-            {service.image && (
-              <img src={service.image} alt="Preview" className="mt-4 w-full h-48 object-cover rounded-lg border border-white/10" />
-            )}
           </div>
 
-          <div className="pt-4 border-t border-white/10">
+          <div>
             <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">
               Gallery (up to 3 images)
             </label>
-            <p className="text-gray-500 text-xs mb-4">Shown in a 3-column gallery at the bottom of the page.</p>
-            <div className="mb-4">
+            <p className="text-gray-500 text-xs mb-2">Upload images to showcase this service. Shown in a 3-column gallery at the bottom of the page.</p>
+            <div className="flex flex-wrap items-center gap-2 mb-2">
               <ImageUpload
                 folder="services"
                 mode="bulk"
@@ -205,106 +213,112 @@ export function ServiceItemEditor({ service, index, onChange, onDelete, onBack }
               />
             </div>
             {(service.gallery || []).length > 0 && (
-              <div className="grid grid-cols-3 gap-2">
+              <div className="flex flex-wrap gap-2">
                 {(service.gallery || []).map((url, idx) => (
-                  <div key={idx} className="relative group aspect-square">
-                    <img src={url} alt="" className="w-full h-full object-cover rounded-lg border border-white/10" />
+                  <div key={idx} className="relative group">
+                    <img src={url} alt="" className="w-16 h-16 object-cover rounded border border-white/10" />
                     <button
                       type="button"
                       onClick={() => {
                         const next = (service.gallery || []).filter((_, i) => i !== idx);
                         updateField('gallery', next.length ? next : undefined);
                       }}
-                      className="absolute top-2 right-2 p-1.5 bg-red-600/90 hover:bg-red-500 text-white rounded opacity-0 group-hover:opacity-100 transition-opacity"
+                      className="absolute -top-1 -right-1 p-1 bg-red-600 hover:bg-red-500 text-white rounded text-xs"
                     >
-                      <Trash2 className="w-4 h-4" />
+                      <Trash2 className="w-3 h-3" />
                     </button>
                   </div>
                 ))}
               </div>
             )}
           </div>
-        </div>
 
-        {/* Modal Details */}
-        <div className="lg:col-span-2 bg-white/5 border border-white/10 rounded-xl p-6">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-lg font-display font-semibold text-white">Modal Details</h2>
-            <p className="text-sm text-gray-500">Expanded information shown when clicking a service.</p>
-          </div>
+          {/* Details Section */}
+          <div className="border-t border-white/10 pt-4">
+            <button
+              onClick={() => setDetailsExpanded(!detailsExpanded)}
+              className="w-full flex items-center justify-between mb-2"
+            >
+              <label className="block text-xs uppercase tracking-widest text-gray-500">
+                Modal Details {service.details ? '(configured)' : '(optional)'}
+              </label>
+              {detailsExpanded ? (
+                <ChevronDown className="w-4 h-4 text-gray-400" />
+              ) : (
+                <ChevronRight className="w-4 h-4 text-gray-400" />
+              )}
+            </button>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <div className="space-y-6">
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">
-                  Headline
-                </label>
-                <input
-                  type="text"
-                  value={service.details?.headline || ''}
-                  onChange={(e) => updateDetailsField('headline', e.target.value)}
-                  className={inputClass}
-                  placeholder="Modal headline"
-                />
-              </div>
+            {detailsExpanded && (
+              <div className="space-y-4 mt-4">
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">
+                    Headline
+                  </label>
+                  <input
+                    type="text"
+                    value={service.details?.headline || ''}
+                    onChange={(e) => updateDetailsField('headline', e.target.value)}
+                    className={inputClass}
+                    placeholder="Modal headline"
+                  />
+                </div>
 
-              <div>
-                <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">
-                  Description Text
-                </label>
-                <textarea
-                  value={service.details?.text || ''}
-                  onChange={(e) => updateDetailsField('text', e.target.value)}
-                  className={textareaClass}
-                  placeholder="Detailed description shown in modal"
-                  rows={6}
-                />
-              </div>
-            </div>
+                <div>
+                  <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">
+                    Description Text
+                  </label>
+                  <textarea
+                    value={service.details?.text || ''}
+                    onChange={(e) => updateDetailsField('text', e.target.value)}
+                    className={textareaClass}
+                    placeholder="Detailed description shown in modal"
+                    rows={4}
+                  />
+                </div>
 
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <label className="block text-xs uppercase tracking-widest text-gray-500">
-                  Key Features
-                </label>
-                <button
-                  onClick={addFeature}
-                  className="flex items-center gap-1 px-3 py-1.5 text-xs font-medium bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
-                >
-                  <Plus className="w-3 h-3" />
-                  Add Feature
-                </button>
-              </div>
-              
-              <div className="space-y-3">
-                {(service.details?.features || []).map((feature, idx) => (
-                  <div key={idx} className="flex gap-2">
-                    <input
-                      type="text"
-                      value={feature}
-                      onChange={(e) => updateFeature(idx, e.target.value)}
-                      className={inputClass}
-                      placeholder={`Feature ${idx + 1}`}
-                    />
+                <div>
+                  <div className="flex items-center justify-between mb-2">
+                    <label className="block text-xs uppercase tracking-widest text-gray-500">
+                      Features
+                    </label>
                     <button
-                      onClick={() => removeFeature(idx)}
-                      className="p-3 text-red-400 hover:text-red-300 hover:bg-red-500/20 rounded-lg transition-colors shrink-0"
-                      title="Remove feature"
+                      onClick={addFeature}
+                      className="flex items-center gap-1 px-2 py-1 text-xs bg-blue-600 hover:bg-blue-700 text-white rounded transition-colors"
                     >
-                      <X className="w-4 h-4" />
+                      <Plus className="w-3 h-3" />
+                      Add Feature
                     </button>
                   </div>
-                ))}
-                {(!service.details?.features || service.details.features.length === 0) && (
-                  <div className="py-8 text-center text-sm text-gray-500 border border-dashed border-white/20 rounded-lg">
-                    No features added. Click "Add Feature" to create a list.
+                  <div className="space-y-2">
+                    {(service.details?.features || []).map((feature, idx) => (
+                      <div key={idx} className="flex gap-2">
+                        <input
+                          type="text"
+                          value={feature}
+                          onChange={(e) => updateFeature(idx, e.target.value)}
+                          className={inputClass}
+                          placeholder={`Feature ${idx + 1}`}
+                        />
+                        <button
+                          onClick={() => removeFeature(idx)}
+                          className="p-2 text-red-400 hover:text-red-300 hover:bg-red-500/20 rounded transition-colors shrink-0"
+                          title="Remove feature"
+                        >
+                          <X className="w-4 h-4" />
+                        </button>
+                      </div>
+                    ))}
+                    {(!service.details?.features || service.details.features.length === 0) && (
+                      <p className="text-gray-500 text-xs">No features yet. Click "Add Feature" to add one.</p>
+                    )}
                   </div>
-                )}
+                </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }

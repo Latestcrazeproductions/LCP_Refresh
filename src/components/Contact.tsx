@@ -5,9 +5,6 @@ import Image from 'next/image';
 import { ArrowRight, Mail, Phone, MapPin, Loader2, CheckCircle2 } from 'lucide-react';
 import { useContent } from '@/context/ContentContext';
 import { getOptimizedImageUrl } from '@/lib/image-utils';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import { format } from 'date-fns';
 
 const CONTACT_IMAGE_FALLBACK =
   'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop';
@@ -49,7 +46,6 @@ type IntakeFormData = {
   company: string;
   email: string;
   phone: string;
-  venue: string;
   eventLocation: string;
   eventType: string;
   eventDate: string;
@@ -64,7 +60,6 @@ const initialFormState: IntakeFormData = {
   company: '',
   email: '',
   phone: '',
-  venue: '',
   eventLocation: '',
   eventType: '',
   eventDate: '',
@@ -78,24 +73,10 @@ export default function Contact() {
   const content = useContent();
   const contact = content.contact;
   const contactImage =
-    content.contact?.image ?? content.hero?.images?.[0] ?? content.work?.projects?.[0]?.image ?? CONTACT_IMAGE_FALLBACK;
+    content.hero?.images?.[0] ?? content.work?.projects?.[0]?.image ?? CONTACT_IMAGE_FALLBACK;
   const [formData, setFormData] = useState<IntakeFormData>(initialFormState);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
-  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
-  const [startDate, endDate] = dateRange;
-
-  const handleDateChange = (update: [Date | null, Date | null]) => {
-    setDateRange(update);
-    const [start, end] = update;
-    if (start && end) {
-      setFormData(p => ({ ...p, eventDate: `${format(start, 'MMM d, yyyy')} - ${format(end, 'MMM d, yyyy')}` }));
-    } else if (start) {
-      setFormData(p => ({ ...p, eventDate: format(start, 'MMM d, yyyy') }));
-    } else {
-      setFormData(p => ({ ...p, eventDate: '' }));
-    }
-  };
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -110,7 +91,6 @@ export default function Contact() {
           company: formData.company,
           email: formData.email,
           phone: formData.phone,
-          venue: formData.venue,
           eventLocation: formData.eventLocation,
           eventType: formData.eventType,
           eventDate: formData.eventDate,
@@ -193,7 +173,7 @@ export default function Contact() {
               {status === 'success' && (
                 <div className="flex items-center gap-2 p-4 rounded-lg bg-green-500/10 text-green-400 border border-green-500/20">
                   <CheckCircle2 className="w-5 h-5 shrink-0" />
-                  <p>Thank you! We&apos;ve received your message.</p>
+                  <p>Thank you! We&apos;ve received your message and sent a confirmation to your email.</p>
                 </div>
               )}
               {status === 'error' && (
@@ -253,29 +233,16 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label htmlFor="contact-venue" className={labelClass}>Venue</label>
-                  <input
-                    id="contact-venue"
-                    type="text"
-                    value={formData.venue}
-                    onChange={(e) => setFormData((p) => ({ ...p, venue: e.target.value }))}
-                    className={inputClass}
-                    placeholder="Hotel, Convention Center, etc."
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="contact-location" className={labelClass}>City / State</label>
-                  <input
-                    id="contact-location"
-                    type="text"
-                    value={formData.eventLocation}
-                    onChange={(e) => setFormData((p) => ({ ...p, eventLocation: e.target.value }))}
-                    className={inputClass}
-                    placeholder="Phoenix, AZ"
-                  />
-                </div>
+              <div className="space-y-2">
+                <label htmlFor="contact-location" className={labelClass}>Event Location</label>
+                <input
+                  id="contact-location"
+                  type="text"
+                  value={formData.eventLocation}
+                  onChange={(e) => setFormData((p) => ({ ...p, eventLocation: e.target.value }))}
+                  className={inputClass}
+                  placeholder="City, state or venue name"
+                />
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -294,17 +261,14 @@ export default function Contact() {
                   </select>
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="contact-event-date" className={labelClass}>Event Date Range</label>
-                  <DatePicker
+                  <label htmlFor="contact-event-date" className={labelClass}>Event Date</label>
+                  <input
                     id="contact-event-date"
-                    selectsRange={true}
-                    startDate={startDate}
-                    endDate={endDate}
-                    onChange={handleDateChange}
-                    dateFormat="MMM d, yyyy"
+                    type="text"
+                    value={formData.eventDate}
+                    onChange={(e) => setFormData((p) => ({ ...p, eventDate: e.target.value }))}
                     className={inputClass}
-                    placeholderText="Select date(s)"
-                    isClearable={true}
+                    placeholder="e.g. March 2026 or TBD"
                   />
                 </div>
               </div>
