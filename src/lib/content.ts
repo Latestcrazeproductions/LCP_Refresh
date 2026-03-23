@@ -10,7 +10,8 @@ export type SiteContentKey =
   | 'work'
   | 'services'
   | 'eventTypes'
-  | 'contact';
+  | 'contact'
+  | 'faq';
 
 export type ServiceItem = (typeof siteContent.services.items)[number] & { gallery?: string[] };
 export type EventTypeItem = (typeof siteContent.eventTypes.items)[number] & { gallery?: string[] };
@@ -74,6 +75,10 @@ export type EditableSiteContent = {
     ctaText: string;
     copyright: string;
     footerLinks: Array<{ label: string; href: string }>;
+  };
+  faq: {
+    sectionTitle: string;
+    items: Array<{ question: string; answer: string }>;
   };
 };
 
@@ -141,8 +146,8 @@ export function mergeContent(
         const fallback = defaultItems[i];
         const image =
           item.image?.trim() || fallback?.image?.trim() || PLACEHOLDER_IMAGE;
-        const dbGallery = Array.isArray(item.gallery) ? item.gallery.slice(0, 3).filter(Boolean) : [];
-        const defaultGallery = Array.isArray(fallback?.gallery) ? (fallback.gallery as string[]).slice(0, 3).filter(Boolean) : [];
+        const dbGallery = Array.isArray((item as any).gallery) ? (item as any).gallery.slice(0, 3).filter(Boolean) : [];
+        const defaultGallery = Array.isArray((fallback as any)?.gallery) ? ((fallback as any).gallery as string[]).slice(0, 3).filter(Boolean) : [];
         const gallery = dbGallery.length > 0 ? dbGallery : defaultGallery;
         return {
           ...(fallback ?? item),
@@ -168,12 +173,12 @@ export function mergeContent(
         const fallback = defaultEventItems[i];
         const image =
           item.image?.trim() || fallback?.image?.trim() || EVENT_PLACEHOLDER;
-        const dbGallery = Array.isArray(item.gallery) ? item.gallery.slice(0, 3).filter(Boolean) : [];
-        const defaultGallery = Array.isArray(fallback?.gallery) ? (fallback.gallery as string[]).slice(0, 3).filter(Boolean) : [];
+        const dbGallery = Array.isArray((item as any).gallery) ? (item as any).gallery.slice(0, 3).filter(Boolean) : [];
+        const defaultGallery = Array.isArray((fallback as any)?.gallery) ? ((fallback as any).gallery as string[]).slice(0, 3).filter(Boolean) : [];
         const gallery = dbGallery.length > 0 ? dbGallery : defaultGallery;
         return { ...(fallback ?? item), ...item, image, gallery };
       })
-    : defaultEventItems.map((item) => ({ ...item, gallery: (item.gallery ?? []) }))) as SiteContent['eventTypes']['items'];
+    : defaultEventItems.map((item) => ({ ...item, gallery: ((item as any).gallery ?? []) }))) as SiteContent['eventTypes']['items'];
 
   const eventTypes: SiteContent['eventTypes'] = {
     ...siteContent.eventTypes,
@@ -189,7 +194,12 @@ export function mergeContent(
       : siteContent.contact.footerLinks,
   };
 
-  return { brand, hero, about, featuredVideo, work, services, eventTypes, contact };
+  const faq: SiteContent['faq'] = {
+    ...siteContent.faq,
+    ...(fromDb.faq as Partial<SiteContent['faq']> | undefined),
+  };
+
+  return { brand, hero, about, featuredVideo, work, services, eventTypes, contact, faq };
 }
 
 /** Fetch site content from Supabase, falling back to static site-content.ts */

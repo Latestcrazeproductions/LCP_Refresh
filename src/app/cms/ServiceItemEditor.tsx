@@ -30,10 +30,11 @@ type ServiceItemEditorProps = {
   index: number;
   onChange: (service: EditableServiceItem) => void;
   onDelete: () => void;
+  onBack?: () => void;
   defaultExpanded?: boolean;
 };
 
-export function ServiceItemEditor({ service, index, onChange, onDelete, defaultExpanded }: ServiceItemEditorProps) {
+export function ServiceItemEditor({ service, index, onChange, onDelete, onBack, defaultExpanded }: ServiceItemEditorProps) {
   const [expanded, setExpanded] = useState(defaultExpanded ?? false);
   const [detailsExpanded, setDetailsExpanded] = useState(false);
 

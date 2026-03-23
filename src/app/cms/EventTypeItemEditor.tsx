@@ -12,6 +12,7 @@ type EventTypeItemEditorProps = {
   index: number;
   onChange: (eventType: EditableEventTypeItem) => void;
   onDelete: () => void;
+  onBack?: () => void;
   defaultExpanded?: boolean;
 };
 
@@ -20,6 +21,7 @@ export function EventTypeItemEditor({
   index,
   onChange,
   onDelete,
+  onBack,
   defaultExpanded,
 }: EventTypeItemEditorProps) {
   const [expanded, setExpanded] = useState(defaultExpanded ?? false);

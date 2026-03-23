@@ -11,6 +11,7 @@ import Navbar from '@/components/Navbar';
 import { ImageGallery } from '@/components/ImageGallery';
 import ContactCta from '@/components/ContactCta';
 import Footer from '@/components/Footer';
+import type { EventTypeItem } from '@/lib/content';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://latestcrazeproductions.com';
 
@@ -49,7 +50,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function EventTypePage({ params }: Props) {
   const { slug } = await params;
   const content = await getSiteContent();
-  const eventType = content?.eventTypes?.items?.find((e) => e.id === slug);
+  const eventType = content?.eventTypes?.items?.find((e) => e.id === slug) as EventTypeItem;
   const allEventTypes = content?.eventTypes?.items ?? [];
 
   if (!eventType) notFound();

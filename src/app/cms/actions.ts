@@ -3,7 +3,7 @@
 import { revalidatePath, revalidateTag } from 'next/cache';
 import { createClient } from '@/lib/supabase/server';
 
-const CMS_KEYS = ['brand', 'hero', 'about', 'featuredVideo', 'work', 'services', 'eventTypes', 'contact'] as const;
+const CMS_KEYS = ['brand', 'hero', 'about', 'featuredVideo', 'work', 'services', 'eventTypes', 'contact', 'faq'] as const;
 type CmsKey = (typeof CMS_KEYS)[number];
 
 export async function saveContent(key: CmsKey, value: unknown) {

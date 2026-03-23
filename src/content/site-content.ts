@@ -32,6 +32,11 @@ export const siteContent = {
     ] as string[],
   },
 
+  /** Featured video section */
+  featuredVideo: {
+    youtubeUrl: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ', // Placeholder - replace with actual video URL
+  },
+
   /** About page content */
   about: {
     headline: 'About Latest Craze Productions',
@@ -342,6 +347,33 @@ export const siteContent = {
       image: string;
       details?: { headline: string; text: string; features: string[] };
     }>,
+  },
+
+  /** FAQ section */
+  faq: {
+    sectionTitle: 'Frequently Asked Questions',
+    items: [
+      {
+        question: 'How far in advance should I book your services?',
+        answer: 'We recommend booking 4-8 weeks in advance for standard events. Large-scale productions with custom fabrication may require 8-12 weeks. We can often accommodate rush projects depending on availability.',
+      },
+      {
+        question: 'Do you travel nationwide?',
+        answer: 'Yes, we are based in Phoenix but serve clients across the United States. Our team travels to venues nationwide for high-profile productions.',
+      },
+      {
+        question: 'What makes your LED walls different?',
+        answer: 'Our 40ft+ LED walls feature 1.5mm fine pixel pitch for 4K/8K clarity, HDR10 support, and custom aspect ratios. We eliminate bezels for seamless displays that create true cinematic immersion.',
+      },
+      {
+        question: 'Can you handle virtual/hybrid events?',
+        answer: 'Absolutely. We integrate multi-camera live streaming, virtual backdrops, and hybrid audience experiences into all our productions.',
+      },
+      {
+        question: 'Do you provide full production services?',
+        answer: 'Yes, we offer end-to-end production including technical direction, content creation, staging, lighting, audio, and on-site management.',
+      },
+    ],
   },
 
   /** Contact section */

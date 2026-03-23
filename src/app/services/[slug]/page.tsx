@@ -11,6 +11,7 @@ import Navbar from '@/components/Navbar';
 import { ImageGallery } from '@/components/ImageGallery';
 import ContactCta from '@/components/ContactCta';
 import Footer from '@/components/Footer';
+import type { ServiceItem } from '@/lib/content';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://latestcrazeproductions.com';
 
@@ -52,7 +53,7 @@ export default async function ServiceDetailPage({ params }: Props) {
   const { slug } = await params;
   const content = await getSiteContent();
   const items = Array.isArray(content?.services?.items) ? content.services.items : [];
-  const service = items.find((s) => s.id === slug);
+  const service = items.find((s) => s.id === slug) as ServiceItem;
   const allServices = items;
   const otherServices = allServices.filter((s) => s.id !== slug);
 
