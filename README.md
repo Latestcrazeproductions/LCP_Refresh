@@ -52,4 +52,6 @@ Marketing and events website for Latest Craze Productions, built with Next.js 15
 
 ## Deployment
 
-Deployed on [Vercel](https://vercel.com). Pushes to `main` trigger production deployments. See [docs/DEPLOY_VERCEL.md](docs/DEPLOY_VERCEL.md) for environment variables and setup.
+Deployed on [Vercel](https://vercel.com). Pushes to `main` trigger production deployments. For dev/testing, deploy to a preview branch first.
+
+See [docs/DEPLOY_VERCEL.md](docs/DEPLOY_VERCEL.md) for environment variables and setup.
