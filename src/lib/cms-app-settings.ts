@@ -1,7 +1,5 @@
 /** CMS app settings stored under site_content key `settings` (not merged into public SiteContent). */
 
-import { createServiceRoleClient } from '@/lib/supabase/server';
-
 export const SITE_CONTENT_SITE_ID =
   process.env.NEXT_PUBLIC_SITE_CONTENT_SITE_ID ?? 'latest-craze';
 
@@ -85,21 +83,4 @@ export function parseStaffEmailInput(text: string): string[] {
     .split(/[\n,;]+/)
     .map((s) => s.trim())
     .filter(Boolean);
-}
-
-/** Load settings with service role so the public contact API can read staff emails (row is hidden from anon). */
-export async function fetchCmsAppSettingsForContactApi(): Promise<CmsAppSettings> {
-  try {
-    const supabase = createServiceRoleClient();
-    const { data, error } = await supabase
-      .from('site_content')
-      .select('value')
-      .eq('site_id', SITE_CONTENT_SITE_ID)
-      .eq('key', 'settings')
-      .maybeSingle();
-    if (error || data?.value == null) return defaultCmsAppSettings();
-    return normalizeCmsAppSettings(data.value);
-  } catch {
-    return defaultCmsAppSettings();
-  }
 }

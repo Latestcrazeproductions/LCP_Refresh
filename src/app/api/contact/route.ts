@@ -3,7 +3,7 @@ import { Resend } from 'resend';
 import { createClient } from '@/lib/supabase/server';
 import { getSiteContent } from '@/lib/content';
 import { buildThankYouEmailHtml } from '@/lib/thank-you-email';
-import { fetchCmsAppSettingsForContactApi } from '@/lib/cms-app-settings';
+import { fetchCmsAppSettingsForContactApi } from '@/lib/cms-app-settings-server';
 import { buildStaffInquiryEmailHtml } from '@/lib/staff-inquiry-email';
 
 export async function POST(request: NextRequest) {
