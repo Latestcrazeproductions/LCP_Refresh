@@ -41,7 +41,7 @@ export const siteContent = {
   about: {
     headline: 'About Latest Craze Productions',
     lead:
-      'Latest Craze Productions is a Phoenix-based corporate event production company. We engineer 40ft video walls, intelligent lighting, and stage design for keynotes, product launches, galas, and brand activations.',
+      'Latest Craze Productions is a Phoenix-based corporate event production company. We provide LED video walls, intelligent lighting, and stage design for experiences that define moments. Our team provides ultra-wide LED displays, intelligent lighting, and stage design for keynotes, product launches, galas, conferences, and brand activations nationwide.',
     sections: [
       {
         title: 'What We Do',

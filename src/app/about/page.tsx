@@ -11,7 +11,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://latestcrazeproduct
 export const metadata: Metadata = {
   title: 'About',
   description:
-    'Latest Craze Productions is a Phoenix-based corporate event production company. We engineer LED video walls, intelligent lighting, and stage design for keynotes, product launches, galas, and brand activations.',
+    'Latest Craze Productions is a Phoenix-based corporate event production company. We provide LED video walls, intelligent lighting, and stage design for keynotes, product launches, galas, and brand activations.',
   openGraph: {
     title: 'About | Latest Craze Productions',
     description:
@@ -38,7 +38,7 @@ export default async function AboutPage() {
           <p className="text-xl text-gray-300 leading-relaxed">
             {about?.lead ?? (
               <>
-                Latest Craze Productions is a Phoenix-based corporate event production company. We engineer 40ft <Link href="/services" className="text-blue-400 hover:text-blue-300 underline">video walls</Link> and lighting experiences that define moments. Our team delivers ultra-wide LED displays, intelligent lighting, and stage design for <Link href="/events" className="text-blue-400 hover:text-blue-300 underline">keynotes, product launches, galas, conferences, and brand activations</Link> nationwide.
+                Latest Craze Productions is a Phoenix-based corporate event production company. We provide <Link href="/services" className="text-blue-400 hover:text-blue-300 underline">LED video walls</Link>, intelligent lighting, and stage design for experiences that define moments. Our team provides ultra-wide LED displays, intelligent lighting, and stage design for <Link href="/events" className="text-blue-400 hover:text-blue-300 underline">keynotes, product launches, galas, conferences, and brand activations</Link> nationwide.
               </>
             )}
           </p>

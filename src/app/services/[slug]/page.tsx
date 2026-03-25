@@ -60,8 +60,6 @@ export default async function ServiceDetailPage({ params }: Props) {
   if (!service) notFound();
 
   const IconComponent = getServiceIcon(service.iconKey || '');
-  const serviceCount = allServices.length;
-
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -106,32 +104,25 @@ export default async function ServiceDetailPage({ params }: Props) {
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent" />
               <div className="absolute bottom-0 left-0 p-8 md:p-12 w-full max-w-7xl mx-auto">
-                <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-                  <div>
-                    {IconComponent && (
-                      <div className="mb-4 p-3 w-fit rounded-xl bg-blue-600 text-white shadow-lg shadow-blue-900/20">
-                        <IconComponent className="w-6 h-6" />
-                      </div>
-                    )}
-                    <nav className="text-sm text-gray-400 mb-2">
-                      <Link href="/services" className="hover:text-white transition-colors">
-                        Technical Precision
-                      </Link>
-                      <span className="mx-2">/</span>
-                      <span className="text-white">{service.title}</span>
-                    </nav>
-                    <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
-                      {service.title}
-                    </h1>
-                    <p className="text-gray-300 mt-2 max-w-2xl text-lg">
-                      {service.description}
-                    </p>
-                  </div>
-                  <div className="hidden md:block text-right">
-                    <span className="text-xs uppercase tracking-widest text-gray-500">
-                      Capabilities 01 — {String(serviceCount).padStart(2, '0')}
-                    </span>
-                  </div>
+                <div>
+                  {IconComponent && (
+                    <div className="mb-4 p-3 w-fit rounded-xl bg-blue-600 text-white shadow-lg shadow-blue-900/20">
+                      <IconComponent className="w-6 h-6" />
+                    </div>
+                  )}
+                  <nav className="text-sm text-gray-400 mb-2">
+                    <Link href="/services" className="hover:text-white transition-colors">
+                      Technical Precision
+                    </Link>
+                    <span className="mx-2">/</span>
+                    <span className="text-white">{service.title}</span>
+                  </nav>
+                  <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
+                    {service.title}
+                  </h1>
+                  <p className="text-gray-300 mt-2 max-w-2xl text-lg">
+                    {service.description}
+                  </p>
                 </div>
               </div>
             </div>
@@ -188,8 +179,8 @@ export default async function ServiceDetailPage({ params }: Props) {
             </div>
           </section>
 
-          {/* Gallery — 3 images */}
-          {service.gallery && service.gallery.length > 0 && (
+          {/* Gallery — 3 images (omitted for projection per site direction) */}
+          {slug !== 'projection' && service.gallery && service.gallery.length > 0 && (
             <ImageGallery images={service.gallery} alt={service.title} />
           )}
 

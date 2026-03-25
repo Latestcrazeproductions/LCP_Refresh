@@ -47,14 +47,9 @@ export default async function ServicesPage() {
             Latest Craze Productions is a Phoenix-based corporate event production company. We provide LED video walls, intelligent lighting, stage design, precision audio, scenic design, and projection mapping for keynotes, product launches, galas, conferences, and brand activations. See our <Link href="/events" className="text-blue-400 hover:text-blue-300 underline">events we create</Link> and <Link href="/about" className="text-blue-400 hover:text-blue-300 underline">about us</Link>. <Link href="/contact" className="text-blue-400 hover:text-blue-300 underline">Contact us</Link> to discuss your next event.
           </p>
 
-          <div className="mb-12 border-b border-white/10 pb-8 flex flex-col md:flex-row justify-between items-end gap-8">
-            <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-4">{content?.services?.sectionTitle ?? 'Technical Precision'}</h2>
-              <p className="text-gray-400 max-w-md">{content?.services?.sectionSubhead ?? 'Our toolkit for creating unforgettable experiences.'}</p>
-            </div>
-            <div className="text-right hidden md:block">
-              <span className="text-xs uppercase tracking-widest text-gray-600">Capabilities 01 — {String(services.length).padStart(2, '0')}</span>
-            </div>
+          <div className="mb-12 border-b border-white/10 pb-8">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">{content?.services?.sectionTitle ?? 'Technical Precision'}</h2>
+            <p className="text-gray-400 max-w-md">{content?.services?.sectionSubhead ?? 'Our toolkit for creating unforgettable experiences.'}</p>
           </div>
         </section>
 
