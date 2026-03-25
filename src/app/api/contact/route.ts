@@ -3,6 +3,8 @@ import { Resend } from 'resend';
 import { createClient } from '@/lib/supabase/server';
 import { getSiteContent } from '@/lib/content';
 import { buildThankYouEmailHtml } from '@/lib/thank-you-email';
+import { fetchCmsAppSettingsForContactApi } from '@/lib/cms-app-settings';
+import { buildStaffInquiryEmailHtml } from '@/lib/staff-inquiry-email';
 
 export async function POST(request: NextRequest) {
   try {
@@ -54,27 +56,64 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const appSettings = await fetchCmsAppSettingsForContactApi();
+    const visitorEmail = String(email).trim();
+
     if (!process.env.RESEND_API_KEY) {
       return NextResponse.json({ success: true });
     }
 
     const resend = new Resend(process.env.RESEND_API_KEY);
     const content = await getSiteContent();
-    const html = buildThankYouEmailHtml(content, String(name).trim().split(' ')[0] || 'there');
     const fromEmail =
       process.env.RESEND_FROM_EMAIL ?? 'onboarding@resend.dev';
     const fromName =
       process.env.RESEND_FROM_NAME ?? content.brand.nameFull;
+    const fromHeader = `${fromName} <${fromEmail}>`;
 
-    const { error: emailError } = await resend.emails.send({
-      from: `${fromName} <${fromEmail}>`,
-      to: [String(email).trim()],
-      subject: `Thank you for reaching out — ${content.brand.nameFull}`,
-      html,
-    });
+    const inquiryFields = {
+      name: String(name).trim(),
+      company: company ? String(company).trim() : null,
+      email: visitorEmail,
+      phone: phone ? String(phone).trim() : null,
+      venue: venue ? String(venue).trim() : null,
+      eventLocation: eventLocation ? String(eventLocation).trim() : null,
+      eventType: eventType ? String(eventType).trim() : null,
+      eventDate: eventDate ? String(eventDate).trim() : null,
+      attendeeCount: attendeeCount ? String(attendeeCount).trim() : null,
+      timeline: timeline ? String(timeline).trim() : null,
+      referralSource: referralSource ? String(referralSource).trim() : null,
+      projectDetails: projectDetails ? String(projectDetails).trim() : null,
+    };
 
-    if (emailError) {
-      console.error('Resend error:', emailError);
+    if (appSettings.staffInquiryEmails.length > 0) {
+      const staffHtml = buildStaffInquiryEmailHtml(content, inquiryFields);
+      const { error: staffEmailError } = await resend.emails.send({
+        from: fromHeader,
+        to: appSettings.staffInquiryEmails,
+        replyTo: visitorEmail,
+        subject: `New inquiry: ${String(name).trim()}`,
+        html: staffHtml,
+      });
+      if (staffEmailError) {
+        console.error('Resend staff notification error:', staffEmailError);
+      }
+    }
+
+    if (appSettings.sendThankYouEmail) {
+      const html = buildThankYouEmailHtml(
+        content,
+        String(name).trim().split(' ')[0] || 'there'
+      );
+      const { error: emailError } = await resend.emails.send({
+        from: fromHeader,
+        to: [visitorEmail],
+        subject: `Thank you for reaching out — ${content.brand.nameFull}`,
+        html,
+      });
+      if (emailError) {
+        console.error('Resend thank-you error:', emailError);
+      }
     }
 
     return NextResponse.json({ success: true });

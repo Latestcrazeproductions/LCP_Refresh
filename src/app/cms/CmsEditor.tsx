@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import {
   LogOut,
@@ -18,7 +19,8 @@ import {
   CalendarDays,
   Edit2,
   HelpCircle,
-  Inbox
+  Inbox,
+  Settings,
 } from 'lucide-react';
 import {
   DndContext,
@@ -584,7 +586,14 @@ export default function CmsEditor() {
             );
           })}
         </nav>
-        <div className="p-4 border-t border-white/10">
+        <div className="p-4 border-t border-white/10 space-y-2">
+          <Link
+            href="/cms/settings"
+            className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
+          >
+            <Settings className="w-4 h-4" />
+            Site settings
+          </Link>
           <button
             onClick={handleSignOut}
             className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white text-sm rounded-lg transition-colors"
