@@ -1,5 +1,6 @@
--- Allow `settings` key for CMS (staff inquiry emails, toggles).
--- Hide `settings` from anonymous/public SELECT so staff addresses are not exposed via the anon key.
+-- Ensure site_content allows `settings` (CMS Settings / staff emails) and `about` (matches src/app/cms/actions.ts CMS_KEYS).
+-- Safe to re-run: replaces the check constraint with the full key list.
+-- Also ensures RLS hides `settings` from anonymous reads (staff email addresses).
 
 alter table public.site_content drop constraint if exists site_content_key_check;
 
