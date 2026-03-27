@@ -39,6 +39,11 @@ const REFERRAL_OPTIONS = [
 const inputClass =
   'w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors';
 
+/** Native <select> popovers ignore parent text color on many browsers (white text on white list). */
+const selectClass = `${inputClass} bg-[#141414] text-white [color-scheme:dark]`;
+
+const optionClass = 'bg-[#141414] text-white';
+
 const labelClass = 'text-xs uppercase tracking-widest text-gray-500';
 
 type IntakeFormData = {
@@ -252,11 +257,16 @@ export default function Contact() {
                     id="contact-event-type"
                     value={formData.eventType}
                     onChange={(e) => setFormData((p) => ({ ...p, eventType: e.target.value }))}
-                    className={inputClass}
+                    className={selectClass}
+                    style={{ colorScheme: 'dark' }}
                   >
-                    <option value="">Select type...</option>
+                    <option value="" className={optionClass}>
+                      Select type...
+                    </option>
                     {EVENT_TYPES.map((t) => (
-                      <option key={t} value={t}>{t}</option>
+                      <option key={t} value={t} className={optionClass}>
+                        {t}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -291,11 +301,16 @@ export default function Contact() {
                     id="contact-timeline"
                     value={formData.timeline}
                     onChange={(e) => setFormData((p) => ({ ...p, timeline: e.target.value }))}
-                    className={inputClass}
+                    className={selectClass}
+                    style={{ colorScheme: 'dark' }}
                   >
-                    <option value="">Select...</option>
+                    <option value="" className={optionClass}>
+                      Select...
+                    </option>
                     {TIMELINE_OPTIONS.map((t) => (
-                      <option key={t} value={t}>{t}</option>
+                      <option key={t} value={t} className={optionClass}>
+                        {t}
+                      </option>
                     ))}
                   </select>
                 </div>
@@ -307,11 +322,16 @@ export default function Contact() {
                   id="contact-referral"
                   value={formData.referralSource}
                   onChange={(e) => setFormData((p) => ({ ...p, referralSource: e.target.value }))}
-                  className={inputClass}
+                  className={selectClass}
+                  style={{ colorScheme: 'dark' }}
                 >
-                  <option value="">Select...</option>
+                  <option value="" className={optionClass}>
+                    Select...
+                  </option>
                   {REFERRAL_OPTIONS.map((r) => (
-                    <option key={r} value={r}>{r}</option>
+                    <option key={r} value={r} className={optionClass}>
+                      {r}
+                    </option>
                   ))}
                 </select>
               </div>
