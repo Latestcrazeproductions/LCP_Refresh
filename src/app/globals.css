@@ -89,3 +89,14 @@
 .react-datepicker__triangle {
   display: none !important;
 }
+
+/* Popper above contact card / page chrome */
+.react-datepicker-popper {
+  z-index: 100 !important;
+}
+
+.react-datepicker__day--range-start,
+.react-datepicker__day--range-end {
+  background-color: #2563eb !important;
+  color: white !important;
+}

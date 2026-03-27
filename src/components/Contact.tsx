@@ -2,9 +2,11 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { ArrowRight, Mail, Phone, MapPin, Loader2, CheckCircle2 } from 'lucide-react';
+import DatePicker from 'react-datepicker';
+import { format } from 'date-fns';
+import { ArrowRight, Mail, Phone, MapPin, Loader2, CheckCircle2, CalendarRange } from 'lucide-react';
 import { useContent } from '@/context/ContentContext';
-import { getOptimizedImageUrl } from '@/lib/image-utils';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const CONTACT_IMAGE_FALLBACK =
   'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop';
@@ -46,6 +48,13 @@ const optionClass = 'bg-[#141414] text-white';
 
 const labelClass = 'text-xs uppercase tracking-widest text-gray-500';
 
+function formatEventDateRange(start: Date | null, end: Date | null): string {
+  if (!start) return '';
+  if (!end) return format(start, 'PP');
+  if (start.getTime() === end.getTime()) return format(start, 'PP');
+  return `${format(start, 'PP')} – ${format(end, 'PP')}`;
+}
+
 type IntakeFormData = {
   name: string;
   company: string;
@@ -53,7 +62,6 @@ type IntakeFormData = {
   phone: string;
   eventLocation: string;
   eventType: string;
-  eventDate: string;
   attendeeCount: string;
   timeline: string;
   referralSource: string;
@@ -67,7 +75,6 @@ const initialFormState: IntakeFormData = {
   phone: '',
   eventLocation: '',
   eventType: '',
-  eventDate: '',
   attendeeCount: '',
   timeline: '',
   referralSource: '',
@@ -80,6 +87,7 @@ export default function Contact() {
   const contactImage =
     content.hero?.images?.[0] ?? content.work?.projects?.[0]?.image ?? CONTACT_IMAGE_FALLBACK;
   const [formData, setFormData] = useState<IntakeFormData>(initialFormState);
+  const [eventDateRange, setEventDateRange] = useState<[Date | null, Date | null]>([null, null]);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -98,7 +106,7 @@ export default function Contact() {
           phone: formData.phone,
           eventLocation: formData.eventLocation,
           eventType: formData.eventType,
-          eventDate: formData.eventDate,
+          eventDate: formatEventDateRange(eventDateRange[0], eventDateRange[1]),
           attendeeCount: formData.attendeeCount,
           timeline: formData.timeline,
           referralSource: formData.referralSource,
@@ -111,6 +119,7 @@ export default function Contact() {
       }
       setStatus('success');
       setFormData(initialFormState);
+      setEventDateRange([null, null]);
     } catch (err) {
       setStatus('error');
       setErrorMessage(err instanceof Error ? err.message : 'Failed to submit');
@@ -271,15 +280,38 @@ export default function Contact() {
                   </select>
                 </div>
                 <div className="space-y-2">
-                  <label htmlFor="contact-event-date" className={labelClass}>Event Date</label>
-                  <input
-                    id="contact-event-date"
-                    type="text"
-                    value={formData.eventDate}
-                    onChange={(e) => setFormData((p) => ({ ...p, eventDate: e.target.value }))}
-                    className={inputClass}
-                    placeholder="e.g. March 2026 or TBD"
-                  />
+                  <label htmlFor="contact-event-date" className={labelClass}>
+                    Event date <span className="text-gray-600 normal-case tracking-normal">(optional range)</span>
+                  </label>
+                  <div className="relative">
+                    <CalendarRange
+                      className="pointer-events-none absolute left-3 top-1/2 z-[1] h-4 w-4 -translate-y-1/2 text-gray-500"
+                      aria-hidden
+                    />
+                    <DatePicker
+                      id="contact-event-date"
+                      selectsRange
+                      startDate={eventDateRange[0]}
+                      endDate={eventDateRange[1]}
+                      onChange={(update) => {
+                        if (update == null) {
+                          setEventDateRange([null, null]);
+                          return;
+                        }
+                        setEventDateRange(update);
+                      }}
+                      selected={eventDateRange[0]}
+                      isClearable
+                      monthsShown={2}
+                      placeholderText="Click to choose dates…"
+                      dateFormat="MMM d, yyyy"
+                      wrapperClassName="w-full block"
+                      className={`${inputClass} pl-10`}
+                      calendarClassName="contact-event-calendar"
+                      popperPlacement="bottom-start"
+                      showPopperArrow={false}
+                    />
+                  </div>
                 </div>
               </div>
 
