@@ -47,6 +47,44 @@ import { EventTypeItemEditor } from './EventTypeItemEditor';
 import { SubmissionsViewer } from './SubmissionsViewer';
 import type { SiteContent, EditableSiteContent } from '@/lib/content';
 
+const cmsInputClass =
+  'w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500';
+const cmsTextareaClass = `${cmsInputClass} min-h-[80px] resize-y`;
+
+type CmsFieldProps = {
+  label: string;
+  value: string;
+  onChange: (v: string) => void;
+  placeholder?: string;
+  type?: string;
+  rows?: number;
+};
+
+function CmsField({ label, value, onChange, placeholder, type = 'text', rows = 3 }: CmsFieldProps) {
+  return (
+    <div>
+      <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">{label}</label>
+      {type === 'textarea' ? (
+        <textarea
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder={placeholder}
+          className={cmsTextareaClass}
+          rows={rows}
+        />
+      ) : (
+        <input
+          type={type}
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+          placeholder={placeholder}
+          className={cmsInputClass}
+        />
+      )}
+    </div>
+  );
+}
+
 async function fetchContent(): Promise<SiteContent> {
   const res = await fetch('/api/content');
   if (!res.ok) throw new Error('Failed to fetch content');
@@ -241,21 +279,6 @@ export default function CmsEditor() {
     }
   }
 
-  // Common UI components for forms
-  const inputClass = 'w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500';
-  const textareaClass = `${inputClass} min-h-[80px] resize-y`;
-
-  const Field = ({ label, value, onChange, placeholder, type = 'text', rows = 3 }: any) => (
-    <div>
-      <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">{label}</label>
-      {type === 'textarea' ? (
-        <textarea value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} className={textareaClass} rows={rows} />
-      ) : (
-        <input type={type} value={value} onChange={(e) => onChange(e.target.value)} placeholder={placeholder} className={inputClass} />
-      )}
-    </div>
-  );
-
   if (loading) return <div className="flex items-center justify-center min-h-screen"><Loader2 className="w-8 h-8 animate-spin text-blue-500" /></div>;
   if (!content) return <div className="p-8 text-center text-red-400">Failed to load content.</div>;
 
@@ -264,15 +287,15 @@ export default function CmsEditor() {
       case 'brand':
         return (
           <div className="space-y-8">
-            <Field label="Name" value={content.brand.name} onChange={(v: string) => setContent((p) => p && { ...p, brand: { ...p.brand, name: v } })} />
-            <Field label="Full Name" value={content.brand.nameFull} onChange={(v: string) => setContent((p) => p && { ...p, brand: { ...p.brand, nameFull: v } })} />
+            <CmsField label="Name" value={content.brand.name} onChange={(v: string) => setContent((p) => p && { ...p, brand: { ...p.brand, name: v } })} />
+            <CmsField label="Full Name" value={content.brand.nameFull} onChange={(v: string) => setContent((p) => p && { ...p, brand: { ...p.brand, nameFull: v } })} />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div>
-                <Field label="Logo URL" value={content.brand.logo ?? ''} onChange={(v: string) => setContent((p) => p && { ...p, brand: { ...p.brand, logo: v || null } })} />
+                <CmsField label="Logo URL" value={content.brand.logo ?? ''} onChange={(v: string) => setContent((p) => p && { ...p, brand: { ...p.brand, logo: v || null } })} />
                 <div className="mt-4"><ImageUpload folder="logos/company" mode="single" label="Upload Logo" onUpload={(url) => setContent((p) => p && { ...p, brand: { ...p.brand, logo: url } })} /></div>
               </div>
               <div>
-                <Field label="Logo Dark URL" value={content.brand.logoDark ?? ''} onChange={(v: string) => setContent((p) => p && { ...p, brand: { ...p.brand, logoDark: v || null } })} />
+                <CmsField label="Logo Dark URL" value={content.brand.logoDark ?? ''} onChange={(v: string) => setContent((p) => p && { ...p, brand: { ...p.brand, logoDark: v || null } })} />
                 <div className="mt-4"><ImageUpload folder="logos/company" mode="single" label="Upload Dark Logo" onUpload={(url) => setContent((p) => p && { ...p, brand: { ...p.brand, logoDark: url } })} /></div>
               </div>
             </div>
@@ -281,7 +304,7 @@ export default function CmsEditor() {
               <select
                 value={content.brand.logoHeight ?? 64}
                 onChange={(e) => setContent((p) => p && { ...p, brand: { ...p.brand, logoHeight: Number(e.target.value) } })}
-                className={inputClass + ' max-w-xs block'}
+                className={cmsInputClass + ' max-w-xs block'}
               >
                 {[32,40,48,56,64,80,96,112,128,160,200].map(h => <option key={h} value={h}>{h}px</option>)}
               </select>
@@ -291,9 +314,9 @@ export default function CmsEditor() {
       case 'hero':
         return (
           <div className="space-y-8">
-            <Field label="Eyebrow" value={content.hero.eyebrow} onChange={(v: string) => setContent((p) => p && { ...p, hero: { ...p.hero, eyebrow: v } })} />
-            <Field label="Headline" type="textarea" value={content.hero.headline} onChange={(v: string) => setContent((p) => p && { ...p, hero: { ...p.hero, headline: v } })} />
-            <Field label="Subhead" type="textarea" value={content.hero.subhead} onChange={(v: string) => setContent((p) => p && { ...p, hero: { ...p.hero, subhead: v } })} />
+            <CmsField label="Eyebrow" value={content.hero.eyebrow} onChange={(v: string) => setContent((p) => p && { ...p, hero: { ...p.hero, eyebrow: v } })} />
+            <CmsField label="Headline" type="textarea" value={content.hero.headline} onChange={(v: string) => setContent((p) => p && { ...p, hero: { ...p.hero, headline: v } })} />
+            <CmsField label="Subhead" type="textarea" value={content.hero.subhead} onChange={(v: string) => setContent((p) => p && { ...p, hero: { ...p.hero, subhead: v } })} />
             
             <div className="pt-8 border-t border-white/10">
               <label className="block text-xs uppercase tracking-widest text-gray-500 mb-4">Background Slideshow Images</label>
@@ -316,14 +339,14 @@ export default function CmsEditor() {
       case 'featuredVideo':
         return (
           <div className="space-y-8">
-            <Field label="YouTube URL" value={content.featuredVideo?.youtubeUrl ?? ''} onChange={(v: string) => setContent((p) => p && { ...p, featuredVideo: { ...p.featuredVideo!, youtubeUrl: v } })} />
+            <CmsField label="YouTube URL" value={content.featuredVideo?.youtubeUrl ?? ''} onChange={(v: string) => setContent((p) => p && { ...p, featuredVideo: { ...p.featuredVideo!, youtubeUrl: v } })} />
             <p className="text-gray-500 text-sm">Embedded on homepage. Supports watch URLs and youtu.be links. Use &amp;t=30s for start time.</p>
           </div>
         );
       case 'work':
         return (
           <div className="space-y-8">
-            <Field label="Clients label" value={content.work.clientsLabel} onChange={(v: string) => setContent((p) => p && { ...p, work: { ...p.work, clientsLabel: v } })} />
+            <CmsField label="Clients label" value={content.work.clientsLabel} onChange={(v: string) => setContent((p) => p && { ...p, work: { ...p.work, clientsLabel: v } })} />
             <div className="pt-8 border-t border-white/10">
               <label className="block text-xs uppercase tracking-widest text-gray-500 mb-4">Client Logos (Marquee)</label>
               <div className="mb-6">
@@ -371,8 +394,8 @@ export default function CmsEditor() {
         }
         return (
           <div className="space-y-8">
-            <Field label="Section title" value={content.services.sectionTitle} onChange={(v: string) => setContent((p) => p && { ...p, services: { ...p.services, sectionTitle: v } })} />
-            <Field label="Section subhead" value={content.services.sectionSubhead} onChange={(v: string) => setContent((p) => p && { ...p, services: { ...p.services, sectionSubhead: v } })} type="textarea" />
+            <CmsField label="Section title" value={content.services.sectionTitle} onChange={(v: string) => setContent((p) => p && { ...p, services: { ...p.services, sectionTitle: v } })} />
+            <CmsField label="Section subhead" value={content.services.sectionSubhead} onChange={(v: string) => setContent((p) => p && { ...p, services: { ...p.services, sectionSubhead: v } })} type="textarea" />
             
             <div className="pt-8 border-t border-white/10">
               <div className="flex items-center justify-between mb-6">
@@ -429,8 +452,8 @@ export default function CmsEditor() {
         }
         return (
           <div className="space-y-8">
-            <Field label="Section title" value={content.eventTypes?.sectionTitle ?? ''} onChange={(v: string) => setContent((p) => p && { ...p, eventTypes: { ...p.eventTypes!, sectionTitle: v } })} />
-            <Field label="Section subhead" type="textarea" value={content.eventTypes?.sectionSubhead ?? ''} onChange={(v: string) => setContent((p) => p && { ...p, eventTypes: { ...p.eventTypes!, sectionSubhead: v } })} />
+            <CmsField label="Section title" value={content.eventTypes?.sectionTitle ?? ''} onChange={(v: string) => setContent((p) => p && { ...p, eventTypes: { ...p.eventTypes!, sectionTitle: v } })} />
+            <CmsField label="Section subhead" type="textarea" value={content.eventTypes?.sectionSubhead ?? ''} onChange={(v: string) => setContent((p) => p && { ...p, eventTypes: { ...p.eventTypes!, sectionSubhead: v } })} />
             
             <div className="pt-8 border-t border-white/10">
               <div className="flex items-center justify-between mb-6">
@@ -463,7 +486,7 @@ export default function CmsEditor() {
       case 'faq':
         return (
           <div className="space-y-8">
-            <Field label="Section title" value={content.faq?.sectionTitle ?? ''} onChange={(v: string) => setContent((p) => p && { ...p, faq: { ...p.faq!, sectionTitle: v } })} />
+            <CmsField label="Section title" value={content.faq?.sectionTitle ?? ''} onChange={(v: string) => setContent((p) => p && { ...p, faq: { ...p.faq!, sectionTitle: v } })} />
             
             <div className="pt-8 border-t border-white/10">
               <div className="flex items-center justify-between mb-6">
@@ -494,12 +517,12 @@ export default function CmsEditor() {
                     </button>
                     
                     <div className="space-y-4 pr-12">
-                      <Field label="Question" value={faq.question} onChange={(v: string) => {
+                      <CmsField label="Question" value={faq.question} onChange={(v: string) => {
                         const items = [...(content.faq?.items || [])];
                         items[idx] = { ...items[idx], question: v };
                         setContent((p) => p && { ...p, faq: { ...p.faq!, items } });
                       }} />
-                      <Field label="Answer" type="textarea" value={faq.answer} onChange={(v: string) => {
+                      <CmsField label="Answer" type="textarea" value={faq.answer} onChange={(v: string) => {
                         const items = [...(content.faq?.items || [])];
                         items[idx] = { ...items[idx], answer: v };
                         setContent((p) => p && { ...p, faq: { ...p.faq!, items } });
@@ -516,17 +539,17 @@ export default function CmsEditor() {
           <div className="space-y-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-8">
-                <Field label="Headline" type="textarea" value={content.contact.headline} onChange={(v: string) => setContent((p) => p && { ...p, contact: { ...p.contact, headline: v } })} />
-                <Field label="Subhead" type="textarea" value={content.contact.subhead} onChange={(v: string) => setContent((p) => p && { ...p, contact: { ...p.contact, subhead: v } })} />
-                <Field label="Email" value={content.contact.email} onChange={(v: string) => setContent((p) => p && { ...p, contact: { ...p.contact, email: v } })} />
-                <Field label="Phone" value={content.contact.phone} onChange={(v: string) => setContent((p) => p && { ...p, contact: { ...p.contact, phone: v } })} />
+                <CmsField label="Headline" type="textarea" value={content.contact.headline} onChange={(v: string) => setContent((p) => p && { ...p, contact: { ...p.contact, headline: v } })} />
+                <CmsField label="Subhead" type="textarea" value={content.contact.subhead} onChange={(v: string) => setContent((p) => p && { ...p, contact: { ...p.contact, subhead: v } })} />
+                <CmsField label="Email" value={content.contact.email} onChange={(v: string) => setContent((p) => p && { ...p, contact: { ...p.contact, email: v } })} />
+                <CmsField label="Phone" value={content.contact.phone} onChange={(v: string) => setContent((p) => p && { ...p, contact: { ...p.contact, phone: v } })} />
               </div>
               <div className="space-y-8">
-                <Field label="Address" type="textarea" value={content.contact.address} onChange={(v: string) => setContent((p) => p && { ...p, contact: { ...p.contact, address: v } })} />
-                <Field label="CTA Request Text" value={content.contact.ctaText} onChange={(v: string) => setContent((p) => p && { ...p, contact: { ...p.contact, ctaText: v } })} />
-                <Field label="Copyright Notice" value={content.contact.copyright} onChange={(v: string) => setContent((p) => p && { ...p, contact: { ...p.contact, copyright: v } })} />
+                <CmsField label="Address" type="textarea" value={content.contact.address} onChange={(v: string) => setContent((p) => p && { ...p, contact: { ...p.contact, address: v } })} />
+                <CmsField label="CTA Request Text" value={content.contact.ctaText} onChange={(v: string) => setContent((p) => p && { ...p, contact: { ...p.contact, ctaText: v } })} />
+                <CmsField label="Copyright Notice" value={content.contact.copyright} onChange={(v: string) => setContent((p) => p && { ...p, contact: { ...p.contact, copyright: v } })} />
                 <div>
-                  <Field label="Contact Image URL" value={content.contact.image ?? ''} onChange={(v: string) => setContent((p) => p && { ...p, contact: { ...p.contact, image: v || null } })} />
+                  <CmsField label="Contact Image URL" value={content.contact.image ?? ''} onChange={(v: string) => setContent((p) => p && { ...p, contact: { ...p.contact, image: v || null } })} />
                   <div className="mt-4"><ImageUpload folder="contact" mode="single" label="Upload Contact Image" onUpload={(url) => setContent((p) => p && { ...p, contact: { ...p.contact, image: url } })} /></div>
                 </div>
               </div>
@@ -542,7 +565,7 @@ export default function CmsEditor() {
                     setContent((p) => p && { ...p, contact: { ...p.contact, footerLinks } });
                   } catch {}
                 }}
-                className={`${textareaClass} font-mono text-sm min-h-[160px]`}
+                className={`${cmsTextareaClass} font-mono text-sm min-h-[160px]`}
               />
             </div>
           </div>
