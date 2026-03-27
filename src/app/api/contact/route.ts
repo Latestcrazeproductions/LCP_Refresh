@@ -4,7 +4,7 @@ import { createClient } from '@/lib/supabase/server';
 import { getSiteContent } from '@/lib/content';
 import { buildThankYouEmailHtml } from '@/lib/thank-you-email';
 import { fetchCmsAppSettingsForContactApi } from '@/lib/cms-app-settings-server';
-import { buildStaffInquiryEmailHtml } from '@/lib/staff-inquiry-email';
+import { buildStaffInquiryEmailText } from '@/lib/staff-inquiry-email';
 
 export async function POST(request: NextRequest) {
   try {
@@ -98,13 +98,13 @@ export async function POST(request: NextRequest) {
     };
 
     if (willSendStaff) {
-      const staffHtml = buildStaffInquiryEmailHtml(content, inquiryFields);
+      const staffText = buildStaffInquiryEmailText(content, inquiryFields);
       const { data: staffData, error: staffEmailError } = await resend.emails.send({
         from: fromHeader,
         to: appSettings.staffInquiryEmails,
         replyTo: visitorEmail,
         subject: `New inquiry: ${String(name).trim()}`,
-        html: staffHtml,
+        text: staffText,
       });
       if (staffEmailError) {
         console.error('[contact] Resend staff notification error:', staffEmailError);
