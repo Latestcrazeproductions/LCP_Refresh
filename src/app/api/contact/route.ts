@@ -60,6 +60,9 @@ export async function POST(request: NextRequest) {
     const visitorEmail = String(email).trim();
 
     if (!process.env.RESEND_API_KEY) {
+      console.warn(
+        '[contact] RESEND_API_KEY is not set — skipping all outbound email (set it in Vercel → Settings → Environment Variables for Production)'
+      );
       return NextResponse.json({ success: true });
     }
 
@@ -70,6 +73,14 @@ export async function POST(request: NextRequest) {
     const fromName =
       process.env.RESEND_FROM_NAME ?? content.brand.nameFull;
     const fromHeader = `${fromName} <${fromEmail}>`;
+
+    const willSendStaff = appSettings.staffInquiryEmails.length > 0;
+    const willSendThankYou = appSettings.sendThankYouEmail;
+    if (!willSendStaff && !willSendThankYou) {
+      console.warn(
+        '[contact] Resend is configured but nothing to send: add staff emails in CMS → Settings and/or turn on “Send thank-you emails”'
+      );
+    }
 
     const inquiryFields = {
       name: String(name).trim(),
@@ -86,9 +97,9 @@ export async function POST(request: NextRequest) {
       projectDetails: projectDetails ? String(projectDetails).trim() : null,
     };
 
-    if (appSettings.staffInquiryEmails.length > 0) {
+    if (willSendStaff) {
       const staffHtml = buildStaffInquiryEmailHtml(content, inquiryFields);
-      const { error: staffEmailError } = await resend.emails.send({
+      const { data: staffData, error: staffEmailError } = await resend.emails.send({
         from: fromHeader,
         to: appSettings.staffInquiryEmails,
         replyTo: visitorEmail,
@@ -96,23 +107,27 @@ export async function POST(request: NextRequest) {
         html: staffHtml,
       });
       if (staffEmailError) {
-        console.error('Resend staff notification error:', staffEmailError);
+        console.error('[contact] Resend staff notification error:', staffEmailError);
+      } else {
+        console.info('[contact] Staff notification sent', { id: staffData?.id ?? null });
       }
     }
 
-    if (appSettings.sendThankYouEmail) {
+    if (willSendThankYou) {
       const html = buildThankYouEmailHtml(
         content,
         String(name).trim().split(' ')[0] || 'there'
       );
-      const { error: emailError } = await resend.emails.send({
+      const { data: tyData, error: emailError } = await resend.emails.send({
         from: fromHeader,
         to: [visitorEmail],
         subject: `Thank you for reaching out — ${content.brand.nameFull}`,
         html,
       });
       if (emailError) {
-        console.error('Resend thank-you error:', emailError);
+        console.error('[contact] Resend thank-you error:', emailError);
+      } else {
+        console.info('[contact] Thank-you email sent', { id: tyData?.id ?? null });
       }
     }
 
