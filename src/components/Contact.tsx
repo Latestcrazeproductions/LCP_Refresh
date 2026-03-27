@@ -33,6 +33,7 @@ const REFERRAL_OPTIONS = [
   'Search / Google',
   'Referral',
   'Social Media',
+  'LinkedIn',
   'Past Client',
   'Event Industry',
   'Other',
