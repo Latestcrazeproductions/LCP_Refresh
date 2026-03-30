@@ -145,7 +145,7 @@ Edits are stored in Supabase. The public site reads from Supabase when configure
 
 ## Contact Form & Thank-You Emails
 
-The contact form saves submissions to Supabase (`contact_submissions` table) and sends a thank-you email via [Resend](https://resend.com) (Supabase's recommended email partner). The email uses your site's logo, hero image, and service images from the CMS.
+The contact form saves submissions to Supabase (`contact_submissions` table) and sends staff notifications and optional thank-you email via **Google Workspace SMTP** (Nodemailer), or legacy **Resend** if SMTP is not configured. The thank-you email uses your site's logo, hero image, and service images from the CMS.
 
 ### Setup
 
@@ -153,17 +153,22 @@ The contact form saves submissions to Supabase (`contact_submissions` table) and
 
    Apply `supabase/migrations/20250306100000_create_contact_submissions.sql` via CLI or SQL Editor.
 
-2. **Configure Resend**
+2. **Configure outbound email (Google Workspace)**
 
-   - Create an account at [resend.com](https://resend.com)
-   - Add to `.env.local`:
+   - Use a Workspace mailbox and an [App Password](https://support.google.com/accounts/answer/185833) (or your admin’s SMTP relay).
+   - Add to `.env.local`, for example:
      ```
-     RESEND_API_KEY=re_xxxxxxxxxxxx
-     RESEND_FROM_EMAIL=onboarding@resend.dev
-     RESEND_FROM_NAME=Latest Craze Productions
+     SMTP_HOST=smtp.gmail.com
+     SMTP_PORT=465
+     SMTP_USER=noreply@yourdomain.com
+     SMTP_PASS=your-app-password
+     MAIL_FROM_EMAIL=noreply@yourdomain.com
+     MAIL_FROM_NAME=Latest Craze Productions
      ```
-   - For production, verify your domain in Resend and use e.g. `noreply@yourdomain.com`
+   - Port **587** with STARTTLS is supported if `SMTP_PORT=587`.
+
+   **Legacy Resend:** If `SMTP_USER` and `SMTP_PASS` are unset, set `RESEND_API_KEY` and optional `RESEND_FROM_*` instead.
 
 3. **Form behavior**
 
-   Submissions are always saved to Supabase. If `RESEND_API_KEY` is missing, no email is sent but the form still succeeds.
+   Submissions are always saved to Supabase. If neither SMTP nor Resend is configured, no email is sent but the form still succeeds.

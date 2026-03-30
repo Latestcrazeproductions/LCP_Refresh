@@ -1,10 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { Resend } from 'resend';
 import { createClient } from '@/lib/supabase/server';
 import { getSiteContent } from '@/lib/content';
 import { buildThankYouEmailHtml } from '@/lib/thank-you-email';
 import { fetchCmsAppSettingsForContactApi } from '@/lib/cms-app-settings-server';
 import { buildStaffInquiryEmailText } from '@/lib/staff-inquiry-email';
+import {
+  isResendConfigured,
+  isSmtpConfigured,
+  resolveContactFromHeader,
+  sendContactMessage,
+} from '@/lib/contact-mail';
 
 export async function POST(request: NextRequest) {
   try {
@@ -59,26 +64,25 @@ export async function POST(request: NextRequest) {
     const appSettings = await fetchCmsAppSettingsForContactApi();
     const visitorEmail = String(email).trim();
 
-    if (!process.env.RESEND_API_KEY) {
+    const useSmtp = isSmtpConfigured();
+    const useResend = !useSmtp && isResendConfigured();
+
+    if (!useSmtp && !useResend) {
       console.warn(
-        '[contact] RESEND_API_KEY is not set — skipping all outbound email (set it in Vercel → Settings → Environment Variables for Production)'
+        '[contact] No outbound email: set SMTP_USER + SMTP_PASS (Google Workspace / SMTP) and optional MAIL_FROM_*, or set RESEND_API_KEY for legacy Resend. Submissions still save to Supabase.'
       );
       return NextResponse.json({ success: true });
     }
 
-    const resend = new Resend(process.env.RESEND_API_KEY);
+    const mailMode = useSmtp ? 'smtp' : 'resend';
     const content = await getSiteContent();
-    const fromEmail =
-      process.env.RESEND_FROM_EMAIL ?? 'onboarding@resend.dev';
-    const fromName =
-      process.env.RESEND_FROM_NAME ?? content.brand.nameFull;
-    const fromHeader = `${fromName} <${fromEmail}>`;
+    const fromHeader = resolveContactFromHeader(content.brand.nameFull);
 
     const willSendStaff = appSettings.staffInquiryEmails.length > 0;
     const willSendThankYou = appSettings.sendThankYouEmail;
     if (!willSendStaff && !willSendThankYou) {
       console.warn(
-        '[contact] Resend is configured but nothing to send: add staff emails in CMS → Settings and/or turn on “Send thank-you emails”'
+        '[contact] Email transport is configured but nothing to send: add staff emails in CMS → Settings and/or turn on “Send thank-you emails”'
       );
     }
 
@@ -99,17 +103,17 @@ export async function POST(request: NextRequest) {
 
     if (willSendStaff) {
       const staffText = buildStaffInquiryEmailText(content, inquiryFields);
-      const { data: staffData, error: staffEmailError } = await resend.emails.send({
-        from: fromHeader,
+      const staffResult = await sendContactMessage(mailMode, {
+        fromHeader,
         to: appSettings.staffInquiryEmails,
-        replyTo: visitorEmail,
         subject: `New inquiry: ${String(name).trim()}`,
         text: staffText,
+        replyTo: visitorEmail,
       });
-      if (staffEmailError) {
-        console.error('[contact] Resend staff notification error:', staffEmailError);
+      if (!staffResult.ok) {
+        console.error('[contact] Staff notification error:', staffResult.errorMessage);
       } else {
-        console.info('[contact] Staff notification sent', { id: staffData?.id ?? null });
+        console.info('[contact] Staff notification sent', { id: staffResult.id ?? null });
       }
     }
 
@@ -118,16 +122,16 @@ export async function POST(request: NextRequest) {
         content,
         String(name).trim().split(' ')[0] || 'there'
       );
-      const { data: tyData, error: emailError } = await resend.emails.send({
-        from: fromHeader,
+      const tyResult = await sendContactMessage(mailMode, {
+        fromHeader,
         to: [visitorEmail],
         subject: `Thank you for reaching out — ${content.brand.nameFull}`,
         html,
       });
-      if (emailError) {
-        console.error('[contact] Resend thank-you error:', emailError);
+      if (!tyResult.ok) {
+        console.error('[contact] Thank-you error:', tyResult.errorMessage);
       } else {
-        console.info('[contact] Thank-you email sent', { id: tyData?.id ?? null });
+        console.info('[contact] Thank-you email sent', { id: tyResult.id ?? null });
       }
     }
 

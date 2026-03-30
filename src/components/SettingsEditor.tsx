@@ -66,9 +66,10 @@ export default function SettingsEditor({ initialSettings }: Props) {
       <div className="bg-white/5 border border-white/10 rounded-xl p-8">
         <h2 className="text-xl font-semibold text-white mb-2">Staff inquiry notifications</h2>
         <p className="text-gray-400 text-sm mb-6">
-          When someone submits the public contact form, we email these addresses (via Resend) with the
-          inquiry details. Only addresses ending in <span className="text-gray-300">{STAFF_EMAIL_DOMAIN}</span>{' '}
-          are allowed. Submissions are always stored in Supabase regardless of email delivery.
+          When someone submits the public contact form, we email these addresses (via Google Workspace SMTP
+          or legacy Resend) with the inquiry details. Only addresses ending in{' '}
+          <span className="text-gray-300">{STAFF_EMAIL_DOMAIN}</span> are allowed. Submissions are always
+          stored in Supabase regardless of email delivery.
         </p>
         <label className="block text-sm font-medium text-gray-300 mb-2" htmlFor="staff-emails">
           Staff email addresses (one per line)
@@ -82,8 +83,10 @@ export default function SettingsEditor({ initialSettings }: Props) {
           className="w-full rounded-lg bg-black/40 border border-white/10 text-white placeholder:text-gray-600 px-4 py-3 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-600"
         />
         <p className="text-gray-500 text-xs mt-2">
-          Requires <code className="text-gray-400">SUPABASE_SERVICE_ROLE_KEY</code> and{' '}
-          <code className="text-gray-400">RESEND_API_KEY</code> on the server so notifications can be sent.
+          Requires <code className="text-gray-400">SUPABASE_SERVICE_ROLE_KEY</code> on the server to load
+          these settings. Outbound mail needs <code className="text-gray-400">SMTP_USER</code> +{' '}
+          <code className="text-gray-400">SMTP_PASS</code> (Workspace) or legacy{' '}
+          <code className="text-gray-400">RESEND_API_KEY</code>.
         </p>
       </div>
 

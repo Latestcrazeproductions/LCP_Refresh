@@ -6,7 +6,7 @@ This guide walks through deploying the Latest Craze Productions landing page to 
 
 - GitHub repository connected
 - Supabase project configured
-- Resend account (for contact form emails)
+- Google Workspace mailbox (App Password or SMTP relay) for contact form email, *or* legacy Resend
 
 ## Deployment Steps
 
@@ -25,15 +25,21 @@ In your Vercel project **Settings → Environment Variables**, add:
 |----------|----------|-------------|
 | `NEXT_PUBLIC_SUPABASE_URL` | Yes | Supabase project URL (e.g. `https://xxx.supabase.co`) |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Yes | Supabase anonymous key |
-| `RESEND_API_KEY` | Yes* | Resend API key for thank-you emails |
-| `RESEND_FROM_EMAIL` | No | Sender email (default: `onboarding@resend.dev`) |
-| `RESEND_FROM_NAME` | No | Sender name (default: from site content) |
+| `SMTP_USER` | Yes* | Workspace mailbox (e.g. `noreply@yourdomain.com`) |
+| `SMTP_PASS` | Yes* | App password or SMTP secret (never commit) |
+| `SMTP_HOST` | No | Default `smtp.gmail.com` |
+| `SMTP_PORT` | No | Default `465` (use `587` with STARTTLS if your relay requires it) |
+| `MAIL_FROM_EMAIL` | No | From address (defaults to `SMTP_USER`) |
+| `MAIL_FROM_NAME` | No | From display name (defaults to site brand from CMS) |
+| `RESEND_API_KEY` | Legacy | Used only if `SMTP_USER` / `SMTP_PASS` are unset |
+| `RESEND_FROM_EMAIL` | Legacy | With Resend fallback |
+| `RESEND_FROM_NAME` | Legacy | With Resend fallback |
 | `NEXT_PUBLIC_SITE_URL` | Yes** | Production URL (e.g. `https://yourdomain.com`) |
 | `NEXT_PUBLIC_SEMRUSH_API_URL` | No | Semrush proxy API URL (default: localhost; set for CMS reports) |
 | `NEXT_PUBLIC_SEMRUSH_ENABLED` | No | Set to `true` to enable Semrush Reports in CMS |
 | `GOOGLE_SHEETS_*_URL` | No | Apps Script web app URLs for forms (see `docs/FORMS_GOOGLE_SHEETS.md`) |
 
-\* Without `RESEND_API_KEY`, form submissions still save to Supabase but no email is sent.
+\* Without SMTP or Resend, form submissions still save to Supabase but no email is sent.
 
 \** Required for correct sitemap, robots, Open Graph, and thank-you emails. Use your Vercel URL (e.g. `https://your-project.vercel.app`) or custom domain.
 
@@ -61,13 +67,16 @@ Ensure your Supabase project has:
 - `site-assets` storage bucket for CMS uploads
 - At least one user in **Authentication → Users** for CMS access
 
-### 6. Resend Setup (Production)
+### 6. Contact email (Production)
 
-For production emails from your domain:
+**Google Workspace (recommended):**
 
-1. Verify your domain in [Resend Dashboard](https://resend.com/domains)
-2. Set `RESEND_FROM_EMAIL` to e.g. `noreply@yourdomain.com`
-3. Set `RESEND_FROM_NAME` to your company name
+1. Create or pick a sender mailbox (e.g. `noreply@yourdomain.com`).
+2. Enable 2-Step Verification and create an [App Password](https://support.google.com/accounts/answer/185833), or use an SMTP relay your admin configures.
+3. In Vercel, set `SMTP_USER`, `SMTP_PASS`, and optionally `MAIL_FROM_EMAIL`, `MAIL_FROM_NAME`, `SMTP_PORT` (465 or 587).
+4. Ensure SPF/DKIM are correct in Google Admin for your domain.
+
+**Legacy Resend:** If `SMTP_USER` and `SMTP_PASS` are unset, set `RESEND_API_KEY` and optional `RESEND_FROM_*` as before.
 
 ## Deploy via Vercel CLI
 
@@ -121,6 +130,6 @@ This configures your local MCP client to talk to this Vercel project for deploym
 - Verify Supabase URL and anon key
 - Check Supabase RLS policies allow public read for `site_content` and insert for `contact_submissions`
 
-**Thank-you emails not sending**
-- Add `RESEND_API_KEY`
-- Verify sender domain in Resend if using custom email
+**Thank-you / staff emails not sending**
+- Set `SMTP_USER` + `SMTP_PASS` (Workspace) or `RESEND_API_KEY` (legacy)
+- For Workspace: confirm app password, port (465 vs 587), and that `MAIL_FROM_EMAIL` matches an allowed sender
