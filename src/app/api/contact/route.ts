@@ -14,6 +14,7 @@ import {
   smtpMissingEnvKeys,
 } from '@/lib/contact-mail';
 
+/** If logs mention Resend or “domain … verified”, this route is NOT what ran — deploy is stale or wrong project. */
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
@@ -67,9 +68,15 @@ export async function POST(request: NextRequest) {
     const appSettings = await fetchCmsAppSettingsForContactApi();
     const visitorEmail = String(email).trim();
 
+    const deployMeta = {
+      build: 'smtp-only',
+      vercelCommit: process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7) ?? null,
+    };
+    console.info('[contact] mailer', deployMeta);
+
     if (!isSmtpConfigured()) {
       console.warn(
-        '[contact] SMTP not configured: set SMTP_USER and SMTP_PASS (and SMTP_HOST for DreamHost) in Production. Missing:',
+        '[contact] smtp-only: SMTP not configured — set SMTP_USER and SMTP_PASS (and SMTP_HOST for DreamHost) on Production. Missing:',
         smtpMissingEnvKeys()
       );
       return NextResponse.json({ success: true });
