@@ -35,6 +35,10 @@ export function normalizeCmsAppSettings(value: unknown): CmsAppSettings {
   }
   if (typeof v.sendThankYouEmail === 'boolean') {
     d.sendThankYouEmail = v.sendThankYouEmail;
+  } else if (typeof v.sendThankYouEmail === 'string') {
+    const s = v.sendThankYouEmail.trim().toLowerCase();
+    if (s === 'true' || s === '1') d.sendThankYouEmail = true;
+    if (s === 'false' || s === '0') d.sendThankYouEmail = false;
   }
   return d;
 }

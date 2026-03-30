@@ -8,6 +8,22 @@ function absUrl(src: string | null): string {
   return `${SITE_URL}${src.startsWith('/') ? '' : '/'}${src}`;
 }
 
+/** Plain-text part for multipart email (improves deliverability vs HTML-only). */
+export function buildThankYouEmailPlainText(
+  content: SiteContent,
+  recipientName: string
+): string {
+  return [
+    `Thank you, ${recipientName}`,
+    '',
+    "We've received your message and will be in touch soon. Our team is excited to learn more about your event vision.",
+    '',
+    `— ${content.brand.nameFull}`,
+    '',
+    SITE_URL,
+  ].join('\n');
+}
+
 /** Build HTML thank-you email using site branding and images */
 export function buildThankYouEmailHtml(
   content: SiteContent,

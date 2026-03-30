@@ -1,7 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
 import { getSiteContent } from '@/lib/content';
-import { buildThankYouEmailHtml } from '@/lib/thank-you-email';
+import {
+  buildThankYouEmailHtml,
+  buildThankYouEmailPlainText,
+} from '@/lib/thank-you-email';
 import { fetchCmsAppSettingsForContactApi } from '@/lib/cms-app-settings-server';
 import { buildStaffInquiryEmailText } from '@/lib/staff-inquiry-email';
 import {
@@ -135,20 +138,25 @@ export async function POST(request: NextRequest) {
     }
 
     if (willSendThankYou) {
-      const html = buildThankYouEmailHtml(
-        content,
-        String(name).trim().split(' ')[0] || 'there'
-      );
+      const firstName = String(name).trim().split(' ')[0] || 'there';
+      const html = buildThankYouEmailHtml(content, firstName);
+      const text = buildThankYouEmailPlainText(content, firstName);
       const tyResult = await sendContactMessage(mailMode, {
         fromHeader,
         to: [visitorEmail],
         subject: `Thank you for reaching out — ${content.brand.nameFull}`,
+        text,
         html,
       });
       if (!tyResult.ok) {
         console.error('[contact] Thank-you error:', tyResult.errorMessage);
       } else {
-        console.info('[contact] Thank-you email sent', { id: tyResult.id ?? null });
+        const at = visitorEmail.indexOf('@');
+        const toDomain = at > 0 ? visitorEmail.slice(at + 1) : '?';
+        console.info('[contact] Thank-you email sent', {
+          id: tyResult.id ?? null,
+          toDomain,
+        });
       }
     }
 

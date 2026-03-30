@@ -112,9 +112,22 @@ export async function sendContactMessage(
     ...(opts.replyTo !== undefined ? { replyTo: opts.replyTo } : {}),
   };
 
-  const { data, error } = opts.html
-    ? await resend.emails.send({ ...base, html: opts.html })
-    : await resend.emails.send({ ...base, text: opts.text ?? '' });
+  let data: { id: string } | null = null;
+  let error: { message: string } | null = null;
+  if (opts.html && opts.text !== undefined) {
+    ({ data, error } = await resend.emails.send({
+      ...base,
+      html: opts.html,
+      text: opts.text,
+    }));
+  } else if (opts.html) {
+    ({ data, error } = await resend.emails.send({ ...base, html: opts.html }));
+  } else {
+    ({ data, error } = await resend.emails.send({
+      ...base,
+      text: opts.text ?? '',
+    }));
+  }
   if (error) {
     const errorMessage =
       typeof error === 'object' && error !== null && 'message' in error
