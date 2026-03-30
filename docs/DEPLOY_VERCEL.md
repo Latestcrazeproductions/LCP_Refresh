@@ -147,3 +147,6 @@ This configures your local MCP client to talk to this Vercel project for deploym
 - Set `SMTP_USER` + `SMTP_PASS` (DreamHost mailbox, Workspace, etc.) or `RESEND_API_KEY` (legacy)
 - DreamHost: use `smtp.dreamhost.com`, full email as `SMTP_USER`, correct port (465 vs 587)
 - Google: confirm app password and that `MAIL_FROM_EMAIL` matches an allowed sender
+
+**Logs say Resend “domain not verified” but you use DreamHost SMTP**  
+Production is still using **Resend** because **`SMTP_USER` and `SMTP_PASS` are not both visible** to the server (wrong environment, typo, or empty). Add both for **Production**, redeploy, and check logs for `[contact] Using Resend because SMTP is not configured` — it lists missing vars. Optionally set **`SKIP_RESEND=true`** so mail fails “cleanly” until SMTP is fixed, or **remove `RESEND_API_KEY`** from Production to avoid accidental fallback.

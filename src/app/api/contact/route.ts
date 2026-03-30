@@ -9,6 +9,8 @@ import {
   isSmtpConfigured,
   resolveContactFromHeader,
   sendContactMessage,
+  skipResendFallback,
+  smtpMissingEnvKeys,
 } from '@/lib/contact-mail';
 
 export async function POST(request: NextRequest) {
@@ -65,11 +67,26 @@ export async function POST(request: NextRequest) {
     const visitorEmail = String(email).trim();
 
     const useSmtp = isSmtpConfigured();
-    const useResend = !useSmtp && isResendConfigured();
+    const resendAllowed = isResendConfigured() && !skipResendFallback();
+    const useResend = !useSmtp && resendAllowed;
+
+    if (!useSmtp && isResendConfigured() && skipResendFallback()) {
+      console.warn(
+        '[contact] SKIP_RESEND is set; SMTP_USER/SMTP_PASS are missing or empty in this environment. Not sending mail. Fix Production env (exact names SMTP_USER, SMTP_PASS) or unset SKIP_RESEND.',
+        { missing: smtpMissingEnvKeys() }
+      );
+    }
+
+    if (useResend) {
+      console.warn(
+        '[contact] Using Resend because SMTP is not configured here (need both SMTP_USER and SMTP_PASS). For DreamHost, set those on Vercel → Environment Variables → Production. Missing:',
+        smtpMissingEnvKeys()
+      );
+    }
 
     if (!useSmtp && !useResend) {
       console.warn(
-        '[contact] No outbound email: set SMTP_USER + SMTP_PASS (Google Workspace / SMTP) and optional MAIL_FROM_*, or set RESEND_API_KEY for legacy Resend. Submissions still save to Supabase.'
+        '[contact] No outbound email: set SMTP_USER + SMTP_PASS (and SMTP_HOST for DreamHost), or set RESEND_API_KEY. Submissions still save to Supabase.'
       );
       return NextResponse.json({ success: true });
     }

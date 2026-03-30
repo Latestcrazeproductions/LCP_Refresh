@@ -5,12 +5,42 @@
 import nodemailer from 'nodemailer';
 import { Resend } from 'resend';
 
+function trimEnv(key: string): string | undefined {
+  const v = process.env[key];
+  if (v == null) return undefined;
+  const t = v.trim();
+  return t.length ? t : undefined;
+}
+
+export function smtpUser(): string | undefined {
+  return trimEnv('SMTP_USER');
+}
+
+export function smtpPass(): string | undefined {
+  return trimEnv('SMTP_PASS');
+}
+
 export function isSmtpConfigured(): boolean {
-  return Boolean(process.env.SMTP_USER && process.env.SMTP_PASS);
+  return Boolean(smtpUser() && smtpPass());
 }
 
 export function isResendConfigured(): boolean {
-  return Boolean(process.env.RESEND_API_KEY);
+  return Boolean(trimEnv('RESEND_API_KEY'));
+}
+
+/** For logs only — which SMTP vars are missing (no secrets). */
+export function smtpMissingEnvKeys(): string[] {
+  const missing: string[] = [];
+  if (!smtpUser()) missing.push('SMTP_USER');
+  if (!smtpPass()) missing.push('SMTP_PASS');
+  return missing;
+}
+
+/** When true, never fall back to Resend (avoids confusing Resend errors if SMTP_* are missing in Production). */
+export function skipResendFallback(): boolean {
+  const v = trimEnv('SKIP_RESEND');
+  if (!v) return false;
+  return ['1', 'true', 'yes'].includes(v.toLowerCase());
 }
 
 /**
@@ -19,25 +49,25 @@ export function isResendConfigured(): boolean {
  */
 export function resolveContactFromHeader(brandNameFull: string): string {
   const email =
-    process.env.MAIL_FROM_EMAIL ||
-    process.env.SMTP_USER ||
-    process.env.RESEND_FROM_EMAIL ||
+    trimEnv('MAIL_FROM_EMAIL') ||
+    smtpUser() ||
+    trimEnv('RESEND_FROM_EMAIL') ||
     'onboarding@resend.dev';
-  const name = process.env.MAIL_FROM_NAME || brandNameFull;
+  const name = trimEnv('MAIL_FROM_NAME') || brandNameFull;
   return `${name} <${email}>`;
 }
 
 function createSmtpTransport() {
-  const port = parseInt(process.env.SMTP_PORT || '465', 10);
+  const port = parseInt(trimEnv('SMTP_PORT') || '465', 10);
   return nodemailer.createTransport({
     // DreamHost: smtp.dreamhost.com — Google: smtp.gmail.com
-    host: process.env.SMTP_HOST || 'smtp.gmail.com',
+    host: trimEnv('SMTP_HOST') || 'smtp.gmail.com',
     port,
     secure: port === 465,
     requireTLS: port === 587,
     auth: {
-      user: process.env.SMTP_USER!,
-      pass: process.env.SMTP_PASS!,
+      user: smtpUser()!,
+      pass: smtpPass()!,
     },
   });
 }
@@ -73,7 +103,7 @@ export async function sendContactMessage(
     }
   }
 
-  const resend = new Resend(process.env.RESEND_API_KEY!);
+  const resend = new Resend(trimEnv('RESEND_API_KEY')!);
   const to = Array.isArray(opts.to) ? opts.to : [opts.to];
   const base = {
     from: opts.fromHeader,
