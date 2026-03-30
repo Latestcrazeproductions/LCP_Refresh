@@ -21,4 +21,24 @@ export const legacyRedirects: Array<{
   source: string;
   destination: string;
   permanent: boolean;
-}> = [];
+}> = [
+  // Old WordPress-style URLs (Google sitelinks / legacy index)
+  { source: '/contact-us', destination: '/contact', permanent: true },
+  { source: '/contact-us/', destination: '/contact', permanent: true },
+  { source: '/photo-gallery', destination: '/', permanent: true },
+  { source: '/photo-gallery/', destination: '/', permanent: true },
+  { source: '/portfolio', destination: '/', permanent: true },
+  { source: '/portfolio/', destination: '/', permanent: true },
+  { source: '/corporate-av', destination: '/services', permanent: true },
+  { source: '/corporate-av/', destination: '/services', permanent: true },
+  {
+    source: '/corporate-audio-visual-production-services',
+    destination: '/services',
+    permanent: true,
+  },
+  {
+    source: '/corporate-audio-visual-production-services/',
+    destination: '/services',
+    permanent: true,
+  },
+];
