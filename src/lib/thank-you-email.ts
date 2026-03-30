@@ -30,10 +30,12 @@ export function buildThankYouEmailHtml(
   recipientName: string
 ): string {
   const logoUrl = absUrl(content.brand.logo);
+  // Email clients cannot resolve site-relative paths; always absolute https URLs.
   const heroImage =
-    content.hero.images?.[0] ?? 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=800';
+    absUrl(content.hero.images?.[0] ?? null) ||
+    'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=800';
   const serviceImage =
-    content.services.items?.[0]?.image ??
+    absUrl(content.services.items?.[0]?.image ?? null) ||
     'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800';
 
   return `
@@ -68,6 +70,10 @@ export function buildThankYouEmailHtml(
               </p>
               <p style="margin:0;font-size:14px;color:rgba(255,255,255,0.6);">
                 In the meantime, explore what we do best.
+              </p>
+              <p style="margin:16px 0 0;font-size:12px;color:rgba(255,255,255,0.45);line-height:1.5;">
+                If photos don’t appear, your inbox may be blocking remote images — use “Show images” or “Display images”
+                (Gmail/Outlook).
               </p>
             </td>
           </tr>
