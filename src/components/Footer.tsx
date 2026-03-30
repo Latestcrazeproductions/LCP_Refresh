@@ -80,6 +80,8 @@ export default function Footer() {
               <li><Link href="/services" className="text-gray-400 hover:text-white transition-colors text-sm">Event Production Services</Link></li>
               <li><Link href="/events" className="text-gray-400 hover:text-white transition-colors text-sm">Events We Create</Link></li>
               <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">About Us</Link></li>
+              <li><Link href="/featured-venues" className="text-gray-400 hover:text-white transition-colors text-sm">Featured Venues</Link></li>
+              <li><Link href="/digital-signage" className="text-gray-400 hover:text-white transition-colors text-sm">Digital Signage</Link></li>
               <li><Link href="/#expertise" className="text-gray-400 hover:text-white transition-colors text-sm">Expertise</Link></li>
               <li><Link href="/#faq" className="text-gray-400 hover:text-white transition-colors text-sm">FAQ</Link></li>
               <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors text-sm">Contact</Link></li>

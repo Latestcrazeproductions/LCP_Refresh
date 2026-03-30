@@ -47,6 +47,8 @@ export async function GET(request: Request) {
     { url: `${baseUrl}/services`, lastmod: now, changefreq: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/events`, lastmod: now, changefreq: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/about`, lastmod: now, changefreq: 'monthly', priority: 0.8 },
+    { url: `${baseUrl}/featured-venues`, lastmod: now, changefreq: 'monthly', priority: 0.75 },
+    { url: `${baseUrl}/digital-signage`, lastmod: now, changefreq: 'monthly', priority: 0.75 },
     { url: `${baseUrl}/contact`, lastmod: now, changefreq: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/privacy`, lastmod: now, changefreq: 'yearly', priority: 0.5 },
     { url: `${baseUrl}/terms`, lastmod: now, changefreq: 'yearly', priority: 0.5 },
