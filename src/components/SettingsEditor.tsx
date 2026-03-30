@@ -66,8 +66,8 @@ export default function SettingsEditor({ initialSettings }: Props) {
       <div className="bg-white/5 border border-white/10 rounded-xl p-8">
         <h2 className="text-xl font-semibold text-white mb-2">Staff inquiry notifications</h2>
         <p className="text-gray-400 text-sm mb-6">
-          When someone submits the public contact form, we email these addresses (via Google Workspace SMTP
-          or legacy Resend) with the inquiry details. Only addresses ending in{' '}
+          When someone submits the public contact form, we email these addresses (via SMTP—e.g. DreamHost or
+          Google Workspace—or legacy Resend) with the inquiry details. Only addresses ending in{' '}
           <span className="text-gray-300">{STAFF_EMAIL_DOMAIN}</span> are allowed. Submissions are always
           stored in Supabase regardless of email delivery.
         </p>
@@ -84,8 +84,9 @@ export default function SettingsEditor({ initialSettings }: Props) {
         />
         <p className="text-gray-500 text-xs mt-2">
           Requires <code className="text-gray-400">SUPABASE_SERVICE_ROLE_KEY</code> on the server to load
-          these settings. Outbound mail needs <code className="text-gray-400">SMTP_USER</code> +{' '}
-          <code className="text-gray-400">SMTP_PASS</code> (Workspace) or legacy{' '}
+          these settings.           Outbound mail needs <code className="text-gray-400">SMTP_USER</code> +{' '}
+          <code className="text-gray-400">SMTP_PASS</code> (set <code className="text-gray-400">SMTP_HOST</code>{' '}
+          for DreamHost: <code className="text-gray-400">smtp.dreamhost.com</code>) or legacy{' '}
           <code className="text-gray-400">RESEND_API_KEY</code>.
         </p>
       </div>

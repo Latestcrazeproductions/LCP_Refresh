@@ -6,7 +6,7 @@ This guide walks through deploying the Latest Craze Productions landing page to 
 
 - GitHub repository connected
 - Supabase project configured
-- Google Workspace mailbox (App Password or SMTP relay) for contact form email, *or* legacy Resend
+- Outbound SMTP (e.g. **DreamHost** mailbox for your domain, or Google Workspace), *or* legacy Resend
 
 ## Deployment Steps
 
@@ -25,10 +25,10 @@ In your Vercel project **Settings → Environment Variables**, add:
 |----------|----------|-------------|
 | `NEXT_PUBLIC_SUPABASE_URL` | Yes | Supabase project URL (e.g. `https://xxx.supabase.co`) |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Yes | Supabase anonymous key |
-| `SMTP_USER` | Yes* | Workspace mailbox (e.g. `noreply@yourdomain.com`) |
-| `SMTP_PASS` | Yes* | App password or SMTP secret (never commit) |
-| `SMTP_HOST` | No | Default `smtp.gmail.com` |
-| `SMTP_PORT` | No | Default `465` (use `587` with STARTTLS if your relay requires it) |
+| `SMTP_USER` | Yes* | Full sender address (e.g. `noreply@yourdomain.com`) |
+| `SMTP_PASS` | Yes* | Mailbox or app password (never commit) |
+| `SMTP_HOST` | No | e.g. `smtp.dreamhost.com` (DreamHost) or `smtp.gmail.com` (Google); default `smtp.gmail.com` |
+| `SMTP_PORT` | No | Default `465` (SSL). Use `587` for STARTTLS (DreamHost/Google both support it) |
 | `MAIL_FROM_EMAIL` | No | From address (defaults to `SMTP_USER`) |
 | `MAIL_FROM_NAME` | No | From display name (defaults to site brand from CMS) |
 | `RESEND_API_KEY` | Legacy | Used only if `SMTP_USER` / `SMTP_PASS` are unset |
@@ -69,12 +69,25 @@ Ensure your Supabase project has:
 
 ### 6. Contact email (Production)
 
-**Google Workspace (recommended):**
+**DreamHost (domain registered / email hosted at DreamHost):**
+
+1. In the [DreamHost panel](https://panel.dreamhost.com), create a mailbox for your domain (e.g. `noreply@yourdomain.com`) under **Mail → Manage Email**.
+2. In Vercel, set:
+   - `SMTP_HOST` = `smtp.dreamhost.com`
+   - `SMTP_PORT` = `465` (SSL) or `587` (TLS / STARTTLS)
+   - `SMTP_USER` = the **full email address** of that mailbox
+   - `SMTP_PASS` = that mailbox’s password
+   - `MAIL_FROM_EMAIL` = same address (or another address only if DreamHost allows it as send-as)
+   - `MAIL_FROM_NAME` = display name (optional; defaults to site brand from CMS)
+3. Official client/SMTP overview: [DreamHost — Email client configuration](https://help.dreamhost.com/hc/en-us/articles/214918038-Email-client-configuration-overview).
+
+The app only **connects out** to your SMTP server (from Vercel). Your domain’s DNS can stay on DreamHost; you do **not** need to move DNS to send mail this way.
+
+**Google Workspace / Gmail:**
 
 1. Create or pick a sender mailbox (e.g. `noreply@yourdomain.com`).
-2. Enable 2-Step Verification and create an [App Password](https://support.google.com/accounts/answer/185833), or use an SMTP relay your admin configures.
-3. In Vercel, set `SMTP_USER`, `SMTP_PASS`, and optionally `MAIL_FROM_EMAIL`, `MAIL_FROM_NAME`, `SMTP_PORT` (465 or 587).
-4. Ensure SPF/DKIM are correct in Google Admin for your domain.
+2. Use an [App Password](https://support.google.com/accounts/answer/185833) or your admin’s SMTP relay policy.
+3. Set `SMTP_HOST=smtp.gmail.com`, `SMTP_USER`, `SMTP_PASS`, and optional `MAIL_FROM_*`, `SMTP_PORT` (465 or 587).
 
 **Legacy Resend:** If `SMTP_USER` and `SMTP_PASS` are unset, set `RESEND_API_KEY` and optional `RESEND_FROM_*` as before.
 
@@ -131,5 +144,6 @@ This configures your local MCP client to talk to this Vercel project for deploym
 - Check Supabase RLS policies allow public read for `site_content` and insert for `contact_submissions`
 
 **Thank-you / staff emails not sending**
-- Set `SMTP_USER` + `SMTP_PASS` (Workspace) or `RESEND_API_KEY` (legacy)
-- For Workspace: confirm app password, port (465 vs 587), and that `MAIL_FROM_EMAIL` matches an allowed sender
+- Set `SMTP_USER` + `SMTP_PASS` (DreamHost mailbox, Workspace, etc.) or `RESEND_API_KEY` (legacy)
+- DreamHost: use `smtp.dreamhost.com`, full email as `SMTP_USER`, correct port (465 vs 587)
+- Google: confirm app password and that `MAIL_FROM_EMAIL` matches an allowed sender

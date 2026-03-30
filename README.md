@@ -7,7 +7,7 @@ Marketing and events website for Latest Craze Productions, built with Next.js 15
 - **Framework:** Next.js 15 (App Router)
 - **Styling:** Tailwind CSS
 - **Backend:** Supabase (content, forms, storage)
-- **Email:** Google Workspace SMTP (Nodemailer); optional legacy Resend if SMTP is not configured
+- **Email:** SMTP via Nodemailer (DreamHost mail, Google Workspace, etc.); optional legacy Resend if SMTP is not configured
 
 ## Local Setup
 

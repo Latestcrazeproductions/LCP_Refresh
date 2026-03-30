@@ -1,3 +1,7 @@
+/**
+ * Contact outbound mail: standard SMTP (DreamHost smtp.dreamhost.com, Google smtp.gmail.com, …)
+ * configured with SMTP_* env vars, or legacy Resend if SMTP credentials are unset.
+ */
 import nodemailer from 'nodemailer';
 import { Resend } from 'resend';
 
@@ -26,6 +30,7 @@ export function resolveContactFromHeader(brandNameFull: string): string {
 function createSmtpTransport() {
   const port = parseInt(process.env.SMTP_PORT || '465', 10);
   return nodemailer.createTransport({
+    // DreamHost: smtp.dreamhost.com — Google: smtp.gmail.com
     host: process.env.SMTP_HOST || 'smtp.gmail.com',
     port,
     secure: port === 465,
