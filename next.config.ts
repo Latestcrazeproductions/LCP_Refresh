@@ -1,4 +1,5 @@
 import type { NextConfig } from 'next';
+import { legacyRedirects } from './legacy-redirects';
 
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL ?? '';
 const supabaseHost = supabaseUrl ? new URL(supabaseUrl).hostname : null;
@@ -6,6 +7,9 @@ const supabaseHost = supabaseUrl ? new URL(supabaseUrl).hostname : null;
 const supabaseHostFallback = 'qsccsddknmvidvcfpffu.supabase.co';
 
 const nextConfig: NextConfig = {
+  async redirects() {
+    return legacyRedirects;
+  },
   async rewrites() {
     return [{ source: '/sitemap.xml', destination: '/api/sitemap-xml' }];
   },
