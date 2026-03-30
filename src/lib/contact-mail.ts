@@ -38,9 +38,16 @@ export function resolveContactFromHeader(brandNameFull: string): string {
 }
 
 function createSmtpTransport() {
+  const host = (trimEnv('SMTP_HOST') || 'smtp.gmail.com').toLowerCase();
+  if (host.includes('resend.com')) {
+    console.warn(
+      '[contact] SMTP_HOST points at Resend (e.g. smtp.resend.com). Nodemailer talks to that server — ' +
+        'you will see Resend errors until the domain is verified in Resend, or switch SMTP_HOST to DreamHost (smtp.dreamhost.com) with your mailbox credentials.'
+    );
+  }
   const port = parseInt(trimEnv('SMTP_PORT') || '465', 10);
   return nodemailer.createTransport({
-    host: trimEnv('SMTP_HOST') || 'smtp.gmail.com',
+    host,
     port,
     secure: port === 465,
     requireTLS: port === 587,

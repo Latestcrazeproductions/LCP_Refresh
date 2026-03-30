@@ -27,7 +27,7 @@ In your Vercel project **Settings → Environment Variables**, add:
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Yes | Supabase anonymous key |
 | `SMTP_USER` | Yes* | Full sender address (e.g. `noreply@yourdomain.com`) |
 | `SMTP_PASS` | Yes* | Mailbox or app password (never commit) |
-| `SMTP_HOST` | No | e.g. `smtp.dreamhost.com` (DreamHost) or `smtp.gmail.com` (Google); default `smtp.gmail.com` |
+| `SMTP_HOST` | No | **DreamHost:** `smtp.dreamhost.com` — **Google:** `smtp.gmail.com` (default if unset). Do **not** use `smtp.resend.com` unless you use Resend’s SMTP and have verified your domain there (otherwise you get “domain … not verified” errors). |
 | `SMTP_PORT` | No | Default `465` (SSL). Use `587` for STARTTLS (DreamHost/Google both support it) |
 | `MAIL_FROM_EMAIL` | No | From address (defaults to `SMTP_USER`) |
 | `MAIL_FROM_NAME` | No | From display name (defaults to site brand from CMS) |
