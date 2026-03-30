@@ -52,7 +52,7 @@ export default async function CmsDashboardPage() {
           </Link>
 
           <Link
-            href="/cms/forms"
+            href="/internal-forms"
             className="block p-8 bg-white/5 border border-white/10 rounded-xl hover:border-white/20 hover:bg-white/[0.07] transition-all group"
           >
             <span className="text-4xl mb-4 block">📋</span>

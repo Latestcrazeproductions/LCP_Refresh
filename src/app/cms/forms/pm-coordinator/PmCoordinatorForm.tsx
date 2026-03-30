@@ -103,7 +103,7 @@ export default function PmCoordinatorForm() {
                 Submit another
               </button>
               <Link
-                href="/cms/forms"
+                href="/internal-forms"
                 className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium transition-colors"
               >
                 Back to Internal Forms
@@ -119,7 +119,7 @@ export default function PmCoordinatorForm() {
     <div className="min-h-screen bg-[#050505] py-8 px-4">
       <div className="max-w-2xl mx-auto">
         <Link
-          href="/cms/forms"
+          href="/internal-forms"
           className="inline-flex items-center gap-2 text-gray-400 hover:text-white text-sm mb-8 transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
@@ -130,7 +130,7 @@ export default function PmCoordinatorForm() {
           Project Manager/Coordinator Request Form
         </h1>
         <p className="text-gray-400 text-sm mb-2">
-          To return back to Internal Forms <Link href="/cms/forms" className="text-blue-400 hover:text-blue-300 underline">Click Here</Link>.
+          To return back to Internal Forms <Link href="/internal-forms" className="text-blue-400 hover:text-blue-300 underline">Click Here</Link>.
         </p>
         <p className="text-gray-400 text-sm mb-8">* Indicates required question</p>
 
