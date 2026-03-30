@@ -145,7 +145,7 @@ Edits are stored in Supabase. The public site reads from Supabase when configure
 
 ## Contact Form & Thank-You Emails
 
-The contact form saves submissions to Supabase (`contact_submissions` table) and sends staff notifications and optional thank-you email via **SMTP** (Nodemailer)—for example **DreamHost** mail for your domain or **Google Workspace**—or legacy **Resend** if SMTP is not configured. The thank-you email uses your site's logo, hero image, and service images from the CMS.
+The contact form saves submissions to Supabase (`contact_submissions` table) and sends staff notifications and optional thank-you email via **SMTP** (Nodemailer)—for example **DreamHost** mail for your domain or **Google Workspace**. The thank-you email uses your site's logo, hero image, and service images from the CMS.
 
 ### Setup
 
@@ -170,8 +170,6 @@ The contact form saves submissions to Supabase (`contact_submissions` table) and
 
    **Google Workspace:** Use `SMTP_HOST=smtp.gmail.com` and an [App Password](https://support.google.com/accounts/answer/185833) (or your admin’s SMTP policy) for `SMTP_PASS`.
 
-   **Legacy Resend:** If `SMTP_USER` and `SMTP_PASS` are unset, set `RESEND_API_KEY` and optional `RESEND_FROM_*` instead.
-
 3. **Form behavior**
 
-   Submissions are always saved to Supabase. If neither SMTP nor Resend is configured, no email is sent but the form still succeeds.
+   Submissions are always saved to Supabase. If `SMTP_USER` and `SMTP_PASS` are not set on the server, no email is sent but the form still succeeds.

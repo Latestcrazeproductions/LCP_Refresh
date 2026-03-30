@@ -6,7 +6,7 @@ This guide walks through deploying the Latest Craze Productions landing page to 
 
 - GitHub repository connected
 - Supabase project configured
-- Outbound SMTP (e.g. **DreamHost** mailbox for your domain, or Google Workspace), *or* legacy Resend
+- Outbound SMTP (e.g. **DreamHost** mailbox for your domain, or Google Workspace)
 
 ## Deployment Steps
 
@@ -31,15 +31,12 @@ In your Vercel project **Settings → Environment Variables**, add:
 | `SMTP_PORT` | No | Default `465` (SSL). Use `587` for STARTTLS (DreamHost/Google both support it) |
 | `MAIL_FROM_EMAIL` | No | From address (defaults to `SMTP_USER`) |
 | `MAIL_FROM_NAME` | No | From display name (defaults to site brand from CMS) |
-| `RESEND_API_KEY` | Legacy | Used only if `SMTP_USER` / `SMTP_PASS` are unset |
-| `RESEND_FROM_EMAIL` | Legacy | With Resend fallback |
-| `RESEND_FROM_NAME` | Legacy | With Resend fallback |
 | `NEXT_PUBLIC_SITE_URL` | Yes** | Production URL (e.g. `https://yourdomain.com`) |
 | `NEXT_PUBLIC_SEMRUSH_API_URL` | No | Semrush proxy API URL (default: localhost; set for CMS reports) |
 | `NEXT_PUBLIC_SEMRUSH_ENABLED` | No | Set to `true` to enable Semrush Reports in CMS |
 | `GOOGLE_SHEETS_*_URL` | No | Apps Script web app URLs for forms (see `docs/FORMS_GOOGLE_SHEETS.md`) |
 
-\* Without SMTP or Resend, form submissions still save to Supabase but no email is sent.
+\* Without `SMTP_USER` + `SMTP_PASS`, form submissions still save to Supabase but no email is sent.
 
 \** Required for correct sitemap, robots, Open Graph, and thank-you emails. Use your Vercel URL (e.g. `https://your-project.vercel.app`) or custom domain.
 
@@ -88,8 +85,6 @@ The app only **connects out** to your SMTP server (from Vercel). Your domain’s
 1. Create or pick a sender mailbox (e.g. `noreply@yourdomain.com`).
 2. Use an [App Password](https://support.google.com/accounts/answer/185833) or your admin’s SMTP relay policy.
 3. Set `SMTP_HOST=smtp.gmail.com`, `SMTP_USER`, `SMTP_PASS`, and optional `MAIL_FROM_*`, `SMTP_PORT` (465 or 587).
-
-**Legacy Resend:** If `SMTP_USER` and `SMTP_PASS` are unset, set `RESEND_API_KEY` and optional `RESEND_FROM_*` as before.
 
 ## Deploy via Vercel CLI
 
@@ -144,9 +139,7 @@ This configures your local MCP client to talk to this Vercel project for deploym
 - Check Supabase RLS policies allow public read for `site_content` and insert for `contact_submissions`
 
 **Thank-you / staff emails not sending**
-- Set `SMTP_USER` + `SMTP_PASS` (DreamHost mailbox, Workspace, etc.) or `RESEND_API_KEY` (legacy)
-- DreamHost: use `smtp.dreamhost.com`, full email as `SMTP_USER`, correct port (465 vs 587)
-- Google: confirm app password and that `MAIL_FROM_EMAIL` matches an allowed sender
-
-**Logs say Resend “domain not verified” but you use DreamHost SMTP**  
-Production is still using **Resend** because **`SMTP_USER` and `SMTP_PASS` are not both visible** to the server (wrong environment, typo, or empty). Add both for **Production**, redeploy, and check logs for `[contact] Using Resend because SMTP is not configured` — it lists missing vars. Optionally set **`SKIP_RESEND=true`** so mail fails “cleanly” until SMTP is fixed, or **remove `RESEND_API_KEY`** from Production to avoid accidental fallback.
+- Set **`SMTP_USER`** and **`SMTP_PASS`** for **Production** (not only Preview), then **redeploy**
+- DreamHost: **`SMTP_HOST=smtp.dreamhost.com`**, port **`465`** or **`587`** (digits only)
+- Check logs for `[contact] SMTP not configured` — it lists missing variable names
+- Remove any old **`RESEND_*`** variables from Vercel (not used by this app anymore)

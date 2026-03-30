@@ -8,11 +8,9 @@ import {
 import { fetchCmsAppSettingsForContactApi } from '@/lib/cms-app-settings-server';
 import { buildStaffInquiryEmailText } from '@/lib/staff-inquiry-email';
 import {
-  isResendConfigured,
   isSmtpConfigured,
   resolveContactFromHeader,
-  sendContactMessage,
-  skipResendFallback,
+  sendContactSmtp,
   smtpMissingEnvKeys,
 } from '@/lib/contact-mail';
 
@@ -69,32 +67,14 @@ export async function POST(request: NextRequest) {
     const appSettings = await fetchCmsAppSettingsForContactApi();
     const visitorEmail = String(email).trim();
 
-    const useSmtp = isSmtpConfigured();
-    const resendAllowed = isResendConfigured() && !skipResendFallback();
-    const useResend = !useSmtp && resendAllowed;
-
-    if (!useSmtp && isResendConfigured() && skipResendFallback()) {
+    if (!isSmtpConfigured()) {
       console.warn(
-        '[contact] SKIP_RESEND is set; SMTP_USER/SMTP_PASS are missing or empty in this environment. Not sending mail. Fix Production env (exact names SMTP_USER, SMTP_PASS) or unset SKIP_RESEND.',
-        { missing: smtpMissingEnvKeys() }
-      );
-    }
-
-    if (useResend) {
-      console.warn(
-        '[contact] Using Resend because SMTP is not configured here (need both SMTP_USER and SMTP_PASS). For DreamHost, set those on Vercel → Environment Variables → Production. Missing:',
+        '[contact] SMTP not configured: set SMTP_USER and SMTP_PASS (and SMTP_HOST for DreamHost) in Production. Missing:',
         smtpMissingEnvKeys()
-      );
-    }
-
-    if (!useSmtp && !useResend) {
-      console.warn(
-        '[contact] No outbound email: set SMTP_USER + SMTP_PASS (and SMTP_HOST for DreamHost), or set RESEND_API_KEY. Submissions still save to Supabase.'
       );
       return NextResponse.json({ success: true });
     }
 
-    const mailMode = useSmtp ? 'smtp' : 'resend';
     const content = await getSiteContent();
     const fromHeader = resolveContactFromHeader(content.brand.nameFull);
 
@@ -102,7 +82,7 @@ export async function POST(request: NextRequest) {
     const willSendThankYou = appSettings.sendThankYouEmail;
     if (!willSendStaff && !willSendThankYou) {
       console.warn(
-        '[contact] Email transport is configured but nothing to send: add staff emails in CMS → Settings and/or turn on “Send thank-you emails”'
+        '[contact] SMTP is configured but nothing to send: add staff emails in CMS → Settings and/or turn on “Send thank-you emails”'
       );
     }
 
@@ -123,7 +103,7 @@ export async function POST(request: NextRequest) {
 
     if (willSendStaff) {
       const staffText = buildStaffInquiryEmailText(content, inquiryFields);
-      const staffResult = await sendContactMessage(mailMode, {
+      const staffResult = await sendContactSmtp({
         fromHeader,
         to: appSettings.staffInquiryEmails,
         subject: `New inquiry: ${String(name).trim()}`,
@@ -141,7 +121,7 @@ export async function POST(request: NextRequest) {
       const firstName = String(name).trim().split(' ')[0] || 'there';
       const html = buildThankYouEmailHtml(content, firstName);
       const text = buildThankYouEmailPlainText(content, firstName);
-      const tyResult = await sendContactMessage(mailMode, {
+      const tyResult = await sendContactSmtp({
         fromHeader,
         to: [visitorEmail],
         subject: `Thank you for reaching out — ${content.brand.nameFull}`,

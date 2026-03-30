@@ -1,9 +1,7 @@
 /**
- * Contact outbound mail: standard SMTP (DreamHost smtp.dreamhost.com, Google smtp.gmail.com, …)
- * configured with SMTP_* env vars, or legacy Resend if SMTP credentials are unset.
+ * Contact outbound mail: SMTP only (Nodemailer). DreamHost, Google Workspace, etc.
  */
 import nodemailer from 'nodemailer';
-import { Resend } from 'resend';
 
 function trimEnv(key: string): string | undefined {
   const v = process.env[key];
@@ -24,11 +22,7 @@ export function isSmtpConfigured(): boolean {
   return Boolean(smtpUser() && smtpPass());
 }
 
-export function isResendConfigured(): boolean {
-  return Boolean(trimEnv('RESEND_API_KEY'));
-}
-
-/** For logs only — which SMTP vars are missing (no secrets). */
+/** For logs — which SMTP vars are missing (no secrets). */
 export function smtpMissingEnvKeys(): string[] {
   const missing: string[] = [];
   if (!smtpUser()) missing.push('SMTP_USER');
@@ -36,23 +30,9 @@ export function smtpMissingEnvKeys(): string[] {
   return missing;
 }
 
-/** When true, never fall back to Resend (avoids confusing Resend errors if SMTP_* are missing in Production). */
-export function skipResendFallback(): boolean {
-  const v = trimEnv('SKIP_RESEND');
-  if (!v) return false;
-  return ['1', 'true', 'yes'].includes(v.toLowerCase());
-}
-
-/**
- * From header for contact emails. Prefer MAIL_FROM_*; for Workspace SMTP,
- * MAIL_FROM_EMAIL should match the mailbox or an allowed send-as alias.
- */
+/** Call only when `isSmtpConfigured()` is true so `SMTP_USER` exists. */
 export function resolveContactFromHeader(brandNameFull: string): string {
-  const email =
-    trimEnv('MAIL_FROM_EMAIL') ||
-    smtpUser() ||
-    trimEnv('RESEND_FROM_EMAIL') ||
-    'onboarding@resend.dev';
+  const email = trimEnv('MAIL_FROM_EMAIL') || smtpUser()!;
   const name = trimEnv('MAIL_FROM_NAME') || brandNameFull;
   return `${name} <${email}>`;
 }
@@ -60,7 +40,6 @@ export function resolveContactFromHeader(brandNameFull: string): string {
 function createSmtpTransport() {
   const port = parseInt(trimEnv('SMTP_PORT') || '465', 10);
   return nodemailer.createTransport({
-    // DreamHost: smtp.dreamhost.com — Google: smtp.gmail.com
     host: trimEnv('SMTP_HOST') || 'smtp.gmail.com',
     port,
     secure: port === 465,
@@ -72,7 +51,7 @@ function createSmtpTransport() {
   });
 }
 
-type SendOpts = {
+export type ContactMailOpts = {
   fromHeader: string;
   to: string | string[];
   subject: string;
@@ -81,59 +60,22 @@ type SendOpts = {
   replyTo?: string;
 };
 
-export async function sendContactMessage(
-  mode: 'smtp' | 'resend',
-  opts: SendOpts
+export async function sendContactSmtp(
+  opts: ContactMailOpts
 ): Promise<{ ok: boolean; id?: string; errorMessage?: string }> {
-  if (mode === 'smtp') {
-    try {
-      const transport = createSmtpTransport();
-      const info = await transport.sendMail({
-        from: opts.fromHeader,
-        to: opts.to,
-        subject: opts.subject,
-        text: opts.text,
-        html: opts.html,
-        replyTo: opts.replyTo,
-      });
-      return { ok: true, id: info.messageId };
-    } catch (e) {
-      const msg = e instanceof Error ? e.message : String(e);
-      return { ok: false, errorMessage: msg };
-    }
-  }
-
-  const resend = new Resend(trimEnv('RESEND_API_KEY')!);
-  const to = Array.isArray(opts.to) ? opts.to : [opts.to];
-  const base = {
-    from: opts.fromHeader,
-    to,
-    subject: opts.subject,
-    ...(opts.replyTo !== undefined ? { replyTo: opts.replyTo } : {}),
-  };
-
-  let data: { id: string } | null = null;
-  let error: { message: string } | null = null;
-  if (opts.html && opts.text !== undefined) {
-    ({ data, error } = await resend.emails.send({
-      ...base,
-      html: opts.html,
+  try {
+    const transport = createSmtpTransport();
+    const info = await transport.sendMail({
+      from: opts.fromHeader,
+      to: opts.to,
+      subject: opts.subject,
       text: opts.text,
-    }));
-  } else if (opts.html) {
-    ({ data, error } = await resend.emails.send({ ...base, html: opts.html }));
-  } else {
-    ({ data, error } = await resend.emails.send({
-      ...base,
-      text: opts.text ?? '',
-    }));
+      html: opts.html,
+      replyTo: opts.replyTo,
+    });
+    return { ok: true, id: info.messageId };
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : String(e);
+    return { ok: false, errorMessage: msg };
   }
-  if (error) {
-    const errorMessage =
-      typeof error === 'object' && error !== null && 'message' in error
-        ? String((error as { message: unknown }).message)
-        : String(error);
-    return { ok: false, errorMessage };
-  }
-  return { ok: true, id: data?.id ?? undefined };
 }
