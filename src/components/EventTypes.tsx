@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { ArrowUpRight } from 'lucide-react';
 import { useContent } from '@/context/ContentContext';
 import { getOptimizedImageUrl } from '@/lib/image-utils';
+import { getImageSrc, resolveSeoImage } from '@/lib/seo-image';
 import type { EventTypeItem } from '@/lib/content';
 
 const LazyEventTypeModalContent = dynamic(() => import('@/components/EventTypeModalContent'));
@@ -31,7 +32,7 @@ function getSize(index: number): string {
 }
 
 export default function EventTypes() {
-  const { eventTypes } = useContent();
+  const { eventTypes, brand } = useContent();
   const items = Array.isArray(eventTypes?.items) ? eventTypes.items : [];
   const [selectedEventType, setSelectedEventType] = useState<EventTypeItem | null>(null);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -107,10 +108,15 @@ export default function EventTypes() {
                 }
               }}
             >
-              {eventType.image ? (
+              {getImageSrc(eventType.image) ? (
                   <Image
-                  src={eventType.image}
-                  alt={eventType.title}
+                  src={getOptimizedImageUrl(getImageSrc(eventType.image), { width: 1280, quality: 68 })}
+                  alt={
+                    resolveSeoImage(
+                      eventType.image,
+                      `${eventType.title} — ${brand?.nameFull ?? 'Latest Craze Productions'} corporate events`
+                    ).alt
+                  }
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-70 group-hover:opacity-100"
                   sizes="(max-width: 768px) 100vw, 33vw"

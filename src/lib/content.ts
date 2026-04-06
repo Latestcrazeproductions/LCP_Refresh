@@ -1,6 +1,14 @@
 import { unstable_cache } from 'next/cache';
 import { createPublicClient } from '@/lib/supabase/server';
 import { siteContent } from '@/content/site-content';
+import {
+  coerceGalleryField,
+  coerceSeoImageField,
+  getImageSrc,
+  type SeoImageInput,
+} from '@/lib/seo-image';
+
+export type { SeoImageInput } from '@/lib/seo-image';
 
 export type SiteContentKey =
   | 'brand'
@@ -13,8 +21,15 @@ export type SiteContentKey =
   | 'contact'
   | 'faq';
 
-export type ServiceItem = (typeof siteContent.services.items)[number] & { gallery?: string[] };
-export type EventTypeItem = (typeof siteContent.eventTypes.items)[number] & { gallery?: string[] };
+export type ServiceItem = Omit<(typeof siteContent.services.items)[number], 'image'> & {
+  image: SeoImageInput;
+  gallery?: SeoImageInput[];
+};
+
+export type EventTypeItem = Omit<(typeof siteContent.eventTypes.items)[number], 'image'> & {
+  image: SeoImageInput;
+  gallery?: SeoImageInput[];
+};
 
 export type SiteContent = typeof siteContent;
 
@@ -44,6 +59,8 @@ export type EditableSiteContent = {
       title: string;
       description: string;
       image: string;
+      /** Optional SEO description for the main image (stored merged into image on save/read). */
+      imageAlt?: string;
       gallery?: string[];
       details?: {
         headline: string;
@@ -61,6 +78,7 @@ export type EditableSiteContent = {
       title: string;
       description: string;
       image: string;
+      imageAlt?: string;
       gallery?: string[];
       details?: { headline: string; text: string; features: string[] };
     }>;
@@ -72,6 +90,8 @@ export type EditableSiteContent = {
     phone: string;
     address: string;
     image: string | null;
+    /** Optional alt for contact section image (merged with image on read). */
+    imageAlt?: string;
     ctaText: string;
     copyright: string;
     footerLinks: Array<{ label: string; href: string }>;
@@ -81,6 +101,27 @@ export type EditableSiteContent = {
     items: Array<{ question: string; answer: string }>;
   };
 };
+
+function mergeSeoMainImage(
+  item: Record<string, unknown>,
+  fallback: Record<string, unknown> | undefined,
+  placeholder: string
+): SeoImageInput {
+  const coerced = coerceSeoImageField(item.image);
+  const coercedFb = coerceSeoImageField(fallback?.image);
+  const strItem = typeof item.image === 'string' && item.image.trim() ? item.image.trim() : '';
+  const strFb =
+    typeof fallback?.image === 'string' && fallback.image.trim() ? (fallback.image as string).trim() : '';
+
+  const base: SeoImageInput =
+    coerced ?? (strItem || null) ?? coercedFb ?? (strFb || null) ?? placeholder;
+
+  const cmsAlt = typeof item.imageAlt === 'string' ? item.imageAlt.trim() : '';
+  if (cmsAlt) {
+    return { src: getImageSrc(base), alt: cmsAlt };
+  }
+  return base;
+}
 
 /** Deep merge DB values onto defaults; ensures valid structure */
 export function mergeContent(
@@ -104,12 +145,21 @@ export function mergeContent(
       }
     : siteContent.brand;
 
+  const rawHeroImages = (fromDb.hero as Partial<SiteContent['hero']>)?.images;
+  const heroImages: SeoImageInput[] =
+    Array.isArray(rawHeroImages) && rawHeroImages.length > 0
+      ? rawHeroImages
+          .map((entry) =>
+            coerceSeoImageField(entry) ??
+            (typeof entry === 'string' && entry.trim() ? entry.trim() : null)
+          )
+          .filter((x): x is SeoImageInput => Boolean(x))
+      : [...siteContent.hero.images];
+
   const hero: SiteContent['hero'] = {
     ...siteContent.hero,
     ...(fromDb.hero as Partial<SiteContent['hero']>),
-    images: Array.isArray((fromDb.hero as SiteContent['hero'])?.images)
-      ? ((fromDb.hero as SiteContent['hero']).images as string[])
-      : siteContent.hero.images,
+    images: heroImages as unknown as SiteContent['hero']['images'],
   };
 
   const about: SiteContent['about'] = {
@@ -143,20 +193,34 @@ export function mergeContent(
     'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop';
   const mergedItems = (Array.isArray(dbItems)
     ? dbItems.map((item, i) => {
-        const fallback = defaultItems[i];
-        const image =
-          item.image?.trim() || fallback?.image?.trim() || PLACEHOLDER_IMAGE;
-        const dbGallery = Array.isArray((item as any).gallery) ? (item as any).gallery.slice(0, 3).filter(Boolean) : [];
-        const defaultGallery = Array.isArray((fallback as any)?.gallery) ? ((fallback as any).gallery as string[]).slice(0, 3).filter(Boolean) : [];
-        const gallery = dbGallery.length > 0 ? dbGallery : defaultGallery;
-        return {
+        const fallback = defaultItems[i] as Record<string, unknown> | undefined;
+        const image = mergeSeoMainImage(
+          item as Record<string, unknown>,
+          fallback,
+          PLACEHOLDER_IMAGE
+        );
+        const gallery = coerceGalleryField(
+          (item as { gallery?: unknown }).gallery,
+          fallback?.gallery,
+          3
+        );
+        const merged = {
           ...(fallback ?? item),
           ...item,
           image,
           gallery,
-        };
+        } as Record<string, unknown>;
+        delete merged.imageAlt;
+        return merged;
       })
-    : defaultItems.map((item) => ({ ...item, gallery: (item as { gallery?: string[] }).gallery ?? [] }))) as unknown as SiteContent['services']['items'];
+    : defaultItems.map((item) => ({
+        ...item,
+        gallery: coerceGalleryField(
+          (item as { gallery?: unknown }).gallery,
+          undefined,
+          3
+        ),
+      }))) as unknown as SiteContent['services']['items'];
 
   const services: SiteContent['services'] = {
     ...siteContent.services,
@@ -170,15 +234,30 @@ export function mergeContent(
     'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=2070&auto=format&fit=crop';
   const mergedEventItems = (Array.isArray(dbEventItems)
     ? dbEventItems.map((item, i) => {
-        const fallback = defaultEventItems[i];
-        const image =
-          item.image?.trim() || fallback?.image?.trim() || EVENT_PLACEHOLDER;
-        const dbGallery = Array.isArray((item as any).gallery) ? (item as any).gallery.slice(0, 3).filter(Boolean) : [];
-        const defaultGallery = Array.isArray((fallback as any)?.gallery) ? ((fallback as any).gallery as string[]).slice(0, 3).filter(Boolean) : [];
-        const gallery = dbGallery.length > 0 ? dbGallery : defaultGallery;
-        return { ...(fallback ?? item), ...item, image, gallery };
+        const fallback = defaultEventItems[i] as Record<string, unknown> | undefined;
+        const image = mergeSeoMainImage(
+          item as Record<string, unknown>,
+          fallback,
+          EVENT_PLACEHOLDER
+        );
+        const gallery = coerceGalleryField(
+          (item as { gallery?: unknown }).gallery,
+          fallback?.gallery,
+          3
+        );
+        const merged = {
+          ...(fallback ?? item),
+          ...item,
+          image,
+          gallery,
+        } as Record<string, unknown>;
+        delete merged.imageAlt;
+        return merged;
       })
-    : defaultEventItems.map((item) => ({ ...item, gallery: ((item as any).gallery ?? []) }))) as SiteContent['eventTypes']['items'];
+    : defaultEventItems.map((item) => ({
+        ...item,
+        gallery: coerceGalleryField((item as { gallery?: unknown }).gallery, undefined, 3),
+      }))) as SiteContent['eventTypes']['items'];
 
   const eventTypes: SiteContent['eventTypes'] = {
     ...siteContent.eventTypes,
@@ -186,13 +265,25 @@ export function mergeContent(
     items: mergedEventItems,
   };
 
+  const contactDb = fromDb.contact as (Partial<SiteContent['contact']> & { imageAlt?: string }) | undefined;
+  const mergedContactImage = mergeSeoMainImage(
+    {
+      image: contactDb?.image ?? siteContent.contact.image,
+      imageAlt: contactDb?.imageAlt,
+    },
+    { image: siteContent.contact.image },
+    String(siteContent.contact.image)
+  );
+
   const contact: SiteContent['contact'] = {
     ...siteContent.contact,
-    ...(fromDb.contact as Partial<SiteContent['contact']>),
+    ...contactDb,
+    image: mergedContactImage as unknown as SiteContent['contact']['image'],
     footerLinks: Array.isArray((fromDb.contact as SiteContent['contact'])?.footerLinks)
       ? ((fromDb.contact as SiteContent['contact']).footerLinks as SiteContent['contact']['footerLinks'])
       : siteContent.contact.footerLinks,
   };
+  delete (contact as { imageAlt?: unknown }).imageAlt;
 
   const faq: SiteContent['faq'] = {
     ...siteContent.faq,

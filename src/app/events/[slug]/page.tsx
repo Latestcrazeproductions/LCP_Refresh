@@ -7,6 +7,7 @@ import { getSiteContent } from '@/lib/content';
 import { ContentProvider } from '@/context/ContentContext';
 import { getServiceIcon } from '@/lib/service-icons';
 import { getOptimizedImageUrl } from '@/lib/image-utils';
+import { getImageSrc, resolveSeoImage } from '@/lib/seo-image';
 import Navbar from '@/components/Navbar';
 import { ImageGallery } from '@/components/ImageGallery';
 import ContactCta from '@/components/ContactCta';
@@ -41,7 +42,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${eventType.title} | Latest Craze Productions`,
       description,
       url: `${SITE_URL}/events/${slug}`,
-      images: eventType.image ? [{ url: eventType.image, alt: eventType.title }] : undefined,
+      images: getImageSrc(eventType.image)
+        ? [
+            {
+              url: getImageSrc(eventType.image),
+              alt: resolveSeoImage(eventType.image, `${eventType.title} — Latest Craze Productions`).alt,
+            },
+          ]
+        : undefined,
     },
     alternates: { canonical: `${SITE_URL}/events/${slug}` },
   };
@@ -69,7 +77,7 @@ export default async function EventTypePage({ params }: Props) {
       url: SITE_URL,
     },
     areaServed: { '@type': 'Country', name: 'United States' },
-    image: eventType.image || undefined,
+    image: getImageSrc(eventType.image) || undefined,
   };
 
   const otherEventTypes = allEventTypes.filter((e) => e.id !== slug);
@@ -90,10 +98,15 @@ export default async function EventTypePage({ params }: Props) {
           {/* Hero — matches services page: full-width image with overlay content */}
           <section className="relative pt-24 pb-0">
             <div className="relative h-[45vh] min-h-[320px] max-h-[500px] w-full">
-              {eventType.image ? (
+              {getImageSrc(eventType.image) ? (
                 <Image
-                  src={getOptimizedImageUrl(eventType.image, { width: 1600, quality: 68 })}
-                  alt={eventType.title}
+                  src={getOptimizedImageUrl(getImageSrc(eventType.image), { width: 1600, quality: 68 })}
+                  alt={
+                    resolveSeoImage(
+                      eventType.image,
+                      `${eventType.title} — Latest Craze Productions event production`
+                    ).alt
+                  }
                   fill
                   className="object-cover"
                   sizes="100vw"
@@ -213,10 +226,12 @@ export default async function EventTypePage({ params }: Props) {
                         href={`/events/${e.id}`}
                         className="group relative h-[320px] rounded-2xl overflow-hidden block"
                       >
-                        {e.image ? (
+                        {getImageSrc(e.image) ? (
                           <Image
-                            src={getOptimizedImageUrl(e.image, { width: 1200, quality: 68 })}
-                            alt={e.title}
+                            src={getOptimizedImageUrl(getImageSrc(e.image), { width: 1200, quality: 68 })}
+                            alt={
+                              resolveSeoImage(e.image, `${e.title} — Latest Craze Productions events`).alt
+                            }
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-110"
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

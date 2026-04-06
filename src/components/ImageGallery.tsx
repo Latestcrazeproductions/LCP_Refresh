@@ -1,14 +1,20 @@
 import Image from 'next/image';
 import { getOptimizedImageUrl } from '@/lib/image-utils';
+import { resolveSeoImage, type SeoImageInput } from '@/lib/seo-image';
 
 type ImageGalleryProps = {
-  images: string[];
+  /** Strings or `{ src, alt? }` — backward compatible. */
+  images: SeoImageInput[];
+  /** Page context for fallback alt (e.g. service title). */
   alt: string;
 };
 
 /** Simple 3-image gallery. Renders nothing if fewer than 1 image. */
 export function ImageGallery({ images, alt }: ImageGalleryProps) {
-  const displayImages = images.slice(0, 3).filter(Boolean);
+  const displayImages = images.slice(0, 3).filter((entry) => {
+    const s = typeof entry === 'string' ? entry : entry?.src;
+    return Boolean(s && String(s).trim());
+  });
   if (displayImages.length === 0) return null;
 
   return (
@@ -24,14 +30,16 @@ export function ImageGallery({ images, alt }: ImageGalleryProps) {
                 : 'grid-cols-1 md:grid-cols-3'
           }`}
         >
-          {displayImages.map((src, i) => (
+          {displayImages.map((raw, i) => {
+            const { src, alt: imgAlt } = resolveSeoImage(raw, `${alt} — gallery photo ${i + 1}`);
+            return (
             <div
-              key={i}
+              key={`${src}-${i}`}
               className="relative aspect-[4/3] rounded-xl overflow-hidden border border-white/10"
             >
               <Image
                 src={getOptimizedImageUrl(src, { width: 800, quality: 75 })}
-                alt={`${alt} — gallery image ${i + 1}`}
+                alt={imgAlt}
                 fill
                 className="object-cover"
                 sizes={
@@ -43,7 +51,8 @@ export function ImageGallery({ images, alt }: ImageGalleryProps) {
                 }
               />
             </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

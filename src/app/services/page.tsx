@@ -6,6 +6,7 @@ import { getSiteContent } from '@/lib/content';
 import { ContentProvider } from '@/context/ContentContext';
 import { getServiceIcon } from '@/lib/service-icons';
 import { getOptimizedImageUrl } from '@/lib/image-utils';
+import { getImageSrc, resolveSeoImage } from '@/lib/seo-image';
 import Navbar from '@/components/Navbar';
 import { ImageGallery } from '@/components/ImageGallery';
 import ContactCta from '@/components/ContactCta';
@@ -64,10 +65,15 @@ export default async function ServicesPage() {
                   href={`/services/${service.id}`}
                   className="group relative h-[400px] rounded-2xl overflow-hidden block"
                 >
-                  {service.image ? (
+                  {getImageSrc(service.image) ? (
                     <Image
-                      src={getOptimizedImageUrl(service.image, { width: 1280, quality: 68 })}
-                      alt={service.title}
+                      src={getOptimizedImageUrl(getImageSrc(service.image), { width: 1280, quality: 68 })}
+                      alt={
+                        resolveSeoImage(
+                          service.image,
+                          `${service.title} — ${content.brand.nameFull} corporate event AV service`
+                        ).alt
+                      }
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-110"
                       sizes="(max-width: 768px) 100vw, 50vw"

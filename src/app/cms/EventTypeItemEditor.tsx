@@ -3,9 +3,9 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronRight, Trash2 } from 'lucide-react';
 import { ImageUpload } from './ImageUpload';
-import type { EventTypeItem } from '@/lib/content';
+import type { EditableSiteContent } from '@/lib/content';
 
-type EditableEventTypeItem = EventTypeItem;
+type EditableEventTypeItem = EditableSiteContent['eventTypes']['items'][number];
 
 type EventTypeItemEditorProps = {
   eventType: EditableEventTypeItem;
@@ -132,6 +132,18 @@ export function EventTypeItemEditor({
                 mode="single"
                 label="Upload"
                 onUpload={(url) => updateField('image', url)}
+              />
+            </div>
+            <div className="mt-3">
+              <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">
+                Image alt text (SEO — optional)
+              </label>
+              <input
+                type="text"
+                value={eventType.imageAlt ?? ''}
+                onChange={(e) => updateField('imageAlt', e.target.value || undefined)}
+                className={inputClass}
+                placeholder="Describe the image for search and accessibility"
               />
             </div>
           </div>

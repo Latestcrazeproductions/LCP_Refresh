@@ -1,4 +1,5 @@
 import type { SiteContent } from './content';
+import { getImageSrc, type SeoImageInput } from './seo-image';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://latestcrazeproductions.com';
 
@@ -31,11 +32,13 @@ export function buildThankYouEmailHtml(
 ): string {
   const logoUrl = absUrl(content.brand.logo);
   // Email clients cannot resolve site-relative paths; always absolute https URLs.
+  const heroSrc = getImageSrc((content.hero.images?.[0] as SeoImageInput) ?? '');
   const heroImage =
-    absUrl(content.hero.images?.[0] ?? null) ||
+    (heroSrc ? absUrl(heroSrc) : '') ||
     'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=800';
+  const svcSrc = getImageSrc((content.services.items?.[0]?.image as SeoImageInput) ?? '');
   const serviceImage =
-    absUrl(content.services.items?.[0]?.image ?? null) ||
+    (svcSrc ? absUrl(svcSrc) : '') ||
     'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=800';
 
   return `

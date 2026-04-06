@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 import type { SiteContent } from '@/lib/content';
-import { getOptimizedImageUrl } from '@/lib/image-utils';
+import { getImageSrc, resolveSeoImage, type SeoImageInput } from '@/lib/seo-image';
 
 const CONTACT_IMAGE_FALLBACK =
   'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&auto=format&fit=crop';
@@ -13,8 +13,21 @@ type ContactCtaProps = {
 
 export default function ContactCta({ content }: ContactCtaProps) {
   const contact = content.contact;
-  const contactImage =
-    contact?.image ?? content.hero?.images?.[0] ?? content.work?.projects?.[0]?.image ?? CONTACT_IMAGE_FALLBACK;
+  const contactPic = contact?.image;
+  const hero0 = content.hero?.images?.[0];
+  const projectImg = content.work?.projects?.[0]?.image;
+  let sideImageRef: SeoImageInput = CONTACT_IMAGE_FALLBACK;
+  if (getImageSrc(contactPic as SeoImageInput)) {
+    sideImageRef = contactPic as SeoImageInput;
+  } else if (getImageSrc(hero0 as SeoImageInput)) {
+    sideImageRef = hero0 as SeoImageInput;
+  } else if (projectImg) {
+    sideImageRef = projectImg;
+  }
+  const sideVisual = resolveSeoImage(
+    sideImageRef,
+    `${content.brand?.nameFull ?? 'Latest Craze Productions'} — corporate event production contact`
+  );
 
   const safeContact = {
     headline: contact?.headline ?? "LET'S MAKE YOU\nTHE HERO.",
@@ -73,8 +86,8 @@ export default function ContactCta({ content }: ContactCtaProps) {
 
           <div className="relative aspect-[4/3] rounded-3xl overflow-hidden border border-white/10">
             <Image
-              src={contactImage}
-              alt="Latest Craze Productions"
+              src={sideVisual.src}
+              alt={sideVisual.alt}
               fill
               className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"

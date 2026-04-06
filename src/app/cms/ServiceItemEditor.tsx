@@ -3,18 +3,9 @@
 import { useState } from 'react';
 import { ChevronDown, ChevronRight, Trash2, Plus, X } from 'lucide-react';
 import { ImageUpload } from './ImageUpload';
-import type { ServiceItem } from '@/lib/content';
+import type { EditableSiteContent } from '@/lib/content';
 
-/** Service item shape accepted by the editor (includes editable id) */
-type EditableServiceItem = {
-  id: string;
-  iconKey: string;
-  title: string;
-  description: string;
-  image: string;
-  gallery?: string[];
-  details?: { headline: string; text: string; features: string[] };
-};
+type EditableServiceItem = EditableSiteContent['services']['items'][number];
 
 const ICON_OPTIONS = [
   { value: 'monitor', label: 'Monitor (LED Walls)' },
@@ -192,6 +183,18 @@ export function ServiceItemEditor({ service, index, onChange, onDelete, onBack, 
                 mode="single"
                 label="Upload"
                 onUpload={(url) => updateField('image', url)}
+              />
+            </div>
+            <div className="mt-3">
+              <label className="block text-xs uppercase tracking-widest text-gray-500 mb-2">
+                Image alt text (SEO — optional)
+              </label>
+              <input
+                type="text"
+                value={service.imageAlt ?? ''}
+                onChange={(e) => updateField('imageAlt', e.target.value || undefined)}
+                className={inputClass}
+                placeholder="Describe the image for search and accessibility"
               />
             </div>
           </div>

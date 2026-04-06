@@ -7,6 +7,7 @@ import { ArrowRight, X, CheckCircle2 } from 'lucide-react';
 import { SERVICE_ICON_MAP } from '@/lib/service-icons';
 import type { ServiceItem } from '@/lib/content';
 import { getOptimizedImageUrl } from '@/lib/image-utils';
+import { getImageSrc, resolveSeoImage } from '@/lib/seo-image';
 
 type ServiceModalContentProps = {
   service: ServiceItem | null;
@@ -37,10 +38,15 @@ export default function ServiceModalContent({
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative h-48 md:h-80 shrink-0">
-              {service.image ? (
+              {getImageSrc(service.image) ? (
                 <Image
-                  src={service.image}
-                  alt={service.title}
+                  src={getOptimizedImageUrl(getImageSrc(service.image), { width: 1600, quality: 68 })}
+                  alt={
+                    resolveSeoImage(
+                      service.image,
+                      `${service.title} — Latest Craze Productions corporate event production`
+                    ).alt
+                  }
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 960px"

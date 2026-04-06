@@ -45,7 +45,8 @@ import { ImageUpload } from './ImageUpload';
 import { ServiceItemEditor } from './ServiceItemEditor';
 import { EventTypeItemEditor } from './EventTypeItemEditor';
 import { SubmissionsViewer } from './SubmissionsViewer';
-import type { SiteContent, EditableSiteContent } from '@/lib/content';
+import type { EditableSiteContent, SiteContent } from '@/lib/content';
+import { flattenContentForCmsEditor } from '@/lib/cms-flatten-content';
 
 const cmsInputClass =
   'w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-blue-500';
@@ -217,7 +218,9 @@ export default function CmsEditor() {
 
   useEffect(() => {
     fetchContent()
-      .then((c) => setContent(JSON.parse(JSON.stringify(c)) as EditableSiteContent))
+      .then((c) =>
+        setContent(flattenContentForCmsEditor(JSON.parse(JSON.stringify(c)) as SiteContent))
+      )
       .catch(() => setContent(null))
       .finally(() => setLoading(false));
   }, []);
@@ -550,6 +553,15 @@ export default function CmsEditor() {
                 <CmsField label="Copyright Notice" value={content.contact.copyright} onChange={(v: string) => setContent((p) => p && { ...p, contact: { ...p.contact, copyright: v } })} />
                 <div>
                   <CmsField label="Contact Image URL" value={content.contact.image ?? ''} onChange={(v: string) => setContent((p) => p && { ...p, contact: { ...p.contact, image: v || null } })} />
+                  <div className="mt-3">
+                    <CmsField
+                      label="Contact image alt text (SEO — optional)"
+                      value={content.contact.imageAlt ?? ''}
+                      onChange={(v: string) =>
+                        setContent((p) => p && { ...p, contact: { ...p.contact, imageAlt: v || undefined } })
+                      }
+                    />
+                  </div>
                   <div className="mt-4"><ImageUpload folder="contact" mode="single" label="Upload Contact Image" onUpload={(url) => setContent((p) => p && { ...p, contact: { ...p.contact, image: url } })} /></div>
                 </div>
               </div>

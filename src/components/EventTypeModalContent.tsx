@@ -7,6 +7,7 @@ import { ArrowRight, X, CheckCircle2 } from 'lucide-react';
 import { SERVICE_ICON_MAP } from '@/lib/service-icons';
 import type { EventTypeItem } from '@/lib/content';
 import { getOptimizedImageUrl } from '@/lib/image-utils';
+import { getImageSrc, resolveSeoImage } from '@/lib/seo-image';
 
 type EventTypeModalContentProps = {
   eventType: EventTypeItem | null;
@@ -36,10 +37,15 @@ export default function EventTypeModalContent({
             onClick={(e) => e.stopPropagation()}
           >
             <div className="relative h-48 md:h-80 shrink-0">
-              {eventType.image ? (
+              {getImageSrc(eventType.image) ? (
                 <Image
-                  src={eventType.image}
-                  alt={eventType.title}
+                  src={getOptimizedImageUrl(getImageSrc(eventType.image), { width: 1600, quality: 68 })}
+                  alt={
+                    resolveSeoImage(
+                      eventType.image,
+                      `${eventType.title} — Latest Craze Productions event production`
+                    ).alt
+                  }
                   fill
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 960px"

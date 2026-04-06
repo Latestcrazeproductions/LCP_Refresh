@@ -8,6 +8,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { useContent } from '@/context/ContentContext';
 import { SERVICE_ICON_MAP } from '@/lib/service-icons';
 import { getOptimizedImageUrl } from '@/lib/image-utils';
+import { getImageSrc, resolveSeoImage } from '@/lib/seo-image';
 import type { ServiceItem } from '@/lib/content';
 
 const LazyServiceModalContent = dynamic(() => import('@/components/ServiceModalContent'));
@@ -17,7 +18,7 @@ function canUseDesktopModal() {
 }
 
 export default function Services() {
-  const { services } = useContent();
+  const { services, brand } = useContent();
   const items = Array.isArray(services?.items) ? services.items : [];
   const [selectedService, setSelectedService] = useState<ServiceItem | null>(null);
   const [isDesktop, setIsDesktop] = useState(false);
@@ -94,10 +95,15 @@ export default function Services() {
               }}
             >
               {/* Background Image */}
-              {service.image ? (
+              {getImageSrc(service.image) ? (
                 <Image
-                  src={service.image}
-                  alt={service.title}
+                  src={getOptimizedImageUrl(getImageSrc(service.image), { width: 1280, quality: 68 })}
+                  alt={
+                    resolveSeoImage(
+                      service.image,
+                      `${service.title} — ${brand?.nameFull ?? 'Latest Craze Productions'} corporate event AV service`
+                    ).alt
+                  }
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   sizes="(max-width: 768px) 100vw, 50vw"

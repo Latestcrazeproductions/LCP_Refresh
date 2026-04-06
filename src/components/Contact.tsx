@@ -7,6 +7,7 @@ import DatePicker from 'react-datepicker';
 import { format } from 'date-fns';
 import { ArrowRight, Mail, Phone, MapPin, Loader2, CheckCircle2, CalendarRange } from 'lucide-react';
 import { useContent } from '@/context/ContentContext';
+import { getImageSrc, resolveSeoImage, type SeoImageInput } from '@/lib/seo-image';
 import 'react-datepicker/dist/react-datepicker.css';
 
 const CONTACT_IMAGE_FALLBACK =
@@ -88,8 +89,21 @@ const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 export default function Contact() {
   const content = useContent();
   const contact = content.contact;
-  const contactImage =
-    content.hero?.images?.[0] ?? content.work?.projects?.[0]?.image ?? CONTACT_IMAGE_FALLBACK;
+  const contactPic = contact?.image;
+  const hero0 = content.hero?.images?.[0];
+  const projectImg = content.work?.projects?.[0]?.image;
+  let sideImageRef: SeoImageInput = CONTACT_IMAGE_FALLBACK;
+  if (getImageSrc(contactPic as SeoImageInput)) {
+    sideImageRef = contactPic as SeoImageInput;
+  } else if (getImageSrc(hero0 as SeoImageInput)) {
+    sideImageRef = hero0 as SeoImageInput;
+  } else if (projectImg) {
+    sideImageRef = projectImg;
+  }
+  const sideVisual = resolveSeoImage(
+    sideImageRef,
+    `${content.brand?.nameFull ?? 'Latest Craze Productions'} — contact us for corporate event production`
+  );
   const [formData, setFormData] = useState<IntakeFormData>(initialFormState);
   const [eventDateRange, setEventDateRange] = useState<[Date | null, Date | null]>([null, null]);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
@@ -176,8 +190,8 @@ export default function Contact() {
 
             <div className="relative aspect-[4/3] max-w-md rounded-2xl overflow-hidden border border-white/10 mb-12">
               <Image
-                src={contactImage}
-                alt="Latest Craze Productions"
+                src={sideVisual.src}
+                alt={sideVisual.alt}
                 fill
                 className="object-cover"
                 sizes="(max-width: 768px) 100vw, 50vw"

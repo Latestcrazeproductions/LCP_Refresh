@@ -7,6 +7,7 @@ import { getSiteContent } from '@/lib/content';
 import { ContentProvider } from '@/context/ContentContext';
 import { getServiceIcon } from '@/lib/service-icons';
 import { getOptimizedImageUrl } from '@/lib/image-utils';
+import { getImageSrc, resolveSeoImage } from '@/lib/seo-image';
 import Navbar from '@/components/Navbar';
 import { ImageGallery } from '@/components/ImageGallery';
 import ContactCta from '@/components/ContactCta';
@@ -43,7 +44,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${serviceTitle} | Latest Craze Productions`,
       description,
       url: `${SITE_URL}/services/${slug}`,
-      images: service.image ? [{ url: String(service.image), alt: serviceTitle }] : undefined,
+      images: getImageSrc(service.image)
+        ? [
+            {
+              url: getImageSrc(service.image),
+              alt: resolveSeoImage(service.image, `${serviceTitle} — Latest Craze Productions`).alt,
+            },
+          ]
+        : undefined,
     },
     alternates: { canonical: `${SITE_URL}/services/${slug}` },
   };
@@ -71,7 +79,7 @@ export default async function ServiceDetailPage({ params }: Props) {
       url: SITE_URL,
     },
     areaServed: { '@type': 'Country', name: 'United States' },
-    image: service.image || undefined,
+    image: getImageSrc(service.image) || undefined,
   };
 
   return (
@@ -90,10 +98,15 @@ export default async function ServiceDetailPage({ params }: Props) {
           {/* Hero — matches modal/Technical Precision card style */}
           <section className="relative pt-24 pb-0">
             <div className="relative h-[45vh] min-h-[320px] max-h-[500px] w-full">
-              {service.image ? (
+              {getImageSrc(service.image) ? (
                 <Image
-                  src={getOptimizedImageUrl(service.image, { width: 1600, quality: 68 })}
-                  alt={service.title}
+                  src={getOptimizedImageUrl(getImageSrc(service.image), { width: 1600, quality: 68 })}
+                  alt={
+                    resolveSeoImage(
+                      service.image,
+                      `${service.title} — Latest Craze Productions corporate event production`
+                    ).alt
+                  }
                   fill
                   className="object-cover"
                   sizes="100vw"
@@ -206,10 +219,15 @@ export default async function ServiceDetailPage({ params }: Props) {
                         href={`/services/${s.id}`}
                         className="group relative h-[320px] rounded-2xl overflow-hidden block"
                       >
-                        {s.image ? (
+                        {getImageSrc(s.image) ? (
                           <Image
-                            src={getOptimizedImageUrl(s.image, { width: 1200, quality: 68 })}
-                            alt={s.title}
+                            src={getOptimizedImageUrl(getImageSrc(s.image), { width: 1200, quality: 68 })}
+                            alt={
+                              resolveSeoImage(
+                                s.image,
+                                `${s.title} — Latest Craze Productions service`
+                              ).alt
+                            }
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-110"
                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

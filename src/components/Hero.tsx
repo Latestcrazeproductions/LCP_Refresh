@@ -6,30 +6,40 @@ import { useState, useEffect } from 'react';
 
 import { useContent } from '@/context/ContentContext';
 import { getOptimizedImageUrl } from '@/lib/image-utils';
+import { resolveSeoImage, type SeoImageInput } from '@/lib/seo-image';
+
+const HERO_FALLBACK: SeoImageInput =
+  'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2012&auto=format&fit=crop';
 
 export default function Hero() {
   const { hero } = useContent();
-  const images =
+  const rawImages: SeoImageInput[] =
     hero?.images && Array.isArray(hero.images) && hero.images.length > 0
-    ? hero.images
-    : ['https://images.unsplash.com/photo-1505373877841-8d25f7d46678?q=80&w=2012&auto=format&fit=crop'];
+      ? (hero.images as SeoImageInput[])
+      : [HERO_FALLBACK];
+  const slides = rawImages.map((raw, i) =>
+    resolveSeoImage(
+      raw,
+      `Latest Craze Productions — corporate event production and LED video walls (slide ${i + 1})`
+    )
+  );
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [previousImageIndex, setPreviousImageIndex] = useState<number | null>(null);
   const [isFading, setIsFading] = useState(false);
   const [isCurrentVisible, setIsCurrentVisible] = useState(true);
 
   useEffect(() => {
-    if (images.length <= 1) return;
+    if (slides.length <= 1) return;
     const timer = setInterval(() => {
       setCurrentImageIndex((prev) => {
         setPreviousImageIndex(prev);
         setIsFading(true);
         setIsCurrentVisible(false);
-        return (prev + 1) % images.length;
+        return (prev + 1) % slides.length;
       });
     }, 5000);
     return () => clearInterval(timer);
-  }, [images.length]);
+  }, [slides.length]);
 
   useEffect(() => {
     if (!isFading) return;
@@ -54,9 +64,9 @@ export default function Hero() {
       <div className="absolute inset-0 z-0">
         {previousImageIndex !== null && (
           <Image
-            key={`${images[previousImageIndex]}-${previousImageIndex}-previous`}
-            src={images[previousImageIndex]}
-            alt="Latest Craze Productions corporate event - LED video walls and live event production setup"
+            key={`${slides[previousImageIndex].src}-${previousImageIndex}-previous`}
+            src={getOptimizedImageUrl(slides[previousImageIndex].src, { width: 2400, quality: 75 })}
+            alt={slides[previousImageIndex].alt}
             fill
             priority={false}
             sizes="100vw"
@@ -66,9 +76,9 @@ export default function Hero() {
           />
         )}
         <Image
-          key={`${images[currentImageIndex]}-${currentImageIndex}`}
-          src={images[currentImageIndex]}
-          alt="Latest Craze Productions corporate event - LED video walls and live event production setup"
+          key={`${slides[currentImageIndex].src}-${currentImageIndex}`}
+          src={getOptimizedImageUrl(slides[currentImageIndex].src, { width: 2400, quality: 75 })}
+          alt={slides[currentImageIndex].alt}
           fill
           priority={currentImageIndex === 0}
           sizes="100vw"
@@ -76,11 +86,14 @@ export default function Hero() {
             isCurrentVisible ? 'opacity-100' : 'opacity-0'
           }`}
         />
-        {images.length > 1 && (
+        {slides.length > 1 && (
           <Image
-            key={`${images[(currentImageIndex + 1) % images.length]}-next`}
-            src={images[(currentImageIndex + 1) % images.length]}
-            alt="Latest Craze Productions corporate event - LED video walls and live event production setup"
+            key={`${slides[(currentImageIndex + 1) % slides.length].src}-next`}
+            src={getOptimizedImageUrl(slides[(currentImageIndex + 1) % slides.length].src, {
+              width: 2400,
+              quality: 75,
+            })}
+            alt={slides[(currentImageIndex + 1) % slides.length].alt}
             fill
             priority={false}
             sizes="100vw"
