@@ -13,6 +13,7 @@ import {
   sendContactSmtp,
   smtpMissingEnvKeys,
 } from '@/lib/contact-mail';
+import { verifyTurnstileIfConfigured } from '@/lib/turnstile-verify';
 
 /** If logs mention Resend or “domain … verified”, this route is NOT what ran — deploy is stale or wrong project. */
 export async function POST(request: NextRequest) {
@@ -31,7 +32,13 @@ export async function POST(request: NextRequest) {
       timeline,
       referralSource,
       projectDetails,
+      turnstileToken,
     } = body;
+
+    const turnstile = await verifyTurnstileIfConfigured(turnstileToken, request);
+    if (!turnstile.ok) {
+      return NextResponse.json({ error: turnstile.error }, { status: 400 });
+    }
 
     if (!name || !email) {
       return NextResponse.json(

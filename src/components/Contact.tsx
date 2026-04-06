@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
+import { useCallback, useRef, useState } from 'react';
 import Image from 'next/image';
+import { Turnstile, type TurnstileInstance } from '@marsidev/react-turnstile';
 import DatePicker from 'react-datepicker';
 import { format } from 'date-fns';
 import { ArrowRight, Mail, Phone, MapPin, Loader2, CheckCircle2, CalendarRange } from 'lucide-react';
@@ -82,6 +83,8 @@ const initialFormState: IntakeFormData = {
   projectDetails: '',
 };
 
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+
 export default function Contact() {
   const content = useContent();
   const contact = content.contact;
@@ -91,11 +94,26 @@ export default function Contact() {
   const [eventDateRange, setEventDateRange] = useState<[Date | null, Date | null]>([null, null]);
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
+  const turnstileRef = useRef<TurnstileInstance>(null);
+
+  const handleTurnstileSuccess = useCallback((token: string) => {
+    setTurnstileToken(token);
+  }, []);
+
+  const handleTurnstileExpire = useCallback(() => {
+    setTurnstileToken(null);
+  }, []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setStatus('loading');
     setErrorMessage('');
+    if (TURNSTILE_SITE_KEY && !turnstileToken) {
+      setStatus('error');
+      setErrorMessage('Please wait for the security check to finish, then try again.');
+      return;
+    }
+    setStatus('loading');
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -112,6 +130,7 @@ export default function Contact() {
           timeline: formData.timeline,
           referralSource: formData.referralSource,
           projectDetails: formData.projectDetails,
+          turnstileToken: turnstileToken ?? undefined,
         }),
       });
       const data = await res.json();
@@ -121,9 +140,13 @@ export default function Contact() {
       setStatus('success');
       setFormData(initialFormState);
       setEventDateRange([null, null]);
+      setTurnstileToken(null);
+      turnstileRef.current?.reset();
     } catch (err) {
       setStatus('error');
       setErrorMessage(err instanceof Error ? err.message : 'Failed to submit');
+      setTurnstileToken(null);
+      turnstileRef.current?.reset();
     }
   }
   const safeContact = {
@@ -381,9 +404,32 @@ export default function Contact() {
                 />
               </div>
 
+              {TURNSTILE_SITE_KEY ? (
+                <div className="flex justify-center min-h-[65px] items-center">
+                  <Turnstile
+                    ref={turnstileRef}
+                    siteKey={TURNSTILE_SITE_KEY}
+                    onSuccess={handleTurnstileSuccess}
+                    onExpire={handleTurnstileExpire}
+                    onError={() => {
+                      setTurnstileToken(null);
+                      setStatus('error');
+                      setErrorMessage('Security check failed to load. Please refresh the page.');
+                    }}
+                    options={{
+                      appearance: 'interaction-only',
+                      theme: 'dark',
+                    }}
+                  />
+                </div>
+              ) : null}
+
               <button
                 type="submit"
-                disabled={status === 'loading'}
+                disabled={
+                  status === 'loading' ||
+                  Boolean(TURNSTILE_SITE_KEY && !turnstileToken)
+                }
                 className="w-full bg-white text-black font-bold py-4 rounded-lg hover:bg-gray-200 transition-colors flex items-center justify-center gap-2 group disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {status === 'loading' ? (
