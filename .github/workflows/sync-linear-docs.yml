@@ -12,7 +12,7 @@ on:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    environment: Development
+    environment: development
     steps:
       - uses: actions/checkout@v4
 
