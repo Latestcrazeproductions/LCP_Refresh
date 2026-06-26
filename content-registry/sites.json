@@ -1,0 +1,16 @@
+{
+  "_pendingLeadership": "Confirm pilot city list in Phase 0 gate 0.5",
+  "sites": [
+    { "id": "phoenix-az", "city": "Phoenix", "state": "AZ", "slug": "phoenix-av-production", "phase": 1, "status": "live" },
+    { "id": "scottsdale-az", "city": "Scottsdale", "state": "AZ", "slug": "scottsdale-az", "phase": 2, "status": "planned" },
+    { "id": "dallas-tx", "city": "Dallas", "state": "TX", "slug": "dallas-tx", "phase": 2, "status": "planned" },
+    { "id": "denver-co", "city": "Denver", "state": "CO", "slug": "denver-co", "phase": 2, "status": "planned" },
+    { "id": "las-vegas-nv", "city": "Las Vegas", "state": "NV", "slug": "las-vegas-nv", "phase": 2, "status": "planned" },
+    { "id": "austin-tx", "city": "Austin", "state": "TX", "slug": "austin-tx", "phase": 2, "status": "planned" },
+    { "id": "san-diego-ca", "city": "San Diego", "state": "CA", "slug": "san-diego-ca", "phase": 2, "status": "planned" },
+    { "id": "seattle-wa", "city": "Seattle", "state": "WA", "slug": "seattle-wa", "phase": 2, "status": "planned" },
+    { "id": "nashville-tn", "city": "Nashville", "state": "TN", "slug": "nashville-tn", "phase": 2, "status": "planned" },
+    { "id": "atlanta-ga", "city": "Atlanta", "state": "GA", "slug": "atlanta-ga", "phase": 2, "status": "planned" },
+    { "id": "chicago-il", "city": "Chicago", "state": "IL", "slug": "chicago-il", "phase": 2, "status": "planned" }
+  ]
+}

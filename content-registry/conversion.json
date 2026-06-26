@@ -1,0 +1,5 @@
+{
+  "primaryCtaPaths": ["/contact"],
+  "requiredPatterns": ["href=\"/contact\"", "Get a Quote", "Request a Consultation", "Contact"],
+  "pageScores": {}
+}

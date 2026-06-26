@@ -1,0 +1,454 @@
+{
+  "teamKey": "LCP-calendar-look-ahead",
+  "projectId": "09ba430a-8c92-4232-b61f-20209c5b71f9",
+  "projectName": "LCP Inbound Demand Engine",
+  "milestones": {
+    "phase-0": "0d084bef-e334-4df8-827c-ceea5bf01370",
+    "sprint-1": "b2d7113f-2679-4d14-be02-d12f779f26e6",
+    "sprint-2": "16e214e2-427d-4cc6-bf4d-bd11eace7348",
+    "sprint-3": "56c2972f-a063-4d18-99a4-471b6e356e9a",
+    "sprint-4": "252ca307-d1e6-4f90-9659-b19927c3edb0",
+    "phase-exits": "9ff7dd1c-07d7-42fe-a8ed-87a5a452f392",
+    "steady-state": "60925327-7eef-42bb-ac0f-0b36a322ac16"
+  },
+  "issues": {
+    "phase-0/phase-0": {
+      "id": "a7c2cdd7-b83e-42cf-a644-46eefaa29bd8",
+      "identifier": "LCP-5",
+      "marker": "lcp-build-plan:phase-0/phase-0",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-5/phase-0-phase-0-pre-implementation-gates"
+    },
+    "phase-0/0.1": {
+      "id": "33f15100-62e2-4728-a4d4-226da433a29b",
+      "identifier": "LCP-13",
+      "marker": "lcp-build-plan:phase-0/0.1",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-13/01-leadership-go-ahead-on-phased-rollout"
+    },
+    "phase-0/0.2": {
+      "id": "ecc35026-f68b-433e-9dee-00a1d450c3fd",
+      "identifier": "LCP-14",
+      "marker": "lcp-build-plan:phase-0/0.2",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-14/02-funnel-targets-in-content-registrymetricsjson"
+    },
+    "phase-0/0.3": {
+      "id": "8d482fa7-ee7c-4efd-90b0-c1c44179c2e6",
+      "identifier": "LCP-17",
+      "marker": "lcp-build-plan:phase-0/0.3",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-17/03-gsc-property-verified"
+    },
+    "phase-0/0.4": {
+      "id": "8e310c92-5c18-4b1b-9cf3-f85257b7f2d8",
+      "identifier": "LCP-15",
+      "marker": "lcp-build-plan:phase-0/0.4",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-15/04-keyword-planner-seed-keywordtamjson"
+    },
+    "phase-0/0.5": {
+      "id": "9cd8468a-aa5b-4589-981c-3b504add4b1e",
+      "identifier": "LCP-16",
+      "marker": "lcp-build-plan:phase-0/0.5",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-16/05-pilot-city-list-10-cities"
+    },
+    "phase-0/0.6": {
+      "id": "b807f882-c947-42aa-8634-fbe32959fe38",
+      "identifier": "LCP-12",
+      "marker": "lcp-build-plan:phase-0/0.6",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-12/06-case-study-assets-approved"
+    },
+    "phase-0/0.7": {
+      "id": "87f78605-f8d8-43b1-a42a-d22a44b5d8b2",
+      "identifier": "LCP-23",
+      "marker": "lcp-build-plan:phase-0/0.7",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-23/07-program-docs-on-main"
+    },
+    "phase-0/0.8": {
+      "id": "3b2fa7e2-b7f3-478d-9cad-04a99ead9396",
+      "identifier": "LCP-25",
+      "marker": "lcp-build-plan:phase-0/0.8",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-25/08-cursor-api-key-in-github-actions"
+    },
+    "phase-0/0.9": {
+      "id": "25f1fe6d-5f5c-4c81-8809-360681559e42",
+      "identifier": "LCP-18",
+      "marker": "lcp-build-plan:phase-0/0.9",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-18/09-cursor-spend-limit-set"
+    },
+    "phase-0/0.10": {
+      "id": "122b9b0a-ecc0-4912-9ac8-7b62199caf82",
+      "identifier": "LCP-19",
+      "marker": "lcp-build-plan:phase-0/0.10",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-19/010-initial-competitor-scan"
+    },
+    "sprint-1/sprint-1": {
+      "id": "481971f5-15ba-4c26-8502-36f1af41f9bb",
+      "identifier": "LCP-6",
+      "marker": "lcp-build-plan:sprint-1/sprint-1",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-6/sprint-1-sprint-1-foundation-no-agents"
+    },
+    "sprint-1/1.1": {
+      "id": "9e4e4c1b-af46-4870-85e5-bbd3f115fc85",
+      "identifier": "LCP-21",
+      "marker": "lcp-build-plan:sprint-1/1.1",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-21/11-npm-run-generateseo-matrix"
+    },
+    "sprint-1/1.2": {
+      "id": "e0f08516-e07e-4d26-9185-a21781be1afc",
+      "identifier": "LCP-24",
+      "marker": "lcp-build-plan:sprint-1/1.2",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-24/12-content-registry-seeded"
+    },
+    "sprint-1/1.3": {
+      "id": "7f9bfc17-dfb9-4722-a703-09677efb2c0f",
+      "identifier": "LCP-20",
+      "marker": "lcp-build-plan:sprint-1/1.3",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-20/13-npm-run-seed-registry"
+    },
+    "sprint-1/1.4": {
+      "id": "84dffa89-0f43-4aca-a825-c3b27764448d",
+      "identifier": "LCP-22",
+      "marker": "lcp-build-plan:sprint-1/1.4",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-22/14-content-library-manifests"
+    },
+    "sprint-1/1.5": {
+      "id": "0beed2ae-502f-49b0-b093-f5197ed6144d",
+      "identifier": "LCP-26",
+      "marker": "lcp-build-plan:sprint-1/1.5",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-26/15-agentsprompts-rules"
+    },
+    "sprint-1/1.6": {
+      "id": "605fa4e4-aba7-4f7e-81ab-ddc0d637e4b7",
+      "identifier": "LCP-30",
+      "marker": "lcp-build-plan:sprint-1/1.6",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-30/16-scriptsseo-orchestrator-core"
+    },
+    "sprint-1/1.7": {
+      "id": "d4962676-3587-49f2-8a3b-cb072cba2097",
+      "identifier": "LCP-27",
+      "marker": "lcp-build-plan:sprint-1/1.7",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-27/17-orchestrator-dry-run-cli"
+    },
+    "sprint-1/1.8": {
+      "id": "16e8cbb5-0502-4f4b-a07b-e3fec402140c",
+      "identifier": "LCP-28",
+      "marker": "lcp-build-plan:sprint-1/1.8",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-28/18-blog-work-resources-routes"
+    },
+    "sprint-1/1.9": {
+      "id": "5f2e45b8-a3c8-46f1-b496-c045a6bc4ce2",
+      "identifier": "LCP-29",
+      "marker": "lcp-build-plan:sprint-1/1.9",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-29/19-seo-weekly-dry-runyml-workflow"
+    },
+    "sprint-2/sprint-2": {
+      "id": "a01c829c-4245-4614-9daf-ea9db3003f7f",
+      "identifier": "LCP-7",
+      "marker": "lcp-build-plan:sprint-2/sprint-2",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-7/sprint-2-sprint-2-first-cloud-agent-pr"
+    },
+    "sprint-2/2.1": {
+      "id": "24ffeaee-f11f-4851-8d4d-548c5870ded7",
+      "identifier": "LCP-31",
+      "marker": "lcp-build-plan:sprint-2/2.1",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-31/21-dispatchts-with-explicit-cloud-config"
+    },
+    "sprint-2/2.2": {
+      "id": "6d000db7-d0e4-4971-84f8-976774735ae9",
+      "identifier": "LCP-37",
+      "marker": "lcp-build-plan:sprint-2/2.2",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-37/22-servicerefreshagent-prompt-complete"
+    },
+    "sprint-2/2.3": {
+      "id": "3a2e6863-4206-46bd-9c93-bcab0bda4fe6",
+      "identifier": "LCP-32",
+      "marker": "lcp-build-plan:sprint-2/2.3",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-32/23-first-merged-agent-pr"
+    },
+    "sprint-2/2.4": {
+      "id": "5c60c0f3-531f-4b5c-94fc-6fead4d9288f",
+      "identifier": "LCP-34",
+      "marker": "lcp-build-plan:sprint-2/2.4",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-34/24-seo-weeklyyml-live"
+    },
+    "sprint-3/sprint-3": {
+      "id": "4c1b29d1-6af9-4c81-8b8c-e5f41df9a650",
+      "identifier": "LCP-8",
+      "marker": "lcp-build-plan:sprint-3/sprint-3",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-8/sprint-3-sprint-3-full-cadence"
+    },
+    "sprint-3/3.1": {
+      "id": "912ab0da-fd3d-4533-999f-9c6e6693516f",
+      "identifier": "LCP-36",
+      "marker": "lcp-build-plan:sprint-3/3.1",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-36/31-researchagent-intelligence-inputs"
+    },
+    "sprint-3/3.2": {
+      "id": "1cabd802-9808-4444-8a9a-b6ee939b0125",
+      "identifier": "LCP-33",
+      "marker": "lcp-build-plan:sprint-3/3.2",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-33/32-nationalagent"
+    },
+    "sprint-3/3.3": {
+      "id": "d8921d0a-a77b-4e7a-b113-4d452b42b472",
+      "identifier": "LCP-35",
+      "marker": "lcp-build-plan:sprint-3/3.3",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-35/33-geoagent"
+    },
+    "sprint-3/3.4": {
+      "id": "15a04bf8-ff52-47f2-b753-b4401ed8b290",
+      "identifier": "LCP-38",
+      "marker": "lcp-build-plan:sprint-3/3.4",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-38/34-authorityagent"
+    },
+    "sprint-3/3.5": {
+      "id": "f5e0eddb-594c-4fa2-acc8-cc650329be11",
+      "identifier": "LCP-40",
+      "marker": "lcp-build-plan:sprint-3/3.5",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-40/35-qaagent-llm-pass"
+    },
+    "sprint-3/3.6": {
+      "id": "66c244b6-47a8-4bc9-bdbd-302aa373beba",
+      "identifier": "LCP-41",
+      "marker": "lcp-build-plan:sprint-3/3.6",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-41/36-planneragent"
+    },
+    "sprint-3/3.7": {
+      "id": "1ce13f92-b30a-4f5b-a184-51a148645c44",
+      "identifier": "LCP-39",
+      "marker": "lcp-build-plan:sprint-3/3.7",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-39/37-demand-mathts-monthly-gap-report"
+    },
+    "sprint-3/3.8": {
+      "id": "1c2401e1-ebf2-4e18-acff-d77f60cfa442",
+      "identifier": "LCP-43",
+      "marker": "lcp-build-plan:sprint-3/3.8",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-43/38-conversioncta-audit"
+    },
+    "sprint-3/3.9": {
+      "id": "06c8cbba-9e33-4b45-aabc-529eb90e1142",
+      "identifier": "LCP-42",
+      "marker": "lcp-build-plan:sprint-3/3.9",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-42/39-rotation-advancement"
+    },
+    "sprint-3/3.10": {
+      "id": "783bfcd9-ff5d-4dfc-98b2-41ee20ec1764",
+      "identifier": "LCP-48",
+      "marker": "lcp-build-plan:sprint-3/3.10",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-48/310-seo-monthlyyml-seo-quarterlyyml"
+    },
+    "sprint-4/sprint-4": {
+      "id": "1eb74369-c606-4f8d-9654-b3d777dfb2e7",
+      "identifier": "LCP-11",
+      "marker": "lcp-build-plan:sprint-4/sprint-4",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-11/sprint-4-sprint-4-phase-build-operate"
+    },
+    "sprint-4/4.1": {
+      "id": "2ac7a8c1-dfdc-46ce-ba55-6c819ac2408a",
+      "identifier": "LCP-49",
+      "marker": "lcp-build-plan:sprint-4/4.1",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-49/41-seo-phase-buildyml"
+    },
+    "sprint-4/4.2": {
+      "id": "77372422-9d76-4a00-93f9-f3d9d330d180",
+      "identifier": "LCP-44",
+      "marker": "lcp-build-plan:sprint-4/4.2",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-44/42-phase-1-national-content-build"
+    },
+    "sprint-4/4.3": {
+      "id": "d9d7db53-a95b-49e5-bd82-e46cae0ebfa0",
+      "identifier": "LCP-47",
+      "marker": "lcp-build-plan:sprint-4/4.3",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-47/43-phase-2-ten-city-pilot"
+    },
+    "sprint-4/4.4": {
+      "id": "26eb49c3-a3ff-419a-8873-e61180cb723e",
+      "identifier": "LCP-45",
+      "marker": "lcp-build-plan:sprint-4/4.4",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-45/44-bulk-qa-on-expanded-registry"
+    },
+    "sprint-4/4.5": {
+      "id": "e16a61b7-0ec8-4953-a42a-584388d5a6d6",
+      "identifier": "LCP-46",
+      "marker": "lcp-build-plan:sprint-4/4.5",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-46/45-seo-ops-runbook"
+    },
+    "sprint-4/4.6": {
+      "id": "cab22fcc-c7d5-4280-93f2-23ec7cce8c4f",
+      "identifier": "LCP-50",
+      "marker": "lcp-build-plan:sprint-4/4.6",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-50/46-seo-agent-pr-template"
+    },
+    "phase-exits/phase-exits": {
+      "id": "9d8dfd1a-35f6-48e3-99e0-090381597c74",
+      "identifier": "LCP-9",
+      "marker": "lcp-build-plan:phase-exits/phase-exits",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-9/phase-exits-phase-exit-gates"
+    },
+    "phase-exits/P1": {
+      "id": "5dfe5bbc-4161-4460-a761-d03ed829190f",
+      "identifier": "LCP-51",
+      "marker": "lcp-build-plan:phase-exits/P1",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-51/p1-phase-1-exit-national-hub-live"
+    },
+    "phase-exits/P2": {
+      "id": "a52e3a43-1dd8-4c8a-8c3b-74986a8ba916",
+      "identifier": "LCP-55",
+      "marker": "lcp-build-plan:phase-exits/P2",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-55/p2-phase-2-exit-ten-city-pilot"
+    },
+    "phase-exits/P3": {
+      "id": "ccd8378a-731a-4384-90b8-421cbc5248fc",
+      "identifier": "LCP-52",
+      "marker": "lcp-build-plan:phase-exits/P3",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-52/p3-phase-3-exit-scale-cities"
+    },
+    "phase-exits/P4": {
+      "id": "e0ce5078-92dc-4b78-a2a3-950fd7ffa1be",
+      "identifier": "LCP-53",
+      "marker": "lcp-build-plan:phase-exits/P4",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-53/p4-phase-4-exit-steady-state-operate"
+    },
+    "steady-state/steady-state": {
+      "id": "c325885a-f7b6-4218-9fb6-72ff996503a5",
+      "identifier": "LCP-10",
+      "marker": "lcp-build-plan:steady-state/steady-state",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-10/steady-state-steady-state-rhythm"
+    },
+    "steady-state/SS.1": {
+      "id": "a701ff2f-d248-4495-9d19-530a27342748",
+      "identifier": "LCP-54",
+      "marker": "lcp-build-plan:steady-state/SS.1",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-54/ss1-weekly-mon-9am-pt-track-a-rotation-refresh"
+    },
+    "steady-state/SS.2": {
+      "id": "d4e61b7d-87e3-445c-8246-0d13329f1e2e",
+      "identifier": "LCP-56",
+      "marker": "lcp-build-plan:steady-state/SS.2",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-56/ss2-monthly-1st-researchagent-track-b"
+    },
+    "steady-state/SS.3": {
+      "id": "783f60dd-fd37-46a3-b5f5-1684568b5002",
+      "identifier": "LCP-57",
+      "marker": "lcp-build-plan:steady-state/SS.3",
+      "url": "https://linear.app/lcp-calendar-look-ahead/issue/LCP-57/ss3-quarterly-deep-refresh-competitor-audit"
+    }
+  },
+  "documents": {
+    "docs/PHASE_0_CHECKLIST.md": {
+      "id": "9da259c3-9599-40c1-8b3b-ce70182acb7f",
+      "hash": "ae6c94f439d858e12e173dd5b078093e578cca564c397bf75d4a24491d49bc7e",
+      "title": "docs/PHASE_0_CHECKLIST.md",
+      "url": "https://linear.app/lcp-calendar-look-ahead/document/docsphase-0-checklistmd-d5f7ce9418e2",
+      "pending": false
+    },
+    "docs/SEO_OPS_RUNBOOK.md": {
+      "id": "72f07b77-e0d8-47ea-a4ed-65587bbc4d11",
+      "hash": "838d9aca4651fd631114e41788b6717dadb70ae9860473cd1027ac657b9d3a89",
+      "title": "docs/SEO_OPS_RUNBOOK.md",
+      "url": "https://linear.app/lcp-calendar-look-ahead/document/docsseo-ops-runbookmd-a8d2887a9f61",
+      "pending": false
+    },
+    "docs/INVOICE_CONTACTS_SETUP.md": {
+      "id": "3e5ff886-9734-4454-afe1-a55b2e5c61c3",
+      "hash": "8827c195dacca9381b6d9a47204a25d79e814d60551516485a4985e8df9327b7",
+      "title": "docs/INVOICE_CONTACTS_SETUP.md",
+      "url": "https://linear.app/lcp-calendar-look-ahead/document/docsinvoice-contacts-setupmd-ab060fe46fe5",
+      "pending": false
+    },
+    "docs/AGENT_SEO_AUTOMATION.md": {
+      "id": "30874d35-703b-436f-8263-52052ba04e54",
+      "hash": "238aa78163833327a24832e2058d38a362e034cb49138b21e618fa41abc53ad5",
+      "title": "docs/AGENT_SEO_AUTOMATION.md",
+      "url": "https://linear.app/lcp-calendar-look-ahead/document/docsagent-seo-automationmd-8ad3bb5467f8"
+    },
+    "docs/BUILD_PLAN.md": {
+      "id": "6fa67e0a-80d7-491a-9068-a6ed0db654aa",
+      "hash": "a91a4241280951ee3c2438411e21975bba9b04b0d49e7011c6ab2db282f4e6f4",
+      "title": "docs/BUILD_PLAN.md",
+      "url": "https://linear.app/lcp-calendar-look-ahead/document/docsbuild-planmd-31c91b8064f0"
+    },
+    "docs/CEO_ALIGNMENT_BRIEF.md": {
+      "id": "3a647508-48c5-4ebc-8076-5b9f311f12bb",
+      "hash": "3f6444541f356eaba50dd306bb82107e6305217ffab1632ee87680aef32b8696",
+      "title": "docs/CEO_ALIGNMENT_BRIEF.md",
+      "url": "https://linear.app/lcp-calendar-look-ahead/document/docsceo-alignment-briefmd-9d87cc65c368",
+      "pending": false
+    },
+    "docs/CEO_EXECUTIVE_SUMMARY.md": {
+      "id": "64567a52-cb7f-4262-92d9-7b223fa0cacc",
+      "hash": "36f1b514ec969d8238e859c616a873d7d647c0be852a1f66ab86455dca737fad",
+      "title": "docs/CEO_EXECUTIVE_SUMMARY.md",
+      "url": "https://linear.app/lcp-calendar-look-ahead/document/docsceo-executive-summarymd-8599b3eeec99"
+    },
+    "docs/CMS_SERVICE_CONTENT.md": {
+      "id": "6e4897e1-6c0d-45f4-9dc9-3ce68dd39820",
+      "hash": "51b202fd6c15c6a359ff0ac7c8cb93dcdec67cab9371e20a8aa11af80e6882eb",
+      "title": "docs/CMS_SERVICE_CONTENT.md",
+      "url": "https://linear.app/lcp-calendar-look-ahead/document/docscms-service-contentmd-692a0254b54a",
+      "pending": false
+    },
+    "docs/CMS_SETUP.md": {
+      "id": "108156e9-6a80-4b11-92aa-4d3eb83beac8",
+      "hash": "898035302301ddfae54ca15db57cedf67a207cbd28d264af9eb8943833d9520f",
+      "title": "docs/CMS_SETUP.md",
+      "url": "https://linear.app/lcp-calendar-look-ahead/document/docscms-setupmd-b060e2262774"
+    },
+    "docs/COOKIE_CONSENT.md": {
+      "id": "46ad8cbc-c9f2-41a6-b4ce-8440228357d4",
+      "hash": "5d9a1709f17ade5e1b2c2312db6445e0e313883c522ef9944abb3f805e9512a4",
+      "title": "docs/COOKIE_CONSENT.md",
+      "url": "https://linear.app/lcp-calendar-look-ahead/document/docscookie-consentmd-8733b6a60690",
+      "pending": false
+    },
+    "docs/DEPLOY_VERCEL.md": {
+      "id": "5bf2de23-7411-4045-b0c6-ee72e3ce4740",
+      "hash": "a1c57c4dd37e508ddc2b96aed02986056df3bfe9c3cae86ea87f6b9b96c3c285",
+      "title": "docs/DEPLOY_VERCEL.md",
+      "url": "https://linear.app/lcp-calendar-look-ahead/document/docsdeploy-vercelmd-aef398c7ac1e"
+    },
+    "docs/FORMS_GOOGLE_SHEETS.md": {
+      "id": "4fa7bacd-a9d2-4314-8584-aff4ede10c6e",
+      "hash": "6a8056c9002edf29b8ea2d0c2467208f559776c2d1616ab95a9fd31c4d29e018",
+      "title": "docs/FORMS_GOOGLE_SHEETS.md",
+      "url": "https://linear.app/lcp-calendar-look-ahead/document/docsforms-google-sheetsmd-6547a63a9543",
+      "pending": false
+    },
+    "docs/INVITE_SETUP.md": {
+      "id": "ebe031af-c4c4-4e21-a2e3-4f25a52e1265",
+      "hash": "d78700c26569445c44ecfb82a0cb71c8e883e7301418956740586d2d186ad4e5",
+      "title": "docs/INVITE_SETUP.md",
+      "url": "https://linear.app/lcp-calendar-look-ahead/document/docsinvite-setupmd-1b850f7d7e30"
+    },
+    "docs/LASSO_CONTACTS_CRON.md": {
+      "id": "5ec907e6-f01d-48f2-9760-669368c36c85",
+      "hash": "898fd5c1842f57be35444add728bf5e1b7e13522e7a103be6ea527dfb9c01f50",
+      "title": "docs/LASSO_CONTACTS_CRON.md",
+      "url": "https://linear.app/lcp-calendar-look-ahead/document/docslasso-contacts-cronmd-854b994fb466",
+      "pending": false
+    },
+    "docs/PRODUCT_IMPLEMENTATION_PLAN.md": {
+      "id": "c91b5e01-b785-44ef-8dd3-d402fbdae0c6",
+      "hash": "85262fd93243c8a2cae76d2cd3b16e5ea5d7ecf3c50e44c89a51c739f81bedb5",
+      "title": "docs/PRODUCT_IMPLEMENTATION_PLAN.md",
+      "url": "https://linear.app/lcp-calendar-look-ahead/document/docsproduct-implementation-planmd-4474bc3f8228"
+    },
+    "docs/SEO_ANALYSIS.md": {
+      "id": "715df811-5641-4195-94b5-bdd8c9a17495",
+      "hash": "203e61ce58c172f318e63c50cf4e62fe05f5ed2ef4bb35ac6ef4461443a1ac51",
+      "title": "docs/SEO_ANALYSIS.md",
+      "url": "https://linear.app/lcp-calendar-look-ahead/document/docsseo-analysismd-7ca2c34108c3"
+    },
+    "docs/SEO_IMPROVEMENT_PLAN.md": {
+      "id": "6b7c8edb-d034-4f3f-be94-515a6758b957",
+      "hash": "564bc904e5e06737f176c41789738f38e7a40f507999e77268ac40d2fb9fa42f",
+      "title": "docs/SEO_IMPROVEMENT_PLAN.md",
+      "url": "https://linear.app/lcp-calendar-look-ahead/document/docsseo-improvement-planmd-ebaa590701a2",
+      "pending": false
+    },
+    "docs/TECHNICAL_OVERVIEW.md": {
+      "id": "c7f5af21-13fb-4f84-920b-c7b5047ef115",
+      "hash": "ea904881f2adf67d3a11e4867416f795248470fe8f7108c3e860a4425f19bc97",
+      "title": "docs/TECHNICAL_OVERVIEW.md",
+      "url": "https://linear.app/lcp-calendar-look-ahead/document/docstechnical-overviewmd-ab6b4af86755"
+    }
+  },
+  "lastSyncAt": "2026-06-26T19:09:41.165Z"
+}

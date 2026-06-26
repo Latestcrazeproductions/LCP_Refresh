@@ -1,0 +1,27 @@
+name: Sync docs to Linear
+
+on:
+  push:
+    branches: [development]
+    paths:
+      - 'docs/**'
+      - 'scripts/linear-build-plan.json'
+      - 'scripts/sync-linear.mjs'
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    environment: Development
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Sync to Linear
+        env:
+          LINEAR_API_KEY: ${{ secrets.LINEAR_API_KEY }}
+          LINEAR_TEAM_KEY: LCP-calendar-look-ahead
+        run: npm run sync:linear

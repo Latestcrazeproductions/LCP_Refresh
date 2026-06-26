@@ -1,0 +1,19 @@
+{
+  "name": "lcp-seo-orchestrator",
+  "private": true,
+  "type": "module",
+  "version": "0.1.0",
+  "scripts": {
+    "build": "tsc",
+    "seo:run": "tsx src/index.ts",
+    "test": "tsx --test src/**/*.test.ts"
+  },
+  "dependencies": {
+    "@cursor/sdk": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.0",
+    "tsx": "^4.19.0",
+    "typescript": "~5.8.2"
+  }
+}

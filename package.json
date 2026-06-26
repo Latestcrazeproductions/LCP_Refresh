@@ -8,7 +8,13 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "sync-contacts": "node scripts/sync-lasso-contacts.mjs"
+    "sync-contacts": "node scripts/sync-lasso-contacts.mjs",
+    "generate:seo-matrix": "node scripts/generate-seo-page-matrix.mjs",
+    "seed-registry": "node scripts/seed-registry.mjs",
+    "sync:linear-build-plan": "node scripts/sync-build-plan-to-linear.mjs",
+    "sync:linear-build-plan:dry-run": "node scripts/sync-build-plan-to-linear.mjs --dry-run",
+    "sync:linear": "node scripts/sync-linear.mjs",
+    "sync:linear:dry-run": "node scripts/sync-linear.mjs --dry-run"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

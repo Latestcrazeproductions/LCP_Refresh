@@ -1,0 +1,14 @@
+{
+  "phase": 1,
+  "allowNewGeoSites": false,
+  "flagshipDomain": "latestcrazeproductions.com",
+  "nationwideHubUrl": "/nationwide-event-production",
+  "researchStaleDays": 35,
+  "maxTasksPerRun": 5,
+  "contentMixTarget": {
+    "service": 0.55,
+    "captureBlog": 0.15,
+    "strategyBlog": 0.15,
+    "authority": 0.15
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "northStar": "Support dedicated inbound sales organization",
+  "horizonMonths": 24,
+  "_pendingLeadership": "Replace null targets with leadership-approved numbers before Phase 0 sign-off",
+  "targets": {
+    "inboundReps": null,
+    "opportunitiesPerRepPerMonth": null,
+    "opportunityToCloseRate": null,
+    "leadToOpportunityRate": null,
+    "visitToLeadRate": null,
+    "monthlyOrganicSessions": null,
+    "monthlyOrganicLeads": null,
+    "monthlyOrganicOpportunities": null,
+    "monthlyOrganicRevenue": null
+  },
+  "actuals": {
+    "lastUpdated": null,
+    "monthlyOrganicSessions": null,
+    "monthlyOrganicLeads": null,
+    "monthlyOrganicOpportunities": null,
+    "monthlyOrganicRevenue": null
+  }
+}

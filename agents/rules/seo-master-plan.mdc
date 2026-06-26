@@ -1,0 +1,40 @@
+---
+description: SEO master plan rules for all LCP automation agents
+globs:
+  - src/app/**/*
+  - src/content/**/*
+  - content-library/**/*
+  - content-registry/**/*
+---
+
+# SEO Master Plan Rules
+
+## Keyword layers
+
+- **National**: No city names in title or H1. Own head terms (e.g. "event production company").
+- **Geo**: City + state required in title. Own local intent (e.g. "event production Phoenix").
+
+## Content mix (rolling 4 weeks)
+
+- 55% service pages (national + geo)
+- 15% capture blogs
+- 15% strategy blogs
+- 15% authority assets (case studies, tools, venue guides)
+
+## CTAs
+
+Every new or changed page must answer: what should this visitor do next?
+
+- Primary: /contact, tel:, or quote anchor above fold
+- Secondary: >=1 link to related service, case study, or resource
+
+## Forbidden without human approval
+
+- Pricing claims or calculators
+- Supabase migrations, env files, CMS auth changes
+- Auto-merge or deploy
+
+## Brand
+
+- Executive/planner tone on strategy content — outcomes, not gear specs
+- No unapproved client names in case studies

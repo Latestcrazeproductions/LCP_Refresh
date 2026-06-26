@@ -1,0 +1,15 @@
+---
+description: Git branch workflow — development trunk, never push to main
+alwaysApply: true
+---
+
+# Git branch workflow
+
+- **`main`** deploys to the live site. Do **not** push to `main`, commit on `main`, open PRs targeting `main`, or merge into `main` unless the user explicitly asks in this conversation.
+- **`development`** is the integration trunk for the inbound demand engine and all active build work.
+- Branch from `development` using `feature/<topic>` (e.g. `feature/phase-0-gates`, `feature/sprint-2-agents`).
+- Open PRs into **`development`** only.
+- After meaningful changes: commit with a clear message and push to the current feature branch (or `development`).
+- Never commit `.env`, `.env.local`, or API keys.
+
+---

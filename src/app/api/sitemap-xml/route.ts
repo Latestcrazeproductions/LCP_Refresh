@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getSiteContent } from '@/lib/content';
+import { listMarkdownSlugs } from '@/lib/markdown-pages';
 
 export const revalidate = 3600;
 
@@ -42,10 +43,34 @@ export async function GET(request: Request) {
     priority: 0.85,
   }));
 
+  const blogUrls = listMarkdownSlugs('blogs').map((slug) => ({
+    url: `${baseUrl}/blog/${slug}`,
+    lastmod: now,
+    changefreq: 'monthly',
+    priority: 0.7,
+  }));
+
+  const workUrls = listMarkdownSlugs('work').map((slug) => ({
+    url: `${baseUrl}/work/${slug}`,
+    lastmod: now,
+    changefreq: 'monthly',
+    priority: 0.75,
+  }));
+
+  const resourceUrls = listMarkdownSlugs('resources').map((slug) => ({
+    url: `${baseUrl}/resources/${slug}`,
+    lastmod: now,
+    changefreq: 'monthly',
+    priority: 0.7,
+  }));
+
   const entries = [
     { url: baseUrl, lastmod: now, changefreq: 'monthly', priority: 1 },
     { url: `${baseUrl}/services`, lastmod: now, changefreq: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/events`, lastmod: now, changefreq: 'monthly', priority: 0.9 },
+    { url: `${baseUrl}/blog`, lastmod: now, changefreq: 'weekly', priority: 0.75 },
+    { url: `${baseUrl}/work`, lastmod: now, changefreq: 'monthly', priority: 0.75 },
+    { url: `${baseUrl}/resources`, lastmod: now, changefreq: 'monthly', priority: 0.7 },
     { url: `${baseUrl}/about`, lastmod: now, changefreq: 'monthly', priority: 0.8 },
     { url: `${baseUrl}/featured-venues`, lastmod: now, changefreq: 'monthly', priority: 0.75 },
     {
@@ -60,6 +85,9 @@ export async function GET(request: Request) {
     { url: `${baseUrl}/terms`, lastmod: now, changefreq: 'yearly', priority: 0.5 },
     ...eventUrls,
     ...serviceUrls,
+    ...blogUrls,
+    ...workUrls,
+    ...resourceUrls,
   ];
 
   // Browsers send text/html; serve styled HTML directly (avoids XSL white-page issues)

@@ -1,0 +1,22 @@
+name: SEO Monthly
+
+on:
+  schedule:
+    - cron: '0 16 1 * *'
+  workflow_dispatch:
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm run seed-registry
+      - run: npm ci
+        working-directory: scripts/seo-orchestrator
+      - run: npm run seo:run -- --cadence monthly --max-tasks 5
+        working-directory: scripts/seo-orchestrator
+        env:
+          CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}

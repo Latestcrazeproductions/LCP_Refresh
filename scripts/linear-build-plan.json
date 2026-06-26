@@ -1,0 +1,399 @@
+{
+  "team": {
+    "key": "LCP-calendar-look-ahead",
+    "name": "LCP-calendar-look-ahead"
+  },
+  "project": {
+    "name": "LCP Inbound Demand Engine",
+    "summary": "Agent-driven SEO demand engine — build plan, docs, and execution tracker for latestcrazeproductions.com",
+    "description": "# LCP Inbound Demand Engine\n\nAgent-driven inbound demand system for **latestcrazeproductions.com**.\n\n## Source of truth\n\n- **Execution status** → Linear issues (this project)\n- **Plan structure** → `scripts/linear-build-plan.json`\n- **Documentation** → `docs/*.md` (auto-synced as Linear documents)\n- **Narrative** → `docs/BUILD_PLAN.md`\n\n## Current state\n\n| Layer | Status |\n|-------|--------|\n| Next.js site (~29 routes), CMS, geo page | **Live** |\n| SEO matrix | **Live** |\n| Registry, orchestrator, agents, cron | **Built — enable after Phase 0** |\n\n## Locked decisions\n\n- Cursor **cloud** SDK, PR-only publish gate\n- **7 agents**: Research, Planner, National, Geo, ServiceRefresh, Authority, QA\n- Free intel stack (GSC primary) — no Semrush v1\n- Content mix: 55/15/15/15\n- Max **5 tasks per run**\n\n## Sync\n\n```bash\nnpm run sync:linear\n```\n\nRe-run after editing `docs/` or `scripts/linear-build-plan.json`.",
+    "color": "#5E6AD2",
+    "icon": ":rocket:",
+    "state": "started",
+    "priority": 2,
+    "startDate": "2026-06-01",
+    "startDateResolution": "month",
+    "targetDate": "2026-12-31",
+    "targetDateResolution": "quarter"
+  },
+  "epics": [
+    {
+      "key": "phase-0",
+      "title": "Phase 0 — Pre-implementation gates",
+      "description": "Complete before enabling live Cursor cloud agent runs (Sprint 2). See `docs/PHASE_0_CHECKLIST.md`.",
+      "status": "in_progress",
+      "issues": [
+        {
+          "key": "0.1",
+          "title": "Leadership go-ahead on phased rollout",
+          "owner": "leadership",
+          "status": "todo",
+          "description": "Written approval from Jason / leadership before live agents."
+        },
+        {
+          "key": "0.2",
+          "title": "Funnel targets in content-registry/metrics.json",
+          "owner": "marketing",
+          "status": "todo",
+          "description": "Fill `targets` fields; remove `_pendingLeadership` notes."
+        },
+        {
+          "key": "0.3",
+          "title": "GSC property verified",
+          "owner": "engineering",
+          "status": "todo",
+          "description": "`latestcrazeproductions.com` property accessible in Google Search Console."
+        },
+        {
+          "key": "0.4",
+          "title": "Keyword Planner seed → keywordTAM.json",
+          "owner": "marketing",
+          "status": "todo",
+          "description": "Commit head terms to `content-registry/keywordTAM.json`."
+        },
+        {
+          "key": "0.5",
+          "title": "Pilot city list (10 cities)",
+          "owner": "product",
+          "status": "todo",
+          "description": "Confirm 10 pilot cities in `content-registry/sites.json`."
+        },
+        {
+          "key": "0.6",
+          "title": "Case study assets approved",
+          "owner": "marketing",
+          "status": "todo",
+          "description": "Night of Hope + Heard Museum (or equivalent) photos/copy approved."
+        },
+        {
+          "key": "0.7",
+          "title": "Program docs on main",
+          "owner": "engineering",
+          "status": "done",
+          "description": "Matrix + docs committed to `main`."
+        },
+        {
+          "key": "0.8",
+          "title": "CURSOR_API_KEY in GitHub Actions",
+          "owner": "engineering",
+          "status": "todo",
+          "description": "Team service account secret configured for agent workflows."
+        },
+        {
+          "key": "0.9",
+          "title": "Cursor spend limit set",
+          "owner": "engineering",
+          "status": "todo",
+          "description": "Dashboard spend limit configured before live runs."
+        },
+        {
+          "key": "0.10",
+          "title": "Initial competitor scan",
+          "owner": "marketing",
+          "status": "todo",
+          "description": "`content-registry/competitor-scan.json` has ≥5 priority keywords."
+        }
+      ]
+    },
+    {
+      "key": "sprint-1",
+      "title": "Sprint 1 — Foundation (no agents)",
+      "description": "Registry, library, routes, orchestrator dry-run, QA. Zero Cursor API spend.",
+      "status": "done",
+      "issues": [
+        {
+          "key": "1.1",
+          "title": "npm run generate:seo-matrix",
+          "owner": "engineering",
+          "status": "done",
+          "description": "Regenerates `public/seo-page-matrix.xml`."
+        },
+        {
+          "key": "1.2",
+          "title": "content-registry/ seeded",
+          "owner": "engineering",
+          "status": "done",
+          "description": "`pages.jsonl` populated via seed script."
+        },
+        {
+          "key": "1.3",
+          "title": "npm run seed-registry",
+          "owner": "engineering",
+          "status": "done",
+          "description": "Merges matrix + live paths into registry."
+        },
+        {
+          "key": "1.4",
+          "title": "content-library/ manifests",
+          "owner": "engineering",
+          "status": "done",
+          "description": "Topics, case studies, tools manifests in place."
+        },
+        {
+          "key": "1.5",
+          "title": "agents/prompts/ + rules",
+          "owner": "engineering",
+          "status": "done",
+          "description": "All 7 agent prompt stubs + `agents/rules/seo-master-plan.mdc`."
+        },
+        {
+          "key": "1.6",
+          "title": "scripts/seo-orchestrator core",
+          "owner": "engineering",
+          "status": "done",
+          "description": "`registry`, `scheduler`, `qa-checks` modules."
+        },
+        {
+          "key": "1.7",
+          "title": "Orchestrator --dry-run CLI",
+          "owner": "engineering",
+          "status": "done",
+          "description": "Prints Task[] JSON without Cursor API spend."
+        },
+        {
+          "key": "1.8",
+          "title": "/blog, /work, /resources routes",
+          "owner": "engineering",
+          "status": "done",
+          "description": "Routes render + sitemap updated."
+        },
+        {
+          "key": "1.9",
+          "title": "seo-weekly-dry-run.yml workflow",
+          "owner": "engineering",
+          "status": "done",
+          "description": "GitHub Actions workflow_dispatch green."
+        }
+      ]
+    },
+    {
+      "key": "sprint-2",
+      "title": "Sprint 2 — First cloud agent PR",
+      "description": "Prerequisite: Phase 0 complete + `CURSOR_API_KEY` in GitHub Actions.",
+      "status": "blocked",
+      "issues": [
+        {
+          "key": "2.1",
+          "title": "dispatch.ts with explicit cloud config",
+          "owner": "engineering",
+          "status": "done",
+          "description": "Cursor cloud SDK: repos, autoCreatePr, composer-2.5."
+        },
+        {
+          "key": "2.2",
+          "title": "ServiceRefreshAgent prompt complete",
+          "owner": "engineering",
+          "status": "done",
+          "description": "Prompt in `agents/prompts/service-refresh.md`."
+        },
+        {
+          "key": "2.3",
+          "title": "First merged agent PR",
+          "owner": "engineering",
+          "status": "todo",
+          "description": "FAQ + date touch on one service page; human merge → Vercel."
+        },
+        {
+          "key": "2.4",
+          "title": "seo-weekly.yml live",
+          "owner": "engineering",
+          "status": "todo",
+          "description": "Live weekly workflow; start with `--max-tasks 1`."
+        }
+      ]
+    },
+    {
+      "key": "sprint-3",
+      "title": "Sprint 3 — Full cadence",
+      "description": "ResearchAgent, remaining agents, monthly/quarterly automation.",
+      "status": "blocked",
+      "issues": [
+        {
+          "key": "3.1",
+          "title": "ResearchAgent + intelligence inputs",
+          "owner": "engineering",
+          "status": "done",
+          "description": "GSC, Keyword Planner, Trends, Bing WMT, competitor scan wired."
+        },
+        {
+          "key": "3.2",
+          "title": "NationalAgent",
+          "owner": "engineering",
+          "status": "done",
+          "description": "National hub content agent prompt + dispatch path."
+        },
+        {
+          "key": "3.3",
+          "title": "GeoAgent",
+          "owner": "engineering",
+          "status": "done",
+          "description": "City-required title rules enforced in QA."
+        },
+        {
+          "key": "3.4",
+          "title": "AuthorityAgent",
+          "owner": "engineering",
+          "status": "done",
+          "description": "Case studies, blog, resources authority content."
+        },
+        {
+          "key": "3.5",
+          "title": "QAAgent LLM pass",
+          "owner": "engineering",
+          "status": "done",
+          "description": "LLM QA pass in orchestrator pipeline."
+        },
+        {
+          "key": "3.6",
+          "title": "PlannerAgent",
+          "owner": "engineering",
+          "status": "done",
+          "description": "Research priorities, 55/15/15/15 mix, phase gates."
+        },
+        {
+          "key": "3.7",
+          "title": "demand-math.ts monthly gap report",
+          "owner": "engineering",
+          "status": "done",
+          "description": "Monthly demand gap reporting module."
+        },
+        {
+          "key": "3.8",
+          "title": "conversion.cta_audit",
+          "owner": "engineering",
+          "status": "done",
+          "description": "CTA audit checks in orchestrator."
+        },
+        {
+          "key": "3.9",
+          "title": "Rotation advancement",
+          "owner": "engineering",
+          "status": "done",
+          "description": "Track A rotation logic in scheduler."
+        },
+        {
+          "key": "3.10",
+          "title": "seo-monthly.yml + seo-quarterly.yml",
+          "owner": "engineering",
+          "status": "done",
+          "description": "Monthly and quarterly GitHub Actions workflows."
+        }
+      ]
+    },
+    {
+      "key": "sprint-4",
+      "title": "Sprint 4 — Phase build + operate",
+      "description": "Manual phase builds, ops runbook, PR template.",
+      "status": "blocked",
+      "issues": [
+        {
+          "key": "4.1",
+          "title": "seo-phase-build.yml",
+          "owner": "engineering",
+          "status": "done",
+          "description": "Manual phase-build workflow."
+        },
+        {
+          "key": "4.2",
+          "title": "Phase 1 national content build",
+          "owner": "engineering",
+          "status": "todo",
+          "description": "Manual trigger; nationwide hub live."
+        },
+        {
+          "key": "4.3",
+          "title": "Phase 2 ten-city pilot",
+          "owner": "engineering",
+          "status": "todo",
+          "description": "10 pilot cities ≥30 days; no cannibalization flags."
+        },
+        {
+          "key": "4.4",
+          "title": "Bulk QA on expanded registry",
+          "owner": "engineering",
+          "status": "todo",
+          "description": "QA pass after registry expansion."
+        },
+        {
+          "key": "4.5",
+          "title": "SEO Ops Runbook",
+          "owner": "engineering",
+          "status": "done",
+          "description": "`docs/SEO_OPS_RUNBOOK.md` published."
+        },
+        {
+          "key": "4.6",
+          "title": "SEO agent PR template",
+          "owner": "engineering",
+          "status": "done",
+          "description": "`.github/pull_request_template/seo-agent.md`."
+        }
+      ]
+    },
+    {
+      "key": "phase-exits",
+      "title": "Phase exit gates",
+      "description": "Rollout phases after Sprint 4 scaffolding. Manual triggers only.",
+      "status": "todo",
+      "issues": [
+        {
+          "key": "P1",
+          "title": "Phase 1 exit — National hub live",
+          "owner": "leadership",
+          "status": "todo",
+          "description": "≥15 new URLs; ≥1 agent PR merged; GSC impressions > 0."
+        },
+        {
+          "key": "P2",
+          "title": "Phase 2 exit — Ten-city pilot",
+          "owner": "leadership",
+          "status": "todo",
+          "description": "10 pilot cities ≥30 days; no cannibalization flags."
+        },
+        {
+          "key": "P3",
+          "title": "Phase 3 exit — Scale cities",
+          "owner": "leadership",
+          "status": "todo",
+          "description": "100 cities or leadership cap; 50+ GSC queries with impressions."
+        },
+        {
+          "key": "P4",
+          "title": "Phase 4 exit — Steady-state operate",
+          "owner": "leadership",
+          "status": "todo",
+          "description": "Cron-only operate; leads trending toward targets in metrics.json."
+        }
+      ]
+    },
+    {
+      "key": "steady-state",
+      "title": "Steady-state rhythm",
+      "description": "Ongoing ops after phase builds complete.",
+      "status": "todo",
+      "issues": [
+        {
+          "key": "SS.1",
+          "title": "Weekly Mon 9am PT — Track A rotation + refresh",
+          "owner": "engineering",
+          "status": "todo",
+          "description": "Automated via seo-weekly.yml; human PR review 30–60 min."
+        },
+        {
+          "key": "SS.2",
+          "title": "Monthly 1st — ResearchAgent → Track B",
+          "owner": "marketing",
+          "status": "todo",
+          "description": "Update metrics.json actuals; commit GSC CSV to gsc-snapshot/."
+        },
+        {
+          "key": "SS.3",
+          "title": "Quarterly — Deep refresh + competitor audit",
+          "owner": "marketing",
+          "status": "todo",
+          "description": "Pruning decisions; tools refresh."
+        }
+      ]
+    }
+  ]
+}

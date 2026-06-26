@@ -1,0 +1,18 @@
+name: SEO Weekly Dry Run
+
+on:
+  workflow_dispatch:
+
+jobs:
+  dry-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm run seed-registry
+      - run: npm ci
+        working-directory: scripts/seo-orchestrator
+      - run: npm run seo:run -- --cadence weekly --dry-run
+        working-directory: scripts/seo-orchestrator

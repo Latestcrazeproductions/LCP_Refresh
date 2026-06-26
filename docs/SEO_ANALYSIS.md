@@ -2,6 +2,8 @@
 
 *Generated from Semrush API data and site audit — March 2026*
 
+> **Note:** This is a **one-time historical baseline**. Ongoing intelligence uses the free stack documented in [TECHNICAL_OVERVIEW.md](./TECHNICAL_OVERVIEW.md) (GSC, Keyword Planner, Trends, Bing WMT, manual competitor review). A paid Semrush subscription is not required for v1.
+
 ---
 
 ## Executive Summary
@@ -119,15 +121,18 @@ AI engines (ChatGPT, Perplexity, Gemini, Google AI Overviews) use different sign
 4. Create shareable content (case studies, event guides).
 
 ### Phase 4: Monitoring
-1. Run Semrush reports monthly.
+1. Export GSC reports monthly → `content-registry/gsc-snapshot/`.
 2. Track AI visibility (manual searches in ChatGPT, Perplexity, etc.).
-3. Use Google Search Console for indexation and queries.
+3. Use Google Search Console for indexation, queries, and performance tracking.
+4. Refresh `keywordTAM.json` from Google Keyword Planner as priorities shift.
 
 ---
 
-## Semrush Report Usage
+## Historical Semrush baseline (March 2026)
 
-To regenerate this analysis with fresh Semrush data:
+The findings below are from a one-time Semrush API pull. They remain useful as a starting point but are not refreshed automatically.
+
+To regenerate with paid Semrush access (optional):
 
 1. Start the backend: `cd semrush-report && source venv/bin/activate && python run_backend.py`
 2. Open the CMS at `/cms/login`, go to **SemRush Reports**.

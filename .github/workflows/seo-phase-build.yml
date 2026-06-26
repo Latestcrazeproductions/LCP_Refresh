@@ -1,0 +1,47 @@
+name: SEO Phase Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      phase:
+        description: Phase to build
+        required: true
+        type: choice
+        options:
+          - '1'
+          - '2'
+          - '3'
+      batchSize:
+        description: Geo batch size (phase 2/3)
+        required: false
+        default: '10'
+        type: choice
+        options:
+          - '10'
+          - '50'
+          - '100'
+      max_tasks:
+        description: Max agent tasks this run
+        required: false
+        default: '5'
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm run seed-registry
+      - run: npm ci
+        working-directory: scripts/seo-orchestrator
+      - name: Phase build dispatch
+        run: |
+          echo "Phase ${{ inputs.phase }} batch ${{ inputs.batchSize }}"
+          npm run seo:run -- --cadence phase --max-tasks ${{ inputs.max_tasks }}
+        working-directory: scripts/seo-orchestrator
+        env:
+          CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
+          SEO_PHASE: ${{ inputs.phase }}
+          SEO_BATCH_SIZE: ${{ inputs.batchSize }}

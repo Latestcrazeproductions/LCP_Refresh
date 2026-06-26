@@ -1,0 +1,12 @@
+{
+  "_source": "Seed from Google Keyword Planner + matrix head terms. Update after Phase 0 gate 0.4.",
+  "lastUpdated": null,
+  "terms": [
+    { "keyword": "event production company", "layer": "national", "monthlySearchesEstimate": null, "targetUrl": "/nationwide-event-production" },
+    { "keyword": "corporate event production", "layer": "national", "monthlySearchesEstimate": null, "targetUrl": "/services/event-production" },
+    { "keyword": "conference av production", "layer": "national", "monthlySearchesEstimate": null, "targetUrl": null },
+    { "keyword": "led wall rental", "layer": "national", "monthlySearchesEstimate": null, "targetUrl": null },
+    { "keyword": "av production services", "layer": "national", "monthlySearchesEstimate": null, "targetUrl": null },
+    { "keyword": "event production phoenix", "layer": "geo", "monthlySearchesEstimate": null, "targetUrl": "/phoenix-av-production" }
+  ]
+}

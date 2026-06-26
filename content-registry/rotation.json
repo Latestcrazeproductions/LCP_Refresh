@@ -1,0 +1,8 @@
+{
+  "week": 1,
+  "geoBatchA": ["scottsdale-az", "dallas-tx", "denver-co", "las-vegas-nv", "austin-tx"],
+  "geoBatchB": ["san-diego-ca", "seattle-wa", "nashville-tn", "atlanta-ga", "chicago-il"],
+  "serviceRotationIndex": 0,
+  "strategyBlogWeek": false,
+  "lastAdvancedAt": null
+}
