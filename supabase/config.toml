@@ -1,0 +1,8 @@
+# Supabase local CLI config — linked project is the dev instance when working on git `development`.
+# Production project ref: qsccsddknmvidvcfpffu
+# Development project ref: aafiingdoulyghucrzat (LCP Development)
+
+project_id = "aafiingdoulyghucrzat"
+
+[db]
+major_version = 17

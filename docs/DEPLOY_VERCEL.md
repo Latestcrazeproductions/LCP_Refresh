@@ -40,7 +40,11 @@ In your Vercel project **Settings → Environment Variables**, add:
 
 \** Required for correct sitemap, robots, Open Graph, and thank-you emails. Use your Vercel URL (e.g. `https://your-project.vercel.app`) or custom domain.
 
-**Production:** Add variables for **Production** environment. Optionally add for Preview to test PRs.
+**Production:** Add variables for **Production** environment only (Supabase prod project `qsccsddknmvidvcfpffu`).
+
+**Preview / `development` branch:** Use the **LCP Development** Supabase project — see [SUPABASE_DEV_WORKFLOW.md](./SUPABASE_DEV_WORKFLOW.md). Preview must **not** use production Supabase URLs or CMS changes will affect the live site.
+
+Optionally add for Preview to test PRs.
 
 ### 3. Deploy
 
