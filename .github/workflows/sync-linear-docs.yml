@@ -20,6 +20,15 @@ jobs:
         with:
           node-version: '22'
 
+      - name: Verify LINEAR_API_KEY
+        run: |
+          if [ -z "$LINEAR_API_KEY" ]; then
+            echo "::error::LINEAR_API_KEY is empty. Add it under GitHub → Settings → Environments → Development → Environment secrets (name must be exactly LINEAR_API_KEY, not a variable)."
+            exit 1
+          fi
+        env:
+          LINEAR_API_KEY: ${{ secrets.LINEAR_API_KEY }}
+
       - name: Sync to Linear
         env:
           LINEAR_API_KEY: ${{ secrets.LINEAR_API_KEY }}
