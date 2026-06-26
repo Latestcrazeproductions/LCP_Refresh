@@ -4,6 +4,8 @@ import { notFound } from 'next/navigation';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ContactCta from '@/components/ContactCta';
+import { ContentProvider } from '@/context/ContentContext';
+import { getSiteContent } from '@/lib/content';
 import { getMarkdownPage, listMarkdownSlugs, markdownToHtml } from '@/lib/markdown-pages';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://latestcrazeproductions.com';
@@ -29,20 +31,23 @@ export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params;
   const page = getMarkdownPage('work', slug);
   if (!page) notFound();
+  const content = await getSiteContent();
 
   return (
-    <div className="min-h-screen bg-[#050505] text-white">
-      <Navbar />
-      <main className="mx-auto max-w-3xl px-6 py-16">
-        <Link href="/work" className="text-sm text-white/50 hover:text-white mb-8 inline-block">
-          ← Case studies
-        </Link>
-        <article dangerouslySetInnerHTML={{ __html: markdownToHtml(page.body) }} />
-        <div className="mt-12">
-          <ContactCta />
-        </div>
-      </main>
-      <Footer />
-    </div>
+    <ContentProvider content={content}>
+      <div className="min-h-screen bg-[#050505] text-white">
+        <Navbar />
+        <main className="mx-auto max-w-3xl px-6 py-16">
+          <Link href="/work" className="text-sm text-white/50 hover:text-white mb-8 inline-block">
+            ← Case studies
+          </Link>
+          <article dangerouslySetInnerHTML={{ __html: markdownToHtml(page.body) }} />
+          <div className="mt-12">
+            <ContactCta content={content} />
+          </div>
+        </main>
+        <Footer />
+      </div>
+    </ContentProvider>
   );
 }
