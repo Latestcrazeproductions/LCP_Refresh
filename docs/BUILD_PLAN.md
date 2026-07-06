@@ -5,7 +5,8 @@
 
 **Execution tracker:** Linear project **LCP Inbound Demand Engine** (team: `LCP-calendar-look-ahead`)  
 **Sync:** `npm run sync:linear` — updates issues + mirrors all `docs/*.md` into Linear documents (CI runs on push to `development`)  
-**Structure source:** `scripts/linear-build-plan.json`
+**Structure source:** `scripts/linear-build-plan.json`  
+**Cursor build queue (local):** `npm run beads:draft` → `npm run beads:import` — agent-native tasks from the build plan; stealth `.beads/`; **retire at P4 exit**
 
 **Related:** [Technical Overview](./TECHNICAL_OVERVIEW.md) · [Agent SEO Automation](./AGENT_SEO_AUTOMATION.md) · [Product Implementation Plan](./PRODUCT_IMPLEMENTATION_PLAN.md) · [Phase 0 Checklist](./PHASE_0_CHECKLIST.md)
 
@@ -142,6 +143,38 @@ Monthly: commit GSC CSV → `content-registry/gsc-snapshot/`; update `metrics.js
 
 ---
 
+## Beads (Cursor build queue — temporary)
+
+**Purpose:** Keep Cursor agents on track while **building** the demand engine. Not used for steady-state SEO ops (those use `content-registry/` + orchestrator + Linear).
+
+| Layer | Role |
+|-------|------|
+| **Linear** | Program status, owners, milestones (human truth) |
+| **Docs** | Architecture reference — link, don’t paste into beads |
+| **Beads** | Agent-native session queue (local, stealth) |
+
+**Scope:** `phase-0` (engineering only) + `sprint-1`–`sprint-4`. Excludes `steady-state`, `phase-exits`, and non-engineering Phase 0 gates.
+
+**Workflow:**
+
+```bash
+npm run beads:draft              # preview open engineering tasks
+npm run beads:draft:write        # write scripts/beads-build-queue.json (reviewable)
+npm run beads:import             # import open todos into local .beads/
+bd ready                         # pick unblocked work
+# … implement …
+bd close <id>                    # same session you update Linear
+```
+
+**Drift rule:** When a bead closes, update the matching Linear issue (look for `lcp-build-plan:<epic>/<key>` in the bead’s external ref).
+
+**Retire at P4 exit:** Stop importing; close remaining build beads; remove `.cursor/rules/beads.mdc` (or disable); optional `rm -rf .beads`. Steady-state uses registry + cron only.
+
+Agent-native overrides per deliverable: `scripts/beads-build-overrides.json`.  
+**How-to:** [BEADS_HOWTO.md](./BEADS_HOWTO.md)
+
+---
+
 ## Commands reference
 
 ```bash
@@ -156,4 +189,9 @@ cd scripts/seo-orchestrator && npm run seo:run -- --cadence weekly --dry-run
 
 # Live run (requires CURSOR_API_KEY)
 cd scripts/seo-orchestrator && npm run seo:run -- --cadence weekly --max-tasks 2
+
+# Beads build queue (local Cursor sessions)
+npm run beads:draft
+npm run beads:import
+bd ready
 ```

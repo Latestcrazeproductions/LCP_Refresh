@@ -51,8 +51,15 @@ Set **Preview** environment variables (not Production):
 ```bash
 chmod +x scripts/setup-vercel-dev-env.sh
 ./scripts/setup-vercel-dev-env.sh
-vercel env add SUPABASE_SERVICE_ROLE_KEY preview
+
+# Service role keys (from Supabase → Settings → API) — not in git:
+vercel env add SUPABASE_SERVICE_ROLE_KEY production --value YOUR_PROD_SERVICE_ROLE -y --non-interactive --sensitive
+vercel env add SUPABASE_SERVICE_ROLE_KEY preview "" --value YOUR_DEV_SERVICE_ROLE -y --non-interactive --sensitive
 ```
+
+Preview vars use `preview ""` (empty third arg) so they apply to **all** Preview branches without an interactive prompt.
+
+Vercel does **not** allow `--sensitive` vars on the **Development** target (used by `vercel dev`). Use `.env.development.local` for local service role instead.
 
 **Dashboard:** Vercel → Project → Settings → Environment Variables → add each variable → check **Preview** only.
 

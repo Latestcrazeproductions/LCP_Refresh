@@ -1,0 +1,53 @@
+# First live agent PR test — manual only. Dispatches one task type against `development`.
+name: SEO Agent Test (live)
+
+on:
+  workflow_dispatch:
+    inputs:
+      only_type:
+        description: Task type (recommended first test — service.gallery_swap)
+        required: true
+        default: service.gallery_swap
+        type: choice
+        options:
+          - service.gallery_swap
+          - service.faq_refresh
+          - service.date_touch
+          - blog.national.create
+          - authority.case_study
+      max_tasks:
+        description: Max tasks (keep at 1 for first test)
+        required: false
+        default: '1'
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    environment: Development
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: development
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm run seed-registry
+      - run: npm ci
+        working-directory: scripts/seo-orchestrator
+      - name: Verify CURSOR_API_KEY
+        run: |
+          if [ -z "$CURSOR_API_KEY" ]; then
+            echo "::error::CURSOR_API_KEY is empty. Add it under GitHub → Settings → Environments → Development → Environment secrets."
+            exit 1
+          fi
+        env:
+          CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
+      - run: >
+          npm run seo:run --
+          --cadence weekly
+          --max-tasks ${{ inputs.max_tasks }}
+          --only-type ${{ inputs.only_type }}
+        working-directory: scripts/seo-orchestrator
+        env:
+          CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
+          CURSOR_AGENT_REF: development

@@ -143,7 +143,7 @@ export function scheduleTasks(input: ScheduleInput): Task[] {
       tasks.push(task('blog.national.create', 'A', 'National blog (geo locked until hub live)'));
     }
     tasks.push(
-      task('service.faq_refresh', 'A', 'Service FAQ refresh', { url: '/services/audio-systems' })
+      task('service.faq_refresh', 'A', 'Service FAQ refresh', { url: '/services/audio' })
     );
   } else if (week === 3) {
     tasks.push(
@@ -162,7 +162,7 @@ export function scheduleTasks(input: ScheduleInput): Task[] {
     }
     tasks.push(
       task('service.gallery_swap', 'A', 'Projection service gallery swap', {
-        url: '/services/projection-mapping',
+        url: '/services/projection',
       })
     );
   }

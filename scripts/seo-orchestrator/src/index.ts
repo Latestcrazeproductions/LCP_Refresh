@@ -13,7 +13,7 @@ import {
 import { scheduleTasks, contentMixSummary } from './scheduler.js';
 import { buildFunnelGapReport, formatGapReportMarkdown } from './demand-math.js';
 import { formatCtaAuditMarkdown, runCtaAudit } from './conversion-audit.js';
-import { dispatchTasks } from './dispatch.js';
+import { dispatchTasks, getAgentRef } from './dispatch.js';
 import type { Cadence } from './types.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -24,6 +24,7 @@ function parseArgs(argv: string[]) {
   let dryRun = false;
   let maxTasks = 5;
   let advanceRotation = false;
+  let onlyType: string | undefined;
 
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i];
@@ -31,13 +32,14 @@ function parseArgs(argv: string[]) {
     else if (a === '--advance-rotation') advanceRotation = true;
     else if (a === '--cadence' && argv[i + 1]) cadence = argv[++i] as Cadence;
     else if (a === '--max-tasks' && argv[i + 1]) maxTasks = Number(argv[++i]);
+    else if (a === '--only-type' && argv[i + 1]) onlyType = argv[++i];
   }
 
-  return { cadence, dryRun, maxTasks, advanceRotation };
+  return { cadence, dryRun, maxTasks, advanceRotation, onlyType };
 }
 
 async function main() {
-  const { cadence, dryRun, maxTasks, advanceRotation } = parseArgs(process.argv);
+  const { cadence, dryRun, maxTasks, advanceRotation, onlyType } = parseArgs(process.argv);
   const paths = getRegistryPaths(REPO_ROOT);
   const config = loadConfig(paths);
   const rotation = loadRotation(paths);
@@ -45,19 +47,35 @@ async function main() {
   const research = loadJson<{ lastScanAt: string | null }>(paths, 'research.json');
 
   const effectiveMax = Math.min(maxTasks, config.maxTasksPerRun ?? 5);
+  const scheduleCap = onlyType ? 50 : effectiveMax;
 
-  const tasks = scheduleTasks({
+  let tasks = scheduleTasks({
     cadence,
     config,
     rotation,
     pages,
     researchLastScanAt: research.lastScanAt,
-    maxTasks: effectiveMax,
+    maxTasks: scheduleCap,
   });
+
+  if (onlyType) {
+    tasks = tasks.filter((t) => t.type === onlyType);
+    if (!tasks.length) {
+      console.error(`No tasks matched --only-type ${onlyType} for cadence ${cadence}.`);
+      process.exit(1);
+    }
+    tasks = tasks.slice(0, effectiveMax);
+  }
 
   const mix = contentMixSummary(tasks);
 
-  console.log(JSON.stringify({ cadence, dryRun, week: rotation.week, taskCount: tasks.length, mix, tasks }, null, 2));
+  console.log(
+    JSON.stringify(
+      { cadence, dryRun, agentRef: getAgentRef(), week: rotation.week, taskCount: tasks.length, mix, tasks },
+      null,
+      2
+    )
+  );
 
   if (cadence === 'monthly') {
     const metrics = loadJson<{ targets: Record<string, number | null>; actuals: Record<string, number | null> }>(

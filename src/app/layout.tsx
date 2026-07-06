@@ -82,6 +82,9 @@ export const metadata: Metadata = {
     canonical: SITE_URL,
   },
   category: 'technology',
+  ...(process.env.GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+    : {}),
 };
 
 export default function RootLayout({

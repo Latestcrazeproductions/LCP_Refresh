@@ -1,41 +1,22 @@
-import Link from 'next/link';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import { ContentProvider } from '@/context/ContentContext';
+import type { Metadata } from 'next';
+import { ContentHubIndex } from '@/components/layout/ContentHubIndex';
 import { getSiteContent } from '@/lib/content';
-import { listMarkdownSlugs, getMarkdownPage } from '@/lib/markdown-pages';
 
-export const metadata = {
-  title: 'Resources | Latest Craze Productions',
-  description: 'Event production planning resources and checklists.',
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://latestcrazeproductions.com';
+
+export const metadata: Metadata = {
+  title: 'Resources',
+  description:
+    'Event production planning resources and checklists for corporate conferences, galas, and general sessions.',
+  openGraph: {
+    title: 'Resources | Latest Craze Productions',
+    description: 'Planning checklists and production frameworks.',
+    url: `${SITE_URL}/resources`,
+  },
+  alternates: { canonical: `${SITE_URL}/resources` },
 };
 
 export default async function ResourcesIndexPage() {
   const content = await getSiteContent();
-  const slugs = listMarkdownSlugs('resources');
-
-  return (
-    <ContentProvider content={content}>
-      <div className="min-h-screen bg-[#050505] text-white">
-        <Navbar />
-        <main className="mx-auto max-w-3xl px-6 py-16">
-          <h1 className="text-4xl font-bold mb-4">Resources</h1>
-          <ul className="space-y-4 mt-8">
-            {slugs.map((slug) => {
-              const page = getMarkdownPage('resources', slug);
-              if (!page) return null;
-              return (
-                <li key={slug}>
-                  <Link href={`/resources/${slug}`} className="text-blue-400 hover:underline text-lg">
-                    {page.title}
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </main>
-        <Footer />
-      </div>
-    </ContentProvider>
-  );
+  return <ContentHubIndex section="resources" content={content} />;
 }

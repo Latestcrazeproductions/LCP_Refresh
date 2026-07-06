@@ -12,10 +12,15 @@ const PROMPT_FILES: Record<string, string> = {
   QAAgent: 'qa-gate.md',
 };
 
+function getAgentRef(): string {
+  return process.env.CURSOR_AGENT_REF?.trim() || 'development';
+}
+
 export function buildAgentPrompt(repoRoot: string, task: Task): string {
   const promptFile = PROMPT_FILES[task.agent] ?? 'planner.md';
   const promptPath = path.join(repoRoot, 'agents/prompts', promptFile);
   const rulesPath = path.join(repoRoot, 'agents/rules/seo-master-plan.mdc');
+  const targetBranch = getAgentRef();
 
   const base = fs.existsSync(promptPath) ? fs.readFileSync(promptPath, 'utf8') : '';
   const rules = fs.existsSync(rulesPath) ? fs.readFileSync(rulesPath, 'utf8') : '';
@@ -38,7 +43,7 @@ ${task.briefPath ? `- **Brief:** ${task.briefPath}` : ''}
 
 1. Complete this task only. Do not scope-creep.
 2. Update \`content-registry/pages.jsonl\` for any page you create or refresh (lastUpdated, nextAction).
-3. Open a PR with a clear summary listing task type and URLs changed.
+3. Open a PR **targeting branch \`${targetBranch}\`** (not \`main\`) with a clear summary listing task type and URLs changed.
 4. Do NOT modify Supabase, env files, or CMS auth.
 
 ---

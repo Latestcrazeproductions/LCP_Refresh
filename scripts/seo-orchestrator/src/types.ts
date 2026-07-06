@@ -85,8 +85,8 @@ export const AGENT_MAP: Record<string, string> = {
 
 export const SERVICE_ROTATION = [
   '/services/led-walls',
-  '/services/audio-systems',
-  '/services/event-lighting',
-  '/services/staging',
-  '/services/projection-mapping',
+  '/services/audio',
+  '/services/lighting',
+  '/services/stage',
+  '/services/projection',
 ];

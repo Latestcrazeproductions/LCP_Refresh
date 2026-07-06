@@ -12,6 +12,11 @@ export interface DispatchResult {
 
 const REPO_URL = 'github.com/Latestcrazeproductions/LCP_Refresh';
 
+/** Base ref for cloud agents. Default `development` (integration trunk); override with CURSOR_AGENT_REF. */
+export function getAgentRef(): string {
+  return process.env.CURSOR_AGENT_REF?.trim() || 'development';
+}
+
 export async function dispatchTask(
   repoRoot: string,
   task: Task,
@@ -35,7 +40,7 @@ export async function dispatchTask(
       apiKey,
       model: { id: 'composer-2.5' },
       cloud: {
-        repos: [{ url: REPO_URL, ref: 'main' }],
+        repos: [{ url: REPO_URL, ref: getAgentRef() }],
         autoCreatePr: true,
         skipReviewerRequest: true,
       },

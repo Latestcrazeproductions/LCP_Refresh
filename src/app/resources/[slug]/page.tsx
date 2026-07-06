@@ -1,12 +1,8 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import Navbar from '@/components/Navbar';
-import Footer from '@/components/Footer';
-import ContactCta from '@/components/ContactCta';
-import { ContentProvider } from '@/context/ContentContext';
+import { ContentHubArticle } from '@/components/layout/ContentHubArticle';
 import { getSiteContent } from '@/lib/content';
-import { getMarkdownPage, listMarkdownSlugs, markdownToHtml } from '@/lib/markdown-pages';
+import { getMarkdownPage, listMarkdownSlugs } from '@/lib/markdown-pages';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://latestcrazeproductions.com';
 
@@ -21,7 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const page = getMarkdownPage('resources', slug);
   if (!page) return { title: 'Not Found' };
   return {
-    title: `${page.title} | Latest Craze Productions`,
+    title: page.title,
     description: page.description,
     alternates: { canonical: `${SITE_URL}/resources/${slug}` },
   };
@@ -34,20 +30,12 @@ export default async function ResourcePage({ params }: Props) {
   const content = await getSiteContent();
 
   return (
-    <ContentProvider content={content}>
-      <div className="min-h-screen bg-[#050505] text-white">
-        <Navbar />
-        <main className="mx-auto max-w-3xl px-6 py-16">
-          <Link href="/resources" className="text-sm text-white/50 hover:text-white mb-8 inline-block">
-            ← Resources
-          </Link>
-          <article dangerouslySetInnerHTML={{ __html: markdownToHtml(page.body) }} />
-          <div className="mt-12">
-            <ContactCta content={content} />
-          </div>
-        </main>
-        <Footer />
-      </div>
-    </ContentProvider>
+    <ContentHubArticle
+      page={page}
+      content={content}
+      backHref="/resources"
+      backLabel="Resources"
+      sectionKey="resources"
+    />
   );
 }

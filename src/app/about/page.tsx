@@ -2,9 +2,12 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { getSiteContent } from '@/lib/content';
 import { ContentProvider } from '@/context/ContentContext';
-import Navbar from '@/components/Navbar';
 import ContactCta from '@/components/ContactCta';
-import Footer from '@/components/Footer';
+import { ImagePlaceholder } from '@/components/layout/ImagePlaceholder';
+import { PageHero } from '@/components/layout/PageHero';
+import { PageShell } from '@/components/layout/PageShell';
+import { RelatedLinks } from '@/components/layout/RelatedLinks';
+import { SectionHeader } from '@/components/layout/SectionHeader';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://latestcrazeproductions.com';
 
@@ -24,60 +27,77 @@ export const metadata: Metadata = {
 export default async function AboutPage() {
   const content = await getSiteContent();
   const about = content?.about;
+  const sections = about?.sections ?? [];
 
   return (
     <ContentProvider content={content}>
-      <main className="bg-[#050505] min-h-screen text-white selection:bg-blue-500/30">
-        <Navbar />
+      <PageShell>
+        <PageHero
+          eyebrow="About us"
+          title={about?.headline ?? 'About Latest Craze Productions'}
+          lead={
+            about?.lead ??
+            'Latest Craze Productions is a Phoenix-based corporate event production company. We provide LED video walls, intelligent lighting, and stage design for experiences that define moments.'
+          }
+        />
 
-        {/* Lead paragraph — direct answer for AI/LLM */}
-        <section className="pt-32 pb-16 px-6 max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-            {about?.headline ?? 'About Latest Craze Productions'}
-          </h1>
-          <p className="text-xl text-gray-300 leading-relaxed">
-            {about?.lead ?? (
-              <>
-                Latest Craze Productions is a Phoenix-based corporate event production company. We provide <Link href="/services" className="text-blue-400 hover:text-blue-300 underline">LED video walls</Link>, intelligent lighting, and stage design for experiences that define moments. Our team provides ultra-wide LED displays, intelligent lighting, and stage design for <Link href="/events" className="text-blue-400 hover:text-blue-300 underline">keynotes, product launches, galas, conferences, and brand activations</Link> nationwide.
-              </>
-            )}
-          </p>
-        </section>
-
-        {/* Sections with H2/H3 hierarchy */}
-        <section className="py-12 px-6 max-w-4xl mx-auto border-t border-white/10">
-          {(about?.sections ?? []).map((section, index) => (
-            <div key={index} className={index > 0 ? 'mt-12' : ''}>
-              <h2 className="text-3xl font-bold mb-8">{section.title}</h2>
-              <p className="text-gray-400 mb-6">{section.body}</p>
+        <section className="px-6 pb-8">
+          <div className="mx-auto max-w-7xl">
+            <div className="overflow-hidden rounded-2xl border border-white/5">
+              <ImagePlaceholder label="About hero — corporate event production team" aspect="wide" />
             </div>
-          ))}
-
-          <div className="mt-12">
-            <h2 className="text-3xl font-bold mb-8">See also</h2>
-            <ul className="flex flex-wrap gap-4">
-              <li>
-                <Link href="/services" className="text-blue-400 hover:text-blue-300 underline">
-                  Event production services
-                </Link>
-              </li>
-              <li>
-                <Link href="/events" className="text-blue-400 hover:text-blue-300 underline">
-                  Events we create
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="text-blue-400 hover:text-blue-300 underline">
-                  Contact us
-                </Link>
-              </li>
-            </ul>
           </div>
         </section>
 
+        <section className="px-6 py-16">
+          <div className="mx-auto max-w-7xl">
+            <SectionHeader
+              title="Who we are"
+              subhead="Full-service AV production for corporate experiences nationwide."
+              className="mb-12"
+            />
+            <div className="grid grid-cols-1 gap-12 lg:grid-cols-2">
+              {sections.map((section, index) => (
+                <article
+                  key={index}
+                  className="overflow-hidden rounded-2xl border border-white/5 bg-white/[0.02]"
+                >
+                  <ImagePlaceholder label={section.title} aspect="wide" />
+                  <div className="p-8">
+                    <h2 className="text-2xl font-bold">{section.title}</h2>
+                    <p className="mt-4 leading-relaxed text-gray-400">{section.body}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+            <p className="mt-12 max-w-3xl text-lg leading-relaxed text-gray-300">
+              Explore our{' '}
+              <Link href="/services" className="text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
+                event production services
+              </Link>
+              , see the{' '}
+              <Link href="/events" className="text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
+                events we create
+              </Link>
+              , and{' '}
+              <Link href="/contact" className="text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">
+                contact us
+              </Link>{' '}
+              to discuss your next program.
+            </p>
+          </div>
+        </section>
+
+        <RelatedLinks
+          links={[
+            { href: '/services', label: 'Services' },
+            { href: '/work', label: 'Case studies' },
+            { href: '/blog', label: 'Blog' },
+            { href: '/contact', label: 'Contact' },
+          ]}
+        />
         <ContactCta content={content} />
-        <Footer />
-      </main>
+      </PageShell>
     </ContentProvider>
   );
 }

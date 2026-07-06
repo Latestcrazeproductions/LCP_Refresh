@@ -1,0 +1,317 @@
+{
+  "generated_at": "2026-06-26T21:05:33.566Z",
+  "source": "scripts/linear-build-plan.json",
+  "scope": "build-phase engineering only (no steady-state)",
+  "nodes": [
+    {
+      "key": "build-phase-0-phase-0",
+      "title": "Phase 0 — Pre-implementation gates",
+      "type": "epic",
+      "priority": 2,
+      "labels": [
+        "build-phase",
+        "phase-0"
+      ],
+      "external_ref": "lcp-build-plan:epic/phase-0",
+      "description": "Build epic: Complete before enabling live Cursor cloud agent runs (Sprint 2). See `docs/PHASE_0_CHECKLIST.md`.\n\nPlan status: in_progress"
+    },
+    {
+      "key": "build-sprint-2-sprint-2",
+      "title": "Sprint 2 — First cloud agent PR",
+      "type": "epic",
+      "priority": 2,
+      "labels": [
+        "build-phase",
+        "sprint-2"
+      ],
+      "external_ref": "lcp-build-plan:epic/sprint-2",
+      "description": "Build epic: Prerequisite: Phase 0 complete + `CURSOR_API_KEY` in GitHub Actions.\n\nPlan status: blocked"
+    },
+    {
+      "key": "build-sprint-4-sprint-4",
+      "title": "Sprint 4 — Phase build + operate",
+      "type": "epic",
+      "priority": 2,
+      "labels": [
+        "build-phase",
+        "sprint-4"
+      ],
+      "external_ref": "lcp-build-plan:epic/sprint-4",
+      "description": "Build epic: Manual phase builds, ops runbook, PR template.\n\nPlan status: blocked"
+    },
+    {
+      "key": "build-phase-0-0-3",
+      "title": "[0.3] GSC property verified",
+      "type": "task",
+      "priority": 0,
+      "labels": [
+        "build-phase",
+        "phase-0",
+        "engineering"
+      ],
+      "description": "## Objective\nGSC property verified (`lcp-build-plan:phase-0/0.3`).\n\n## Build context\n`latestcrazeproductions.com` property accessible in Google Search Console.\n\n## Scope\n- docs/PHASE_0_CHECKLIST.md\n- content-registry/\n\n## Constraints\n- PR-only publish gate; branch from `development` → `feature/<topic>`\n- Do not modify `.env*`, Supabase migrations, or CMS auth without explicit approval\n- Agent write scope: `src/app/**`, `src/content/`, `content-library/`, `content-registry/`, `scripts/seo-orchestrator/`, `agents/`, `.github/workflows/`\n\n## Steps\n1. Confirm `latestcrazeproductions.com` URL-prefix property in Google Search Console\n2. Document verification method in PR or `content-registry/` note if a file change is needed\n\n## References\n- docs/BUILD_PLAN.md\n- docs/AGENT_SEO_AUTOMATION.md\n- docs/TECHNICAL_OVERVIEW.md\n- Linear marker: `lcp-build-plan:phase-0/0.3`",
+      "acceptance": "Human confirms GSC property shows verified status for the production domain",
+      "external_ref": "lcp-build-plan:phase-0/0.3",
+      "metadata": {
+        "plan_status": "todo",
+        "epic": "phase-0",
+        "issue_key": "0.3"
+      }
+    },
+    {
+      "key": "build-phase-0-0-8",
+      "title": "[0.8] CURSOR_API_KEY in GitHub Actions",
+      "type": "task",
+      "priority": 0,
+      "labels": [
+        "build-phase",
+        "phase-0",
+        "engineering"
+      ],
+      "description": "## Objective\nCURSOR_API_KEY in GitHub Actions (`lcp-build-plan:phase-0/0.8`).\n\n## Build context\nTeam service account secret configured for agent workflows.\n\n## Scope\n- GitHub repository Settings → Secrets and variables → Actions\n- `.github/workflows/seo-weekly.yml`\n- `.github/workflows/seo-weekly-dry-run.yml`\n\n## Constraints\n- PR-only publish gate; branch from `development` → `feature/<topic>`\n- Do not modify `.env*`, Supabase migrations, or CMS auth without explicit approval\n- Agent write scope: `src/app/**`, `src/content/`, `content-library/`, `content-registry/`, `scripts/seo-orchestrator/`, `agents/`, `.github/workflows/`\n\n## Steps\n1. Add `CURSOR_API_KEY` secret on the repo (team service account)\n2. Confirm workflow files reference the secret name exactly\n3. Run `seo-weekly-dry-run.yml` via workflow_dispatch to validate secret wiring (no cloud spend if dry-run)\n\n## References\n- docs/BUILD_PLAN.md\n- docs/AGENT_SEO_AUTOMATION.md\n- docs/TECHNICAL_OVERVIEW.md\n- Linear marker: `lcp-build-plan:phase-0/0.8`",
+      "acceptance": "GitHub Actions workflow_dispatch succeeds; secret present (do not log secret value)",
+      "external_ref": "lcp-build-plan:phase-0/0.8",
+      "metadata": {
+        "plan_status": "todo",
+        "epic": "phase-0",
+        "issue_key": "0.8"
+      }
+    },
+    {
+      "key": "build-phase-0-0-9",
+      "title": "[0.9] Cursor spend limit set",
+      "type": "task",
+      "priority": 0,
+      "labels": [
+        "build-phase",
+        "phase-0",
+        "engineering"
+      ],
+      "description": "## Objective\nCursor spend limit set (`lcp-build-plan:phase-0/0.9`).\n\n## Build context\nDashboard spend limit configured before live runs.\n\n## Scope\n- Cursor dashboard billing / spend limits\n\n## Constraints\n- PR-only publish gate; branch from `development` → `feature/<topic>`\n- Do not modify `.env*`, Supabase migrations, or CMS auth without explicit approval\n- Agent write scope: `src/app/**`, `src/content/`, `content-library/`, `content-registry/`, `scripts/seo-orchestrator/`, `agents/`, `.github/workflows/`\n\n## Steps\n1. Set org/account spend limit before first live `seo-weekly.yml` run\n2. Record limit amount in Linear comment (not in repo)\n\n## References\n- docs/BUILD_PLAN.md\n- docs/AGENT_SEO_AUTOMATION.md\n- docs/TECHNICAL_OVERVIEW.md\n- Linear marker: `lcp-build-plan:phase-0/0.9`",
+      "acceptance": "Cursor dashboard shows configured spend limit; note date in Linear issue",
+      "external_ref": "lcp-build-plan:phase-0/0.9",
+      "metadata": {
+        "plan_status": "todo",
+        "epic": "phase-0",
+        "issue_key": "0.9"
+      }
+    },
+    {
+      "key": "build-sprint-2-2-3",
+      "title": "[2.3] First merged agent PR",
+      "type": "task",
+      "priority": 1,
+      "labels": [
+        "build-phase",
+        "sprint-2",
+        "engineering"
+      ],
+      "description": "## Objective\nFirst merged agent PR (`lcp-build-plan:sprint-2/2.3`).\n\n## Build context\nFAQ + date touch on one service page; human merge → Vercel.\n\n## Agent\nServiceRefreshAgent | track:A\n\n## Scope\n- One national service page under `src/app/**/page.tsx`\n- `agents/prompts/service-refresh.md`\n- `scripts/seo-orchestrator/src/dispatch.ts`\n\n## Constraints\n- PR-only publish gate; branch from `development` → `feature/<topic>`\n- Do not modify `.env*`, Supabase migrations, or CMS auth without explicit approval\n- Agent write scope: `src/app/**`, `src/content/`, `content-library/`, `content-registry/`, `scripts/seo-orchestrator/`, `agents/`, `.github/workflows/`\n\n## Steps\n1. Run orchestrator dry-run to pick a service refresh task\n2. Dispatch ServiceRefreshAgent (cloud) for FAQ + visible date touch on one service page\n3. Open PR with `.github/pull_request_template/seo-agent.md`; human merges to trigger Vercel\n\n## References\n- docs/BUILD_PLAN.md\n- docs/AGENT_SEO_AUTOMATION.md\n- docs/TECHNICAL_OVERVIEW.md\n- Linear marker: `lcp-build-plan:sprint-2/2.3`",
+      "acceptance": "One agent PR merged to `development` (or `main` per workflow); page shows updated FAQ/date",
+      "external_ref": "lcp-build-plan:sprint-2/2.3",
+      "metadata": {
+        "plan_status": "todo",
+        "epic": "sprint-2",
+        "issue_key": "2.3"
+      }
+    },
+    {
+      "key": "build-sprint-2-2-4",
+      "title": "[2.4] seo-weekly.yml live",
+      "type": "task",
+      "priority": 1,
+      "labels": [
+        "build-phase",
+        "sprint-2",
+        "engineering"
+      ],
+      "description": "## Objective\nseo-weekly.yml live (`lcp-build-plan:sprint-2/2.4`).\n\n## Build context\nLive weekly workflow; start with `--max-tasks 1`.\n\n## Scope\n- `.github/workflows/seo-weekly.yml`\n- `scripts/seo-orchestrator/src/index.ts`\n- `content-registry/config.json`\n\n## Constraints\n- PR-only publish gate; branch from `development` → `feature/<topic>`\n- Do not modify `.env*`, Supabase migrations, or CMS auth without explicit approval\n- Agent write scope: `src/app/**`, `src/content/`, `content-library/`, `content-registry/`, `scripts/seo-orchestrator/`, `agents/`, `.github/workflows/`\n\n## Steps\n1. Ensure Phase 0 engineering gates complete (0.8, 0.9)\n2. Enable live weekly workflow with `--max-tasks 1`\n3. Monitor first run; confirm PR opened and QA gate passes\n\n## References\n- docs/BUILD_PLAN.md\n- docs/AGENT_SEO_AUTOMATION.md\n- docs/TECHNICAL_OVERVIEW.md\n- Linear marker: `lcp-build-plan:sprint-2/2.4`",
+      "acceptance": "Scheduled or manual `seo-weekly.yml` run completes green with `--max-tasks 1`",
+      "external_ref": "lcp-build-plan:sprint-2/2.4",
+      "metadata": {
+        "plan_status": "todo",
+        "epic": "sprint-2",
+        "issue_key": "2.4"
+      }
+    },
+    {
+      "key": "build-sprint-4-4-2",
+      "title": "[4.2] Phase 1 national content build",
+      "type": "task",
+      "priority": 1,
+      "labels": [
+        "build-phase",
+        "sprint-4",
+        "engineering"
+      ],
+      "description": "## Objective\nPhase 1 national content build (`lcp-build-plan:sprint-4/4.2`).\n\n## Build context\nManual trigger; nationwide hub live.\n\n## Scope\n- `.github/workflows/seo-phase-build.yml`\n- `content-registry/config.json`\n- `content-registry/pages.jsonl`\n\n## Constraints\n- PR-only publish gate; branch from `development` → `feature/<topic>`\n- Do not modify `.env*`, Supabase migrations, or CMS auth without explicit approval\n- Agent write scope: `src/app/**`, `src/content/`, `content-library/`, `content-registry/`, `scripts/seo-orchestrator/`, `agents/`, `.github/workflows/`\n\n## Steps\n1. Manual workflow_dispatch for Phase 1 national content build\n2. Confirm nationwide hub URLs marked `live` in registry\n3. Human review extended PR batch before merge\n\n## References\n- docs/BUILD_PLAN.md\n- docs/AGENT_SEO_AUTOMATION.md\n- docs/TECHNICAL_OVERVIEW.md\n- Linear marker: `lcp-build-plan:sprint-4/4.2`",
+      "acceptance": "Phase 1 build workflow green; nationwide hub live in registry and sitemap",
+      "external_ref": "lcp-build-plan:sprint-4/4.2",
+      "metadata": {
+        "plan_status": "todo",
+        "epic": "sprint-4",
+        "issue_key": "4.2"
+      }
+    },
+    {
+      "key": "build-sprint-4-4-3",
+      "title": "[4.3] Phase 2 ten-city pilot",
+      "type": "task",
+      "priority": 1,
+      "labels": [
+        "build-phase",
+        "sprint-4",
+        "engineering"
+      ],
+      "description": "## Objective\nPhase 2 ten-city pilot (`lcp-build-plan:sprint-4/4.3`).\n\n## Build context\n10 pilot cities ≥30 days; no cannibalization flags.\n\n## Scope\n- `content-registry/sites.json`\n- `src/app/**/` geo routes\n- `.github/workflows/seo-phase-build.yml`\n\n## Constraints\n- PR-only publish gate; branch from `development` → `feature/<topic>`\n- Do not modify `.env*`, Supabase migrations, or CMS auth without explicit approval\n- Agent write scope: `src/app/**`, `src/content/`, `content-library/`, `content-registry/`, `scripts/seo-orchestrator/`, `agents/`, `.github/workflows/`\n\n## Steps\n1. Trigger Phase 2 ten-city pilot build (manual only)\n2. Confirm 10 pilot cities in `sites.json` match leadership list\n3. Run bulk QA; resolve cannibalization flags before merge\n\n## References\n- docs/BUILD_PLAN.md\n- docs/AGENT_SEO_AUTOMATION.md\n- docs/TECHNICAL_OVERVIEW.md\n- Linear marker: `lcp-build-plan:sprint-4/4.3`",
+      "acceptance": "10 pilot city pages live ≥30 days with no open cannibalization QA failures",
+      "external_ref": "lcp-build-plan:sprint-4/4.3",
+      "metadata": {
+        "plan_status": "todo",
+        "epic": "sprint-4",
+        "issue_key": "4.3"
+      }
+    },
+    {
+      "key": "build-sprint-4-4-4",
+      "title": "[4.4] Bulk QA on expanded registry",
+      "type": "task",
+      "priority": 1,
+      "labels": [
+        "build-phase",
+        "sprint-4",
+        "engineering"
+      ],
+      "description": "## Objective\nBulk QA on expanded registry (`lcp-build-plan:sprint-4/4.4`).\n\n## Build context\nQA pass after registry expansion.\n\n## Scope\n- `scripts/seo-orchestrator/src/qa-checks.ts`\n- `content-registry/pages.jsonl`\n\n## Constraints\n- PR-only publish gate; branch from `development` → `feature/<topic>`\n- Do not modify `.env*`, Supabase migrations, or CMS auth without explicit approval\n- Agent write scope: `src/app/**`, `src/content/`, `content-library/`, `content-registry/`, `scripts/seo-orchestrator/`, `agents/`, `.github/workflows/`\n\n## Steps\n1. Run QA suite against expanded registry after phase build\n2. Fix or ticket any error-severity QA issues before steady-state\n\n## References\n- docs/BUILD_PLAN.md\n- docs/AGENT_SEO_AUTOMATION.md\n- docs/TECHNICAL_OVERVIEW.md\n- Linear marker: `lcp-build-plan:sprint-4/4.4`",
+      "acceptance": "`npm test` in `scripts/seo-orchestrator` passes; QA report has zero error-severity issues on expanded registry",
+      "external_ref": "lcp-build-plan:sprint-4/4.4",
+      "metadata": {
+        "plan_status": "todo",
+        "epic": "sprint-4",
+        "issue_key": "4.4"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from_key": "build-phase-0-0-3",
+      "to_key": "build-phase-0-phase-0",
+      "type": "parent-child"
+    },
+    {
+      "from_key": "build-phase-0-0-8",
+      "to_key": "build-phase-0-phase-0",
+      "type": "parent-child"
+    },
+    {
+      "from_key": "build-phase-0-0-9",
+      "to_key": "build-phase-0-phase-0",
+      "type": "parent-child"
+    },
+    {
+      "from_key": "build-sprint-2-2-3",
+      "to_key": "build-sprint-2-sprint-2",
+      "type": "parent-child"
+    },
+    {
+      "from_key": "build-sprint-2-2-4",
+      "to_key": "build-sprint-2-sprint-2",
+      "type": "parent-child"
+    },
+    {
+      "from_key": "build-sprint-4-4-2",
+      "to_key": "build-sprint-4-sprint-4",
+      "type": "parent-child"
+    },
+    {
+      "from_key": "build-sprint-4-4-3",
+      "to_key": "build-sprint-4-sprint-4",
+      "type": "parent-child"
+    },
+    {
+      "from_key": "build-sprint-4-4-4",
+      "to_key": "build-sprint-4-sprint-4",
+      "type": "parent-child"
+    },
+    {
+      "from_key": "build-sprint-2-2-3",
+      "to_key": "build-phase-0-0-3",
+      "type": "blocks"
+    },
+    {
+      "from_key": "build-sprint-2-2-3",
+      "to_key": "build-phase-0-0-8",
+      "type": "blocks"
+    },
+    {
+      "from_key": "build-sprint-2-2-3",
+      "to_key": "build-phase-0-0-9",
+      "type": "blocks"
+    },
+    {
+      "from_key": "build-sprint-2-2-4",
+      "to_key": "build-phase-0-0-3",
+      "type": "blocks"
+    },
+    {
+      "from_key": "build-sprint-2-2-4",
+      "to_key": "build-phase-0-0-8",
+      "type": "blocks"
+    },
+    {
+      "from_key": "build-sprint-2-2-4",
+      "to_key": "build-phase-0-0-9",
+      "type": "blocks"
+    },
+    {
+      "from_key": "build-sprint-4-4-2",
+      "to_key": "build-phase-0-0-3",
+      "type": "blocks"
+    },
+    {
+      "from_key": "build-sprint-4-4-2",
+      "to_key": "build-phase-0-0-8",
+      "type": "blocks"
+    },
+    {
+      "from_key": "build-sprint-4-4-2",
+      "to_key": "build-phase-0-0-9",
+      "type": "blocks"
+    },
+    {
+      "from_key": "build-sprint-4-4-3",
+      "to_key": "build-phase-0-0-3",
+      "type": "blocks"
+    },
+    {
+      "from_key": "build-sprint-4-4-3",
+      "to_key": "build-phase-0-0-8",
+      "type": "blocks"
+    },
+    {
+      "from_key": "build-sprint-4-4-3",
+      "to_key": "build-phase-0-0-9",
+      "type": "blocks"
+    },
+    {
+      "from_key": "build-sprint-4-4-4",
+      "to_key": "build-phase-0-0-3",
+      "type": "blocks"
+    },
+    {
+      "from_key": "build-sprint-4-4-4",
+      "to_key": "build-phase-0-0-8",
+      "type": "blocks"
+    },
+    {
+      "from_key": "build-sprint-4-4-4",
+      "to_key": "build-phase-0-0-9",
+      "type": "blocks"
+    },
+    {
+      "from_key": "build-sprint-2-2-4",
+      "to_key": "build-sprint-2-2-3",
+      "type": "blocks"
+    }
+  ]
+}

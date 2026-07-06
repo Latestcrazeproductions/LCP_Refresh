@@ -10,8 +10,10 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 const MATRIX_PATH = path.join(ROOT, 'public/seo-page-matrix.xml');
 const OUT_PATH = path.join(ROOT, 'content-registry/pages.jsonl');
+const LIBRARY = path.join(ROOT, 'content-library');
 
-const LIVE_PATHS = new Set([
+/** Paths that exist as static App Router pages or CMS-backed routes today */
+const STATIC_LIVE_PATHS = [
   '/',
   '/services',
   '/events',
@@ -22,20 +24,42 @@ const LIVE_PATHS = new Set([
   '/digital-signage',
   '/privacy',
   '/terms',
-]);
-
-const SERVICE_SLUGS = [
-  'event-production',
-  'conference-production',
-  'av-production',
-  'led-walls',
-  'event-lighting',
-  'staging',
-  'audio-systems',
+  '/blog',
+  '/work',
+  '/resources',
 ];
 
-for (const slug of SERVICE_SLUGS) {
-  LIVE_PATHS.add(`/services/${slug}`);
+/** Matches src/content/site-content.ts service IDs → /services/[slug] */
+const SERVICE_SLUGS = ['led-walls', 'lighting', 'stage', 'audio', 'scenic', 'projection'];
+
+/** Matches site-content eventTypes IDs */
+const EVENT_SLUGS = [
+  'corporate-keynotes',
+  'product-launches',
+  'galas-awards',
+  'conferences',
+  'brand-activations',
+];
+
+function buildLivePathSet() {
+  const live = new Set(STATIC_LIVE_PATHS);
+  for (const slug of SERVICE_SLUGS) live.add(`/services/${slug}`);
+  for (const slug of EVENT_SLUGS) live.add(`/events/${slug}`);
+
+  for (const [dir, prefix] of [
+    ['blogs', '/blog'],
+    ['work', '/work'],
+    ['resources', '/resources'],
+  ]) {
+    const folder = path.join(LIBRARY, dir);
+    if (!fs.existsSync(folder)) continue;
+    for (const file of fs.readdirSync(folder)) {
+      if (!file.endsWith('.md')) continue;
+      live.add(`${prefix}/${file.replace(/\.md$/, '')}`);
+    }
+  }
+
+  return live;
 }
 
 function inferTrack(type, pattern) {
@@ -57,7 +81,7 @@ function inferPhase(tier, layer) {
   return 2;
 }
 
-function parsePages(xml) {
+function parsePages(xml, livePaths) {
   const pages = [];
   const re = /<page\s+([^>]+)>([\s\S]*?)<\/page>/g;
   let m;
@@ -68,14 +92,14 @@ function parsePages(xml) {
     const layer = attrs.match(/layer="(national|geo)"/)?.[1] ?? 'national';
     const pattern = attrs.match(/pattern="([^"]+)"/)?.[1] ?? '';
     const status = attrs.match(/status="([^"]+)"/)?.[1] ?? 'planned';
-    const slug = body.match(/<slug>([^<]+)<\/slug>/)?.[1]?.trim() ?? '';
+    const slug = body.match(/<slug>([^<]*)<\/slug>/)?.[1]?.trim() ?? '';
     const title = body.match(/<title>([^<]*)<\/title>/)?.[1]?.trim() ?? '';
     const keyword = body.match(/<keyword>([^<]*)<\/keyword>/)?.[1]?.trim() ?? '';
     const url = slug.startsWith('/') ? slug : `/${slug}`;
     const type = inferType(pattern, layer);
     const track = inferTrack(type, pattern);
     const phase = inferPhase(tier, layer);
-    const live = LIVE_PATHS.has(url) || status === 'live';
+    const live = livePaths.has(url) || status === 'live';
 
     pages.push({
       url,
@@ -95,15 +119,25 @@ function parsePages(xml) {
   return pages;
 }
 
+function liveRecord(base) {
+  return {
+    ...base,
+    lastUpdated: '2026-06-01',
+    nextAction: 'faq_refresh',
+    implementationStatus: 'live',
+  };
+}
+
 function main() {
   if (!fs.existsSync(MATRIX_PATH)) {
     console.error('Missing', MATRIX_PATH);
     process.exit(1);
   }
-  const xml = fs.readFileSync(MATRIX_PATH, 'utf8');
-  const pages = parsePages(xml);
 
-  // Ensure key Phase 1 URLs exist even if not in matrix feeds paths
+  const livePaths = buildLivePathSet();
+  const xml = fs.readFileSync(MATRIX_PATH, 'utf8');
+  const pages = parsePages(xml, livePaths);
+
   const extras = [
     {
       url: '/nationwide-event-production',
@@ -131,32 +165,6 @@ function main() {
       nextAction: 'create',
       implementationStatus: 'planned',
     },
-    {
-      url: '/work/night-of-hope',
-      layer: 'national',
-      type: 'case_study',
-      keyword: 'corporate gala production',
-      title: 'Night of Hope Case Study',
-      track: 'B',
-      tier: 'monthly',
-      phase: 1,
-      lastUpdated: null,
-      nextAction: 'create',
-      implementationStatus: 'planned',
-    },
-    {
-      url: '/resources/event-production-checklist',
-      layer: 'national',
-      type: 'tool',
-      keyword: 'event production checklist',
-      title: 'Event Production Checklist',
-      track: 'B',
-      tier: 'quarterly',
-      phase: 1,
-      lastUpdated: null,
-      nextAction: 'create',
-      implementationStatus: 'planned',
-    },
   ];
 
   const byUrl = new Map(pages.map((p) => [p.url, p]));
@@ -164,10 +172,57 @@ function main() {
     if (!byUrl.has(e.url)) byUrl.set(e.url, e);
   }
 
-  const lines = [...byUrl.values()].map((p) => JSON.stringify(p));
+  // Ensure every discovered live path has a registry row
+  for (const url of livePaths) {
+    if (byUrl.has(url)) {
+      const row = byUrl.get(url);
+      if (row.implementationStatus !== 'live') {
+        byUrl.set(url, liveRecord(row));
+      }
+      continue;
+    }
+    let type = 'landing';
+    let layer = 'national';
+    let track = 'A';
+    if (url.startsWith('/blog/')) {
+      type = 'blog';
+      track = 'A';
+    } else if (url.startsWith('/work/')) {
+      type = 'case_study';
+      track = 'B';
+    } else if (url.startsWith('/resources/')) {
+      type = 'tool';
+      track = 'B';
+    } else if (url.startsWith('/services/')) {
+      type = 'service';
+    } else if (url.startsWith('/events/')) {
+      type = 'event';
+    } else if (url === '/phoenix-av-production') {
+      type = 'geo_landing';
+      layer = 'geo';
+    }
+
+    byUrl.set(
+      url,
+      liveRecord({
+        url,
+        layer,
+        type,
+        keyword: '',
+        title: '',
+        track,
+        tier: 'monthly',
+        phase: 1,
+      })
+    );
+  }
+
+  const all = [...byUrl.values()];
+  const liveCount = all.filter((p) => p.implementationStatus === 'live').length;
+  const lines = all.map((p) => JSON.stringify(p));
   fs.mkdirSync(path.dirname(OUT_PATH), { recursive: true });
   fs.writeFileSync(OUT_PATH, lines.join('\n') + '\n');
-  console.log(`Wrote ${lines.length} records to ${OUT_PATH}`);
+  console.log(`Wrote ${lines.length} records (${liveCount} live) to ${OUT_PATH}`);
 }
 
 main();

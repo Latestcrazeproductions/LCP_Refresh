@@ -1,0 +1,11 @@
+{
+  "propertyType": "url-prefix",
+  "propertyUrl": "https://latestcrazeproductions.com/",
+  "domain": "latestcrazeproductions.com",
+  "status": "verified",
+  "verificationMethod": "google-search-console",
+  "verifiedAt": "2026-06-26",
+  "confirmedBy": "engineering",
+  "dashboardUrl": "https://search.google.com/search-console",
+  "notes": "URL-prefix property for latestcrazeproductions.com. Verified in Google Search Console (Phase 0 gate 0.3). Monthly query/page exports go to content-registry/gsc-snapshot/YYYY-MM/ per SEO_OPS_RUNBOOK.md. Optional HTML re-verification: set GOOGLE_SITE_VERIFICATION in Vercel Production env (see layout.tsx metadata.verification.google)."
+}

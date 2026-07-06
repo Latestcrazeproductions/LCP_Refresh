@@ -8,20 +8,34 @@ on:
       max_tasks:
         description: Max tasks per run
         required: false
-        default: '2'
+        default: '1'
+      only_type:
+        description: Optional task type filter (e.g. service.faq_refresh)
+        required: false
+        default: ''
 
 jobs:
   run:
     runs-on: ubuntu-latest
+    environment: Development
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: development
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
       - run: npm run seed-registry
       - run: npm ci
         working-directory: scripts/seo-orchestrator
-      - run: npm run seo:run -- --cadence weekly --max-tasks ${{ inputs.max_tasks || '2' }} --advance-rotation
+      - name: Dispatch weekly tasks
+        run: |
+          ARGS="--cadence weekly --max-tasks ${{ inputs.max_tasks || '1' }} --advance-rotation"
+          if [ -n "${{ inputs.only_type }}" ]; then
+            ARGS="$ARGS --only-type ${{ inputs.only_type }}"
+          fi
+          npm run seo:run -- $ARGS
         working-directory: scripts/seo-orchestrator
         env:
           CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
+          CURSOR_AGENT_REF: development

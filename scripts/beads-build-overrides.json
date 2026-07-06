@@ -1,0 +1,108 @@
+{
+  "_comment": "Agent-native scope, verify, and spec pointers keyed by lcp-build-plan issue key (e.g. sprint-2/2.3). Used by generate-beads-build-queue.mjs.",
+  "defaults": {
+    "constraints": [
+      "PR-only publish gate; branch from `development` → `feature/<topic>`",
+      "Do not modify `.env*`, Supabase migrations, or CMS auth without explicit approval",
+      "Agent write scope: `src/app/**`, `src/content/`, `content-library/`, `content-registry/`, `scripts/seo-orchestrator/`, `agents/`, `.github/workflows/`"
+    ],
+    "references": [
+      "docs/BUILD_PLAN.md",
+      "docs/AGENT_SEO_AUTOMATION.md",
+      "docs/TECHNICAL_OVERVIEW.md"
+    ]
+  },
+  "phase-0/0.3": {
+    "steps": [
+      "Confirm `latestcrazeproductions.com` URL-prefix property in Google Search Console",
+      "Document verification method in PR or `content-registry/` note if a file change is needed"
+    ],
+    "verify": "npm run verify:gsc exits 0"
+  },
+  "phase-0/0.8": {
+    "scope": [
+      "GitHub repository Settings → Secrets and variables → Actions",
+      "`.github/workflows/seo-weekly.yml`",
+      "`.github/workflows/seo-weekly-dry-run.yml`"
+    ],
+    "steps": [
+      "Add `CURSOR_API_KEY` secret on the repo (team service account)",
+      "Confirm workflow files reference the secret name exactly",
+      "Run `seo-weekly-dry-run.yml` via workflow_dispatch to validate secret wiring (no cloud spend if dry-run)"
+    ],
+    "verify": "GitHub Actions workflow_dispatch succeeds; secret present (do not log secret value)"
+  },
+  "phase-0/0.9": {
+    "scope": ["Cursor dashboard billing / spend limits"],
+    "steps": [
+      "Set org/account spend limit before first live `seo-weekly.yml` run",
+      "Record limit amount in Linear comment (not in repo)"
+    ],
+    "verify": "Cursor dashboard shows configured spend limit; note date in Linear issue"
+  },
+  "sprint-2/2.3": {
+    "agent": "ServiceRefreshAgent",
+    "track": "A",
+    "scope": [
+      "One national service page under `src/app/**/page.tsx`",
+      "`agents/prompts/service-refresh.md`",
+      "`scripts/seo-orchestrator/src/dispatch.ts`"
+    ],
+    "steps": [
+      "Run orchestrator dry-run to pick a service refresh task",
+      "Dispatch ServiceRefreshAgent (cloud) for FAQ + visible date touch on one service page",
+      "Open PR with `.github/pull_request_template/seo-agent.md`; human merges to trigger Vercel"
+    ],
+    "verify": "One agent PR merged to `development` (or `main` per workflow); page shows updated FAQ/date"
+  },
+  "sprint-2/2.4": {
+    "scope": [
+      "`.github/workflows/seo-weekly.yml`",
+      "`scripts/seo-orchestrator/src/index.ts`",
+      "`content-registry/config.json`"
+    ],
+    "steps": [
+      "Ensure Phase 0 engineering gates complete (0.8, 0.9)",
+      "Enable live weekly workflow with `--max-tasks 1`",
+      "Monitor first run; confirm PR opened and QA gate passes"
+    ],
+    "verify": "Scheduled or manual `seo-weekly.yml` run completes green with `--max-tasks 1`"
+  },
+  "sprint-4/4.2": {
+    "scope": [
+      "`.github/workflows/seo-phase-build.yml`",
+      "`content-registry/config.json`",
+      "`content-registry/pages.jsonl`"
+    ],
+    "steps": [
+      "Manual workflow_dispatch for Phase 1 national content build",
+      "Confirm nationwide hub URLs marked `live` in registry",
+      "Human review extended PR batch before merge"
+    ],
+    "verify": "Phase 1 build workflow green; nationwide hub live in registry and sitemap"
+  },
+  "sprint-4/4.3": {
+    "scope": [
+      "`content-registry/sites.json`",
+      "`src/app/**/` geo routes",
+      "`.github/workflows/seo-phase-build.yml`"
+    ],
+    "steps": [
+      "Trigger Phase 2 ten-city pilot build (manual only)",
+      "Confirm 10 pilot cities in `sites.json` match leadership list",
+      "Run bulk QA; resolve cannibalization flags before merge"
+    ],
+    "verify": "10 pilot city pages live ≥30 days with no open cannibalization QA failures"
+  },
+  "sprint-4/4.4": {
+    "scope": [
+      "`scripts/seo-orchestrator/src/qa-checks.ts`",
+      "`content-registry/pages.jsonl`"
+    ],
+    "steps": [
+      "Run QA suite against expanded registry after phase build",
+      "Fix or ticket any error-severity QA issues before steady-state"
+    ],
+    "verify": "`npm test` in `scripts/seo-orchestrator` passes; QA report has zero error-severity issues on expanded registry"
+  }
+}

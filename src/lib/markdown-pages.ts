@@ -10,6 +10,7 @@ export interface MarkdownPage {
   body: string;
   track?: string;
   dateModified?: string;
+  eyebrow?: string;
 }
 
 const ROOT = path.join(process.cwd(), 'content-library');
@@ -31,6 +32,22 @@ function parseFrontmatter(raw: string): { meta: Record<string, string>; body: st
   return { meta, body };
 }
 
+function escapeHtml(text: string): string {
+  return text
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function processInline(text: string): string {
+  const escaped = escapeHtml(text);
+  return escaped.replace(
+    /\[([^\]]+)\]\(([^)]+)\)/g,
+    '<a href="$2" class="text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">$1</a>'
+  );
+}
+
 export function getMarkdownPage(section: ContentSection, slug: string): MarkdownPage | null {
   const file = path.join(ROOT, section, `${slug}.md`);
   if (!fs.existsSync(file)) return null;
@@ -43,6 +60,7 @@ export function getMarkdownPage(section: ContentSection, slug: string): Markdown
     body,
     track: meta.track,
     dateModified: meta.dateModified,
+    eyebrow: meta.eyebrow,
   };
 }
 
@@ -55,21 +73,63 @@ export function listMarkdownSlugs(section: ContentSection): string[] {
     .map((f) => f.replace(/\.md$/, ''));
 }
 
+export function listMarkdownPages(section: ContentSection): MarkdownPage[] {
+  return listMarkdownSlugs(section)
+    .map((slug) => getMarkdownPage(section, slug))
+    .filter((page): page is MarkdownPage => page !== null);
+}
+
 export function markdownToHtml(md: string): string {
-  return md
-    .split('\n\n')
-    .map((block) => {
-      if (block.startsWith('## ')) {
-        return `<h2 class="text-2xl font-semibold mt-8 mb-4">${block.slice(3)}</h2>`;
-      }
-      if (block.startsWith('# ')) {
-        return `<h1 class="text-3xl font-bold mb-6">${block.slice(2)}</h1>`;
-      }
-      const withLinks = block.replace(
-        /\[([^\]]+)\]\(([^)]+)\)/g,
-        '<a href="$2" class="text-blue-400 hover:underline">$1</a>'
+  const blocks = md.trim().split(/\n\n+/);
+  const html: string[] = [];
+  let listItems: string[] = [];
+
+  const flushList = () => {
+    if (listItems.length === 0) return;
+    html.push(
+      `<ul class="mb-6 space-y-3">${listItems
+        .map(
+          (item) =>
+            `<li class="flex items-start gap-3 text-white/80 leading-relaxed"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400"></span><span>${item}</span></li>`
+        )
+        .join('')}</ul>`
+    );
+    listItems = [];
+  };
+
+  for (const block of blocks) {
+    const lines = block.split('\n');
+    const isListBlock = lines.every((line) => line.startsWith('- ') || line.trim() === '');
+
+    if (isListBlock && lines.some((line) => line.startsWith('- '))) {
+      flushList();
+      listItems = lines
+        .filter((line) => line.startsWith('- '))
+        .map((line) => processInline(line.slice(2).trim()));
+      flushList();
+      continue;
+    }
+
+    flushList();
+
+    if (block.startsWith('### ')) {
+      html.push(
+        `<h3 class="text-lg font-semibold mt-8 mb-3 text-white">${processInline(block.slice(4))}</h3>`
       );
-      return `<p class="mb-4 text-white/80 leading-relaxed">${withLinks.replace(/\n/g, '<br/>')}</p>`;
-    })
-    .join('\n');
+    } else if (block.startsWith('## ')) {
+      html.push(
+        `<h2 class="text-2xl font-semibold mt-10 mb-4 text-white border-t border-white/5 pt-8 first:border-0 first:pt-0">${processInline(block.slice(3))}</h2>`
+      );
+    } else if (block.startsWith('# ')) {
+      // Skip top-level H1 — rendered in page hero
+      continue;
+    } else {
+      html.push(
+        `<p class="mb-5 text-white/80 leading-relaxed text-lg">${processInline(block.replace(/\n/g, ' '))}</p>`
+      );
+    }
+  }
+
+  flushList();
+  return html.join('\n');
 }
