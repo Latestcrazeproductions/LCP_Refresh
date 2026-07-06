@@ -50,4 +50,5 @@ jobs:
         working-directory: scripts/seo-orchestrator
         env:
           CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
+          CURSOR_STARTING_REF: main
           CURSOR_AGENT_REF: development

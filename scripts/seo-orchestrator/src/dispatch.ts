@@ -17,10 +17,9 @@ export function getAgentRef(): string {
   return process.env.CURSOR_AGENT_REF?.trim() || 'development';
 }
 
-/** Git clone ref. Omit unless CURSOR_STARTING_REF is set — Cursor clones the repo default branch. */
-function getStartingRef(): string | undefined {
-  const ref = process.env.CURSOR_STARTING_REF?.trim();
-  return ref || undefined;
+/** Git clone ref. Cursor requires an explicit branch; default `main`. */
+export function getStartingRef(): string {
+  return process.env.CURSOR_STARTING_REF?.trim() || 'main';
 }
 
 export async function dispatchTask(
@@ -39,9 +38,6 @@ export async function dispatchTask(
 
   const prompt = buildAgentPrompt(repoRoot, task);
   const startingRef = getStartingRef();
-  const repoEntry = startingRef
-    ? { url: REPO_URL, startingRef }
-    : { url: REPO_URL };
 
   try {
     const { Agent, CursorAgentError } = await import('@cursor/sdk');
@@ -50,7 +46,7 @@ export async function dispatchTask(
       apiKey,
       model: { id: 'composer-2.5' },
       cloud: {
-        repos: [repoEntry],
+        repos: [{ url: REPO_URL, startingRef }],
         autoCreatePR: true,
         skipReviewerRequest: true,
       },

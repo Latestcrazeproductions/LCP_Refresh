@@ -13,7 +13,7 @@ import {
 import { scheduleTasks, contentMixSummary } from './scheduler.js';
 import { buildFunnelGapReport, formatGapReportMarkdown } from './demand-math.js';
 import { formatCtaAuditMarkdown, runCtaAudit } from './conversion-audit.js';
-import { dispatchTasks, getAgentRef } from './dispatch.js';
+import { dispatchTasks, getAgentRef, getStartingRef } from './dispatch.js';
 import type { Cadence } from './types.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -75,7 +75,7 @@ async function main() {
         cadence,
         dryRun,
         agentRef: getAgentRef(),
-        startingRef: process.env.CURSOR_STARTING_REF?.trim() || '(repo default)',
+        startingRef: getStartingRef(),
         week: rotation.week,
         taskCount: tasks.length,
         mix,
