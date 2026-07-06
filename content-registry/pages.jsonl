@@ -1120,7 +1120,7 @@
 {"url":"/digital-signage","layer":"national","type":"landing","keyword":"","title":"","track":"A","tier":"monthly","phase":1,"lastUpdated":"2026-06-01","nextAction":"faq_refresh","implementationStatus":"live"}
 {"url":"/privacy","layer":"national","type":"landing","keyword":"","title":"","track":"A","tier":"monthly","phase":1,"lastUpdated":"2026-06-01","nextAction":"faq_refresh","implementationStatus":"live"}
 {"url":"/terms","layer":"national","type":"landing","keyword":"","title":"","track":"A","tier":"monthly","phase":1,"lastUpdated":"2026-06-01","nextAction":"faq_refresh","implementationStatus":"live"}
-{"url":"/blog","layer":"national","type":"landing","keyword":"","title":"","track":"A","tier":"monthly","phase":1,"lastUpdated":"2026-06-01","nextAction":"faq_refresh","implementationStatus":"live"}
+{"url":"/blog","layer":"national","type":"landing","keyword":"","title":"","track":"A","tier":"monthly","phase":1,"lastUpdated":"2026-07-06","nextAction":"faq_refresh","implementationStatus":"live"}
 {"url":"/work","layer":"national","type":"landing","keyword":"","title":"","track":"A","tier":"monthly","phase":1,"lastUpdated":"2026-06-01","nextAction":"faq_refresh","implementationStatus":"live"}
 {"url":"/resources","layer":"national","type":"landing","keyword":"","title":"","track":"A","tier":"monthly","phase":1,"lastUpdated":"2026-06-01","nextAction":"faq_refresh","implementationStatus":"live"}
 {"url":"/services/led-walls","layer":"national","type":"service","keyword":"","title":"","track":"A","tier":"monthly","phase":1,"lastUpdated":"2026-06-01","nextAction":"faq_refresh","implementationStatus":"live"}
@@ -1135,5 +1135,6 @@
 {"url":"/events/conferences","layer":"national","type":"event","keyword":"","title":"","track":"A","tier":"monthly","phase":1,"lastUpdated":"2026-06-01","nextAction":"faq_refresh","implementationStatus":"live"}
 {"url":"/events/brand-activations","layer":"national","type":"event","keyword":"","title":"","track":"A","tier":"monthly","phase":1,"lastUpdated":"2026-06-01","nextAction":"faq_refresh","implementationStatus":"live"}
 {"url":"/blog/corporate-gala-production-guide","layer":"national","type":"blog","keyword":"","title":"","track":"A","tier":"monthly","phase":1,"lastUpdated":"2026-06-01","nextAction":"faq_refresh","implementationStatus":"live"}
+{"url":"/blog/led-wall-sizing-for-events","layer":"national","type":"blog","keyword":"how to size led walls corporate events","title":"How to Size LED Walls for Corporate Events","track":"A","tier":"monthly","phase":1,"lastUpdated":"2026-07-06","nextAction":"faq_refresh","implementationStatus":"live"}
 {"url":"/work/night-of-hope","layer":"national","type":"case_study","keyword":"","title":"","track":"B","tier":"monthly","phase":1,"lastUpdated":"2026-06-01","nextAction":"faq_refresh","implementationStatus":"live"}
 {"url":"/resources/event-production-checklist","layer":"national","type":"tool","keyword":"","title":"","track":"B","tier":"monthly","phase":1,"lastUpdated":"2026-06-01","nextAction":"faq_refresh","implementationStatus":"live"}
