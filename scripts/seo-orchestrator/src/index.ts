@@ -71,7 +71,16 @@ async function main() {
 
   console.log(
     JSON.stringify(
-      { cadence, dryRun, agentRef: getAgentRef(), week: rotation.week, taskCount: tasks.length, mix, tasks },
+      {
+        cadence,
+        dryRun,
+        agentRef: getAgentRef(),
+        startingRef: process.env.CURSOR_STARTING_REF?.trim() || '(repo default)',
+        week: rotation.week,
+        taskCount: tasks.length,
+        mix,
+        tasks,
+      },
       null,
       2
     )

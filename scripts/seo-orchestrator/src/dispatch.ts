@@ -12,9 +12,15 @@ export interface DispatchResult {
 
 const REPO_URL = 'https://github.com/Latestcrazeproductions/LCP_Refresh';
 
-/** Base ref for cloud agents. Default `development` (integration trunk); override with CURSOR_AGENT_REF. */
+/** PR base branch for agent prompts. Default `development`. */
 export function getAgentRef(): string {
   return process.env.CURSOR_AGENT_REF?.trim() || 'development';
+}
+
+/** Git clone ref. Omit unless CURSOR_STARTING_REF is set — Cursor clones the repo default branch. */
+function getStartingRef(): string | undefined {
+  const ref = process.env.CURSOR_STARTING_REF?.trim();
+  return ref || undefined;
 }
 
 export async function dispatchTask(
@@ -32,6 +38,10 @@ export async function dispatchTask(
   }
 
   const prompt = buildAgentPrompt(repoRoot, task);
+  const startingRef = getStartingRef();
+  const repoEntry = startingRef
+    ? { url: REPO_URL, startingRef }
+    : { url: REPO_URL };
 
   try {
     const { Agent, CursorAgentError } = await import('@cursor/sdk');
@@ -40,7 +50,7 @@ export async function dispatchTask(
       apiKey,
       model: { id: 'composer-2.5' },
       cloud: {
-        repos: [{ url: REPO_URL, startingRef: getAgentRef() }],
+        repos: [repoEntry],
         autoCreatePR: true,
         skipReviewerRequest: true,
       },
@@ -65,6 +75,16 @@ export async function dispatchTask(
     };
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);
+    const helpUrl =
+      err && typeof err === 'object' && 'helpUrl' in err
+        ? String((err as { helpUrl?: string }).helpUrl)
+        : undefined;
+    if (helpUrl) {
+      console.error(`\nCursor integration help: ${helpUrl}`);
+      console.error(
+        'Connect GitHub at cursor.com/dashboard and grant access to Latestcrazeproductions/LCP_Refresh.'
+      );
+    }
     const isCursor =
       err &&
       typeof err === 'object' &&
