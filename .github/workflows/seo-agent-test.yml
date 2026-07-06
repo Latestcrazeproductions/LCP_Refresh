@@ -42,6 +42,11 @@ jobs:
           fi
         env:
           CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
+      - name: Verify Cursor GitHub integration
+        run: npm run verify:cursor-github
+        working-directory: scripts/seo-orchestrator
+        env:
+          CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
       - run: >
           npm run seo:run --
           --cadence weekly

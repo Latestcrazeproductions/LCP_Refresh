@@ -22,7 +22,8 @@
     "beads:draft": "node scripts/generate-beads-build-queue.mjs",
     "beads:draft:write": "node scripts/generate-beads-build-queue.mjs --write",
     "beads:import": "node scripts/generate-beads-build-queue.mjs --import",
-    "verify:gsc": "node scripts/verify-gsc-property.mjs"
+    "verify:gsc": "node scripts/verify-gsc-property.mjs",
+    "verify:cursor-github": "npm run verify:cursor-github --prefix scripts/seo-orchestrator"
   },
   "dependencies": {
     "@dnd-kit/core": "^6.3.1",

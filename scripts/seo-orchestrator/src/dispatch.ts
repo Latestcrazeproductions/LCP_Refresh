@@ -75,6 +75,20 @@ export async function dispatchTask(
       err && typeof err === 'object' && 'helpUrl' in err
         ? String((err as { helpUrl?: string }).helpUrl)
         : undefined;
+    if (message.includes('Failed to verify existence of branch') || message.includes('Failed to determine repository default branch')) {
+      console.error(`
+::error::Cursor cannot read branches on ${REPO_URL}.
+
+This is NOT a wrong branch name — GitHub has main and development.
+The Cursor API key's team does not have GitHub access to this repo.
+
+Fix:
+  1. https://cursor.com/dashboard → Integrations → GitHub → connect
+  2. Install Cursor GitHub App on Latestcrazeproductions with LCP_Refresh access
+  3. Use a CURSOR_API_KEY from that same Cursor team (Settings → API Keys)
+  4. Run: npm run verify:cursor-github (in scripts/seo-orchestrator)
+`);
+    }
     if (helpUrl) {
       console.error(`\nCursor integration help: ${helpUrl}`);
       console.error(
