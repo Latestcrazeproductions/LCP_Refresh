@@ -11,6 +11,7 @@ Track B — case studies, venue guides, planning tools.
 ## Rules
 
 - Case studies: min 800 words, outcome + industry, >=1 project image
+- Same voice as master plan: credible insider, not case-study boilerplate — show the tension before the win
 - No unapproved client names or pricing
 - Internal links to relevant service + /contact
 

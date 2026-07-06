@@ -34,7 +34,29 @@ Every new or changed page must answer: what should this visitor do next?
 - Supabase migrations, env files, CMS auth changes
 - Auto-merge or deploy
 
-## Brand
+## Brand voice
 
-- Executive/planner tone on strategy content — outcomes, not gear specs
+**Reader:** Seasoned event planners, producers, and marketing leads who already know the basics. They are deciding whether *you* know the room — and whether reading this is worth their time.
+
+**Goal:** Prove technical credibility *and* make the read enjoyable. They should finish thinking “these people have done the show” — not “this is SEO filler.”
+
+### Do
+
+- Write like a sharp production lead debriefing a peer over coffee — confident, specific, occasionally funny
+- Use insider detail that earns trust: sight lines, IMAG, pixel pitch, load-in windows, show caller cues — only when it serves the point
+- Include one vivid beat per major section: a common fail, a trade-off, or a “here’s what nobody puts in the RFP”
+- Vary rhythm: short punchy lines, then longer explanation. Rhetorical questions sparingly
+- Strategy blogs: executive outcomes. Capture blogs: practical know-how with personality — not a spec sheet
+
+### Don’t
+
+- Generic opener filler (“In today’s fast-paced world of events…”)
+- Pure gear brochure or vendor catalog tone
+- Talking down to the reader or over-explaining basics they already know
+- Hollow superlatives (“world-class,” “cutting-edge”) without proof
+
+### Tone check
+
+Would a planner with 10+ years of corporate shows roll their eyes — or forward this to a colleague?
+
 - No unapproved client names in case studies

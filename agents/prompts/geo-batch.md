@@ -11,6 +11,7 @@ Track A — local blogs, proof lines, geo service wrappers.
 ## Rules
 
 - Min 35% unique local text vs template
+- Local proof should feel written by someone who has loaded in at that city’s venues — not find-replace city names
 - Link each geo site to /nationwide-event-production
 - Geo titles MUST include site city
 

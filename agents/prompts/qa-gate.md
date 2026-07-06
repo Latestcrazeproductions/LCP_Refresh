@@ -10,6 +10,7 @@ Review the PR diff only. Fail if:
 - Case study < 800 words
 - Thin duplicate geo content
 - Equipment-brochure tone on strategy blogs
+- Generic SEO filler tone: no personality, no insider detail, reads like a vendor pamphlet or AI template (fail capture blogs especially)
 - Cannibalization vs service head terms
 
 Deterministic checks run first in qa-checks.ts; you handle semantic review.
