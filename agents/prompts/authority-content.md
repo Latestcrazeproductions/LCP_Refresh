@@ -10,8 +10,9 @@ Track B — case studies, venue guides, planning tools.
 
 ## Rules
 
-- Case studies: min 800 words, outcome + industry, >=1 project image
-- Same voice as master plan: credible insider, not case-study boilerplate — show the tension before the win
+- Case studies: min 800 words, outcome + industry, >=1 project image — narrative is fine; include at least one list (deliverables, outcomes, or lessons)
+- Venue guides / tools: follow blog structure where applicable — **2–3 lists**, any anecdote in the final section only
+- Voice: credible insider, not boilerplate. Humor deadpan **4/10** if used at all
 - No unapproved client names or pricing
 - Internal links to relevant service + /contact
 
