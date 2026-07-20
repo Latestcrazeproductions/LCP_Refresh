@@ -1,7 +1,7 @@
 {
   "topics": [
-    { "slug": "corporate-gala-production-guide", "title": "Corporate Gala Production: A Planner's Guide", "track": "A", "opportunityScore": 0, "status": "queued" },
-    { "slug": "led-wall-sizing-for-events", "title": "How to Size LED Walls for Corporate Events", "track": "A", "opportunityScore": 0, "status": "queued" },
+    { "slug": "corporate-gala-production-guide", "title": "Corporate Gala Production: A Planner's Guide", "track": "A", "opportunityScore": 0, "status": "published" },
+    { "slug": "led-wall-sizing-for-events", "title": "How to Size LED Walls for Corporate Events", "track": "A", "opportunityScore": 0, "status": "published" },
     { "slug": "hybrid-event-av-checklist", "title": "Hybrid Event AV Checklist for Corporate Teams", "track": "A", "opportunityScore": 0, "status": "queued" },
     { "slug": "general-session-design-tips", "title": "General Session Design That Keeps Attendees Engaged", "track": "A", "opportunityScore": 0, "status": "queued" }
   ]
