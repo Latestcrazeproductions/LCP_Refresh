@@ -1,6 +1,7 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useContent } from '@/context/ContentContext';
@@ -65,7 +66,7 @@ export default function Navbar({ forceSolidBackground = false, linkSet }: Navbar
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${navBackground}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
-        <a href="/" className="flex items-center gap-1">
+        <Link href="/" className="flex items-center gap-1">
           {safeBrand.logo ? (
             <Image
               src={safeBrand.logo}
@@ -82,7 +83,7 @@ export default function Navbar({ forceSolidBackground = false, linkSet }: Navbar
               <span className="text-blue-500">.</span>
             </span>
           )}
-        </a>
+        </Link>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex items-center gap-5">

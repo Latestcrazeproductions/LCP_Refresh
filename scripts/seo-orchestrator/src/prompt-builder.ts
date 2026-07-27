@@ -38,6 +38,7 @@ export function buildAgentPrompt(repoRoot: string, task: Task): string {
 ${task.url ? `- **URL:** ${task.url}` : ''}
 ${task.siteId ? `- **Site ID:** ${task.siteId}` : ''}
 ${task.briefPath ? `- **Brief:** ${task.briefPath}` : ''}
+- **Target key:** ${task.targetKey}
 
 ## Instructions
 

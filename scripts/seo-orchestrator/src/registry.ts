@@ -63,6 +63,8 @@ export function advanceRotationWeek(rotation: RotationState): RotationState {
   return {
     ...rotation,
     week: nextWeek,
+    serviceRotationIndex:
+      nextWeek === 1 ? rotation.serviceRotationIndex + 1 : rotation.serviceRotationIndex,
     strategyBlogWeek: nextWeek % 2 === 1 ? !rotation.strategyBlogWeek : rotation.strategyBlogWeek,
     lastAdvancedAt: new Date().toISOString().slice(0, 10),
   };

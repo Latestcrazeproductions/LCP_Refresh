@@ -120,7 +120,7 @@ export function ServiceItemEditor({ service, index, onChange, onDelete, onBack, 
               className={inputClass}
               placeholder="service-id"
             />
-            <p className="text-gray-500 text-xs mt-1">Unique identifier (e.g., "led-walls")</p>
+            <p className="text-gray-500 text-xs mt-1">Unique identifier (e.g., &quot;led-walls&quot;)</p>
           </div>
 
           <div>
@@ -314,7 +314,7 @@ export function ServiceItemEditor({ service, index, onChange, onDelete, onBack, 
                       </div>
                     ))}
                     {(!service.details?.features || service.details.features.length === 0) && (
-                      <p className="text-gray-500 text-xs">No features yet. Click "Add Feature" to add one.</p>
+                      <p className="text-gray-500 text-xs">No features yet. Click &quot;Add Feature&quot; to add one.</p>
                     )}
                   </div>
                 </div>
