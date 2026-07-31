@@ -2,7 +2,18 @@
 
 import { GoogleGenAI } from '@google/genai';
 
-export async function generatePitchRecommendation(submission: any) {
+type PitchSubmission = {
+  name?: string;
+  company?: string;
+  event_type?: string;
+  venue?: string;
+  event_location?: string;
+  attendee_count?: string | number;
+  timeline?: string;
+  project_details?: string;
+};
+
+export async function generatePitchRecommendation(submission: PitchSubmission) {
   if (!process.env.GEMINI_API_KEY) {
     return { error: 'GEMINI_API_KEY is not set in environment variables. Please add it to .env.local' };
   }
@@ -32,7 +43,12 @@ Project Notes: ${submission.project_details || 'None'}
     });
 
     return { result: response.text };
-  } catch (error: any) {
-    return { error: error.message || 'Failed to generate recommendation from the LLM.' };
+  } catch (error: unknown) {
+    return {
+      error:
+        error instanceof Error
+          ? error.message
+          : 'Failed to generate recommendation from the LLM.',
+    };
   }
 }

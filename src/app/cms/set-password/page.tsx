@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 
@@ -123,9 +124,9 @@ export default function SetPasswordPage() {
         </form>
 
         <p className="mt-6 text-center text-gray-500 text-xs">
-          <a href="/" className="hover:text-white transition-colors">
+          <Link href="/" className="hover:text-white transition-colors">
             ← Back to site
-          </a>
+          </Link>
         </p>
       </div>
     </div>

@@ -1,5 +1,12 @@
 name: SEO Phase Build
 
+permissions:
+  contents: write
+
+concurrency:
+  group: seo-demand-engine
+  cancel-in-progress: false
+
 on:
   workflow_dispatch:
     inputs:
@@ -23,7 +30,7 @@ on:
       max_tasks:
         description: Max agent tasks this run
         required: false
-        default: '5'
+        default: '1'
 
 jobs:
   run:
@@ -46,7 +53,19 @@ jobs:
         working-directory: scripts/seo-orchestrator
         env:
           CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
-          CURSOR_STARTING_REF: main
+          CURSOR_STARTING_REF: development
           CURSOR_AGENT_REF: development
           SEO_PHASE: ${{ inputs.phase }}
           SEO_BATCH_SIZE: ${{ inputs.batchSize }}
+      - name: Persist task reservations
+        if: always()
+        run: |
+          git config user.name "lcp-seo-bot"
+          git config user.email "seo-bot@latestcrazeproductions.com"
+          git add content-registry/task-reservations.json
+          if git diff --cached --quiet; then
+            echo "No reservation changes."
+            exit 0
+          fi
+          git commit -m "Persist SEO task reservations"
+          git push origin HEAD:development
