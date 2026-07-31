@@ -80,6 +80,12 @@ export async function GET(request: Request) {
       priority: 0.85,
     },
     { url: `${baseUrl}/digital-signage`, lastmod: now, changefreq: 'monthly', priority: 0.75 },
+    {
+      url: `${baseUrl}/nationwide-event-production`,
+      lastmod: now,
+      changefreq: 'monthly',
+      priority: 0.9,
+    },
     { url: `${baseUrl}/contact`, lastmod: now, changefreq: 'monthly', priority: 0.9 },
     { url: `${baseUrl}/privacy`, lastmod: now, changefreq: 'yearly', priority: 0.5 },
     { url: `${baseUrl}/terms`, lastmod: now, changefreq: 'yearly', priority: 0.5 },
