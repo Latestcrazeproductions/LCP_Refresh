@@ -127,6 +127,20 @@ export const siteContent = {
         description: '40ft+ seamless displays that dominate the visual field.',
         image:
           'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop',
+        gallery: [
+          {
+            src: 'https://images.unsplash.com/photo-1772587001625-1bbcccb2f030?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Presenter seated in front of a large LED screen on an event stage',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1670941371559-f902cda879f2?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Wide LED wall and vertical LED columns behind performers on a live event stage',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1670941371382-993b971d70c9?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Full event stage with a center LED wall, side LED columns, and stage lighting',
+          },
+        ] as Array<{ src: string; alt: string }>,
         details: {
           headline: 'Unrivaled Visual Immersion',
           text: "Our flagship 40ft+ LED walls redefine corporate presentations. By eliminating bezels and pushing resolution to the limit, we create a canvas that allows for true cinematic storytelling. Whether it's a high-stakes keynote or an immersive brand reveal, our displays deliver perfect color accuracy and HDR contrast that standard projection simply cannot match.",
