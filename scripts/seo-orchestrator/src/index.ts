@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
@@ -11,10 +12,18 @@ import {
   saveRotation,
 } from './registry.js';
 import { scheduleTasks, contentMixSummary } from './scheduler.js';
+import {
+  applyDispatchResults,
+  blockedTargetKeys,
+  loadReservations,
+  reconcileReservations,
+  reserveTasks,
+  saveReservations,
+} from './reservations.js';
 import { buildFunnelGapReport, formatGapReportMarkdown } from './demand-math.js';
 import { formatCtaAuditMarkdown, runCtaAudit } from './conversion-audit.js';
 import { dispatchTasks, getAgentRef, getStartingRef } from './dispatch.js';
-import type { Cadence } from './types.js';
+import type { Cadence, ContentTopic } from './types.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '../../..');
@@ -25,6 +34,7 @@ function parseArgs(argv: string[]) {
   let maxTasks = 5;
   let advanceRotation = false;
   let onlyType: string | undefined;
+  let retryTarget: string | undefined;
 
   for (let i = 2; i < argv.length; i++) {
     const a = argv[i];
@@ -33,18 +43,30 @@ function parseArgs(argv: string[]) {
     else if (a === '--cadence' && argv[i + 1]) cadence = argv[++i] as Cadence;
     else if (a === '--max-tasks' && argv[i + 1]) maxTasks = Number(argv[++i]);
     else if (a === '--only-type' && argv[i + 1]) onlyType = argv[++i];
+    else if (a === '--retry-target' && argv[i + 1]) retryTarget = argv[++i];
   }
 
-  return { cadence, dryRun, maxTasks, advanceRotation, onlyType };
+  return { cadence, dryRun, maxTasks, advanceRotation, onlyType, retryTarget };
 }
 
 async function main() {
-  const { cadence, dryRun, maxTasks, advanceRotation, onlyType } = parseArgs(process.argv);
+  const { cadence, dryRun, maxTasks, advanceRotation, onlyType, retryTarget } = parseArgs(process.argv);
   const paths = getRegistryPaths(REPO_ROOT);
   const config = loadConfig(paths);
   const rotation = loadRotation(paths);
   const pages = loadPages(paths);
   const research = loadJson<{ lastScanAt: string | null }>(paths, 'research.json');
+  const nationalTopics = JSON.parse(
+    fs.readFileSync(path.join(REPO_ROOT, 'content-library/topics/national-blog-topics.json'), 'utf8')
+  ) as { topics: ContentTopic[] };
+  const strategyTopics = JSON.parse(
+    fs.readFileSync(path.join(REPO_ROOT, 'content-library/topics/strategy-blog-topics.json'), 'utf8')
+  ) as { topics: ContentTopic[] };
+  const reservations = reconcileReservations(
+    loadReservations(paths.root),
+    pages,
+    [...nationalTopics.topics, ...strategyTopics.topics]
+  );
 
   const effectiveMax = Math.min(maxTasks, config.maxTasksPerRun ?? 5);
   const scheduleCap = onlyType ? 50 : effectiveMax;
@@ -56,6 +78,9 @@ async function main() {
     pages,
     researchLastScanAt: research.lastScanAt,
     maxTasks: scheduleCap,
+    nationalTopics: nationalTopics.topics,
+    strategyTopics: strategyTopics.topics,
+    blockedTargetKeys: blockedTargetKeys(reservations, retryTarget),
   });
 
   if (onlyType) {
@@ -108,7 +133,13 @@ async function main() {
     process.exit(1);
   }
 
+  const dispatchedTasks = tasks.filter((task) => task.agent !== 'PlannerAgent');
+  let updatedReservations = reserveTasks(reservations, dispatchedTasks, cadence);
+  saveReservations(paths.root, updatedReservations);
+
   const results = await dispatchTasks(REPO_ROOT, tasks, apiKey);
+  updatedReservations = applyDispatchResults(updatedReservations, results);
+  saveReservations(paths.root, updatedReservations);
   const failed = results.filter((r) => r.status === 'error');
   if (failed.length) {
     console.error('\nDispatch failures:', failed);

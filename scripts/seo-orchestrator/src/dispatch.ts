@@ -17,9 +17,9 @@ export function getAgentRef(): string {
   return process.env.CURSOR_AGENT_REF?.trim() || 'development';
 }
 
-/** Git clone ref. Cursor requires an explicit branch; default `main`. */
+/** Git clone ref. Cursor requires an explicit branch; default `development`. */
 export function getStartingRef(): string {
-  return process.env.CURSOR_STARTING_REF?.trim() || 'main';
+  return process.env.CURSOR_STARTING_REF?.trim() || 'development';
 }
 
 export async function dispatchTask(
@@ -67,7 +67,10 @@ export async function dispatchTask(
       agent: task.agent,
       status: 'finished',
       runId: result.id,
-      agentId: result.agentId,
+      agentId:
+        'agentId' in result && typeof result.agentId === 'string'
+          ? result.agentId
+          : undefined,
     };
   } catch (err) {
     const message = err instanceof Error ? err.message : String(err);

@@ -12,3 +12,12 @@ coverage/
 .env*.local
 tsconfig.tsbuildinfo
 scripts/.linear-doc-cache/
+scripts/.beads-import-tmp.json
+supabase/.temp/
+
+# Generated documentation renders; Markdown sources are canonical.
+docs/AGENT_SEO_AUTOMATION.html
+docs/CEO_EXECUTIVE_SUMMARY
+docs/PRODUCT_IMPLEMENTATION_PLAN.pdf
+docs/SEO_IMPROVEMENT_PLAN
+docs/TECHNICAL_OVERVIEW.pdf

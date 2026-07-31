@@ -274,7 +274,10 @@ export default function CmsEditor() {
     const { active, over } = event;
     if (!over || active.id === over.id || !content) return;
     const items = content.eventTypes.items;
-    const getId = (item: any, i: number) => item.id || `et-${i}`;
+    const getId = (
+      item: EditableSiteContent['eventTypes']['items'][number],
+      i: number
+    ) => item.id || `et-${i}`;
     const oldIndex = items.findIndex((item, i) => getId(item, i) === active.id);
     const newIndex = items.findIndex((item, i) => getId(item, i) === over.id);
     if (oldIndex !== -1 && newIndex !== -1) {
@@ -431,7 +434,10 @@ export default function CmsEditor() {
       case 'eventTypes':
         if (editingEventTypeId) {
           const items = content.eventTypes?.items || [];
-          const itId = (i: any, ind: number) => i.id || `et-${ind}`;
+          const itId = (
+            item: EditableSiteContent['eventTypes']['items'][number],
+            index: number
+          ) => item.id || `et-${index}`;
           const index = items.findIndex((it, idx) => itId(it, idx) === editingEventTypeId);
           if (index === -1) { setEditingEventTypeId(null); return null; }
           const eventType = items[index];

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { createClient } from '@/lib/supabase/client';
 
@@ -89,7 +90,7 @@ export default function CmsLoginPage() {
         </form>
 
         <p className="mt-6 text-center text-gray-500 text-xs">
-          <a href="/" className="hover:text-white transition-colors">← Back to site</a>
+          <Link href="/" className="hover:text-white transition-colors">← Back to site</Link>
         </p>
       </div>
     </div>
