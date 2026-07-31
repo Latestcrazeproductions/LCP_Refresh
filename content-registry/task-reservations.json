@@ -5,10 +5,19 @@
       "taskId": "blog.national.create:led-wall-sizing-for-events",
       "type": "blog.national.create",
       "targetKey": "led-wall-sizing-for-events",
-      "status": "in_review",
+      "status": "completed",
       "cadence": "weekly",
       "dispatchedAt": "2026-07-27T17:44:15.000Z",
       "runId": "bc-bda2c4d7-7328-4c74-94f6-7c352b0fac41"
+    },
+    {
+      "taskId": "hub.nationwide_refresh:/nationwide-event-production",
+      "type": "hub.nationwide_refresh",
+      "targetKey": "/nationwide-event-production",
+      "status": "in_review",
+      "cadence": "phase",
+      "dispatchedAt": "2026-07-31T18:24:15.529Z",
+      "runId": "run-4b3edf02-cebf-4adb-bded-7c547372f07b"
     }
   ]
 }
