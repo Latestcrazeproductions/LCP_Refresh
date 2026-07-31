@@ -5,17 +5,15 @@ track: A
 dateModified: 2026-07-27
 ---
 
-The wall looked incredible in the sales render. From row Q it was a glowing smear — and the CEO's Q3 chart was illegible on camera. Nobody in procurement had asked the one question that actually matters: *who needs to read this, and from where?*
+The right LED wall size comes from four decisions: viewing distance, pixel pitch, content aspect ratio, and the room’s physical limits. Set those before requesting quotes and you can compare vendors on a useful production specification instead of panel count alone.
 
-Sizing an LED wall for a corporate event is not a math problem you solve with a catalog page. It is a sight-line problem dressed up as AV. Get it wrong and you still have a wall — you just have a very expensive backdrop that fails at its job. Get it right and the room feels intentional: every seat gets the content, the IMAG looks crisp, and your livestream doesn't embarrass you on LinkedIn.
+This guide gives corporate planners a practical way to define those requirements, test sight lines, and decide when one large wall is less effective than a smaller wall with delay screens.
 
 ## Start with the farthest seat, not the stage lip
 
 Every sizing conversation should begin at the back row. Measure the distance from the last occupied seat to the face of the LED — not to the stage edge, not to the downstage scrim. That number is your governing variable.
 
 A rough rule production teams use: for comfortable reading of slides and data, you want roughly 10–12 feet of viewing distance per meter of wall width at minimum. Tighter is fine for IMAG-heavy shows where the wall is mostly faces and motion graphics. Looser is mandatory when you're displaying 8-point financial tables to a boardroom audience spread across a ballroom.
-
-We walked a general session once where the client insisted on a 40-foot wall because "that's what the competitor had last year." The room was 120 feet deep with raked seating. Row 18 could see color blocks. They could not see the product spec the CMO spent six weeks approving. We ended up splitting the budget: smaller wall, higher pixel density, plus delay screens flanking the room. Cheaper than the original quote, and actually functional.
 
 If your venue has a fixed proscenium or ceiling height cap, work backward from that constraint first. A wall that doesn't fit in the truck dock or clears the lighting truss isn't a sizing problem — it's a load-in problem you'll discover at midnight.
 
@@ -76,8 +74,10 @@ Projection still wins when the content is cinematic full-bleed video with no fin
 
 If you're unsure, prototype in pre-pro: project your actual slide deck at the proposed wall size in a VR previsualization tool or even a scaled PDF printout taped to the back wall of the rehearsal room. Low tech. Saves high tech embarrassment.
 
----
+## From the floor: when the biggest wall was the wrong wall
 
-Sizing an LED wall is really sizing the audience experience. The math gets you in the ballpark; the production conversation gets you a show that works in the room you're actually in — not the room in the render.
+One general session arrived with a 40-foot wall requirement because that was what a competitor had used. In the actual 120-foot-deep room, row 18 could see the color blocks but could not read the product specifications the CMO had spent six weeks approving. The working solution was a smaller, finer-pitch center wall plus two delay screens: lower cost, better sight lines, and considerably less explaining during rehearsal.
+
+Sizing an LED wall is ultimately sizing the audience experience. The calculations establish the range; the production conversation makes it work in the room you actually have.
 
 For wall specs, rigging, and processor design on your next corporate event, see our [LED wall production services](/services/led-walls). Ready to walk through your room dimensions and content pipeline? [Request a consultation](/contact).
