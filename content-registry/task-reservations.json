@@ -14,10 +14,11 @@
       "taskId": "hub.nationwide_refresh:/nationwide-event-production",
       "type": "hub.nationwide_refresh",
       "targetKey": "/nationwide-event-production",
-      "status": "in_review",
+      "status": "failed",
       "cadence": "phase",
-      "dispatchedAt": "2026-07-31T18:24:15.529Z",
-      "runId": "run-4b3edf02-cebf-4adb-bded-7c547372f07b"
+      "dispatchedAt": "2026-07-31T19:27:43.938Z",
+      "runId": "run-31444b30-8e34-404a-83f9-6d1786cd6907",
+      "error": "Agent run finished with error status"
     }
   ]
 }
