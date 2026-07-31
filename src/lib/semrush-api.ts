@@ -14,12 +14,39 @@ export interface ReportData {
   domain: string;
   generated_at: string;
   sections: {
-    overview?: any;
-    keywords?: any;
-    backlinks?: any;
-    competitors?: any;
-    traffic?: any;
-    content?: any;
+    overview?: {
+      rank?: number;
+      organic_keywords?: number;
+      organic_traffic?: number;
+      organic_cost?: number;
+    };
+    keywords?: {
+      total?: number;
+      summary?: {
+        average_position?: number;
+        total_traffic?: number;
+        total_search_volume?: number;
+      };
+      keywords?: Record<string, unknown>[];
+    };
+    backlinks?: {
+      overview?: {
+        total?: number;
+        domains?: number;
+        follows?: number;
+        nofollows?: number;
+      };
+      backlinks?: Record<string, unknown>[];
+    };
+    competitors?: {
+      competitors?: Record<string, unknown>[];
+    };
+    traffic?: {
+      history?: Record<string, unknown>[];
+    };
+    content?: {
+      pages?: Record<string, unknown>[];
+    };
   };
 }
 

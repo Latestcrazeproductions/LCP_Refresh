@@ -81,9 +81,9 @@ export default async function CmsDashboardPage() {
         </div>
 
         <p className="mt-10 text-center">
-          <a href="/" className="text-gray-500 hover:text-white text-sm transition-colors">
+          <Link href="/" className="text-gray-500 hover:text-white text-sm transition-colors">
             ← Back to site
-          </a>
+          </Link>
         </p>
       </div>
     </div>

@@ -1,5 +1,12 @@
 name: SEO Weekly
 
+permissions:
+  contents: write
+
+concurrency:
+  group: seo-demand-engine
+  cancel-in-progress: false
+
 on:
   schedule:
     - cron: '0 16 * * 1'
@@ -11,6 +18,10 @@ on:
         default: '1'
       only_type:
         description: Optional task type filter (e.g. service.faq_refresh)
+        required: false
+        default: ''
+      retry_target:
+        description: Explicit failed target key to retry
         required: false
         default: ''
 
@@ -34,9 +45,24 @@ jobs:
           if [ -n "${{ inputs.only_type }}" ]; then
             ARGS="$ARGS --only-type ${{ inputs.only_type }}"
           fi
+          if [ -n "${{ inputs.retry_target }}" ]; then
+            ARGS="$ARGS --retry-target ${{ inputs.retry_target }}"
+          fi
           npm run seo:run -- $ARGS
         working-directory: scripts/seo-orchestrator
         env:
           CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
-          CURSOR_STARTING_REF: main
+          CURSOR_STARTING_REF: development
           CURSOR_AGENT_REF: development
+      - name: Persist scheduler state
+        if: always()
+        run: |
+          git config user.name "lcp-seo-bot"
+          git config user.email "seo-bot@latestcrazeproductions.com"
+          git add content-registry/rotation.json content-registry/task-reservations.json
+          if git diff --cached --quiet; then
+            echo "No scheduler state changes."
+            exit 0
+          fi
+          git commit -m "Persist SEO scheduler state"
+          git push origin HEAD:development

@@ -41,10 +41,37 @@ export interface Task {
   type: string;
   agent: string;
   track: Track;
+  targetKey: string;
   url?: string;
   siteId?: string;
   briefPath?: string;
   description: string;
+}
+
+export type ReservationStatus = 'in_review' | 'completed' | 'failed';
+
+export interface TaskReservation {
+  taskId: string;
+  type: string;
+  targetKey: string;
+  status: ReservationStatus;
+  cadence: Cadence;
+  dispatchedAt: string;
+  runId?: string;
+  agentId?: string;
+  error?: string;
+}
+
+export interface ReservationLedger {
+  version: 1;
+  reservations: TaskReservation[];
+}
+
+export interface ContentTopic {
+  slug: string;
+  title: string;
+  track: Track;
+  status: 'queued' | 'published';
 }
 
 export interface QaIssue {
@@ -66,6 +93,7 @@ export const AGENT_MAP: Record<string, string> = {
   'blog.national.create': 'NationalContentAgent',
   'authority.strategy_blog': 'NationalContentAgent',
   'hub.nationwide_refresh': 'NationalContentAgent',
+  'hub.markets_create': 'NationalContentAgent',
   'seo.meta_experiment': 'NationalContentAgent',
   'blog.geo.create': 'GeoBatchAgent',
   'geo.local_proof': 'GeoBatchAgent',
