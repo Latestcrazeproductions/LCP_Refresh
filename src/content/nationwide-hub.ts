@@ -78,8 +78,8 @@ export const NATIONWIDE_HUB: NationwideHubContent = {
     },
   ],
   floorStory: {
-    title: 'From the floor',
-    body: 'A five-city sales kickoff arrived with five slightly different ballrooms and one immutable demand: the CEO walk-on cue had to hit within two frames in every market. Market two\'s local vendor had swapped a delay line without telling anyone. Market four\'s house electrician killed a dimmer circuit during lunch. The touring TD had the show file, the spare processor, and the phone number of someone who could actually fix a dimmer — which, it turned out, was not the venue manager. Same cue. Five cities. One person who knew where the patch sheet lived.',
+    title: 'What stays consistent from market to market',
+    body: 'Venues change: rigging points move, load-in paths shrink, power differs, and local labor joins at each stop. The useful constant is a documented show file, core leads who already know it, and a repeatable prep and check process. That does not eliminate local variables; it gives the production team a known baseline for resolving them without reinventing the show.',
   },
   capabilitiesTitle: 'Production capabilities',
   capabilities: [

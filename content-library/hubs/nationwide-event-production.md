@@ -73,11 +73,9 @@ Use these in bid review. References beat spec sheets.
 
 If the answer to the last question is "we'll figure it out at load-in," keep looking.
 
-## From the floor
+## What stays consistent from market to market
 
-A five-city sales kickoff arrived with five slightly different ballrooms and one immutable demand: the CEO's walk-on cue had to hit within two frames in every market. Market two's local vendor had swapped a delay line without telling anyone. Market four's house electrician killed a dimmer circuit during lunch. The touring TD had the show file, the spare processor, and the phone number of someone who could actually fix a dimmer — which, it turned out, was not the venue manager.
-
-Same cue. Five cities. One person who knew where the patch sheet lived.
+Venues change: rigging points move, load-in paths shrink, power differs, and local labor joins at each stop. The useful constant is a documented show file, core leads who already know it, and a repeatable prep and check process. That does not eliminate local variables; it gives the production team a known baseline for resolving them without reinventing the show.
 
 ## Related resources
 
