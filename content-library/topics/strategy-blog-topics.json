@@ -1,6 +1,22 @@
 {
   "topics": [
-    { "slug": "event-production-roi-for-planners", "title": "Event Production ROI: What Executives Should Measure", "track": "B", "minWords": 1200, "status": "queued" },
-    { "slug": "hire-vs-in-house-av-team", "title": "When to Hire an Event Production Partner vs In-House AV", "track": "B", "minWords": 1200, "status": "queued" }
+    {
+      "slug": "event-production-roi-for-planners",
+      "title": "Event Production ROI: What Executives Should Measure",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 58,
+      "status": "queued",
+      "rationale": "Executive strategy angle; supports nationwide hub without targeting service head terms."
+    },
+    {
+      "slug": "hire-vs-in-house-av-team",
+      "title": "When to Hire an Event Production Partner vs In-House AV",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 72,
+      "status": "queued",
+      "rationale": "Directly addresses 'av production services' commercial intent; links to /feeds/av-production when live."
+    }
   ]
 }

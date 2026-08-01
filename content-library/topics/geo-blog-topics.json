@@ -1,6 +1,20 @@
 {
   "topics": [
-    { "slug": "scottsdale-corporate-event-venues", "siteId": "scottsdale-az", "track": "A", "status": "queued" },
-    { "slug": "dallas-conference-production-trends", "siteId": "dallas-tx", "track": "A", "status": "queued" }
+    {
+      "slug": "scottsdale-corporate-event-venues",
+      "siteId": "scottsdale-az",
+      "track": "A",
+      "opportunityScore": 25,
+      "status": "queued",
+      "rationale": "Geo expansion blocked (Phase 1, allowNewGeoSites false). Re-score after Phase 2 gate."
+    },
+    {
+      "slug": "dallas-conference-production-trends",
+      "siteId": "dallas-tx",
+      "track": "A",
+      "opportunityScore": 20,
+      "status": "queued",
+      "rationale": "Geo expansion blocked. National /feeds/conference-production takes priority."
+    }
   ]
 }

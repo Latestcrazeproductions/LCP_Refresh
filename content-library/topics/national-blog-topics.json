@@ -1,8 +1,36 @@
 {
   "topics": [
-    { "slug": "corporate-gala-production-guide", "title": "Corporate Gala Production: A Planner's Guide", "track": "A", "opportunityScore": 0, "status": "queued" },
-    { "slug": "led-wall-sizing-for-events", "title": "How to Size LED Walls for Corporate Events", "track": "A", "opportunityScore": 0, "status": "published" },
-    { "slug": "hybrid-event-av-checklist", "title": "Hybrid Event AV Checklist for Corporate Teams", "track": "A", "opportunityScore": 0, "status": "queued" },
-    { "slug": "general-session-design-tips", "title": "General Session Design That Keeps Attendees Engaged", "track": "A", "opportunityScore": 0, "status": "queued" }
+    {
+      "slug": "corporate-gala-production-guide",
+      "title": "Corporate Gala Production: A Planner's Guide",
+      "track": "A",
+      "opportunityScore": 70,
+      "status": "published",
+      "rationale": "Live blog missing registry keyword; high-intent gala vertical aligns with /events/galas-awards and planned gala feeds."
+    },
+    {
+      "slug": "hybrid-event-av-checklist",
+      "title": "Hybrid Event AV Checklist for Corporate Teams",
+      "track": "A",
+      "opportunityScore": 75,
+      "status": "queued",
+      "rationale": "Closes av-production-services intent gap without competing with /feeds/av-production head term."
+    },
+    {
+      "slug": "led-wall-sizing-for-events",
+      "title": "How to Size LED Walls for Corporate Events",
+      "track": "A",
+      "opportunityScore": 60,
+      "status": "published",
+      "rationale": "Published; supports /feeds/led-walls pre-launch. Do not retarget 'led wall rental' head term."
+    },
+    {
+      "slug": "general-session-design-tips",
+      "title": "General Session Design That Keeps Attendees Engaged",
+      "track": "A",
+      "opportunityScore": 55,
+      "status": "queued",
+      "rationale": "Conference/session intent; pairs with /feeds/conference-production once live."
+    }
   ]
 }
