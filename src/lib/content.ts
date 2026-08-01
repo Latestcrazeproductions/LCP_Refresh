@@ -24,6 +24,7 @@ export type SiteContentKey =
 export type ServiceItem = Omit<(typeof siteContent.services.items)[number], 'image'> & {
   image: SeoImageInput;
   gallery?: SeoImageInput[];
+  faq?: ReadonlyArray<{ readonly question: string; readonly answer: string }>;
 };
 
 export type EventTypeItem = Omit<(typeof siteContent.eventTypes.items)[number], 'image'> & {
@@ -67,6 +68,7 @@ export type EditableSiteContent = {
         text: string;
         features: string[];
       };
+      faq?: Array<{ question: string; answer: string }>;
     }>;
   };
   eventTypes: {

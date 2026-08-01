@@ -8,6 +8,7 @@ import { ContentProvider } from '@/context/ContentContext';
 import { getServiceIcon } from '@/lib/service-icons';
 import { getOptimizedImageUrl } from '@/lib/image-utils';
 import { getImageSrc, resolveSeoImage } from '@/lib/seo-image';
+import { buildFAQSchema } from '@/lib/structured-data';
 import Navbar from '@/components/Navbar';
 import { ImageGallery } from '@/components/ImageGallery';
 import ContactCta from '@/components/ContactCta';
@@ -68,6 +69,7 @@ export default async function ServiceDetailPage({ params }: Props) {
   if (!service) notFound();
 
   const IconComponent = getServiceIcon(service.iconKey || '');
+  const serviceFaqs = Array.isArray(service.faq) ? service.faq : [];
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Service',
@@ -81,6 +83,7 @@ export default async function ServiceDetailPage({ params }: Props) {
     areaServed: { '@type': 'Country', name: 'United States' },
     image: getImageSrc(service.image) || undefined,
   };
+  const faqSchema = serviceFaqs.length > 0 ? buildFAQSchema(serviceFaqs) : null;
 
   return (
     <>
@@ -88,6 +91,12 @@ export default async function ServiceDetailPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      {faqSchema && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        />
+      )}
       <ContentProvider content={content}>
         <main className="bg-[#050505] min-h-screen text-white selection:bg-blue-500/30 relative overflow-hidden">
           {/* Subtle background glow — matches Technical Precision */}
@@ -191,6 +200,35 @@ export default async function ServiceDetailPage({ params }: Props) {
               )}
             </div>
           </section>
+
+          {/* Service FAQ */}
+          {serviceFaqs.length > 0 && (
+            <section className="relative py-16 px-6 max-w-4xl mx-auto border-t border-white/10">
+              <h2 className="text-2xl md:text-3xl font-bold mb-3">Common questions</h2>
+              <p className="text-gray-400 mb-10">
+                Practical answers for producers sizing walls, locking content, and planning failover.
+              </p>
+              <dl className="space-y-8">
+                {serviceFaqs.map((item) => (
+                  <div key={item.question}>
+                    <dt className="text-lg font-semibold text-white">{item.question}</dt>
+                    <dd className="mt-2 leading-relaxed text-gray-400">{item.answer}</dd>
+                  </div>
+                ))}
+              </dl>
+              <p className="mt-10 text-gray-400">
+                For viewing-distance tiers and RFP checklist items, read our{' '}
+                <Link href="/blog/led-wall-sizing-for-events" className="text-blue-400 hover:text-blue-300 underline">
+                  LED wall sizing guide
+                </Link>
+                . Ready to scope your room?{' '}
+                <Link href="/contact" className="text-blue-400 hover:text-blue-300 underline font-medium">
+                  Contact us
+                </Link>
+                .
+              </p>
+            </section>
+          )}
 
           {/* Gallery — 3 images (omitted for projection per site direction) */}
           {slug !== 'projection' && service.gallery && service.gallery.length > 0 && (
