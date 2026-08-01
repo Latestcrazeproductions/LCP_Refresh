@@ -1,8 +1,45 @@
 {
+  "lastTrendingRefresh": "2026-08-01",
   "topics": [
-    { "slug": "corporate-gala-production-guide", "title": "Corporate Gala Production: A Planner's Guide", "track": "A", "opportunityScore": 0, "status": "queued" },
-    { "slug": "led-wall-sizing-for-events", "title": "How to Size LED Walls for Corporate Events", "track": "A", "opportunityScore": 0, "status": "published" },
-    { "slug": "hybrid-event-av-checklist", "title": "Hybrid Event AV Checklist for Corporate Teams", "track": "A", "opportunityScore": 0, "status": "queued" },
-    { "slug": "general-session-design-tips", "title": "General Session Design That Keeps Attendees Engaged", "track": "A", "opportunityScore": 0, "status": "queued" }
+    {
+      "slug": "hybrid-event-av-checklist",
+      "title": "Hybrid Event AV Checklist for Corporate Teams",
+      "track": "A",
+      "opportunityScore": 92,
+      "rationale": "Hybrid production is 2026 baseline per industry signals; checklist format matches capture blog mix; no head-term cannibalization.",
+      "status": "queued"
+    },
+    {
+      "slug": "general-session-design-tips",
+      "title": "General Session Design That Keeps Attendees Engaged",
+      "track": "A",
+      "opportunityScore": 88,
+      "rationale": "Immersive stage design and LED-as-scenic are top 2026 trends; complements published LED sizing guide.",
+      "status": "queued"
+    },
+    {
+      "slug": "broadcast-keynote-production-checklist",
+      "title": "Broadcast-Grade Keynote Production: A Planner's Checklist",
+      "track": "A",
+      "opportunityScore": 86,
+      "rationale": "New from Aug 2026 scan — multi-camera keynotes and dual-audience design rising; no existing LCP page.",
+      "status": "queued"
+    },
+    {
+      "slug": "corporate-gala-production-guide",
+      "title": "Corporate Gala Production: A Planner's Guide",
+      "track": "A",
+      "opportunityScore": 74,
+      "rationale": "Steady gala demand; live page is thin — lower priority than hybrid and general-session queue.",
+      "status": "queued"
+    },
+    {
+      "slug": "led-wall-sizing-for-events",
+      "title": "How to Size LED Walls for Corporate Events",
+      "track": "A",
+      "opportunityScore": 65,
+      "rationale": "Published 2026-07-27; LED trend sustained but net-new sizing content deprioritized — maintain via faq_refresh.",
+      "status": "published"
+    }
   ]
 }

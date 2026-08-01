@@ -1,6 +1,23 @@
 {
+  "lastTrendingRefresh": "2026-08-01",
   "topics": [
-    { "slug": "event-production-roi-for-planners", "title": "Event Production ROI: What Executives Should Measure", "track": "B", "minWords": 1200, "status": "queued" },
-    { "slug": "hire-vs-in-house-av-team", "title": "When to Hire an Event Production Partner vs In-House AV", "track": "B", "minWords": 1200, "status": "queued" }
+    {
+      "slug": "event-production-roi-for-planners",
+      "title": "Event Production ROI: What Executives Should Measure",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 85,
+      "rationale": "Executive ROI accountability is a dominant 2026 enterprise theme; Track B monthly balance.",
+      "status": "queued"
+    },
+    {
+      "slug": "hire-vs-in-house-av-team",
+      "title": "When to Hire an Event Production Partner vs In-House AV",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 78,
+      "rationale": "Evergreen commercial investigation intent; supports inbound qualification without pricing claims.",
+      "status": "queued"
+    }
   ]
 }
