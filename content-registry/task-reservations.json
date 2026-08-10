@@ -55,6 +55,14 @@
       "cadence": "weekly",
       "dispatchedAt": "2026-08-03T17:53:06.295Z",
       "runId": "run-9f462bae-9da2-4eda-8f12-12f58d15b07f"
+    },
+    {
+      "taskId": "blog.national.create:general-session-design-tips",
+      "type": "blog.national.create",
+      "targetKey": "general-session-design-tips",
+      "status": "in_review",
+      "cadence": "weekly",
+      "dispatchedAt": "2026-08-10T16:55:33.828Z"
     }
   ]
 }
