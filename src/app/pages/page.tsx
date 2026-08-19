@@ -30,6 +30,7 @@ export default async function PagesIndexPage() {
           title="SEO Engine pages"
           description={`${allPages.length} live ${allPages.length === 1 ? 'page' : 'pages'} published by the demand engine — hubs, blogs, case studies, and tools.`}
           imageLabel="Latest Craze Productions — SEO content index"
+          size="index"
         />
 
         <div className="mx-auto max-w-4xl px-6 pb-24 pt-4">

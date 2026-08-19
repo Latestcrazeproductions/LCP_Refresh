@@ -46,6 +46,7 @@ export default async function NationwideEventProductionPage() {
             title={page.h1}
             description={page.lead}
             imageLabel="Nationwide touring production — LED and staging"
+            size="hub"
           >
             <Link
               href={page.primaryCta.href}

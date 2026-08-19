@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import Hero, { type HeroBreadcrumb } from '@/components/Hero';
+import Hero, { type HeroBreadcrumb, type HeroSize } from '@/components/Hero';
 import type { SeoImageInput } from '@/lib/seo-image';
 
 export interface SeoPageHeroProps {
@@ -12,10 +12,12 @@ export interface SeoPageHeroProps {
   breadcrumbs?: HeroBreadcrumb[];
   imageLabel?: string;
   images?: SeoImageInput[];
+  /** hub ≈ landing pages; index ≈ section indexes; article ≈ posts & tools */
+  size?: Exclude<HeroSize, 'full'>;
   children?: ReactNode;
 }
 
-/** Shared hero for demand-engine pages — same full-screen slideshow as the homepage. */
+/** Shared hero for demand-engine pages — homepage slideshow at a shorter height. */
 export function SeoPageHero({
   title,
   description,
@@ -25,6 +27,7 @@ export function SeoPageHero({
   backLabel,
   breadcrumbs,
   images,
+  size = 'article',
   children,
 }: SeoPageHeroProps) {
   return (
@@ -37,6 +40,7 @@ export function SeoPageHero({
       backLabel={backLabel}
       breadcrumbs={breadcrumbs}
       images={images}
+      size={size}
       showScrollIndicator={false}
     >
       {children}

@@ -34,6 +34,7 @@ export function ArticleLayout({
         backHref={backHref}
         backLabel={backLabel}
         imageLabel={imageLabel ?? title}
+        size="article"
       />
 
       <section className="px-6 py-12">

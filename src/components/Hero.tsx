@@ -17,6 +17,15 @@ export interface HeroBreadcrumb {
   href?: string;
 }
 
+export type HeroSize = 'full' | 'hub' | 'index' | 'article';
+
+const HERO_SIZE_CLASSES: Record<HeroSize, string> = {
+  full: 'min-h-screen',
+  hub: 'min-h-[360px] md:min-h-[65vh]',
+  index: 'min-h-[320px] md:min-h-[48vh]',
+  article: 'min-h-[300px] md:min-h-[42vh]',
+};
+
 export interface HeroProps {
   /** Page title — when set, overrides homepage headline from CMS. */
   headline?: string;
@@ -29,6 +38,8 @@ export interface HeroProps {
   breadcrumbs?: HeroBreadcrumb[];
   /** Override slideshow images; defaults to CMS hero gallery. */
   images?: SeoImageInput[];
+  /** Homepage is full viewport; SEO pages use shorter variants. */
+  size?: HeroSize;
   showScrollIndicator?: boolean;
   children?: ReactNode;
 }
@@ -42,11 +53,14 @@ export default function Hero({
   backLabel,
   breadcrumbs,
   images,
+  size,
   showScrollIndicator,
   children,
 }: HeroProps = {}) {
   const { hero } = useContent();
   const isPageMode = headline !== undefined;
+  const heroSize: HeroSize = size ?? (isPageMode ? 'article' : 'full');
+  const isCompact = heroSize !== 'full';
 
   const rawImages: SeoImageInput[] =
     images ??
@@ -103,9 +117,11 @@ export default function Hero({
   return (
     <section
       id={isPageMode ? undefined : 'vision'}
-      className="relative flex h-screen w-full items-start justify-center overflow-hidden"
+      className={`relative w-full ${HERO_SIZE_CLASSES[heroSize]} ${
+        isCompact ? '' : 'flex items-start justify-center'
+      }`}
     >
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 overflow-hidden">
         {previousImageIndex !== null && (
           <Image
             key={`${slides[previousImageIndex].src}-${previousImageIndex}-previous`}
@@ -145,11 +161,21 @@ export default function Hero({
           />
         )}
 
-        <div className="absolute inset-0 z-10 bg-gradient-to-b from-black/30 via-transparent to-[#050505]" />
-        <div className="absolute inset-0 z-10 bg-black/20" />
+        <div
+          className={`absolute inset-0 z-10 ${
+            isCompact
+              ? 'bg-gradient-to-b from-black/45 via-black/25 to-stone-50'
+              : 'bg-gradient-to-b from-black/30 via-transparent to-[#050505]'
+          }`}
+        />
+        {!isCompact && <div className="absolute inset-0 z-10 bg-black/20" />}
       </div>
 
-      <div className="relative z-20 mx-auto max-w-7xl px-4 pt-24 text-center md:pt-28">
+      <div
+        className={`relative z-20 mx-auto w-full max-w-7xl px-4 text-center md:px-6 ${
+          isCompact ? 'pb-10 pt-24' : 'pt-24 md:pt-28'
+        }`}
+      >
         {breadcrumbs && breadcrumbs.length > 0 && (
           <nav className="mb-4 text-sm text-gray-400">
             {breadcrumbs.map((crumb, i) => (
@@ -189,9 +215,13 @@ export default function Hero({
 
         <h1
           className={
-            isPageMode
-              ? 'mx-auto mb-6 max-w-5xl text-4xl font-bold leading-[0.95] tracking-tighter text-white drop-shadow-2xl md:text-6xl lg:text-7xl'
-              : 'mb-8 whitespace-nowrap text-4xl font-bold leading-[0.9] tracking-tighter text-white drop-shadow-2xl md:text-6xl lg:text-8xl'
+            heroSize === 'full'
+              ? 'mb-8 whitespace-nowrap text-4xl font-bold leading-[0.9] tracking-tighter text-white drop-shadow-2xl md:text-6xl lg:text-8xl'
+              : heroSize === 'hub'
+                ? 'mx-auto mb-4 max-w-5xl text-4xl font-bold leading-[0.95] tracking-tighter text-white drop-shadow-2xl md:text-5xl lg:text-6xl'
+                : heroSize === 'index'
+                  ? 'mx-auto mb-4 max-w-5xl text-3xl font-bold leading-[0.95] tracking-tighter text-white drop-shadow-2xl md:text-5xl lg:text-6xl'
+                  : 'mx-auto mb-3 max-w-4xl text-3xl font-bold leading-[0.95] tracking-tighter text-white drop-shadow-2xl md:text-4xl lg:text-5xl'
           }
         >
           {displayHeadline}
@@ -200,16 +230,24 @@ export default function Hero({
         {displaySubhead && (
           <p
             className={
-              isPageMode
-                ? 'mx-auto max-w-3xl text-lg font-bold uppercase leading-relaxed tracking-wide text-white drop-shadow-lg md:text-xl'
-                : 'mx-auto max-w-2xl text-lg font-bold uppercase tracking-wide text-white drop-shadow-lg md:text-2xl'
+              heroSize === 'full'
+                ? 'mx-auto max-w-2xl text-lg font-bold uppercase tracking-wide text-white drop-shadow-lg md:text-2xl'
+                : heroSize === 'article'
+                  ? 'mx-auto max-w-2xl text-base font-bold uppercase leading-relaxed tracking-wide text-white drop-shadow-lg md:text-lg'
+                  : 'mx-auto max-w-3xl text-lg font-bold uppercase leading-relaxed tracking-wide text-white drop-shadow-lg md:text-xl'
             }
           >
             {displaySubhead}
           </p>
         )}
 
-        {children && <div className="mt-8 flex flex-wrap items-center justify-center gap-4">{children}</div>}
+        {children && (
+          <div
+            className={`flex flex-wrap items-center justify-center gap-4 ${isCompact ? 'mt-6' : 'mt-8'}`}
+          >
+            {children}
+          </div>
+        )}
       </div>
 
       {showScroll && (

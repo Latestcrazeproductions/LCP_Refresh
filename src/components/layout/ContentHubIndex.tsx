@@ -32,6 +32,7 @@ export function ContentHubIndex({ section, content }: ContentHubIndexProps) {
           title={hub.title}
           description={hub.lead}
           imageLabel={hub.imageLabel}
+          size="index"
         />
 
         <section className="px-6 py-12">
