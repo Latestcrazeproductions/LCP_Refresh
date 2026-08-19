@@ -9,6 +9,7 @@ import type {
 } from './types.js';
 import { AGENT_MAP, SERVICE_ROTATION } from './types.js';
 import { isNationwideHubLive } from './registry.js';
+import { needsToolPageBuild } from './tool-pages.js';
 
 interface ScheduleInput {
   cadence: Cadence;
@@ -123,7 +124,7 @@ export function scheduleTasks(input: ScheduleInput): Task[] {
           })
         );
       }
-      if (!pages.some((page) => page.url === '/resources/event-production-checklist' && page.implementationStatus === 'live')) {
+      if (needsToolPageBuild(pages)) {
         tasks.push(
           task('demand.tool_page', 'B', 'Phase 1 planning resource', '/resources/event-production-checklist', {
           url: '/resources/event-production-checklist',

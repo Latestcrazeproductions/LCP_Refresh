@@ -11,6 +11,7 @@ Track B — case studies, venue guides, planning tools.
 ## Rules
 
 - Case studies: min 800 words, outcome + industry, >=1 project image — narrative is fine; include at least one list (deliverables, outcomes, or lessons)
+- Planning tools / checklists (`/resources/*`): min **800 words**, **4+ timeline or topic H2 sections**, **25+ checklist items** total across lists, plus one short closing anecdote section
 - Venue guides / tools: follow blog structure where applicable — **2–3 lists**, any anecdote in the final section only
 - Voice: credible insider, not boilerplate. Humor deadpan **4/10** if used at all
 - No unapproved client names or pricing

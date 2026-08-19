@@ -8,6 +8,7 @@ Review the PR diff only. Fail if:
 - Missing primary CTA (/contact, tel:, or quote)
 - Strategy blog < 1200 words or missing business-outcome section
 - Case study < 800 words
+- Planning tool / checklist page < 800 words or fewer than 25 checklist items across lists
 - Thin duplicate geo content
 - Equipment-brochure tone on strategy blogs
 - Generic SEO filler tone: no personality, no insider detail, reads like a vendor pamphlet or AI template (fail capture blogs especially)
