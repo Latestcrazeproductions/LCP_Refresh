@@ -43,7 +43,7 @@ export interface RotationState {
   geoBatchB: string[];
   serviceRotationIndex: number;
   strategyBlogWeek: boolean;
-  /** Cycles Mon→Fri categories when cadence=daily (0=captureBlog … 4=geo). */
+  /** @deprecated Daily runs all categories; index unused by scheduler. */
   categoryDayIndex?: number;
   /** Rotates authority task variants on authority days. */
   authorityRotationIndex?: number;

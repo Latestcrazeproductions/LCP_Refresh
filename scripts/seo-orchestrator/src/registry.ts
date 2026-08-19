@@ -5,7 +5,6 @@ import type {
   RegistryConfig,
   RotationState,
 } from './types.js';
-import { DAILY_CATEGORY_ORDER } from './types.js';
 
 export interface RegistryPaths {
   root: string;
@@ -71,23 +70,19 @@ export function advanceRotationWeek(rotation: RotationState): RotationState {
   };
 }
 
-/** Advance daily category cycle (Mon–Fri) and service/authority rotation counters. */
-export function advanceRotationCategory(rotation: RotationState): RotationState {
-  const currentIndex = rotation.categoryDayIndex ?? 0;
-  const currentCategory = DAILY_CATEGORY_ORDER[currentIndex % DAILY_CATEGORY_ORDER.length];
-  const nextIndex = currentIndex >= DAILY_CATEGORY_ORDER.length - 1 ? 0 : currentIndex + 1;
-
+/** Advance service/authority rotation counters after a full daily run. */
+export function advanceRotationDaily(rotation: RotationState): RotationState {
   return {
     ...rotation,
-    categoryDayIndex: nextIndex,
-    serviceRotationIndex:
-      currentCategory === 'service' ? rotation.serviceRotationIndex + 1 : rotation.serviceRotationIndex,
-    authorityRotationIndex:
-      currentCategory === 'authority'
-        ? (rotation.authorityRotationIndex ?? 0) + 1
-        : (rotation.authorityRotationIndex ?? 0),
+    serviceRotationIndex: rotation.serviceRotationIndex + 1,
+    authorityRotationIndex: (rotation.authorityRotationIndex ?? 0) + 1,
     lastAdvancedAt: new Date().toISOString().slice(0, 10),
   };
+}
+
+/** @deprecated Use advanceRotationDaily — daily now runs all categories each run. */
+export function advanceRotationCategory(rotation: RotationState): RotationState {
+  return advanceRotationDaily(rotation);
 }
 
 export function touchPage(pages: PageRecord[], url: string): PageRecord[] {

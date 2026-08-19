@@ -95,28 +95,24 @@ function daily(
     rotation: { ...rotation, ...rotationOverride },
     pages,
     researchLastScanAt: null,
-    maxTasks: 1,
+    maxTasks: 5,
     nationalTopics: topics,
     strategyTopics: [{ slug: 'strategy-topic', title: 'Strategy', track: 'B', status: 'queued' }],
     blockedTargetKeys,
   });
 }
 
-test('daily scheduler emits one capture blog on captureBlog day', () => {
-  const tasks = daily([], { categoryDayIndex: 0 });
-  assert.equal(tasks.length, 1);
-  assert.equal(tasks[0]?.type, 'blog.national.create');
-  assert.equal(tasks[0]?.targetKey, 'reserved-topic');
+test('daily scheduler emits one task per category', () => {
+  const tasks = daily([]);
+  assert.equal(tasks.length, 5);
+  assert.equal(tasks.filter((t) => t.type === 'blog.national.create').length, 2);
+  assert.ok(tasks.some((t) => t.type === 'service.gallery_swap'));
+  assert.ok(tasks.some((t) => t.type === 'authority.strategy_blog'));
+  assert.ok(tasks.some((t) => t.type === 'authority.case_study'));
 });
 
-test('daily scheduler emits service refresh on service day', () => {
-  const tasks = daily([], { categoryDayIndex: 1, serviceRotationIndex: 0 });
-  assert.equal(tasks.length, 1);
-  assert.equal(tasks[0]?.type, 'service.gallery_swap');
-});
-
-test('daily scheduler emits strategy blog on strategyBlog day', () => {
-  const tasks = daily([], { categoryDayIndex: 2 });
-  assert.equal(tasks.length, 1);
-  assert.equal(tasks[0]?.type, 'authority.strategy_blog');
+test('daily scheduler skips reserved capture topics and picks next', () => {
+  const tasks = daily([], {}, new Set(['reserved-topic']));
+  const blogs = tasks.filter((t) => t.type === 'blog.national.create');
+  assert.ok(blogs.every((t) => t.targetKey === 'next-topic'));
 });

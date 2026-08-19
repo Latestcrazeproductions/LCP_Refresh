@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  advanceRotationCategory,
+  advanceRotationDaily,
   advanceRotationWeek,
   getRegistryPaths,
   loadConfig,
@@ -95,10 +95,6 @@ async function main() {
   }
 
   const mix = contentMixSummary(tasks);
-  const dailyCategory =
-    cadence === 'daily'
-      ? DAILY_CATEGORY_ORDER[(rotation.categoryDayIndex ?? 0) % DAILY_CATEGORY_ORDER.length]
-      : undefined;
 
   console.log(
     JSON.stringify(
@@ -108,8 +104,7 @@ async function main() {
         agentRef: getAgentRef(),
         startingRef: getStartingRef(),
         week: rotation.week,
-        categoryDayIndex: rotation.categoryDayIndex ?? 0,
-        dailyCategory,
+        dailyCategories: cadence === 'daily' ? DAILY_CATEGORY_ORDER : undefined,
         taskCount: tasks.length,
         mix,
         tasks,
@@ -155,8 +150,8 @@ async function main() {
   }
 
   if (advanceRotation && cadence === 'daily') {
-    saveRotation(paths, advanceRotationCategory(rotation));
-    console.error('\nAdvanced daily category rotation.');
+    saveRotation(paths, advanceRotationDaily(rotation));
+    console.error('\nAdvanced daily rotation counters.');
   } else if (advanceRotation && cadence === 'weekly') {
     saveRotation(paths, advanceRotationWeek(rotation));
     console.error('\nAdvanced rotation week.');

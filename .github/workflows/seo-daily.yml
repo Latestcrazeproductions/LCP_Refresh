@@ -16,7 +16,7 @@ on:
       max_tasks:
         description: Max tasks per run
         required: false
-        default: '1'
+        default: '5'
       only_type:
         description: Optional task type filter (e.g. blog.national.create)
         required: false
@@ -40,9 +40,9 @@ jobs:
       - run: npm run seed-registry
       - run: npm ci
         working-directory: scripts/seo-orchestrator
-      - name: Dispatch daily category task
+      - name: Dispatch daily tasks (one per category)
         run: |
-          ARGS="--cadence daily --max-tasks ${{ inputs.max_tasks || '1' }} --advance-rotation"
+          ARGS="--cadence daily --max-tasks ${{ inputs.max_tasks || '5' }} --advance-rotation"
           if [ -n "${{ inputs.only_type }}" ]; then
             ARGS="$ARGS --only-type ${{ inputs.only_type }}"
           fi

@@ -136,7 +136,7 @@ Monthly: commit GSC CSV → `content-registry/gsc-snapshot/`; update `metrics.js
 
 | Cadence | Automation | Human |
 |---------|------------|-------|
-| **Daily Mon–Fri 9am PT** | **1 content category** (capture → service → strategy → authority → geo) | Review PR 30–60 min |
+| **Daily Mon–Fri 9am PT** | **One task per category** (capture, service, strategy, authority, geo) — up to 5 agent PRs | Review PRs 30–60 min each |
 | Monthly 1st | ResearchAgent → Track B | Update metrics actuals |
 | Quarterly | Deep refresh, tools, competitor audit | Pruning decisions |
 | Phase build | Manual only | Extended review |

@@ -1,6 +1,6 @@
 {
   "quarter": "2026-Q3",
-  "cadenceNote": "13 queued capture topics = one national blog per week (daily captureBlog rotation).",
+  "cadenceNote": "13 queued capture topics supports ~2.5 weeks at 2 capture blogs/day (capture + geo fallback slots). Add strategy topics separately.",
   "topics": [
     {
       "slug": "corporate-gala-production-guide",

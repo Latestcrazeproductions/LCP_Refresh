@@ -36,7 +36,7 @@ Use checklist in [AGENT_SEO_AUTOMATION.md § Human review](./AGENT_SEO_AUTOMATIO
 
 ## Cost controls
 
-- Default daily workflow uses `--max-tasks 1` (one content category per weekday)
+- Default daily workflow uses `--max-tasks 5` (one task per content category)
 - Phase builds: manual trigger only; max 10 sites per PR for geo
 - Use `--dry-run` locally before changing scheduler logic
 

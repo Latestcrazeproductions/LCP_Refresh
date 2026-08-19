@@ -7,7 +7,7 @@ import type {
   Task,
   Track,
 } from './types.js';
-import { AGENT_MAP, SERVICE_ROTATION, DAILY_CATEGORY_ORDER } from './types.js';
+import { AGENT_MAP, SERVICE_ROTATION } from './types.js';
 import { isNationwideHubLive } from './registry.js';
 import { needsToolPageBuild } from './tool-pages.js';
 
@@ -63,6 +63,104 @@ function oldestServicePage(pages: PageRecord[], filter?: (p: PageRecord) => bool
     .filter((p) => (filter ? filter(p) : true))
     .sort((a, b) => (a.lastUpdated ?? '').localeCompare(b.lastUpdated ?? ''));
   return candidates[0];
+}
+
+function scheduleDailyTasks(
+  config: RegistryConfig,
+  rotation: RotationState,
+  pages: PageRecord[],
+  nationalTopics: ContentTopic[] | undefined,
+  strategyTopics: ContentTopic[] | undefined,
+  blockedTargetKeys: Set<string>
+): Task[] {
+  const tasks: Task[] = [];
+  const geoAllowed = config.allowNewGeoSites && isNationwideHubLive(pages, config.nationwideHubUrl);
+  const nationalOnly = config.phase < 2 || !geoAllowed;
+  const usedNationalSlugs = new Set(blockedTargetKeys);
+
+  const captureTopic = queuedTopic(nationalTopics, pages, usedNationalSlugs);
+  if (captureTopic) {
+    tasks.push(
+      task('blog.national.create', 'A', `Daily capture blog: ${captureTopic.title}`, captureTopic.slug, {
+        url: `/blog/${captureTopic.slug}`,
+      })
+    );
+    usedNationalSlugs.add(captureTopic.slug);
+  }
+
+  const serviceUrl =
+    SERVICE_ROTATION[rotation.serviceRotationIndex % SERVICE_ROTATION.length] ??
+    '/services/led-walls';
+  if (rotation.serviceRotationIndex % 2 === 0) {
+    tasks.push(
+      task('service.gallery_swap', 'A', `Gallery swap on ${serviceUrl}`, serviceUrl, { url: serviceUrl })
+    );
+  } else {
+    const faqTarget = oldestServicePage(pages, (p) => p.layer === 'national') ?? oldestServicePage(pages);
+    if (faqTarget) {
+      tasks.push(
+        task('service.faq_refresh', 'A', `FAQ refresh on ${faqTarget.url}`, faqTarget.url, {
+          url: faqTarget.url,
+        })
+      );
+    } else {
+      tasks.push(
+        task('service.gallery_swap', 'A', `Gallery swap on ${serviceUrl}`, serviceUrl, { url: serviceUrl })
+      );
+    }
+  }
+
+  const strategyTopic = queuedTopic(strategyTopics, pages, blockedTargetKeys);
+  if (strategyTopic) {
+    tasks.push(
+      task('authority.strategy_blog', 'B', `Daily strategy blog: ${strategyTopic.title}`, strategyTopic.slug, {
+        url: `/blog/${strategyTopic.slug}`,
+      })
+    );
+  }
+
+  const authoritySlot = (rotation.authorityRotationIndex ?? 0) % 3;
+  if (authoritySlot === 0) {
+    tasks.push(
+      task('authority.case_study', 'B', 'Daily case study draft or refresh', '/work/night-of-hope', {
+        url: '/work/night-of-hope',
+      })
+    );
+  } else if (authoritySlot === 1 && needsToolPageBuild(pages)) {
+    tasks.push(
+      task('demand.tool_page', 'B', 'Daily planning tool page', '/resources/event-production-checklist', {
+        url: '/resources/event-production-checklist',
+      })
+    );
+  } else if (authoritySlot === 2) {
+    tasks.push(task('authority.venue_guide', 'B', 'Daily venue guide refresh', 'daily-venue-guide'));
+  } else {
+    tasks.push(
+      task('authority.case_study', 'B', 'Daily case study draft or refresh', '/work/night-of-hope', {
+        url: '/work/night-of-hope',
+      })
+    );
+  }
+
+  if (!nationalOnly && rotation.geoBatchA.length > 0) {
+    const siteId = rotation.geoBatchA[rotation.serviceRotationIndex % rotation.geoBatchA.length];
+    if (siteId) {
+      tasks.push(
+        task('blog.geo.create', 'A', `Daily geo blog for ${siteId}`, `${siteId}:blog`, { siteId })
+      );
+    }
+  } else {
+    const geoFallback = queuedTopic(nationalTopics, pages, usedNationalSlugs);
+    if (geoFallback) {
+      tasks.push(
+        task('blog.national.create', 'A', `Geo-slot capture blog: ${geoFallback.title}`, geoFallback.slug, {
+          url: `/blog/${geoFallback.slug}`,
+        })
+      );
+    }
+  }
+
+  return tasks;
 }
 
 export function scheduleTasks(input: ScheduleInput): Task[] {
@@ -192,95 +290,14 @@ export function scheduleTasks(input: ScheduleInput): Task[] {
   }
 
   if (cadence === 'daily') {
-    const categoryIndex = rotation.categoryDayIndex ?? 0;
-    const category = DAILY_CATEGORY_ORDER[categoryIndex % DAILY_CATEGORY_ORDER.length];
-
-    if (category === 'captureBlog') {
-      const topic = queuedTopic(nationalTopics, pages, blockedTargetKeys);
-      if (topic) {
-        tasks.push(
-          task('blog.national.create', 'A', `Daily capture blog: ${topic.title}`, topic.slug, {
-            url: `/blog/${topic.slug}`,
-          })
-        );
-      }
-    } else if (category === 'service') {
-      const serviceUrl =
-        SERVICE_ROTATION[rotation.serviceRotationIndex % SERVICE_ROTATION.length] ??
-        '/services/led-walls';
-      if (rotation.serviceRotationIndex % 2 === 0) {
-        tasks.push(
-          task('service.gallery_swap', 'A', `Gallery swap on ${serviceUrl}`, serviceUrl, { url: serviceUrl })
-        );
-      } else {
-        const faqTarget = oldestServicePage(pages, (p) => p.layer === 'national') ?? oldestServicePage(pages);
-        if (faqTarget) {
-          tasks.push(
-            task('service.faq_refresh', 'A', `FAQ refresh on ${faqTarget.url}`, faqTarget.url, {
-              url: faqTarget.url,
-            })
-          );
-        } else {
-          tasks.push(
-            task('service.gallery_swap', 'A', `Gallery swap on ${serviceUrl}`, serviceUrl, { url: serviceUrl })
-          );
-        }
-      }
-    } else if (category === 'strategyBlog') {
-      const topic = queuedTopic(strategyTopics, pages, blockedTargetKeys);
-      if (topic) {
-        tasks.push(
-          task('authority.strategy_blog', 'B', `Daily strategy blog: ${topic.title}`, topic.slug, {
-            url: `/blog/${topic.slug}`,
-          })
-        );
-      }
-    } else if (category === 'authority') {
-      const authoritySlot = (rotation.authorityRotationIndex ?? 0) % 3;
-      if (authoritySlot === 0) {
-        tasks.push(
-          task('authority.case_study', 'B', 'Daily case study draft or refresh', '/work/night-of-hope', {
-            url: '/work/night-of-hope',
-          })
-        );
-      } else if (authoritySlot === 1 && needsToolPageBuild(pages)) {
-        tasks.push(
-          task('demand.tool_page', 'B', 'Daily planning tool page', '/resources/event-production-checklist', {
-            url: '/resources/event-production-checklist',
-          })
-        );
-      } else if (authoritySlot === 2) {
-        tasks.push(
-          task('authority.venue_guide', 'B', 'Daily venue guide refresh', 'daily-venue-guide')
-        );
-      } else {
-        tasks.push(
-          task('authority.case_study', 'B', 'Daily case study draft or refresh', '/work/night-of-hope', {
-            url: '/work/night-of-hope',
-          })
-        );
-      }
-    } else if (category === 'geo') {
-      if (!nationalOnly) {
-        const siteId = rotation.geoBatchA[rotation.serviceRotationIndex % rotation.geoBatchA.length];
-        if (siteId) {
-          tasks.push(
-            task('blog.geo.create', 'A', `Daily geo blog for ${siteId}`, `${siteId}:blog`, { siteId })
-          );
-        }
-      } else {
-        const topic = queuedTopic(nationalTopics, pages, blockedTargetKeys);
-        if (topic) {
-          tasks.push(
-            task('blog.national.create', 'A', `Geo-fallback capture blog: ${topic.title}`, topic.slug, {
-              url: `/blog/${topic.slug}`,
-            })
-          );
-        }
-      }
-    }
-
-    return tasks.slice(0, maxTasks);
+    return scheduleDailyTasks(
+      config,
+      rotation,
+      pages,
+      nationalTopics,
+      strategyTopics,
+      blockedTargetKeys
+    ).slice(0, maxTasks);
   }
 
   // weekly (legacy — prefer daily cadence)
