@@ -26,21 +26,25 @@ jobs:
       - run: npm run seed-registry
       - run: npm ci
         working-directory: scripts/seo-orchestrator
-      - run: npm run seo:run -- --cadence monthly --max-tasks 5
+      - run: npm run seo:run -- --cadence monthly --max-tasks 6
         working-directory: scripts/seo-orchestrator
         env:
           CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
           CURSOR_STARTING_REF: development
           CURSOR_AGENT_REF: development
-      - name: Persist task reservations
+      - name: Persist research and topic queue state
         if: always()
         run: |
           git config user.name "lcp-seo-bot"
           git config user.email "seo-bot@latestcrazeproductions.com"
-          git add content-registry/task-reservations.json
+          git add content-registry/task-reservations.json \
+            content-registry/research.json \
+            content-library/topics/national-blog-topics.json \
+            content-library/topics/strategy-blog-topics.json \
+            content-library/research/briefs/
           if git diff --cached --quiet; then
-            echo "No reservation changes."
+            echo "No research or reservation changes."
             exit 0
           fi
-          git commit -m "Persist SEO task reservations"
+          git commit -m "Persist SEO research and topic queue state"
           git push origin HEAD:development

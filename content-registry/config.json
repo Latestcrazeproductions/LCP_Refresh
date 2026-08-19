@@ -4,7 +4,11 @@
   "flagshipDomain": "latestcrazeproductions.com",
   "nationwideHubUrl": "/nationwide-event-production",
   "researchStaleDays": 35,
-  "maxTasksPerRun": 5,
+  "maxTasksPerRun": 6,
+  "topicQueues": {
+    "nationalCaptureMinQueued": 45,
+    "strategyMinQueued": 22
+  },
   "contentMixTarget": {
     "service": 0.55,
     "captureBlog": 0.15,

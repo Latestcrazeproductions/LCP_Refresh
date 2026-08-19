@@ -15,6 +15,7 @@
     "seo:dry-run": "npm run seo:run --prefix scripts/seo-orchestrator -- --cadence daily --dry-run",
     "seo:dry-run:weekly": "npm run seo:run --prefix scripts/seo-orchestrator -- --cadence weekly --dry-run",
     "seo:dry-run:monthly": "npm run seo:run --prefix scripts/seo-orchestrator -- --cadence monthly --dry-run",
+    "seo:topic-stats": "npm run topic-stats --prefix scripts/seo-orchestrator",
     "seo:live": "npm run seo:run --prefix scripts/seo-orchestrator -- --cadence daily --max-tasks 5 --advance-rotation",
     "seo:test": "npm test --prefix scripts/seo-orchestrator",
     "sync:linear-build-plan": "node scripts/sync-build-plan-to-linear.mjs",

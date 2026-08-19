@@ -1,6 +1,6 @@
 {
   "quarter": "2026-Q3",
-  "cadenceNote": "13 queued strategy topics = one Track B blog per weekday for ~2.5 weeks at daily cadence (1 strategy task/run). Replenish monthly.",
+  "cadenceNote": "Target 22 queued strategy topics (config.topicQueues.strategyMinQueued). ResearchAgent replenishes monthly on the 1st.",
   "topics": [
     {
       "slug": "event-production-roi-for-planners",

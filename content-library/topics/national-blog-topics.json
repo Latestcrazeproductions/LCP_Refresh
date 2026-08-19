@@ -1,6 +1,6 @@
 {
   "quarter": "2026-Q3",
-  "cadenceNote": "13 queued capture topics supports ~2.5 weeks at 2 capture blogs/day (capture + geo fallback slots). Add strategy topics separately.",
+  "cadenceNote": "Target 45 queued capture topics (config.topicQueues.nationalCaptureMinQueued). ResearchAgent replenishes monthly on the 1st.",
   "topics": [
     {
       "slug": "corporate-gala-production-guide",

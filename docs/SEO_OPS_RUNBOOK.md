@@ -23,6 +23,17 @@ Commit updated `content-registry/pages.jsonl`.
 1. Disable scheduled workflows in GitHub Actions (SEO Daily / Monthly / Quarterly)
 2. Set `content-registry/config.json` → `"allowNewGeoSites": false` to block geo tasks in scheduler
 
+## Monthly topic queue replenishment
+
+On the **1st of each month**, `seo-monthly.yml` dispatches `research.topic_queue_replenish` first. ResearchAgent tops up:
+
+| Queue | File | Target queued |
+|-------|------|----------------|
+| National capture (Track A) | `content-library/topics/national-blog-topics.json` | **45** (~2/day × 22 weekdays) |
+| Strategy (Track B) | `content-library/topics/strategy-blog-topics.json` | **22** (~1/day × 22 weekdays) |
+
+Adjust targets in `content-registry/config.json` → `topicQueues`. Human review the research PR before the daily runs drain the new topics.
+
 ## Monthly intelligence update (no Semrush)
 
 1. Export GSC queries + pages CSV → `content-registry/gsc-snapshot/YYYY-MM/`

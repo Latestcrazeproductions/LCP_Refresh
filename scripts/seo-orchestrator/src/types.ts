@@ -35,6 +35,12 @@ export interface RegistryConfig {
   nationwideHubUrl: string;
   researchStaleDays: number;
   maxTasksPerRun: number;
+  topicQueues?: {
+    /** Min queued Track A capture topics — replenished monthly (default 45). */
+    nationalCaptureMinQueued?: number;
+    /** Min queued Track B strategy topics — replenished monthly (default 22). */
+    strategyMinQueued?: number;
+  };
 }
 
 export interface RotationState {
@@ -103,6 +109,7 @@ export const AGENT_MAP: Record<string, string> = {
   'research.keyword_gap_scan': 'ResearchAgent',
   'research.trending_topics': 'ResearchAgent',
   'research.competitor_audit': 'ResearchAgent',
+  'research.topic_queue_replenish': 'ResearchAgent',
   'research.topic_brief': 'ResearchAgent',
   'blog.national.create': 'NationalContentAgent',
   'authority.strategy_blog': 'NationalContentAgent',

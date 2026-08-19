@@ -10,6 +10,10 @@ import type {
 import { AGENT_MAP, SERVICE_ROTATION } from './types.js';
 import { isNationwideHubLive } from './registry.js';
 import { needsToolPageBuild } from './tool-pages.js';
+import {
+  buildTopicReplenishDescription,
+  getTopicQueueSnapshot,
+} from './topic-queues.js';
 
 interface ScheduleInput {
   cadence: Cadence;
@@ -250,7 +254,14 @@ export function scheduleTasks(input: ScheduleInput): Task[] {
   }
 
   if (cadence === 'monthly') {
+    const queueSnapshot = getTopicQueueSnapshot(config, nationalTopics, strategyTopics);
     tasks.push(
+      task(
+        'research.topic_queue_replenish',
+        'B',
+        buildTopicReplenishDescription(queueSnapshot),
+        'monthly-topic-replenish'
+      ),
       task('research.keyword_gap_scan', 'A', 'Monthly gap scan before content assignment', 'monthly-keyword-gap'),
       task('research.trending_topics', 'B', 'Refresh trending topics from sales intel + GSC', 'monthly-trends')
     );
