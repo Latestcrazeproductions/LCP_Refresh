@@ -152,6 +152,33 @@ export const siteContent = {
             'Full Redundancy for Mission-Critical Events',
           ],
         },
+        faq: [
+          {
+            question: 'What pixel pitch do I need for a corporate keynote?',
+            answer:
+              'Match pitch to your farthest seat, not the stage lip. For most hotel ballrooms with seats 10–25 feet from the wall, 2.3–2.6mm is the practical sweet spot. Thrust stages and exhibit booths under 10 feet need 1.5–1.9mm. Rooms deeper than 50 feet often benefit from delay screens instead of chasing a finer pitch on one hero wall. See our LED wall sizing guide for viewing-distance tiers.',
+          },
+          {
+            question: 'Do your LED walls include redundancy for live events?',
+            answer:
+              'Yes — mission-critical general sessions get dual-path processing, hot spares where the show file demands it, and module-level failover planning before load-in. A CEO walk-on is not the moment to discover your sending card has opinions. We document failover paths in pre-pro so show callers know what happens if a section drops.',
+          },
+          {
+            question: 'Can you configure curved, corner, or ultra-wide aspect ratio walls?',
+            answer:
+              'Standard builds include curved modules, corner wraps, and cinematic 32:9 ribbons. Content aspect ratio gets locked before wall dimensions — letterboxed slides on a mismatched canvas read as amateur hour, and we have both seen it. We provide native resolution and safe action areas to your motion designer before anyone opens After Effects.',
+          },
+          {
+            question: 'When should I use delay screens instead of one large wall?',
+            answer:
+              'Deep convention halls with chevron seating often need a center LED plus delay screens on the same feed — closer to the back half, better sight lines, less explaining during rehearsal. One monolithic wall sized for a photo op but unreadable from row 18 is a specific kind of pain. We run sight-line studies before you sign dimensions.',
+          },
+          {
+            question: 'How far in advance should I book an LED wall?',
+            answer:
+              'Four to six weeks covers most single-market keynotes with standard rigging. Multi-market tours or custom aspect builds with full-field calibration windows need 8–12 weeks. Rush timelines are possible depending on inventory and venue access — contact us with your dates and room dimensions and we will tell you honestly what is feasible.',
+          },
+        ],
       },
       {
         id: 'lighting',
