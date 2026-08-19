@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
+  advanceRotationCategory,
   advanceRotationWeek,
   getRegistryPaths,
   loadConfig,
@@ -24,6 +25,7 @@ import { buildFunnelGapReport, formatGapReportMarkdown } from './demand-math.js'
 import { formatCtaAuditMarkdown, runCtaAudit } from './conversion-audit.js';
 import { dispatchTasks, getAgentRef, getStartingRef } from './dispatch.js';
 import type { Cadence, ContentTopic } from './types.js';
+import { DAILY_CATEGORY_ORDER } from './types.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '../../..');
@@ -93,6 +95,10 @@ async function main() {
   }
 
   const mix = contentMixSummary(tasks);
+  const dailyCategory =
+    cadence === 'daily'
+      ? DAILY_CATEGORY_ORDER[(rotation.categoryDayIndex ?? 0) % DAILY_CATEGORY_ORDER.length]
+      : undefined;
 
   console.log(
     JSON.stringify(
@@ -102,6 +108,8 @@ async function main() {
         agentRef: getAgentRef(),
         startingRef: getStartingRef(),
         week: rotation.week,
+        categoryDayIndex: rotation.categoryDayIndex ?? 0,
+        dailyCategory,
         taskCount: tasks.length,
         mix,
         tasks,
@@ -146,7 +154,10 @@ async function main() {
     process.exit(2);
   }
 
-  if (advanceRotation && cadence === 'weekly') {
+  if (advanceRotation && cadence === 'daily') {
+    saveRotation(paths, advanceRotationCategory(rotation));
+    console.error('\nAdvanced daily category rotation.');
+  } else if (advanceRotation && cadence === 'weekly') {
     saveRotation(paths, advanceRotationWeek(rotation));
     console.error('\nAdvanced rotation week.');
   }

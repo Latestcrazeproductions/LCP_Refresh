@@ -1,8 +1,137 @@
 {
+  "quarter": "2026-Q3",
+  "cadenceNote": "13 queued capture topics = one national blog per week (daily captureBlog rotation).",
   "topics": [
-    { "slug": "corporate-gala-production-guide", "title": "Corporate Gala Production: A Planner's Guide", "track": "A", "opportunityScore": 0, "status": "queued" },
-    { "slug": "led-wall-sizing-for-events", "title": "How to Size LED Walls for Corporate Events", "track": "A", "opportunityScore": 0, "status": "published" },
-    { "slug": "hybrid-event-av-checklist", "title": "Hybrid Event AV Checklist for Corporate Teams", "track": "A", "opportunityScore": 0, "status": "published" },
-    { "slug": "general-session-design-tips", "title": "General Session Design That Keeps Attendees Engaged", "track": "A", "opportunityScore": 0, "status": "queued" }
+    {
+      "slug": "corporate-gala-production-guide",
+      "title": "Corporate Gala Production: A Planner's Guide",
+      "track": "A",
+      "opportunityScore": 90,
+      "status": "queued",
+      "primaryKeyword": "corporate gala production",
+      "serviceCta": "/services/lighting"
+    },
+    {
+      "slug": "general-session-design-tips",
+      "title": "General Session Design That Keeps Attendees Engaged",
+      "track": "A",
+      "opportunityScore": 88,
+      "status": "queued",
+      "primaryKeyword": "general session design",
+      "serviceCta": "/services/stage"
+    },
+    {
+      "slug": "keynote-stage-lighting-for-planners",
+      "title": "Keynote Stage Lighting: What Planners Should Specify",
+      "track": "A",
+      "opportunityScore": 86,
+      "status": "queued",
+      "primaryKeyword": "keynote stage lighting",
+      "serviceCta": "/services/lighting"
+    },
+    {
+      "slug": "corporate-event-audio-pre-show-checklist",
+      "title": "Corporate Event Audio: A Pre-Show Checklist for Planners",
+      "track": "A",
+      "opportunityScore": 85,
+      "status": "queued",
+      "primaryKeyword": "corporate event audio checklist",
+      "serviceCta": "/services/audio"
+    },
+    {
+      "slug": "breakout-room-av-that-scales",
+      "title": "Breakout Room AV Setup That Scales Across a Conference",
+      "track": "A",
+      "opportunityScore": 84,
+      "status": "queued",
+      "primaryKeyword": "breakout room av setup",
+      "serviceCta": "/services/audio"
+    },
+    {
+      "slug": "product-launch-av-run-of-show",
+      "title": "Product Launch Run-of-Show: AV Milestones Planners Own",
+      "track": "A",
+      "opportunityScore": 83,
+      "status": "queued",
+      "primaryKeyword": "product launch av production",
+      "serviceCta": "/services/led-walls"
+    },
+    {
+      "slug": "stage-deck-sizing-for-panels-and-keynotes",
+      "title": "Stage Deck Sizing for Panels and Keynotes",
+      "track": "A",
+      "opportunityScore": 82,
+      "status": "queued",
+      "primaryKeyword": "stage deck sizing events",
+      "serviceCta": "/services/stage"
+    },
+    {
+      "slug": "when-you-need-imag-and-delay-screens",
+      "title": "IMAG and Delay Screens: When You Need Them (and When You Don't)",
+      "track": "A",
+      "opportunityScore": 81,
+      "status": "queued",
+      "primaryKeyword": "imag delay screens events",
+      "serviceCta": "/services/led-walls"
+    },
+    {
+      "slug": "backstage-flow-for-corporate-events",
+      "title": "Backstage Flow for Corporate Events Without the Chaos",
+      "track": "A",
+      "opportunityScore": 80,
+      "status": "queued",
+      "primaryKeyword": "corporate event backstage production",
+      "serviceCta": "/services/stage"
+    },
+    {
+      "slug": "rf-microphone-planning-for-conferences",
+      "title": "RF Microphone Planning for Multi-Room Conferences",
+      "track": "A",
+      "opportunityScore": 79,
+      "status": "queued",
+      "primaryKeyword": "rf microphone planning events",
+      "serviceCta": "/services/audio"
+    },
+    {
+      "slug": "projection-vs-led-for-brand-moments",
+      "title": "Projection Mapping vs LED Walls for Brand Moments",
+      "track": "A",
+      "opportunityScore": 78,
+      "status": "queued",
+      "primaryKeyword": "projection mapping vs led walls",
+      "serviceCta": "/services/projection"
+    },
+    {
+      "slug": "sales-kickoff-production-timeline",
+      "title": "Sales Kickoff Production Timeline: What to Lock by 8 Weeks Out",
+      "track": "A",
+      "opportunityScore": 77,
+      "status": "queued",
+      "primaryKeyword": "sales kickoff av production timeline",
+      "serviceCta": "/services/led-walls"
+    },
+    {
+      "slug": "awards-show-cue-to-cue-for-planners",
+      "title": "Awards Show Cue-to-Cue: A Planner's First Pass",
+      "track": "A",
+      "opportunityScore": 76,
+      "status": "queued",
+      "primaryKeyword": "awards show cue to cue",
+      "serviceCta": "/services/lighting"
+    },
+    {
+      "slug": "led-wall-sizing-for-events",
+      "title": "How to Size LED Walls for Corporate Events",
+      "track": "A",
+      "opportunityScore": 0,
+      "status": "published"
+    },
+    {
+      "slug": "hybrid-event-av-checklist",
+      "title": "Hybrid Event AV Checklist for Corporate Teams",
+      "track": "A",
+      "opportunityScore": 0,
+      "status": "published"
+    }
   ]
 }

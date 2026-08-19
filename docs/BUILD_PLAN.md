@@ -77,7 +77,7 @@ npm run seo:run -- --cadence weekly --dry-run
 | 2.1 | `dispatch.ts` with explicit cloud config |
 | 2.2 | `ServiceRefreshAgent` prompt complete |
 | 2.3 | First agent PR (FAQ + date on one service page) |
-| 2.4 | `seo-weekly.yml` live (start with `--max-tasks 1`) |
+| 2.4 | `seo-daily.yml` live (`--max-tasks 1`, 1 category/weekday) |
 
 **Cost controls:** `composer-2.5`, max 5 tasks/run, phase builds manual only, Cursor spend limit set.
 
@@ -136,7 +136,7 @@ Monthly: commit GSC CSV → `content-registry/gsc-snapshot/`; update `metrics.js
 
 | Cadence | Automation | Human |
 |---------|------------|-------|
-| Weekly Mon 9am PT | Track A rotation + refresh | Review PR 30–60 min |
+| **Daily Mon–Fri 9am PT** | **1 content category** (capture → service → strategy → authority → geo) | Review PR 30–60 min |
 | Monthly 1st | ResearchAgent → Track B | Update metrics actuals |
 | Quarterly | Deep refresh, tools, competitor audit | Pruning decisions |
 | Phase build | Manual only | Extended review |

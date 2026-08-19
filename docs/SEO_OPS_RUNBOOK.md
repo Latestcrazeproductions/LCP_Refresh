@@ -20,7 +20,7 @@ Commit updated `content-registry/pages.jsonl`.
 
 ## Pause automation
 
-1. Disable scheduled workflows in GitHub Actions (SEO Weekly / Monthly / Quarterly)
+1. Disable scheduled workflows in GitHub Actions (SEO Daily / Monthly / Quarterly)
 2. Set `content-registry/config.json` → `"allowNewGeoSites": false` to block geo tasks in scheduler
 
 ## Monthly intelligence update (no Semrush)
@@ -36,7 +36,7 @@ Use checklist in [AGENT_SEO_AUTOMATION.md § Human review](./AGENT_SEO_AUTOMATIO
 
 ## Cost controls
 
-- Default weekly workflow uses `--max-tasks 2`
+- Default daily workflow uses `--max-tasks 1` (one content category per weekday)
 - Phase builds: manual trigger only; max 10 sites per PR for geo
 - Use `--dry-run` locally before changing scheduler logic
 

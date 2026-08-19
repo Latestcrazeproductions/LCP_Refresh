@@ -5,6 +5,7 @@ import type {
   RegistryConfig,
   RotationState,
 } from './types.js';
+import { DAILY_CATEGORY_ORDER } from './types.js';
 
 export interface RegistryPaths {
   root: string;
@@ -66,6 +67,25 @@ export function advanceRotationWeek(rotation: RotationState): RotationState {
     serviceRotationIndex:
       nextWeek === 1 ? rotation.serviceRotationIndex + 1 : rotation.serviceRotationIndex,
     strategyBlogWeek: nextWeek % 2 === 1 ? !rotation.strategyBlogWeek : rotation.strategyBlogWeek,
+    lastAdvancedAt: new Date().toISOString().slice(0, 10),
+  };
+}
+
+/** Advance daily category cycle (Mon–Fri) and service/authority rotation counters. */
+export function advanceRotationCategory(rotation: RotationState): RotationState {
+  const currentIndex = rotation.categoryDayIndex ?? 0;
+  const currentCategory = DAILY_CATEGORY_ORDER[currentIndex % DAILY_CATEGORY_ORDER.length];
+  const nextIndex = currentIndex >= DAILY_CATEGORY_ORDER.length - 1 ? 0 : currentIndex + 1;
+
+  return {
+    ...rotation,
+    categoryDayIndex: nextIndex,
+    serviceRotationIndex:
+      currentCategory === 'service' ? rotation.serviceRotationIndex + 1 : rotation.serviceRotationIndex,
+    authorityRotationIndex:
+      currentCategory === 'authority'
+        ? (rotation.authorityRotationIndex ?? 0) + 1
+        : (rotation.authorityRotationIndex ?? 0),
     lastAdvancedAt: new Date().toISOString().slice(0, 10),
   };
 }

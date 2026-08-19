@@ -83,3 +83,40 @@ test('weekly scheduler refreshes a live nationwide hub', () => {
   const tasks = weekly(pages);
   assert.equal(tasks.some((task) => task.type === 'service.date_touch'), true);
 });
+
+function daily(
+  pages: PageRecord[],
+  rotationOverride: Partial<RotationState> = {},
+  blockedTargetKeys = new Set<string>()
+) {
+  return scheduleTasks({
+    cadence: 'daily',
+    config,
+    rotation: { ...rotation, ...rotationOverride },
+    pages,
+    researchLastScanAt: null,
+    maxTasks: 1,
+    nationalTopics: topics,
+    strategyTopics: [{ slug: 'strategy-topic', title: 'Strategy', track: 'B', status: 'queued' }],
+    blockedTargetKeys,
+  });
+}
+
+test('daily scheduler emits one capture blog on captureBlog day', () => {
+  const tasks = daily([], { categoryDayIndex: 0 });
+  assert.equal(tasks.length, 1);
+  assert.equal(tasks[0]?.type, 'blog.national.create');
+  assert.equal(tasks[0]?.targetKey, 'reserved-topic');
+});
+
+test('daily scheduler emits service refresh on service day', () => {
+  const tasks = daily([], { categoryDayIndex: 1, serviceRotationIndex: 0 });
+  assert.equal(tasks.length, 1);
+  assert.equal(tasks[0]?.type, 'service.gallery_swap');
+});
+
+test('daily scheduler emits strategy blog on strategyBlog day', () => {
+  const tasks = daily([], { categoryDayIndex: 2 });
+  assert.equal(tasks.length, 1);
+  assert.equal(tasks[0]?.type, 'authority.strategy_blog');
+});

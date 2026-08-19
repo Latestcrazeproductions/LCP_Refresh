@@ -1,6 +1,16 @@
 export type Track = 'A' | 'B';
 export type Layer = 'national' | 'geo';
-export type Cadence = 'weekly' | 'monthly' | 'quarterly' | 'research' | 'phase';
+export type Cadence = 'daily' | 'weekly' | 'monthly' | 'quarterly' | 'research' | 'phase';
+
+export type DailyCategory = 'captureBlog' | 'service' | 'strategyBlog' | 'authority' | 'geo';
+
+export const DAILY_CATEGORY_ORDER: DailyCategory[] = [
+  'captureBlog',
+  'service',
+  'strategyBlog',
+  'authority',
+  'geo',
+];
 
 export interface PageRecord {
   url: string;
@@ -33,6 +43,10 @@ export interface RotationState {
   geoBatchB: string[];
   serviceRotationIndex: number;
   strategyBlogWeek: boolean;
+  /** Cycles Mon→Fri categories when cadence=daily (0=captureBlog … 4=geo). */
+  categoryDayIndex?: number;
+  /** Rotates authority task variants on authority days. */
+  authorityRotationIndex?: number;
   lastAdvancedAt: string | null;
 }
 

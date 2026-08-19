@@ -16,5 +16,7 @@
   ],
   "serviceRotationIndex": 0,
   "strategyBlogWeek": false,
+  "categoryDayIndex": 0,
+  "authorityRotationIndex": 0,
   "lastAdvancedAt": "2026-08-03"
 }
