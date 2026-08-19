@@ -41,11 +41,17 @@ function escapeHtml(text: string): string {
 }
 
 function processInline(text: string): string {
-  const escaped = escapeHtml(text);
-  return escaped.replace(
+  let out = escapeHtml(text);
+  out = out.replace(
+    /\*\*([^*]+)\*\*/g,
+    '<strong class="font-semibold text-white">$1</strong>'
+  );
+  out = out.replace(/\*([^*]+)\*/g, '<em class="italic text-white/90">$1</em>');
+  out = out.replace(
     /\[([^\]]+)\]\(([^)]+)\)/g,
     '<a href="$2" class="text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">$1</a>'
   );
+  return out;
 }
 
 export function getMarkdownPage(section: ContentSection, slug: string): MarkdownPage | null {
@@ -100,6 +106,9 @@ export function markdownToHtml(md: string): string {
   for (const block of blocks) {
     const lines = block.split('\n');
     const isListBlock = lines.every((line) => line.startsWith('- ') || line.trim() === '');
+    const isOrderedListBlock = lines.every(
+      (line) => /^\d+\.\s+/.test(line) || line.trim() === ''
+    );
 
     if (isListBlock && lines.some((line) => line.startsWith('- '))) {
       flushList();
@@ -107,6 +116,22 @@ export function markdownToHtml(md: string): string {
         .filter((line) => line.startsWith('- '))
         .map((line) => processInline(line.slice(2).trim()));
       flushList();
+      continue;
+    }
+
+    if (isOrderedListBlock && lines.some((line) => /^\d+\.\s+/.test(line))) {
+      flushList();
+      const items = lines
+        .filter((line) => /^\d+\.\s+/.test(line))
+        .map((line) => processInline(line.replace(/^\d+\.\s+/, '').trim()));
+      html.push(
+        `<ol class="mb-6 space-y-3">${items
+          .map(
+            (item, index) =>
+              `<li class="flex items-start gap-3 text-white/80 leading-relaxed"><span class="mt-0.5 shrink-0 font-mono text-sm text-blue-400/90">${index + 1}.</span><span>${item}</span></li>`
+          )
+          .join('')}</ol>`
+      );
       continue;
     }
 
