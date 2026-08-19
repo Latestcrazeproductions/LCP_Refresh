@@ -1,6 +1,6 @@
 import ContactCta from '@/components/ContactCta';
 import { ArticleLayout } from '@/components/layout/ArticleLayout';
-import { PageShell } from '@/components/layout/PageShell';
+import { SeoContentShell } from '@/components/layout/SeoContentShell';
 import { RelatedLinks } from '@/components/layout/RelatedLinks';
 import { ContentProvider } from '@/context/ContentContext';
 import {
@@ -30,7 +30,7 @@ export function ContentHubArticle({
 
   return (
     <ContentProvider content={content}>
-      <PageShell>
+      <SeoContentShell>
         <ArticleLayout
           title={page.title}
           description={page.description}
@@ -41,14 +41,14 @@ export function ContentHubArticle({
           imageLabel={page.title}
           footer={
             <>
-              <RelatedLinks links={hub.relatedLinks} />
+              <RelatedLinks links={hub.relatedLinks} variant="light" />
               <ContactCta content={content} />
             </>
           }
         >
-          <div dangerouslySetInnerHTML={{ __html: markdownToHtml(page.body) }} />
+          <div dangerouslySetInnerHTML={{ __html: markdownToHtml(page.body, 'light') }} />
         </ArticleLayout>
-      </PageShell>
+      </SeoContentShell>
     </ContentProvider>
   );
 }

@@ -14,6 +14,10 @@ function escapeXml(s: string): string {
     .replace(/'/g, '&apos;');
 }
 
+function originFromRequest(request: Request): string {
+  return new URL(request.url).origin;
+}
+
 export async function GET(request: Request) {
   const accept = request.headers.get('accept') ?? '';
   const now = new Date().toISOString().slice(0, 19) + 'Z';
@@ -22,7 +26,10 @@ export async function GET(request: Request) {
   const entries = sitePagesToSitemapEntries(groups, baseUrl, now);
 
   if (accept.includes('text/html')) {
-    const rows = entries
+    // Browser HTML view: link to the same host/port the user is on (avoids localhost:3000 vs 3002 mismatches).
+    const htmlBase = originFromRequest(request);
+    const htmlEntries = sitePagesToSitemapEntries(groups, htmlBase, now);
+    const rows = htmlEntries
       .map(
         (e) =>
           `<tr>
@@ -65,7 +72,7 @@ export async function GET(request: Request) {
   <div class="wrap">
     <h1>XML Sitemap</h1>
     <p class="sub">Latest Craze Productions — Site structure for search engines</p>
-    <div class="info">Human-friendly index: <a href="${escapeXml(baseUrl)}/pages">${escapeXml(baseUrl)}/pages</a></div>
+    <div class="info">Human-friendly index: <a href="${escapeXml(htmlBase)}/pages">${escapeXml(htmlBase)}/pages</a></div>
     <table>
       <thead><tr><th>URL</th><th>Priority</th><th>Change Freq.</th><th>Last Modified</th></tr></thead>
       <tbody>${rows}</tbody>
