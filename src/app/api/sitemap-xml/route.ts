@@ -1,6 +1,5 @@
 import { NextResponse } from 'next/server';
-import { getSiteContent } from '@/lib/content';
-import { listMarkdownSlugs } from '@/lib/markdown-pages';
+import { getSitePageIndex, sitePagesToSitemapEntries } from '@/lib/site-pages';
 
 export const revalidate = 3600;
 
@@ -19,84 +18,9 @@ export async function GET(request: Request) {
   const accept = request.headers.get('accept') ?? '';
   const now = new Date().toISOString().slice(0, 19) + 'Z';
 
-  let content;
-  try {
-    content = await getSiteContent();
-  } catch (err) {
-    console.error('Sitemap getSiteContent error:', err);
-    content = null;
-  }
+  const groups = await getSitePageIndex();
+  const entries = sitePagesToSitemapEntries(groups, baseUrl, now);
 
-  const eventItems = content?.eventTypes?.items ?? [];
-  const eventUrls = eventItems.map((item) => ({
-    url: `${baseUrl}/events/${item.id}`,
-    lastmod: now,
-    changefreq: 'monthly',
-    priority: 0.85,
-  }));
-
-  const serviceItems = content?.services?.items ?? [];
-  const serviceUrls = serviceItems.map((item) => ({
-    url: `${baseUrl}/services/${item.id}`,
-    lastmod: now,
-    changefreq: 'monthly',
-    priority: 0.85,
-  }));
-
-  const blogUrls = listMarkdownSlugs('blogs').map((slug) => ({
-    url: `${baseUrl}/blog/${slug}`,
-    lastmod: now,
-    changefreq: 'monthly',
-    priority: 0.7,
-  }));
-
-  const workUrls = listMarkdownSlugs('work').map((slug) => ({
-    url: `${baseUrl}/work/${slug}`,
-    lastmod: now,
-    changefreq: 'monthly',
-    priority: 0.75,
-  }));
-
-  const resourceUrls = listMarkdownSlugs('resources').map((slug) => ({
-    url: `${baseUrl}/resources/${slug}`,
-    lastmod: now,
-    changefreq: 'monthly',
-    priority: 0.7,
-  }));
-
-  const entries = [
-    { url: baseUrl, lastmod: now, changefreq: 'monthly', priority: 1 },
-    { url: `${baseUrl}/services`, lastmod: now, changefreq: 'monthly', priority: 0.9 },
-    { url: `${baseUrl}/events`, lastmod: now, changefreq: 'monthly', priority: 0.9 },
-    { url: `${baseUrl}/blog`, lastmod: now, changefreq: 'weekly', priority: 0.75 },
-    { url: `${baseUrl}/work`, lastmod: now, changefreq: 'monthly', priority: 0.75 },
-    { url: `${baseUrl}/resources`, lastmod: now, changefreq: 'monthly', priority: 0.7 },
-    { url: `${baseUrl}/about`, lastmod: now, changefreq: 'monthly', priority: 0.8 },
-    { url: `${baseUrl}/featured-venues`, lastmod: now, changefreq: 'monthly', priority: 0.75 },
-    {
-      url: `${baseUrl}/phoenix-av-production`,
-      lastmod: now,
-      changefreq: 'monthly',
-      priority: 0.85,
-    },
-    { url: `${baseUrl}/digital-signage`, lastmod: now, changefreq: 'monthly', priority: 0.75 },
-    {
-      url: `${baseUrl}/nationwide-event-production`,
-      lastmod: now,
-      changefreq: 'monthly',
-      priority: 0.9,
-    },
-    { url: `${baseUrl}/contact`, lastmod: now, changefreq: 'monthly', priority: 0.9 },
-    { url: `${baseUrl}/privacy`, lastmod: now, changefreq: 'yearly', priority: 0.5 },
-    { url: `${baseUrl}/terms`, lastmod: now, changefreq: 'yearly', priority: 0.5 },
-    ...eventUrls,
-    ...serviceUrls,
-    ...blogUrls,
-    ...workUrls,
-    ...resourceUrls,
-  ];
-
-  // Browsers send text/html; serve styled HTML directly (avoids XSL white-page issues)
   if (accept.includes('text/html')) {
     const rows = entries
       .map(
@@ -141,7 +65,7 @@ export async function GET(request: Request) {
   <div class="wrap">
     <h1>XML Sitemap</h1>
     <p class="sub">Latest Craze Productions — Site structure for search engines</p>
-    <div class="info">This sitemap helps search engines discover and index our pages. It is intended for crawlers; humans can browse the links below.</div>
+    <div class="info">Human-friendly index: <a href="${escapeXml(baseUrl)}/pages">${escapeXml(baseUrl)}/pages</a></div>
     <table>
       <thead><tr><th>URL</th><th>Priority</th><th>Change Freq.</th><th>Last Modified</th></tr></thead>
       <tbody>${rows}</tbody>
