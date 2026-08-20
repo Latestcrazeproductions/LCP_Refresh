@@ -215,7 +215,7 @@ Replaces the master spreadsheet. **`pages.jsonl`** is the single queue agents wo
 ```json
 {"url":"/services/led-walls","layer":"national","type":"service","keyword":"LED wall event production company","lastUpdated":"2026-06-10","nextAction":"faq_refresh","tier":"monthly","phase":1,"track":"A"}
 {"url":"/scottsdale-az/services/led-walls","layer":"geo","siteId":"scottsdale-az","type":"service","keyword":"LED walls Scottsdale","lastUpdated":"2026-05-01","nextAction":"local_proof_line","tier":"monthly","phase":2,"track":"A"}
-{"url":"/work/night-of-hope","layer":"national","type":"case_study","keyword":"corporate gala production Phoenix","lastUpdated":"2026-06-01","nextAction":"refresh_gallery","tier":"quarterly","phase":1,"track":"B"}
+{"url":"/work/heard-museum-gala","layer":"national","type":"case_study","keyword":"museum gala production","lastUpdated":null,"nextAction":"create","tier":"quarterly","phase":1,"track":"B"}
 {"url":"/resources/event-production-checklist","layer":"national","type":"tool","keyword":"event production checklist","lastUpdated":"2026-06-01","nextAction":"content_refresh","tier":"quarterly","phase":1,"track":"B"}
 ```
 

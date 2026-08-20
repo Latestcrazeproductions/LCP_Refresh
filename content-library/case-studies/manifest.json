@@ -1,15 +1,6 @@
 {
   "caseStudies": [
     {
-      "slug": "night-of-hope",
-      "title": "Night of Hope — Corporate Gala Production",
-      "track": "B",
-      "client": "Night of Hope",
-      "industry": "Nonprofit / Corporate",
-      "status": "published",
-      "minWords": 800
-    },
-    {
       "slug": "heard-museum-gala",
       "title": "Heard Museum Gala — Premium Event Production",
       "track": "B",

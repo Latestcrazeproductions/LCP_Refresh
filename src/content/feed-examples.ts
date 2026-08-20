@@ -118,7 +118,7 @@ const SAMPLE_CONTENT: Record<string, FeedPageContent> = {
       { href: '/events/galas-awards', label: 'Gala events overview' },
       { href: '/feeds/event-production', label: 'Event production' },
       { href: '/blog/corporate-gala-production-guide', label: 'Gala planning guide' },
-      { href: '/work/night-of-hope', label: 'Case study: Night of Hope' },
+      { href: '/work', label: 'Case studies' },
     ],
   },
 

@@ -126,8 +126,8 @@ function scheduleDailyTasks(
   const authoritySlot = (rotation.authorityRotationIndex ?? 0) % 3;
   if (authoritySlot === 0) {
     tasks.push(
-      task('authority.case_study', 'B', 'Daily case study draft or refresh', '/work/night-of-hope', {
-        url: '/work/night-of-hope',
+      task('authority.case_study', 'B', 'Daily case study draft or refresh', '/work/heard-museum-gala', {
+        url: '/work/heard-museum-gala',
       })
     );
   } else if (authoritySlot === 1 && needsToolPageBuild(pages)) {
@@ -140,8 +140,8 @@ function scheduleDailyTasks(
     tasks.push(task('authority.venue_guide', 'B', 'Daily venue guide refresh', 'daily-venue-guide'));
   } else {
     tasks.push(
-      task('authority.case_study', 'B', 'Daily case study draft or refresh', '/work/night-of-hope', {
-        url: '/work/night-of-hope',
+      task('authority.case_study', 'B', 'Daily case study draft or refresh', '/work/heard-museum-gala', {
+        url: '/work/heard-museum-gala',
       })
     );
   }
@@ -274,8 +274,8 @@ export function scheduleTasks(input: ScheduleInput): Task[] {
     tasks.push(
       task('conversion.cta_audit', 'B', 'Monthly CTA audit across live pages', 'monthly-cta'),
       task('metrics.monthly_review', 'B', 'Funnel gap report from metrics.json', 'monthly-metrics'),
-      task('authority.case_study', 'B', 'Publish or refresh one case study', '/work/night-of-hope', {
-        url: '/work/night-of-hope',
+      task('authority.case_study', 'B', 'Publish or refresh one case study', '/work/heard-museum-gala', {
+        url: '/work/heard-museum-gala',
       }),
       task('conversion.landing_improve', 'B', 'Improve hero CTA on lowest-converting landing', 'lowest-converting-landing')
     );
@@ -379,7 +379,9 @@ export function scheduleTasks(input: ScheduleInput): Task[] {
     }
     tasks.push(
       task('seo.meta_experiment', 'A', 'GSC title candidate page refresh', 'gsc-title-candidate'),
-      task('authority.case_study', 'B', 'Case study draft or refresh', '/work/night-of-hope', { url: '/work/night-of-hope' })
+      task('authority.case_study', 'B', 'Case study draft or refresh', '/work/heard-museum-gala', {
+        url: '/work/heard-museum-gala',
+      })
     );
   } else {
     if (!nationalOnly) {

@@ -5,7 +5,7 @@ import type { PageRecord } from './types.js';
 
 const base: PageRecord[] = [
   {
-    url: '/work/night-of-hope',
+    url: '/work/heard-museum-gala',
     layer: 'national',
     type: 'case_study',
     keyword: '',
@@ -14,7 +14,7 @@ const base: PageRecord[] = [
     tier: 'monthly',
     phase: 1,
     lastUpdated: '2026-06-01',
-    implementationStatus: 'live',
+    implementationStatus: 'planned',
   },
   {
     url: '/blog/led-wall-sizing-for-events',
@@ -30,15 +30,15 @@ const base: PageRecord[] = [
 test('upsert updates existing url in place without shifting neighbors', () => {
   const next = upsertPagesByUrl(base, [
     {
-      url: '/work/night-of-hope',
-      title: 'Night of Hope — Corporate Gala Production',
-      keyword: 'corporate gala production',
+      url: '/work/heard-museum-gala',
+      title: 'Heard Museum Gala — Premium Event Production',
+      keyword: 'museum gala production',
       lastUpdated: '2026-08-20',
     },
   ]);
   assert.equal(next.length, 2);
-  assert.equal(next[0]?.url, '/work/night-of-hope');
-  assert.equal(next[0]?.title, 'Night of Hope — Corporate Gala Production');
+  assert.equal(next[0]?.url, '/work/heard-museum-gala');
+  assert.equal(next[0]?.title, 'Heard Museum Gala — Premium Event Production');
   assert.equal(next[1]?.url, '/blog/led-wall-sizing-for-events');
 });
 
@@ -59,7 +59,7 @@ test('upsert appends a new url at the end', () => {
 
 test('upsert can apply multiple updates including mix of edit + append', () => {
   const next = upsertPagesByUrl(base, [
-    { url: '/work/night-of-hope', title: 'Updated' },
+    { url: '/work/heard-museum-gala', title: 'Updated' },
     { url: '/blog/new-post', title: 'New Post', type: 'blog' },
   ]);
   assert.equal(next.length, 3);

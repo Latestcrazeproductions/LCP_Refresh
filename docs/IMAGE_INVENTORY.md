@@ -45,7 +45,7 @@ Every inbound layout uses the same slot model. Count **slots**, not unique photo
 | `/blog` | 1 hub banner + 1 card = **2** |
 | `/blog/corporate-gala-production-guide` | 1 hero = **1** |
 | `/work` | 1 + 1 = **2** |
-| `/work/night-of-hope` | 1 hero = **1** |
+| `/work` | Index when case studies exist |
 | `/resources` | 1 + 1 = **2** |
 | `/resources/event-production-checklist` | 1 hero = **1** |
 | 4 feed previews | 4 × 3 = **12** |
@@ -112,7 +112,7 @@ These need **unique or semi-unique** images (credibility). Sourced from real pro
 | Content | Slug (now / queued) | Images needed | Brief |
 |---------|---------------------|---------------|-------|
 | Capture blog | `corporate-gala-production-guide` | Hero + card (1–2) | Planner-focused gala / ballroom |
-| Case study | `night-of-hope` | Hero + 2 section (3) | Gala stage, LED, awards flow |
+| Case study | `heard-museum-gala` (queued) | Hero + 2 section (3) | Gala stage, LED, awards flow |
 | Case study | `heard-museum-gala` (queued) | Hero + 2 section (3) | Arts gala, premium production |
 | Resource | `event-production-checklist` | Hero + card (1–2) | Clean planner / timeline aesthetic |
 | Strategy blogs | From `strategy-blog-topics.json` | 2 each | Business-outcome tone, not stock concert crowds |

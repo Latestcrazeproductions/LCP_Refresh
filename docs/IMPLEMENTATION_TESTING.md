@@ -93,8 +93,8 @@ Start dev server: `npm run dev`
 |-----|--------|
 | `/blog` | Index lists `corporate-gala-production-guide` |
 | `/blog/corporate-gala-production-guide` | Renders markdown |
-| `/work` | Index lists `night-of-hope` |
-| `/work/night-of-hope` | Case study renders |
+| `/work` | Index lists queued case studies when published |
+| `/work/[slug]` | Case study renders when markdown exists |
 | `/resources/event-production-checklist` | Resource page renders |
 | `/sitemap.xml` | Includes blog, work, resources URLs |
 

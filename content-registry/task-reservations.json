@@ -100,15 +100,6 @@
       "runId": "run-29fb1318-1a8e-4c93-a30e-218a908b4200"
     },
     {
-      "taskId": "authority.case_study:/work/night-of-hope",
-      "type": "authority.case_study",
-      "targetKey": "/work/night-of-hope",
-      "status": "in_review",
-      "cadence": "daily",
-      "dispatchedAt": "2026-08-20T16:38:29.429Z",
-      "runId": "run-280a662d-ad97-4b24-87b5-8c9c5c068080"
-    },
-    {
       "taskId": "blog.national.create:corporate-event-audio-pre-show-checklist",
       "type": "blog.national.create",
       "targetKey": "corporate-event-audio-pre-show-checklist",

@@ -227,7 +227,7 @@ The registry replaces a spreadsheet. **`pages.jsonl`** is one JSON object per li
 ```json
 {"url":"/services/led-walls","layer":"national","type":"service","track":"A","nextAction":"faq_refresh","tier":"monthly","phase":1}
 {"url":"/scottsdale-az/services/led-walls","layer":"geo","siteId":"scottsdale-az","type":"service","track":"A","nextAction":"local_proof_line","tier":"monthly","phase":2}
-{"url":"/work/night-of-hope","layer":"national","type":"case_study","track":"B","nextAction":"refresh_gallery","tier":"quarterly","phase":1}
+{"url":"/work/heard-museum-gala","layer":"national","type":"case_study","track":"B","nextAction":"create","tier":"quarterly","phase":1}
 ```
 
 Supporting files:
