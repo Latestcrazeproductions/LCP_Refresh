@@ -148,6 +148,16 @@ export function markdownToHtml(md: string, theme: MarkdownTheme = 'dark'): strin
 
     flushList();
 
+    const imageMatch = block.trim().match(/^!\[([^\]]*)\]\(([^)]+)\)$/);
+    if (imageMatch) {
+      const alt = escapeHtml(imageMatch[1]);
+      const src = escapeHtml(imageMatch[2]);
+      html.push(
+        `<figure class="my-8 overflow-hidden rounded-xl border ${isLight ? 'border-slate-200 bg-slate-50' : 'border-white/10 bg-white/5'}"><img src="${src}" alt="${alt}" class="w-full h-auto object-cover" loading="lazy" /><figcaption class="px-4 py-3 text-sm ${isLight ? 'text-slate-500' : 'text-white/50'}">${alt}</figcaption></figure>`
+      );
+      continue;
+    }
+
     if (block.startsWith('### ')) {
       html.push(
         `<h3 class="text-lg font-semibold mt-8 mb-3 ${h3Text}">${processInline(block.slice(4), theme)}</h3>`
