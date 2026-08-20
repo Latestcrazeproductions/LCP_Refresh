@@ -133,8 +133,8 @@ export const siteContent = {
             alt: 'Presenter seated in front of a large LED screen on an event stage',
           },
           {
-            src: 'https://images.unsplash.com/photo-1670941371559-f902cda879f2?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Wide LED wall and vertical LED columns behind performers on a live event stage',
+            src: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Ultra-wide seamless LED backdrop behind a presenter at a corporate general session',
           },
           {
             src: 'https://images.unsplash.com/photo-1670941371382-993b971d70c9?q=80&w=2070&auto=format&fit=crop',
