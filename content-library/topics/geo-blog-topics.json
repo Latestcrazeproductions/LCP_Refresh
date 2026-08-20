@@ -1,6 +1,32 @@
 {
+  "lastTrendingRefresh": "2026-08-01",
   "topics": [
-    { "slug": "scottsdale-corporate-event-venues", "siteId": "scottsdale-az", "track": "A", "status": "queued" },
-    { "slug": "dallas-conference-production-trends", "siteId": "dallas-tx", "track": "A", "status": "queued" }
+    {
+      "slug": "dallas-conference-production-trends",
+      "title": "Conference Production Trends in Dallas, TX",
+      "siteId": "dallas-tx",
+      "track": "A",
+      "opportunityScore": 82,
+      "rationale": "Phase 2 pilot city; conference vertical + local trend synthesis; Google Trends directional lift in Dallas metro.",
+      "status": "queued"
+    },
+    {
+      "slug": "phoenix-hybrid-event-production-guide",
+      "title": "Hybrid Event Production in Phoenix, AZ",
+      "siteId": "phoenix-az",
+      "track": "A",
+      "opportunityScore": 80,
+      "rationale": "Live geo site; hybrid baseline trend with Phoenix venue/internet redundancy angles.",
+      "status": "queued"
+    },
+    {
+      "slug": "scottsdale-corporate-event-venues",
+      "title": "Scottsdale Corporate Event Venues: Production Considerations",
+      "siteId": "scottsdale-az",
+      "track": "A",
+      "opportunityScore": 70,
+      "rationale": "Authority venue guide for Phase 2 batch; steady demand, lower trending velocity than hybrid/conference topics.",
+      "status": "queued"
+    }
   ]
 }
