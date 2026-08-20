@@ -40,13 +40,23 @@ function escapeHtml(text: string): string {
     .replace(/"/g, '&quot;');
 }
 
-function processInline(text: string): string {
-  const escaped = escapeHtml(text);
-  return escaped.replace(
-    /\[([^\]]+)\]\(([^)]+)\)/g,
-    '<a href="$2" class="text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline">$1</a>'
-  );
+function processInline(text: string, theme: MarkdownTheme = 'dark'): string {
+  const linkClass =
+    theme === 'light'
+      ? 'text-blue-700 underline-offset-4 hover:text-blue-800 hover:underline'
+      : 'text-blue-400 underline-offset-4 hover:text-blue-300 hover:underline';
+  const strongClass =
+    theme === 'light' ? 'font-semibold text-slate-900' : 'font-semibold text-white';
+  const emClass = theme === 'light' ? 'italic text-slate-800' : 'italic text-white/90';
+
+  let out = escapeHtml(text);
+  out = out.replace(/\*\*([^*]+)\*\*/g, `<strong class="${strongClass}">$1</strong>`);
+  out = out.replace(/\*([^*]+)\*/g, `<em class="${emClass}">$1</em>`);
+  out = out.replace(/\[([^\]]+)\]\(([^)]+)\)/g, `<a href="$2" class="${linkClass}">$1</a>`);
+  return out;
 }
+
+export type MarkdownTheme = 'dark' | 'light';
 
 export function getMarkdownPage(section: ContentSection, slug: string): MarkdownPage | null {
   const file = path.join(ROOT, section, `${slug}.md`);
@@ -79,7 +89,14 @@ export function listMarkdownPages(section: ContentSection): MarkdownPage[] {
     .filter((page): page is MarkdownPage => page !== null);
 }
 
-export function markdownToHtml(md: string): string {
+export function markdownToHtml(md: string, theme: MarkdownTheme = 'dark'): string {
+  const isLight = theme === 'light';
+  const bodyText = isLight ? 'text-slate-700' : 'text-white/80';
+  const h2Text = isLight ? 'text-slate-900 border-slate-200' : 'text-white border-white/5';
+  const h3Text = isLight ? 'text-slate-900' : 'text-white';
+  const bullet = isLight ? 'bg-blue-600' : 'bg-blue-400';
+  const orderedNum = isLight ? 'text-blue-700' : 'text-blue-400/90';
+
   const blocks = md.trim().split(/\n\n+/);
   const html: string[] = [];
   let listItems: string[] = [];
@@ -90,7 +107,7 @@ export function markdownToHtml(md: string): string {
       `<ul class="mb-6 space-y-3">${listItems
         .map(
           (item) =>
-            `<li class="flex items-start gap-3 text-white/80 leading-relaxed"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-blue-400"></span><span>${item}</span></li>`
+            `<li class="flex items-start gap-3 ${bodyText} leading-relaxed"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full ${bullet}"></span><span>${item}</span></li>`
         )
         .join('')}</ul>`
     );
@@ -100,13 +117,32 @@ export function markdownToHtml(md: string): string {
   for (const block of blocks) {
     const lines = block.split('\n');
     const isListBlock = lines.every((line) => line.startsWith('- ') || line.trim() === '');
+    const isOrderedListBlock = lines.every(
+      (line) => /^\d+\.\s+/.test(line) || line.trim() === ''
+    );
 
     if (isListBlock && lines.some((line) => line.startsWith('- '))) {
       flushList();
       listItems = lines
         .filter((line) => line.startsWith('- '))
-        .map((line) => processInline(line.slice(2).trim()));
+        .map((line) => processInline(line.slice(2).trim(), theme));
       flushList();
+      continue;
+    }
+
+    if (isOrderedListBlock && lines.some((line) => /^\d+\.\s+/.test(line))) {
+      flushList();
+      const items = lines
+        .filter((line) => /^\d+\.\s+/.test(line))
+        .map((line) => processInline(line.replace(/^\d+\.\s+/, '').trim(), theme));
+      html.push(
+        `<ol class="mb-6 space-y-3">${items
+          .map(
+            (item, index) =>
+              `<li class="flex items-start gap-3 ${bodyText} leading-relaxed"><span class="mt-0.5 shrink-0 font-mono text-sm ${orderedNum}">${index + 1}.</span><span>${item}</span></li>`
+          )
+          .join('')}</ol>`
+      );
       continue;
     }
 
@@ -114,18 +150,18 @@ export function markdownToHtml(md: string): string {
 
     if (block.startsWith('### ')) {
       html.push(
-        `<h3 class="text-lg font-semibold mt-8 mb-3 text-white">${processInline(block.slice(4))}</h3>`
+        `<h3 class="text-lg font-semibold mt-8 mb-3 ${h3Text}">${processInline(block.slice(4), theme)}</h3>`
       );
     } else if (block.startsWith('## ')) {
       html.push(
-        `<h2 class="text-2xl font-semibold mt-10 mb-4 text-white border-t border-white/5 pt-8 first:border-0 first:pt-0">${processInline(block.slice(3))}</h2>`
+        `<h2 class="text-2xl font-semibold mt-10 mb-4 ${h2Text} border-t pt-8 first:border-0 first:pt-0">${processInline(block.slice(3), theme)}</h2>`
       );
     } else if (block.startsWith('# ')) {
       // Skip top-level H1 — rendered in page hero
       continue;
     } else {
       html.push(
-        `<p class="mb-5 text-white/80 leading-relaxed text-lg">${processInline(block.replace(/\n/g, ' '))}</p>`
+        `<p class="mb-5 ${bodyText} leading-relaxed text-lg">${processInline(block.replace(/\n/g, ' '), theme)}</p>`
       );
     }
   }

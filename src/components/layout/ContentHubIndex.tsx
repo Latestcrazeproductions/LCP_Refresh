@@ -1,10 +1,9 @@
 import ContactCta from '@/components/ContactCta';
 import { ContentIndexCard } from '@/components/layout/ContentIndexCard';
-import { PageHero } from '@/components/layout/PageHero';
-import { PageShell } from '@/components/layout/PageShell';
+import { SeoContentShell } from '@/components/layout/SeoContentShell';
+import { SeoPageHero } from '@/components/layout/SeoPageHero';
 import { RelatedLinks } from '@/components/layout/RelatedLinks';
 import { SectionHeader } from '@/components/layout/SectionHeader';
-import { ImagePlaceholder } from '@/components/layout/ImagePlaceholder';
 import { ContentProvider } from '@/context/ContentContext';
 import {
   CONTENT_HUBS,
@@ -27,24 +26,23 @@ export function ContentHubIndex({ section, content }: ContentHubIndexProps) {
 
   return (
     <ContentProvider content={content}>
-      <PageShell>
-        <PageHero
+      <SeoContentShell>
+        <SeoPageHero
           eyebrow={hub.eyebrow}
           title={hub.title}
-          lead={hub.lead}
+          description={hub.lead}
+          imageLabel={hub.imageLabel}
+          size="index"
         />
-
-        <section className="px-6 pb-8">
-          <div className="mx-auto max-w-7xl">
-            <div className="overflow-hidden rounded-2xl border border-white/5">
-              <ImagePlaceholder label={hub.imageLabel} aspect="wide" />
-            </div>
-          </div>
-        </section>
 
         <section className="px-6 py-12">
           <div className="mx-auto max-w-7xl">
-            <SectionHeader title={hub.sectionTitle} subhead={hub.sectionSubhead} className="mb-10" />
+            <SectionHeader
+              title={hub.sectionTitle}
+              subhead={hub.sectionSubhead}
+              className="mb-10"
+              variant="light"
+            />
             {pages.length > 0 ? (
               <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                 {pages.map((page) => (
@@ -56,18 +54,19 @@ export function ContentHubIndex({ section, content }: ContentHubIndexProps) {
                     eyebrow={getTrackLabel(page.track)}
                     date={formatContentDate(page.dateModified)}
                     imageLabel={page.title}
+                    variant="light"
                   />
                 ))}
               </div>
             ) : (
-              <p className="text-gray-400">New content coming soon.</p>
+              <p className="text-slate-600">New content coming soon.</p>
             )}
           </div>
         </section>
 
-        <RelatedLinks links={hub.relatedLinks} />
+        <RelatedLinks links={hub.relatedLinks} variant="light" />
         <ContactCta content={content} />
-      </PageShell>
+      </SeoContentShell>
     </ContentProvider>
   );
 }

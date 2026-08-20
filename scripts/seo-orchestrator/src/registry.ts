@@ -70,6 +70,21 @@ export function advanceRotationWeek(rotation: RotationState): RotationState {
   };
 }
 
+/** Advance service/authority rotation counters after a full daily run. */
+export function advanceRotationDaily(rotation: RotationState): RotationState {
+  return {
+    ...rotation,
+    serviceRotationIndex: rotation.serviceRotationIndex + 1,
+    authorityRotationIndex: (rotation.authorityRotationIndex ?? 0) + 1,
+    lastAdvancedAt: new Date().toISOString().slice(0, 10),
+  };
+}
+
+/** @deprecated Use advanceRotationDaily — daily now runs all categories each run. */
+export function advanceRotationCategory(rotation: RotationState): RotationState {
+  return advanceRotationDaily(rotation);
+}
+
 export function touchPage(pages: PageRecord[], url: string): PageRecord[] {
   const today = new Date().toISOString().slice(0, 10);
   return pages.map((p) =>

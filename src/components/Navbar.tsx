@@ -13,6 +13,8 @@ type NavbarProps = {
   forceSolidBackground?: boolean;
   /** Overrides default anchor links — use for landing pages where home sections are irrelevant */
   linkSet?: NavbarLinkItem[];
+  /** Light nav for SEO / content marketing pages */
+  theme?: 'dark' | 'light';
 };
 
 const DEFAULT_DESKTOP_LINKS: NavbarLinkItem[] = [
@@ -32,7 +34,7 @@ const DEFAULT_MOBILE_LINKS: NavbarLinkItem[] = [
   { label: 'Contact', href: '/contact' },
 ];
 
-export default function Navbar({ forceSolidBackground = false, linkSet }: NavbarProps) {
+export default function Navbar({ forceSolidBackground = false, linkSet, theme = 'dark' }: NavbarProps) {
   const { brand } = useContent();
   const safeBrand = brand ?? {
     name: 'Latest Craze',
@@ -52,9 +54,24 @@ export default function Navbar({ forceSolidBackground = false, linkSet }: Navbar
   }, []);
 
   const showSolidBg = forceSolidBackground || isScrolled;
+  const isLight = theme === 'light';
   const navBackground = showSolidBg
-    ? 'bg-black/85 backdrop-blur-md border-b border-white/10'
+    ? isLight
+      ? 'bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm'
+      : 'bg-black/85 backdrop-blur-md border-b border-white/10'
     : 'bg-transparent';
+
+  const desktopLinkClass = isLight
+    ? 'text-xs uppercase tracking-wider text-slate-600 hover:text-slate-900 transition-colors'
+    : 'text-xs uppercase tracking-wider text-gray-300 hover:text-white transition-colors drop-shadow-md';
+  const mobileMenuClass = isLight
+    ? 'md:hidden absolute top-14 left-0 w-full bg-white border-b border-slate-200 p-4 flex flex-col gap-4 shadow-lg'
+    : 'md:hidden absolute top-14 left-0 w-full bg-black border-b border-white/10 p-4 flex flex-col gap-4';
+  const mobileLinkClass = isLight
+    ? 'text-sm font-display text-slate-700 hover:text-slate-900'
+    : 'text-sm font-display text-gray-300 hover:text-white';
+  const menuIconClass = isLight ? 'md:hidden text-slate-900' : 'md:hidden text-white';
+  const logoSrc = isLight && safeBrand.logoDark ? safeBrand.logoDark : safeBrand.logo;
 
   const desktopLinks = linkSet ?? DEFAULT_DESKTOP_LINKS;
   const mobileLinks = linkSet
@@ -69,7 +86,7 @@ export default function Navbar({ forceSolidBackground = false, linkSet }: Navbar
         <Link href="/" className="flex items-center gap-1">
           {safeBrand.logo ? (
             <Image
-              src={safeBrand.logo}
+              src={logoSrc ?? safeBrand.logo!}
               alt={safeBrand.nameFull}
               width={(safeBrand.logoHeight ?? 64) * 3.5}
               height={safeBrand.logoHeight ?? 64}
@@ -78,7 +95,7 @@ export default function Navbar({ forceSolidBackground = false, linkSet }: Navbar
               priority
             />
           ) : (
-            <span className="text-2xl font-bold tracking-tighter font-display">
+            <span className={`text-2xl font-bold tracking-tighter font-display ${isLight ? 'text-slate-900' : ''}`}>
               {safeBrand.name.toUpperCase()}
               <span className="text-blue-500">.</span>
             </span>
@@ -91,7 +108,7 @@ export default function Navbar({ forceSolidBackground = false, linkSet }: Navbar
             <a
               key={`${item.label}-${item.href}`}
               href={item.href}
-              className="text-xs uppercase tracking-wider text-gray-300 hover:text-white transition-colors drop-shadow-md"
+              className={desktopLinkClass}
             >
               {item.label}
             </a>
@@ -99,24 +116,19 @@ export default function Navbar({ forceSolidBackground = false, linkSet }: Navbar
         </div>
 
         {/* Mobile Toggle */}
-        <button 
-          className="md:hidden text-white"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <button className={menuIconClass} onClick={() => setIsOpen(!isOpen)}>
           {isOpen ? <X /> : <Menu />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div
-          className="md:hidden absolute top-14 left-0 w-full bg-black border-b border-white/10 p-4 flex flex-col gap-4"
-        >
+        <div className={mobileMenuClass}>
           {mobileLinks.map((item) => (
             <a
               key={`${item.label}-${item.href}`}
               href={item.href}
-              className="text-sm font-display text-gray-300 hover:text-white"
+              className={mobileLinkClass}
               onClick={() => setIsOpen(false)}
             >
               {item.label}

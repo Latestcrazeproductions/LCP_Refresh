@@ -1,6 +1,16 @@
 export type Track = 'A' | 'B';
 export type Layer = 'national' | 'geo';
-export type Cadence = 'weekly' | 'monthly' | 'quarterly' | 'research' | 'phase';
+export type Cadence = 'daily' | 'weekly' | 'monthly' | 'quarterly' | 'research' | 'phase';
+
+export type DailyCategory = 'captureBlog' | 'service' | 'strategyBlog' | 'authority' | 'geo';
+
+export const DAILY_CATEGORY_ORDER: DailyCategory[] = [
+  'captureBlog',
+  'service',
+  'strategyBlog',
+  'authority',
+  'geo',
+];
 
 export interface PageRecord {
   url: string;
@@ -25,6 +35,12 @@ export interface RegistryConfig {
   nationwideHubUrl: string;
   researchStaleDays: number;
   maxTasksPerRun: number;
+  topicQueues?: {
+    /** Min queued Track A capture topics — replenished monthly (default 45). */
+    nationalCaptureMinQueued?: number;
+    /** Min queued Track B strategy topics — replenished monthly (default 22). */
+    strategyMinQueued?: number;
+  };
 }
 
 export interface RotationState {
@@ -33,6 +49,10 @@ export interface RotationState {
   geoBatchB: string[];
   serviceRotationIndex: number;
   strategyBlogWeek: boolean;
+  /** @deprecated Daily runs all categories; index unused by scheduler. */
+  categoryDayIndex?: number;
+  /** Rotates authority task variants on authority days. */
+  authorityRotationIndex?: number;
   lastAdvancedAt: string | null;
 }
 
@@ -89,6 +109,7 @@ export const AGENT_MAP: Record<string, string> = {
   'research.keyword_gap_scan': 'ResearchAgent',
   'research.trending_topics': 'ResearchAgent',
   'research.competitor_audit': 'ResearchAgent',
+  'research.topic_queue_replenish': 'ResearchAgent',
   'research.topic_brief': 'ResearchAgent',
   'blog.national.create': 'NationalContentAgent',
   'authority.strategy_blog': 'NationalContentAgent',

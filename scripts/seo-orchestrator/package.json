@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tsc",
     "seo:run": "tsx src/index.ts",
+    "topic-stats": "tsx src/topic-stats-cli.ts",
     "verify:cursor-github": "tsx src/verify-cursor-github.ts",
     "test": "tsx --test src/**/*.test.ts"
   },
