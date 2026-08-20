@@ -22,8 +22,25 @@
       "title": "Broadcast-Grade Keynote Production: A Planner's Checklist",
       "track": "A",
       "opportunityScore": 86,
-      "rationale": "New from Aug 2026 scan — multi-camera keynotes and dual-audience design rising; no existing LCP page.",
-      "status": "queued"
+      "status": "published",
+      "primaryKeyword": "keynote stage lighting",
+      "serviceCta": "/services/lighting"
+    },
+    {
+      "slug": "corporate-event-audio-pre-show-checklist",
+      "title": "Corporate Event Audio: A Pre-Show Checklist for Planners",
+      "track": "A",
+      "opportunityScore": 0,
+      "status": "published"
+    },
+    {
+      "slug": "breakout-room-av-that-scales",
+      "title": "Breakout Room AV Setup That Scales Across a Conference",
+      "track": "A",
+      "opportunityScore": 84,
+      "status": "queued",
+      "primaryKeyword": "breakout room av setup",
+      "serviceCta": "/services/audio"
     },
     {
       "slug": "corporate-gala-production-guide",
