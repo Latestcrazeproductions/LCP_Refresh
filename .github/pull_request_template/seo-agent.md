@@ -25,6 +25,16 @@
 
 <!-- conversion.cta_audit output -->
 
+### Preview URLs (append paths — Vercel Visit opens `/` only)
+
+After the Preview deploy is ready:
+
+- Index: `https://lcprefresh-git-development-latestcrazeproductions-projects.vercel.app/pages`
+- Changed pages: preview-host + path(s) from this PR (e.g. `/blog/{slug}`, `/work/{slug}`, `/resources/{slug}`)
+
+If the preview shows **Vercel Login**, disable Preview Deployment Protection (see `docs/DEPLOY_VERCEL.md`).
+
 ### Reviewer
 
 - Marketing merge approval: ___________
+- Preview checked (content path, not just `/`): ___________

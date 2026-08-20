@@ -15,6 +15,6 @@ Track A — local blogs, proof lines, geo service wrappers.
 - Link each geo site to /nationwide-event-production
 - Geo titles MUST include site city
 
-Edit: `src/app/**/page.tsx` for geo routes, `content-registry/pages.jsonl`
+Edit: `src/app/**/page.tsx` for geo routes, `content-registry/pages.jsonl` (via `npm run registry:upsert` only)
 
 Follow `agents/rules/seo-master-plan.mdc`.

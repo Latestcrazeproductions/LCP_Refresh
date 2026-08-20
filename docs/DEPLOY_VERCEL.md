@@ -132,6 +132,45 @@ This configures your local MCP client to talk to this Vercel project for deploym
 - **Install Command:** `npm install`
 - **Node.js Version:** 18.x or 20.x (Vercel default)
 
+## Preview / development branch URLs (Deployment Protection)
+
+Preview deployments (including `development`) use URLs like:
+
+`https://lcprefresh-git-development-latestcrazeproductions-projects.vercel.app/`
+
+If that URL shows a **Vercel Login** page (SSO) instead of the site, **Deployment Protection** is on. The site is deployed; Vercel is blocking anonymous access.
+
+### Fix (recommended for SEO review)
+
+1. Open [Vercel Dashboard](https://vercel.com) → project **LCP_Refresh** (or your project name)
+2. **Settings → Deployment Protection**
+3. For **Preview** deployments, set protection to one of:
+   - **Only Preview Deployments from Vercel Toolbar** / **Standard Protection** with **Shareable Links** enabled, **or**
+   - **Disabled** for Preview (simplest for reviewing agent PRs — Production can stay protected)
+4. Save, then open the preview URL again (no Vercel login wall)
+
+Production (`latestcrazeproductions.com` / `main`) can keep protection off or on independently — only Preview needs to be open for marketing review.
+
+### After protection is off — open the *content* path
+
+Vercel’s “Visit” link always goes to **`/`** (homepage). Agent content lives on paths like:
+
+| What to review | Append to the preview host |
+|----------------|----------------------------|
+| SEO page index | `/pages` |
+| A blog PR | `/blog/{slug}` |
+| Case study | `/work/{slug}` |
+| Tool / checklist | `/resources/{slug}` |
+| Nationwide hub | `/nationwide-event-production` |
+
+Example:
+
+`https://lcprefresh-git-development-latestcrazeproductions-projects.vercel.app/pages`
+
+### Shareable bypass (if you keep protection on)
+
+In the deployment → **Share** / **Protection Bypass**, copy a URL with the bypass token and append the content path. Do not commit bypass tokens to git.
+
 ## Troubleshooting
 
 **Build fails**
@@ -147,3 +186,6 @@ This configures your local MCP client to talk to this Vercel project for deploym
 - DreamHost: **`SMTP_HOST=smtp.dreamhost.com`**, port **`465`** or **`587`** (digits only)
 - Check logs for `[contact] SMTP not configured` — it lists missing variable names
 - Remove any old **`RESEND_*`** variables from Vercel (not used by this app anymore)
+
+**Preview URL shows Vercel Login, not the site**
+- See [Preview / development branch URLs](#preview--development-branch-urls-deployment-protection) above — disable or relax Preview Deployment Protection

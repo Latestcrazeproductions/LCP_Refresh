@@ -43,9 +43,14 @@ ${task.briefPath ? `- **Brief:** ${task.briefPath}` : ''}
 ## Instructions
 
 1. Complete this task only. Do not scope-creep.
-2. Update \`content-registry/pages.jsonl\` for any page you create or refresh (lastUpdated, nextAction).
+2. For any page you create or refresh, **upsert** the registry by URL (do **not** hand-edit the end of \`pages.jsonl\` — that causes merge conflicts with parallel agent PRs):
+   \`\`\`bash
+   npm run registry:upsert -- --url="/your/path" --title="Page Title" --type=blog --track=A --keyword="primary keyword" --nextAction=faq_refresh
+   \`\`\`
+   Or pass a full JSON object: \`npm run registry:upsert -- --json='{"url":"/work/x","title":"X","type":"case_study","track":"B",...}'\`
 3. Open a PR **targeting branch \`${targetBranch}\`** (not \`main\`) with a clear summary listing task type and URLs changed.
-4. Do NOT modify Supabase, env files, or CMS auth.
+4. Before opening the PR, merge or rebase onto latest \`${targetBranch}\` if it has moved (reduces \`pages.jsonl\` conflicts).
+5. Do NOT modify Supabase, env files, or CMS auth.
 
 ---
 

@@ -17,6 +17,6 @@ Track B — case studies, venue guides, planning tools.
 - No unapproved client names or pricing
 - Internal links to relevant service + /contact
 
-Edit: `src/app/work/`, `src/app/resources/`, `src/app/featured-venues/`, `content-registry/pages.jsonl`
+Edit: `src/app/work/`, `src/app/resources/`, `src/app/featured-venues/`, `content-registry/pages.jsonl` (via `npm run registry:upsert` only)
 
 Follow `agents/rules/seo-master-plan.mdc`.

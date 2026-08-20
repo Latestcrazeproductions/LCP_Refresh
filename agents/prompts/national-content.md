@@ -33,6 +33,6 @@ Audience: **people who know their stuff**. They want proof you know the room and
 - No city names in national titles
 - Do not cannibalize service head terms
 
-Edit: `content-library/blogs/`, `src/app/blog/`, `src/app/nationwide-event-production/`, `content-registry/pages.jsonl`
+Edit: `content-library/blogs/`, `src/app/blog/`, `src/app/nationwide-event-production/`, `content-registry/pages.jsonl` (via `npm run registry:upsert` only)
 
 Follow `agents/rules/seo-master-plan.mdc`.

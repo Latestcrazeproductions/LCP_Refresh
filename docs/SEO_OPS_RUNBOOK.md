@@ -45,6 +45,29 @@ Adjust targets in `content-registry/config.json` → `topicQueues`. Human review
 
 Use checklist in [AGENT_SEO_AUTOMATION.md § Human review](./AGENT_SEO_AUTOMATION.md#human-review-checklist-pr-template).
 
+### Preview the page (not just the homepage)
+
+1. Open the Vercel **Preview** deployment for the PR (or the `development` branch deploy).
+2. If you see a **Vercel Login** wall, turn off Preview **Deployment Protection** — see [DEPLOY_VERCEL.md](./DEPLOY_VERCEL.md#preview--development-branch-urls-deployment-protection).
+3. Append the content path to the preview host (Vercel’s button only opens `/`):
+
+```text
+https://lcprefresh-git-development-latestcrazeproductions-projects.vercel.app/pages
+https://lcprefresh-git-development-latestcrazeproductions-projects.vercel.app/blog/{slug}
+```
+
+4. Merge PR → `development`, spot-check, then promote `development` → `main` for production.
+
+### Why `pages.jsonl` merge conflicts happen
+
+Daily cadence can open ~5 PRs that all touch `content-registry/pages.jsonl`. Agents must use:
+
+```bash
+npm run registry:upsert -- --url="/blog/slug" --title="Title" --type=blog --track=A
+```
+
+That updates a record **by URL** instead of rewriting the file tail. Still rebase onto `development` before merge when several PRs are open.
+
 ## Cost controls
 
 - Default daily workflow uses `--max-tasks 5` (one task per content category)
@@ -59,3 +82,5 @@ Use checklist in [AGENT_SEO_AUTOMATION.md § Human review](./AGENT_SEO_AUTOMATIO
 | Agent PR missing registry diff | Re-run with prompt reminder; verify agent scope |
 | QA fails national/geo title | Check `qa-checks.ts` rules vs page metadata |
 | Geo tasks not scheduling | Confirm nationwide hub is `live` in pages.jsonl and `allowNewGeoSites: true` |
+| Preview URL = Vercel Login | Disable Preview Deployment Protection ([DEPLOY_VERCEL.md](./DEPLOY_VERCEL.md#preview--development-branch-urls-deployment-protection)) |
+| Preview only shows homepage | Append `/pages` or `/blog/{slug}` — Visit link is always `/` |

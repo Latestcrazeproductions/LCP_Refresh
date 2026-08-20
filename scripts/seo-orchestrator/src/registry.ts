@@ -49,6 +49,51 @@ export function savePages(paths: RegistryPaths, pages: PageRecord[]): void {
   fs.writeFileSync(file, content);
 }
 
+/**
+ * Upsert page records by `url` — updates in place, appends new URLs at end.
+ * Prefer this over hand-editing pages.jsonl so parallel agent PRs collide less.
+ */
+export function upsertPagesByUrl(
+  pages: PageRecord[],
+  updates: Array<Partial<PageRecord> & { url: string }>
+): PageRecord[] {
+  const next = [...pages];
+  const indexByUrl = new Map(next.map((page, i) => [page.url, i]));
+
+  for (const update of updates) {
+    const url = update.url?.trim();
+    if (!url) continue;
+    const existingIndex = indexByUrl.get(url);
+    if (existingIndex === undefined) {
+      const created = {
+        layer: 'national',
+        type: 'blog',
+        track: 'A',
+        tier: 'monthly',
+        phase: 1,
+        implementationStatus: 'live',
+        ...update,
+        url,
+      } as PageRecord;
+      indexByUrl.set(url, next.length);
+      next.push(created);
+      continue;
+    }
+    next[existingIndex] = { ...next[existingIndex], ...update, url };
+  }
+
+  return next;
+}
+
+export function upsertAndSavePages(
+  paths: RegistryPaths,
+  updates: Array<Partial<PageRecord> & { url: string }>
+): PageRecord[] {
+  const pages = upsertPagesByUrl(loadPages(paths), updates);
+  savePages(paths, pages);
+  return pages;
+}
+
 export function loadJson<T>(paths: RegistryPaths, name: string): T {
   return readJson(path.join(paths.root, name));
 }
