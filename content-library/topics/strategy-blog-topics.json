@@ -1,6 +1,5 @@
 {
-  "quarter": "2026-Q3",
-  "cadenceNote": "Target 22 queued strategy topics (config.topicQueues.strategyMinQueued). ResearchAgent replenishes monthly on the 1st.",
+  "lastTrendingRefresh": "2026-08-01",
   "topics": [
     {
       "slug": "event-production-roi-for-planners",
@@ -11,126 +10,18 @@
       "status": "published",
       "primaryKeyword": "event production roi",
       "serviceCta": "/nationwide-event-production"
+      "opportunityScore": 85,
+      "rationale": "Executive ROI accountability is a dominant 2026 enterprise theme; Track B monthly balance.",
+      "status": "queued"
     },
     {
       "slug": "hire-vs-in-house-av-team",
       "title": "When to Hire an Event Production Partner vs In-House AV",
       "track": "B",
       "minWords": 1200,
-      "opportunityScore": 90,
-      "status": "queued",
-      "primaryKeyword": "event production partner vs in house av",
-      "serviceCta": "/services"
-    },
-    {
-      "slug": "av-budget-allocation-for-multi-city-tours",
-      "title": "AV Budget Allocation for Multi-City Event Tours",
-      "track": "B",
-      "minWords": 1200,
-      "opportunityScore": 88,
-      "status": "queued",
-      "primaryKeyword": "multi city event av budget",
-      "serviceCta": "/nationwide-event-production"
-    },
-    {
-      "slug": "production-rfp-questions-for-marketing-leaders",
-      "title": "Production RFP Questions Marketing Leaders Should Ask",
-      "track": "B",
-      "minWords": 1200,
-      "opportunityScore": 87,
-      "status": "queued",
-      "primaryKeyword": "event production rfp questions",
-      "serviceCta": "/contact"
-    },
-    {
-      "slug": "measuring-event-production-quality",
-      "title": "Measuring Event Production Quality Without Guesswork",
-      "track": "B",
-      "minWords": 1200,
-      "opportunityScore": 86,
-      "status": "queued",
-      "primaryKeyword": "event production quality metrics",
-      "serviceCta": "/work"
-    },
-    {
-      "slug": "standardize-av-vendors-across-markets",
-      "title": "When to Standardize AV Vendors Across Markets (and When Not To)",
-      "track": "B",
-      "minWords": 1200,
-      "opportunityScore": 85,
-      "status": "queued",
-      "primaryKeyword": "standardize av vendors nationwide",
-      "serviceCta": "/nationwide-event-production"
-    },
-    {
-      "slug": "executive-briefing-production-standards",
-      "title": "Executive Briefing Production Standards That Protect the Brand",
-      "track": "B",
-      "minWords": 1200,
-      "opportunityScore": 84,
-      "status": "queued",
-      "primaryKeyword": "executive briefing av production",
-      "serviceCta": "/services/led-walls"
-    },
-    {
-      "slug": "risk-register-for-corporate-event-production",
-      "title": "Building a Risk Register for Corporate Event Production",
-      "track": "B",
-      "minWords": 1200,
-      "opportunityScore": 83,
-      "status": "queued",
-      "primaryKeyword": "corporate event production risk management",
-      "serviceCta": "/resources/event-production-checklist"
-    },
-    {
-      "slug": "post-event-production-debrief",
-      "title": "Post-Event Production Debriefs That Actually Change Next Year",
-      "track": "B",
-      "minWords": 1200,
-      "opportunityScore": 82,
-      "status": "queued",
-      "primaryKeyword": "event production post mortem",
-      "serviceCta": "/contact"
-    },
-    {
-      "slug": "touring-show-technical-riders-for-planners",
-      "title": "Touring Show Technical Riders: What Planners Own vs Production",
-      "track": "B",
-      "minWords": 1200,
-      "opportunityScore": 81,
-      "status": "queued",
-      "primaryKeyword": "touring event technical rider",
-      "serviceCta": "/nationwide-event-production"
-    },
-    {
-      "slug": "brand-consistency-across-annual-meetings",
-      "title": "Brand Consistency Across Annual Meeting Markets",
-      "track": "B",
-      "minWords": 1200,
-      "opportunityScore": 80,
-      "status": "queued",
-      "primaryKeyword": "brand consistency corporate events",
-      "serviceCta": "/services/lighting"
-    },
-    {
-      "slug": "capital-vs-operating-budget-event-technology",
-      "title": "Capital vs Operating Budget for Event Technology Programs",
-      "track": "B",
-      "minWords": 1200,
-      "opportunityScore": 79,
-      "status": "queued",
-      "primaryKeyword": "event technology budget planning",
-      "serviceCta": "/services"
-    },
-    {
-      "slug": "production-partners-for-high-stakes-keynotes",
-      "title": "Choosing Production Partners for High-Stakes Keynotes",
-      "track": "B",
-      "minWords": 1200,
       "opportunityScore": 78,
-      "status": "queued",
-      "primaryKeyword": "keynote event production partner",
-      "serviceCta": "/services/stage"
+      "rationale": "Evergreen commercial investigation intent; supports inbound qualification without pricing claims.",
+      "status": "queued"
     }
   ]
 }
