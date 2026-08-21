@@ -14,9 +14,9 @@
     "atlanta-ga",
     "chicago-il"
   ],
-  "serviceRotationIndex": 1,
+  "serviceRotationIndex": 2,
   "strategyBlogWeek": false,
   "categoryDayIndex": 0,
-  "authorityRotationIndex": 1,
-  "lastAdvancedAt": "2026-08-20"
+  "authorityRotationIndex": 2,
+  "lastAdvancedAt": "2026-08-21"
 }
