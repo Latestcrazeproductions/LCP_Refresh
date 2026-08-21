@@ -51,6 +51,15 @@ function parseArgs(argv: string[]) {
   return { cadence, dryRun, maxTasks, advanceRotation, onlyType, retryTarget };
 }
 
+function readTopicsFile(filePath: string): { topics: ContentTopic[] } {
+  try {
+    return JSON.parse(fs.readFileSync(filePath, 'utf8')) as { topics: ContentTopic[] };
+  } catch (err) {
+    const detail = err instanceof Error ? err.message : String(err);
+    throw new Error(`Invalid topics JSON at ${filePath}: ${detail}`);
+  }
+}
+
 async function main() {
   const { cadence, dryRun, maxTasks, advanceRotation, onlyType, retryTarget } = parseArgs(process.argv);
   const paths = getRegistryPaths(REPO_ROOT);
@@ -58,12 +67,12 @@ async function main() {
   const rotation = loadRotation(paths);
   const pages = loadPages(paths);
   const research = loadJson<{ lastScanAt: string | null }>(paths, 'research.json');
-  const nationalTopics = JSON.parse(
-    fs.readFileSync(path.join(REPO_ROOT, 'content-library/topics/national-blog-topics.json'), 'utf8')
-  ) as { topics: ContentTopic[] };
-  const strategyTopics = JSON.parse(
-    fs.readFileSync(path.join(REPO_ROOT, 'content-library/topics/strategy-blog-topics.json'), 'utf8')
-  ) as { topics: ContentTopic[] };
+  const nationalTopics = readTopicsFile(
+    path.join(REPO_ROOT, 'content-library/topics/national-blog-topics.json')
+  );
+  const strategyTopics = readTopicsFile(
+    path.join(REPO_ROOT, 'content-library/topics/strategy-blog-topics.json')
+  );
   const reservations = reconcileReservations(
     loadReservations(paths.root),
     pages,
