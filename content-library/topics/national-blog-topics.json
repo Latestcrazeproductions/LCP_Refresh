@@ -18,9 +18,10 @@
       "title": "Breakout Room AV Setup That Scales Across a Conference",
       "track": "A",
       "opportunityScore": 84,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "breakout room av setup",
-      "serviceCta": "/services/audio"
+      "serviceCta": "/services/audio",
+      "rationale": "Published 2026-08-21; maintain via faq_refresh."
     },
     {
       "slug": "product-launch-av-run-of-show",

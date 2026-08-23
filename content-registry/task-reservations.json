@@ -43,9 +43,9 @@
       "type": "service.faq_refresh",
       "targetKey": "/services/led-walls",
       "status": "in_review",
-      "cadence": "monthly",
-      "dispatchedAt": "2026-08-01T17:05:45.668Z",
-      "runId": "run-97cd13ef-66ba-4439-9ec7-634bd2a5d389"
+      "cadence": "daily",
+      "dispatchedAt": "2026-08-21T21:32:44.728Z",
+      "runId": "run-badc962f-3068-4011-824c-47b9274bb579"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -76,7 +76,7 @@
       "taskId": "blog.national.create:keynote-stage-lighting-for-planners",
       "type": "blog.national.create",
       "targetKey": "keynote-stage-lighting-for-planners",
-      "status": "in_review",
+      "status": "completed",
       "cadence": "daily",
       "dispatchedAt": "2026-08-20T16:38:29.429Z",
       "runId": "run-5eed5ec1-33d4-42ad-9a4a-49da03b6995c"
@@ -94,7 +94,7 @@
       "taskId": "authority.strategy_blog:event-production-roi-for-planners",
       "type": "authority.strategy_blog",
       "targetKey": "event-production-roi-for-planners",
-      "status": "in_review",
+      "status": "completed",
       "cadence": "daily",
       "dispatchedAt": "2026-08-20T16:38:29.429Z",
       "runId": "run-29fb1318-1a8e-4c93-a30e-218a908b4200"
@@ -103,10 +103,46 @@
       "taskId": "blog.national.create:corporate-event-audio-pre-show-checklist",
       "type": "blog.national.create",
       "targetKey": "corporate-event-audio-pre-show-checklist",
-      "status": "in_review",
+      "status": "completed",
       "cadence": "daily",
       "dispatchedAt": "2026-08-20T16:38:29.429Z",
       "runId": "run-3d252adf-2897-481c-9fcf-d316c0221b3f"
+    },
+    {
+      "taskId": "blog.national.create:breakout-room-av-that-scales",
+      "type": "blog.national.create",
+      "targetKey": "breakout-room-av-that-scales",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-08-21T21:32:44.728Z",
+      "runId": "run-b6bf3dc7-df66-42f6-a174-a495d6aa04d3"
+    },
+    {
+      "taskId": "authority.strategy_blog:hire-vs-in-house-av-team",
+      "type": "authority.strategy_blog",
+      "targetKey": "hire-vs-in-house-av-team",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-08-21T21:32:44.728Z",
+      "runId": "run-dc02d6da-2289-4447-966a-d02477e70ae7"
+    },
+    {
+      "taskId": "authority.case_study:/work/heard-museum-gala",
+      "type": "authority.case_study",
+      "targetKey": "/work/heard-museum-gala",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-08-21T21:32:44.728Z",
+      "runId": "run-c86c1c0f-7e83-4a61-8eed-2125473c8e8f"
+    },
+    {
+      "taskId": "blog.national.create:product-launch-av-run-of-show",
+      "type": "blog.national.create",
+      "targetKey": "product-launch-av-run-of-show",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-08-21T21:32:44.728Z",
+      "runId": "run-f0410d0b-8363-4979-bdce-6462eba724e4"
     }
   ]
 }
