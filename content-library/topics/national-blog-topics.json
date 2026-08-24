@@ -46,9 +46,10 @@
       "title": "IMAG and Delay Screens: When You Need Them (and When You Don't)",
       "track": "A",
       "opportunityScore": 81,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "imag delay screens events",
-      "serviceCta": "/services/led-walls"
+      "serviceCta": "/services/led-walls",
+      "rationale": "Published 2026-08-24; maintain via faq_refresh."
     },
     {
       "slug": "backstage-flow-for-corporate-events",
