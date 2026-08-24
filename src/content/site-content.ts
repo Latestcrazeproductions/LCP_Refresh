@@ -187,6 +187,20 @@ export const siteContent = {
         description: 'Architectural and atmospheric lighting design.',
         image:
           'https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=2070&auto=format&fit=crop',
+        gallery: [
+          {
+            src: 'https://images.unsplash.com/photo-1540039155733-5bb897311005?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Overhead rig of intelligent moving-head fixtures and color washes on a live event stage',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1429962714459-bb934a5a40b6?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Key-light and architectural uplighting on a corporate ballroom stage before doors',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbaf53?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Beam specials and haze atmospherics over a general session audience',
+          },
+        ] as Array<{ src: string; alt: string }>,
         details: {
           headline: 'Atmosphere & Emotion',
           text: "Lighting is the heartbeat of any event. Our intelligent lighting systems go beyond simple illumination to create dynamic, emotional landscapes. From subtle, brand-aligned ambient washes to high-energy, music-synchronized strobe sequences, we design lighting that guides the audience's attention and amplifies the impact of every moment.",
