@@ -112,7 +112,7 @@
       "taskId": "blog.national.create:breakout-room-av-that-scales",
       "type": "blog.national.create",
       "targetKey": "breakout-room-av-that-scales",
-      "status": "in_review",
+      "status": "completed",
       "cadence": "daily",
       "dispatchedAt": "2026-08-21T21:32:44.728Z",
       "runId": "run-b6bf3dc7-df66-42f6-a174-a495d6aa04d3"
@@ -143,6 +143,51 @@
       "cadence": "daily",
       "dispatchedAt": "2026-08-21T21:32:44.728Z",
       "runId": "run-f0410d0b-8363-4979-bdce-6462eba724e4"
+    },
+    {
+      "taskId": "blog.national.create:stage-deck-sizing-for-panels-and-keynotes",
+      "type": "blog.national.create",
+      "targetKey": "stage-deck-sizing-for-panels-and-keynotes",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-08-24T16:42:03.043Z",
+      "runId": "run-d0690d36-3fcc-4781-b7dd-906c65cbc791"
+    },
+    {
+      "taskId": "service.gallery_swap:/services/lighting",
+      "type": "service.gallery_swap",
+      "targetKey": "/services/lighting",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-08-24T16:42:03.043Z",
+      "runId": "run-2952fdce-7e41-4aa8-afa2-44906faf8e0f"
+    },
+    {
+      "taskId": "authority.strategy_blog:av-budget-allocation-for-multi-city-tours",
+      "type": "authority.strategy_blog",
+      "targetKey": "av-budget-allocation-for-multi-city-tours",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-08-24T16:42:03.043Z",
+      "runId": "run-6c367039-583e-48da-b09a-f8ce03aa4760"
+    },
+    {
+      "taskId": "authority.venue_guide:daily-venue-guide",
+      "type": "authority.venue_guide",
+      "targetKey": "daily-venue-guide",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-08-24T16:42:03.043Z",
+      "runId": "run-390d924c-f304-4927-b3d5-82d32f9c8e2f"
+    },
+    {
+      "taskId": "blog.national.create:when-you-need-imag-and-delay-screens",
+      "type": "blog.national.create",
+      "targetKey": "when-you-need-imag-and-delay-screens",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-08-24T16:42:03.043Z",
+      "runId": "run-c7c4324d-9e03-4821-ae3e-3f145ba2d107"
     }
   ]
 }
