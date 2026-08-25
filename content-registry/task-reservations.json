@@ -44,8 +44,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-08-21T21:32:44.728Z",
-      "runId": "run-badc962f-3068-4011-824c-47b9274bb579"
+      "dispatchedAt": "2026-08-25T16:40:59.694Z",
+      "runId": "run-316a701a-e43a-462e-81d7-fde1ee9761c1"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -132,8 +132,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-08-21T21:32:44.728Z",
-      "runId": "run-c86c1c0f-7e83-4a61-8eed-2125473c8e8f"
+      "dispatchedAt": "2026-08-25T16:40:59.694Z",
+      "runId": "run-2c0d11ff-f340-4a63-885f-5ec8bcb9738c"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -188,6 +188,33 @@
       "cadence": "daily",
       "dispatchedAt": "2026-08-24T16:42:03.043Z",
       "runId": "run-c7c4324d-9e03-4821-ae3e-3f145ba2d107"
+    },
+    {
+      "taskId": "blog.national.create:backstage-flow-for-corporate-events",
+      "type": "blog.national.create",
+      "targetKey": "backstage-flow-for-corporate-events",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-08-25T16:40:59.694Z",
+      "runId": "run-319d7c73-c002-4845-ba27-127bf928457e"
+    },
+    {
+      "taskId": "authority.strategy_blog:production-rfp-questions-for-marketing-leaders",
+      "type": "authority.strategy_blog",
+      "targetKey": "production-rfp-questions-for-marketing-leaders",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-08-25T16:40:59.694Z",
+      "runId": "run-a6d27030-2dd6-4c6e-a06c-ad7de59ff6bc"
+    },
+    {
+      "taskId": "blog.national.create:rf-microphone-planning-for-conferences",
+      "type": "blog.national.create",
+      "targetKey": "rf-microphone-planning-for-conferences",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-08-25T16:40:59.694Z",
+      "runId": "run-b7dfee83-5494-4310-8955-d0936a6a48d2"
     }
   ]
 }

@@ -65,9 +65,10 @@
       "title": "RF Microphone Planning for Multi-Room Conferences",
       "track": "A",
       "opportunityScore": 79,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "rf microphone planning events",
-      "serviceCta": "/services/audio"
+      "serviceCta": "/services/audio",
+      "rationale": "Published 2026-08-25; maintain via faq_refresh."
     },
     {
       "slug": "projection-vs-led-for-brand-moments",
