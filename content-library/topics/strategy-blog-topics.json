@@ -41,9 +41,10 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 87,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "event production rfp questions",
-      "serviceCta": "/contact"
+      "serviceCta": "/contact",
+      "rationale": "Published 2026-08-25; RFP qualification questions for marketing leaders evaluating production partners."
     },
     {
       "slug": "measuring-event-production-quality",
