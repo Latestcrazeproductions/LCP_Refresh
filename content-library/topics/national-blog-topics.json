@@ -55,9 +55,10 @@
       "title": "Backstage Flow for Corporate Events Without the Chaos",
       "track": "A",
       "opportunityScore": 80,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "corporate event backstage production",
-      "serviceCta": "/services/stage"
+      "serviceCta": "/services/stage",
+      "rationale": "Published 2026-08-25; maintain via faq_refresh."
     },
     {
       "slug": "rf-microphone-planning-for-conferences",
