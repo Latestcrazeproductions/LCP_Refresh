@@ -37,9 +37,10 @@
       "title": "Stage Deck Sizing for Panels and Keynotes",
       "track": "A",
       "opportunityScore": 82,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "stage deck sizing events",
-      "serviceCta": "/services/stage"
+      "serviceCta": "/services/stage",
+      "rationale": "Published 2026-08-24; maintain via faq_refresh."
     },
     {
       "slug": "when-you-need-imag-and-delay-screens",
