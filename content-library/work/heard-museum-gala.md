@@ -2,13 +2,15 @@
 title: Heard Museum Gala — Premium Event Production
 description: Museum gala production case study — staging, intelligent lighting, IMAG, and cue-to-cue awards flow for a cultural institution fundraiser.
 track: B
-dateModified: 2026-08-21
+dateModified: 2026-08-25
 eyebrow: Arts / Cultural
 ---
 
 # Heard Museum Gala — Premium Event Production
 
 This case study covers how Latest Craze Productions delivered full AV and show management for the Heard Museum annual fundraising gala — a seated dinner, live program, and awards segment inside an active cultural institution where load-in windows, artifact adjacency, and donor sight lines all compete for priority.
+
+[Request a consultation](/contact) for museum gala or cultural institution production.
 
 ## Client and event profile
 
