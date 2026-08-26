@@ -156,7 +156,7 @@ export const siteContent = {
           {
             question: 'What pixel pitch do I need for a corporate keynote?',
             answer:
-              'Match pitch to your farthest seat, not the stage lip. For most hotel ballrooms with seats 10–25 feet from the wall, 2.3–2.6mm is the practical sweet spot. Thrust stages and exhibit booths under 10 feet need 1.5–1.9mm. Rooms deeper than 50 feet often benefit from delay screens instead of chasing finer pitch on one hero wall. Finer pitch also means more sending cards and more things that can fail during a CEO walk-on — balance visual quality against failure surface area. See our LED wall sizing guide for viewing-distance tiers.',
+              'Match pitch to your farthest seat, not the stage lip. For most hotel ballrooms with seats 10–25 feet from the wall, 2.3–2.6mm is the practical sweet spot. Thrust stages and exhibit booths under 10 feet need 1.5–1.9mm. Rooms deeper than 50 feet often benefit from delay screens instead of chasing finer pitch on one hero wall. Finer pitch also means more sending cards and more things that can fail during a CEO walk-on — balance visual quality against failure surface area.',
           },
           {
             question: 'Do your LED walls include redundancy for live events?',
@@ -171,7 +171,7 @@ export const siteContent = {
           {
             question: 'When should I use delay screens instead of one large wall?',
             answer:
-              'Deep convention halls with chevron seating often need a center LED plus delay screens on the same feed — closer to the back half, better sight lines, less explaining during rehearsal. One monolithic wall sized for a photo op but unreadable from row 18 is a specific kind of pain. We run sight-line studies before you sign dimensions, and we will tell you when a smaller center wall plus delays beats a hero install on readability.',
+              'Deep convention halls with chevron seating often need a center LED plus delay screens on the same feed — closer to the back half, better sight lines, less explaining during rehearsal. One monolithic wall sized for a photo op but unreadable from row 18 is a specific kind of pain. We run sight-line studies before you sign dimensions, and we will tell you when a smaller center wall plus delays beats a hero install on cost and readability.',
           },
           {
             question: 'What content resolution and frame rate should we deliver for the wall?',
@@ -182,11 +182,6 @@ export const siteContent = {
             question: 'Can IMAG, slides, and video share the same wall during a live keynote?',
             answer:
               'Yes — that is the standard general-session layout. We size each zone for its job: the IMAG zone can run slightly lower effective resolution because faces are forgiving, while the slide zone gets sized for type legibility at the farthest seat. Layout changes mid-show (full-screen video, split presenter, board Q&A) get programmed into the switcher before rehearsal so the show caller is not improvising on a live fade.',
-          },
-          {
-            question: 'What venue constraints should I check before signing wall dimensions?',
-            answer:
-              'Start with load-in path, ceiling height, and power — a wall that does not clear the lighting truss or fit through the truck dock is a sizing problem you discover at midnight. Send floor plans, rigging plots, and dock dimensions early; we flag conflicts before you commit to dimensions. Ballroom airwalls, chandelier clusters, and balcony overhangs also eat sight lines — a cross-section sketch beats a surprise on rehearsal day.',
           },
           {
             question: 'How far in advance should I book an LED wall?',
@@ -279,20 +274,6 @@ export const siteContent = {
         description: '3D projection mapping that transforms surfaces into dynamic canvases.',
         image:
           'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2070&auto=format&fit=crop',
-        gallery: [
-          {
-            src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Corporate event ballroom with projection-mapped stage surfaces and seated audience',
-          },
-          {
-            src: 'https://images.unsplash.com/photo-1771167219393-629dd24b353e?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Architectural projection mapping on a building facade at an outdoor brand activation',
-          },
-          {
-            src: 'https://images.unsplash.com/photo-1767969456847-ffeb76d7d4d0?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Stage projection with digital patterns and blue lighting on a live event set',
-          },
-        ] as Array<{ src: string; alt: string }>,
         details: {
           headline: 'Surfaces Come Alive',
           text: "Projection mapping turns any surface into a dynamic storytelling medium. Our team specializes in architectural projection, 3D mapping, and custom content that transforms buildings, stages, and scenic structures into breathtaking visual experiences. We warp and blend imagery precisely to physical geometry—so content fits curves, angles, and irregular shapes without distortion. From brand logos that appear to emerge from walls, to product reveals that unfold across 3D set pieces, to immersive environments that envelop the audience, we create illusions that blur the line between reality and digital art. Partner with us for product launches, keynotes, brand activations, and experiential installations where projection is the hero.",
