@@ -288,6 +288,20 @@ export const siteContent = {
         description: '3D projection mapping that transforms surfaces into dynamic canvases.',
         image:
           'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2070&auto=format&fit=crop',
+        gallery: [
+          {
+            src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Corporate event ballroom with projection-mapped stage surfaces and seated audience',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1771167219393-629dd24b353e?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Architectural projection mapping on a building facade at an outdoor brand activation',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1767969456847-ffeb76d7d4d0?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Stage projection with digital patterns and blue lighting on a live event set',
+          },
+        ] as Array<{ src: string; alt: string }>,
         details: {
           headline: 'Surfaces Come Alive',
           text: "Projection mapping turns any surface into a dynamic storytelling medium. Our team specializes in architectural projection, 3D mapping, and custom content that transforms buildings, stages, and scenic structures into breathtaking visual experiences. We warp and blend imagery precisely to physical geometry—so content fits curves, angles, and irregular shapes without distortion. From brand logos that appear to emerge from walls, to product reveals that unfold across 3D set pieces, to immersive environments that envelop the audience, we create illusions that blur the line between reality and digital art. Partner with us for product launches, keynotes, brand activations, and experiential installations where projection is the hero.",
