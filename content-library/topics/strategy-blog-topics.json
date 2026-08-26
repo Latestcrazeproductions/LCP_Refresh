@@ -52,9 +52,10 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 86,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "event production quality metrics",
-      "serviceCta": "/work"
+      "serviceCta": "/work",
+      "rationale": "Published 2026-08-26; pre-event scorecards and post-show quality metrics for marketing and event leaders."
     },
     {
       "slug": "standardize-av-vendors-across-markets",
