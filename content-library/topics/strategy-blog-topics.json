@@ -31,9 +31,10 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 88,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "multi city event av budget",
-      "serviceCta": "/nationwide-event-production"
+      "serviceCta": "/nationwide-event-production",
+      "rationale": "Published 2026-08-24; touring budget allocation for multi-market programs."
     },
     {
       "slug": "production-rfp-questions-for-marketing-leaders",
