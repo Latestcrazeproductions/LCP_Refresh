@@ -230,8 +230,8 @@ export default async function ServiceDetailPage({ params }: Props) {
             </section>
           )}
 
-          {/* Gallery — 3 images (omitted for projection per site direction) */}
-          {slug !== 'projection' && service.gallery && service.gallery.length > 0 && (
+          {/* Gallery — 3 images */}
+          {service.gallery && service.gallery.length > 0 && (
             <ImageGallery images={service.gallery} alt={service.title} />
           )}
 
