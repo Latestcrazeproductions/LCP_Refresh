@@ -74,9 +74,10 @@
       "title": "Projection Mapping vs LED Walls for Brand Moments",
       "track": "A",
       "opportunityScore": 78,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "projection mapping vs led walls",
-      "serviceCta": "/services/projection"
+      "serviceCta": "/services/projection",
+      "rationale": "Published 2026-08-26; maintain via faq_refresh."
     },
     {
       "slug": "sales-kickoff-production-timeline",
