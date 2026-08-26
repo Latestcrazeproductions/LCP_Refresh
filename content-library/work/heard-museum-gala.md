@@ -2,7 +2,7 @@
 title: Heard Museum Gala — Premium Event Production
 description: Museum gala production case study — staging, intelligent lighting, IMAG, and cue-to-cue awards flow for a cultural institution fundraiser.
 track: B
-dateModified: 2026-08-25
+dateModified: 2026-08-26
 eyebrow: Arts / Cultural
 ---
 
