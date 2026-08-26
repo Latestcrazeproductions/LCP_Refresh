@@ -7,11 +7,11 @@
       "slug": "general-session-design-tips",
       "title": "General Session Design That Keeps Attendees Engaged",
       "track": "A",
-      "opportunityScore": 88,
+      "opportunityScore": 55,
       "status": "queued",
       "primaryKeyword": "general session design",
       "serviceCta": "/services/stage",
-      "rationale": "Immersive stage design and LED-as-scenic are top 2026 trends; complements published LED sizing guide."
+      "rationale": "Conference/session intent; pairs with /feeds/conference-production once live."
     },
     {
       "slug": "breakout-room-av-that-scales",
@@ -100,23 +100,25 @@
       "slug": "led-wall-sizing-for-events",
       "title": "How to Size LED Walls for Corporate Events",
       "track": "A",
-      "opportunityScore": 65,
+      "opportunityScore": 60,
       "status": "published",
-      "rationale": "Published 2026-07-27; maintain via faq_refresh."
+      "rationale": "Published; supports /feeds/led-walls pre-launch. Do not retarget 'led wall rental' head term."
     },
     {
       "slug": "hybrid-event-av-checklist",
       "title": "Hybrid Event AV Checklist for Corporate Teams",
       "track": "A",
-      "opportunityScore": 64,
-      "status": "published"
+      "opportunityScore": 75,
+      "status": "queued",
+      "rationale": "Closes av-production-services intent gap without competing with /feeds/av-production head term."
     },
     {
       "slug": "corporate-gala-production-guide",
       "title": "Corporate Gala Production: A Planner's Guide",
       "track": "A",
-      "opportunityScore": 63,
-      "status": "published"
+      "opportunityScore": 70,
+      "status": "published",
+      "rationale": "Live blog missing registry keyword; high-intent gala vertical aligns with /events/galas-awards and planned gala feeds."
     },
     {
       "slug": "keynote-stage-lighting-for-planners",

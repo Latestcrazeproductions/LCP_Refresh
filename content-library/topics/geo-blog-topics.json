@@ -6,8 +6,8 @@
       "title": "Conference Production Trends in Dallas, TX",
       "siteId": "dallas-tx",
       "track": "A",
-      "opportunityScore": 82,
-      "rationale": "Phase 2 pilot city; conference vertical + local trend synthesis; Google Trends directional lift in Dallas metro.",
+      "opportunityScore": 20,
+      "rationale": "Geo expansion blocked. National /feeds/conference-production takes priority.",
       "status": "queued"
     },
     {
@@ -24,8 +24,8 @@
       "title": "Scottsdale Corporate Event Venues: Production Considerations",
       "siteId": "scottsdale-az",
       "track": "A",
-      "opportunityScore": 70,
-      "rationale": "Authority venue guide for Phase 2 batch; steady demand, lower trending velocity than hybrid/conference topics.",
+      "opportunityScore": 25,
+      "rationale": "Geo expansion blocked (Phase 1, allowNewGeoSites false). Re-score after Phase 2 gate.",
       "status": "queued"
     }
   ]
