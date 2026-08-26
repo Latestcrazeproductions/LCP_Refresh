@@ -83,9 +83,10 @@
       "title": "Sales Kickoff Production Timeline: What to Lock by 8 Weeks Out",
       "track": "A",
       "opportunityScore": 77,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "sales kickoff av production timeline",
-      "serviceCta": "/services/led-walls"
+      "serviceCta": "/services/led-walls",
+      "rationale": "Published 2026-08-26; maintain via faq_refresh."
     },
     {
       "slug": "awards-show-cue-to-cue-for-planners",
