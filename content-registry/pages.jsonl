@@ -1115,7 +1115,7 @@
 {"url":"/events","layer":"national","type":"landing","keyword":"","title":"","track":"A","tier":"monthly","phase":1,"lastUpdated":"2026-06-01","nextAction":"faq_refresh","implementationStatus":"live"}
 {"url":"/about","layer":"national","type":"landing","keyword":"","title":"","track":"A","tier":"monthly","phase":1,"lastUpdated":"2026-06-01","nextAction":"faq_refresh","implementationStatus":"live"}
 {"url":"/contact","layer":"national","type":"landing","keyword":"","title":"","track":"A","tier":"monthly","phase":1,"lastUpdated":"2026-06-01","nextAction":"faq_refresh","implementationStatus":"live"}
-{"url":"/featured-venues","layer":"national","type":"landing","keyword":"","title":"","track":"A","tier":"monthly","phase":1,"lastUpdated":"2026-06-01","nextAction":"faq_refresh","implementationStatus":"live"}
+{"url":"/featured-venues","layer":"national","type":"venue_guide","keyword":"corporate event venue production","title":"Featured Venues: Corporate Event Production Guide","track":"B","tier":"monthly","phase":1,"lastUpdated":"2026-08-24","nextAction":"faq_refresh","implementationStatus":"live"}
 {"url":"/phoenix-av-production","layer":"geo","type":"geo_landing","keyword":"","title":"","track":"A","tier":"monthly","phase":1,"lastUpdated":"2026-06-01","nextAction":"faq_refresh","implementationStatus":"live"}
 {"url":"/digital-signage","layer":"national","type":"landing","keyword":"","title":"","track":"A","tier":"monthly","phase":1,"lastUpdated":"2026-06-01","nextAction":"faq_refresh","implementationStatus":"live"}
 {"url":"/privacy","layer":"national","type":"landing","keyword":"","title":"","track":"A","tier":"monthly","phase":1,"lastUpdated":"2026-06-01","nextAction":"faq_refresh","implementationStatus":"live"}
