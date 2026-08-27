@@ -57,13 +57,8 @@ jobs:
           CURSOR_AGENT_REF: development
       - name: Persist scheduler state
         if: always()
-        run: |
-          git config user.name "lcp-seo-bot"
-          git config user.email "seo-bot@latestcrazeproductions.com"
-          git add content-registry/rotation.json content-registry/task-reservations.json
-          if git diff --cached --quiet; then
-            echo "No scheduler state changes."
-            exit 0
-          fi
-          git commit -m "Persist SEO scheduler state"
-          git push origin HEAD:development
+        run: >
+          bash scripts/persist-seo-git-state.sh
+          "Persist SEO scheduler state"
+          content-registry/rotation.json
+          content-registry/task-reservations.json

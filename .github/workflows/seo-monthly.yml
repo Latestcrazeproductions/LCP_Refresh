@@ -34,17 +34,11 @@ jobs:
           CURSOR_AGENT_REF: development
       - name: Persist research and topic queue state
         if: always()
-        run: |
-          git config user.name "lcp-seo-bot"
-          git config user.email "seo-bot@latestcrazeproductions.com"
-          git add content-registry/task-reservations.json \
-            content-registry/research.json \
-            content-library/topics/national-blog-topics.json \
-            content-library/topics/strategy-blog-topics.json \
-            content-library/research/briefs/
-          if git diff --cached --quiet; then
-            echo "No research or reservation changes."
-            exit 0
-          fi
-          git commit -m "Persist SEO research and topic queue state"
-          git push origin HEAD:development
+        run: >
+          bash scripts/persist-seo-git-state.sh
+          "Persist SEO research and topic queue state"
+          content-registry/task-reservations.json
+          content-registry/research.json
+          content-library/topics/national-blog-topics.json
+          content-library/topics/strategy-blog-topics.json
+          content-library/research/briefs/
