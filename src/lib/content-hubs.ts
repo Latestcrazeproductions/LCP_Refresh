@@ -55,12 +55,6 @@ export const CONTENT_HUBS: Record<ContentSection, ContentHubConfig> = {
   },
 };
 
-export function getTrackLabel(track?: string): string | undefined {
-  if (track === 'A') return 'Demand capture';
-  if (track === 'B') return 'Authority';
-  return undefined;
-}
-
 export function formatContentDate(date?: string): string | undefined {
   if (!date) return undefined;
   const parsed = new Date(date);

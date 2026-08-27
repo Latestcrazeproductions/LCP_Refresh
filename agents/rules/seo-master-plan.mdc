@@ -64,6 +64,7 @@ Every new or changed page must answer: what should this visitor do next?
 - Generic filler (“In today’s fast-paced world of events…”)
 - Gear brochure or vendor catalog tone
 - Hollow superlatives without proof
+- Internal SEO labels on public pages: never show "Demand capture", "Authority", "Track A", "Track B", or "published" in titles, eyebrows, or body. Keep `track` in frontmatter only.
 
 ### Tone check
 

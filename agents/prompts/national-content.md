@@ -32,6 +32,7 @@ Audience: **people who know their stuff**. They want proof you know the room and
 - Use attached research brief when briefPath is provided
 - No city names in national titles
 - Do not cannibalize service head terms
+- Never put internal taxonomy in reader-facing copy (title, H1, eyebrow, body): no "Demand capture", "Track A", "Track B", "Authority", "published", or similar. `track:` in frontmatter is for the orchestrator only and must not be rendered.
 
 Edit: `content-library/blogs/`, `src/app/blog/`, `src/app/nationwide-event-production/`, `content-registry/pages.jsonl` (via `npm run registry:upsert` only)
 

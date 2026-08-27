@@ -36,7 +36,7 @@ const PRE_DEMAND_ENGINE_URLS = new Set(['/phoenix-av-production']);
 
 const GROUP_LABELS: Record<string, string> = {
   hub: 'National hubs',
-  blog: 'Capture blogs',
+  blog: 'Blogs',
   case_study: 'Case studies',
   tool: 'Planning tools',
   strategy: 'Strategy blogs',

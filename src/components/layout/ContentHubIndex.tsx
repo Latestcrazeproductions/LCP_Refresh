@@ -5,11 +5,7 @@ import { SeoPageHero } from '@/components/layout/SeoPageHero';
 import { RelatedLinks } from '@/components/layout/RelatedLinks';
 import { SectionHeader } from '@/components/layout/SectionHeader';
 import { ContentProvider } from '@/context/ContentContext';
-import {
-  CONTENT_HUBS,
-  formatContentDate,
-  getTrackLabel,
-} from '@/lib/content-hubs';
+import { CONTENT_HUBS, formatContentDate } from '@/lib/content-hubs';
 import type { SiteContent } from '@/lib/content';
 import { listMarkdownPages, type ContentSection } from '@/lib/markdown-pages';
 
@@ -51,7 +47,7 @@ export function ContentHubIndex({ section, content }: ContentHubIndexProps) {
                     href={`${basePath}/${page.slug}`}
                     title={page.title}
                     description={page.description}
-                    eyebrow={getTrackLabel(page.track)}
+                    eyebrow={page.eyebrow}
                     date={formatContentDate(page.dateModified)}
                     imageLabel={page.title}
                     variant="light"

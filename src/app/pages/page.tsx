@@ -64,11 +64,9 @@ export default async function PagesIndexPage() {
                           <span className="font-medium text-slate-900">{page.title}</span>
                           <span className="font-mono text-sm text-blue-700">{page.path}</span>
                         </Link>
-                        {(page.lastModified || page.track) && (
+                        {page.lastModified && (
                           <p className="px-5 pb-3 text-xs text-slate-500">
-                            {[page.track ? `Track ${page.track}` : null, page.lastModified ? `Updated ${page.lastModified}` : null]
-                              .filter(Boolean)
-                              .join(' · ')}
+                            Updated {page.lastModified}
                           </p>
                         )}
                       </li>

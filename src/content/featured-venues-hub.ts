@@ -25,7 +25,7 @@ export interface FeaturedVenuesHubContent {
 
 export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
   h1: 'Featured Venues',
-  eyebrow: 'Authority · Venue production',
+  eyebrow: 'Venue production',
   lead:
     'Production considerations for hotels, convention centers, resorts, and non-traditional spaces — what to verify before you sign and what to hand your AV partner before load-in.',
   intro:

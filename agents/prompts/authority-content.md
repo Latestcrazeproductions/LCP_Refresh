@@ -16,6 +16,7 @@ Track B — case studies, venue guides, planning tools.
 - Voice: credible insider, not boilerplate. Humor deadpan **4/10** if used at all
 - No unapproved client names or pricing
 - Internal links to relevant service + /contact
+- Never put internal taxonomy in reader-facing copy (title, H1, eyebrow, body): no "Demand capture", "Track A", "Track B", "Authority", "published", or similar. `track:` in frontmatter is for the orchestrator only. Venue-guide eyebrows should be reader-facing (e.g. "Venue production"), not "Authority · …".
 
 Edit: `src/app/work/`, `src/app/resources/`, `src/app/featured-venues/`, `content-registry/pages.jsonl` (via `npm run registry:upsert` only)
 
