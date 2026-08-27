@@ -1,0 +1,37 @@
+# Fast-forward `main` to `development` after a human has reviewed staging.
+# Vercel Production deploys from `main`. Default branch stays `development`.
+name: Publish to production
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: Type publish to fast-forward main to development
+        required: true
+        type: string
+
+concurrency:
+  group: publish-production
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment: Production
+    steps:
+      - name: Confirm publish
+        run: |
+          if [ "${{ inputs.confirm }}" != "publish" ]; then
+            echo "::error::Type publish in the confirm field to run this workflow."
+            exit 1
+          fi
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fast-forward main to development
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/publish-to-production.sh
