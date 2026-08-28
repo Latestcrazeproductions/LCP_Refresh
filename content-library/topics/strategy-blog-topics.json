@@ -64,9 +64,10 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 85,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "standardize av vendors nationwide",
-      "serviceCta": "/nationwide-event-production"
+      "serviceCta": "/nationwide-event-production",
+      "rationale": "Published 2026-08-28; vendor standardization decision framework for multi-market corporate programs."
     },
     {
       "slug": "executive-briefing-production-standards",
