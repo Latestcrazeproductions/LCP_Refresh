@@ -97,9 +97,10 @@
       "title": "Awards Show Cue-to-Cue: A Planner's First Pass",
       "track": "A",
       "opportunityScore": 76,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "awards show cue to cue",
-      "serviceCta": "/services/lighting"
+      "serviceCta": "/services/lighting",
+      "rationale": "Published 2026-08-29; maintain via faq_refresh."
     },
     {
       "slug": "led-wall-sizing-for-events",
