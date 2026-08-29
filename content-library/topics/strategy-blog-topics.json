@@ -75,9 +75,10 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 84,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "executive briefing av production",
-      "serviceCta": "/services/led-walls"
+      "serviceCta": "/services/led-walls",
+      "rationale": "Published 2026-08-29; production tier framework and brand-protection standards for executive briefings."
     },
     {
       "slug": "risk-register-for-corporate-event-production",
