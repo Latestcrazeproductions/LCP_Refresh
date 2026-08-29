@@ -290,8 +290,8 @@ export const siteContent = {
           'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2070&auto=format&fit=crop',
         gallery: [
           {
-            src: 'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Corporate event ballroom with projection-mapped stage surfaces and seated audience',
+            src: 'https://images.unsplash.com/photo-1767969456847-ffeb76d7d4d0?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Stage projection with digital patterns and blue lighting on a live event set',
           },
           {
             src: 'https://images.unsplash.com/photo-1771167219393-629dd24b353e?q=80&w=2070&auto=format&fit=crop',
