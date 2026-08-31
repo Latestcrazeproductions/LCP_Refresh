@@ -294,8 +294,8 @@ export const siteContent = {
             alt: 'Stage projection with digital patterns and blue lighting on a live event set',
           },
           {
-            src: 'https://images.unsplash.com/photo-1771167219393-629dd24b353e?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Architectural projection mapping on a building facade at an outdoor brand activation',
+            src: 'https://images.unsplash.com/photo-1765277902916-9fabeb82e2bf?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Concert crowd with stage lighting and building projections at an outdoor brand activation',
           },
           {
             src: 'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=2070&auto=format&fit=crop',
