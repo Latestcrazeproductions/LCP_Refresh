@@ -1,8 +1,8 @@
 ---
 title: Heard Museum Gala — Premium Event Production
-description: Museum gala production case study — staging, intelligent lighting, IMAG, and cue-to-cue awards flow for a cultural institution fundraiser.
+description: Museum gala production case study — ground-supported staging, intelligent lighting, line-array audio, IMAG, and cue-to-cue awards flow for a cultural institution fundraiser.
 track: B
-dateModified: 2026-08-28
+dateModified: 2026-08-29
 eyebrow: Arts / Cultural
 ---
 
@@ -20,6 +20,17 @@ This case study covers how Latest Craze Productions delivered full AV and show m
 **Venue constraints:** Historic campus with limited overnight hold, shared load-in access with daytime operations, and strict rules about rigging and weight on preserved surfaces
 
 Museum galas sit in an awkward middle ground: they need the polish of a corporate awards show, but the venue is not a ballroom built for touring truss. Planners often underestimate how much the building itself becomes a production character.
+
+## Production specs at a glance
+
+Bring these to your vendor advance — museum galas punish vague scope:
+
+- **Stage footprint** — 24×16 ground-supported deck, four-presenter width, confidence monitors downstage center, no overhead rigging on preserved surfaces
+- **LED / IMAG** — ultra-wide 16:9 wall for live camera and branded content; redundant playback laptop at FOH; camera positions tested against house-light states before dinner
+- **Audio** — dual-zone line-array (reception standing vs. seated dinner); six wireless channels (presenters, auctioneer, emcee, spare); auction calls verified from the back row at both room layouts
+- **Lighting** — four distinct looks (walk-in, dinner, awards, video playback); house-light coordination for IMAG; awards look rehearsed as a timed cue, not a live improvisation
+- **Show management** — single intercom loop (stage manager, LD, A1, V1, client point); numbered cue sheet with department owners and backup paths for playback and wireless
+- **Load-in / strike** — written sequence aligned with museum security; no overnight hold; strike order defined before the first case comes off the truck
 
 ## The production challenge
 
@@ -86,4 +97,4 @@ During rehearsal, the museum’s development director asked whether we could “
 
 The dedicated awards look took eleven seconds to build in rehearsal. On show night, nobody noticed the lighting. That is the point.
 
-For [gala and awards production](/events/galas-awards), [intelligent lighting](/services/lighting), [LED walls and IMAG](/services/led-walls), and the [corporate gala production guide](/blog/corporate-gala-production-guide), [request a consultation](/contact).
+For [gala and awards production](/events/galas-awards), [intelligent lighting](/services/lighting), [LED walls and IMAG](/services/led-walls), [line-array audio](/services/audio), and the [corporate gala production guide](/blog/corporate-gala-production-guide), [request a consultation](/contact).
