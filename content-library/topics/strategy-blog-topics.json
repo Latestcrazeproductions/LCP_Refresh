@@ -86,7 +86,8 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 83,
-      "status": "queued",
+      "status": "published",
+      "publishedAt": "2026-08-31",
       "primaryKeyword": "corporate event production risk management",
       "serviceCta": "/resources/event-production-checklist"
     },
