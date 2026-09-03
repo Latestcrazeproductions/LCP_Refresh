@@ -44,8 +44,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-08-25T16:40:59.694Z",
-      "runId": "run-316a701a-e43a-462e-81d7-fde1ee9761c1"
+      "dispatchedAt": "2026-09-03T19:11:29.417Z",
+      "runId": "run-bf4d659f-f082-4b35-b835-9b12516c2598"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -177,8 +177,8 @@
       "targetKey": "daily-venue-guide",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-08-24T16:42:03.043Z",
-      "runId": "run-390d924c-f304-4927-b3d5-82d32f9c8e2f"
+      "dispatchedAt": "2026-09-03T19:11:29.417Z",
+      "runId": "run-54da1808-9c7b-48f5-a98f-a100b4d1cd96"
     },
     {
       "taskId": "blog.national.create:when-you-need-imag-and-delay-screens",
@@ -229,10 +229,19 @@
       "taskId": "authority.strategy_blog:post-event-production-debrief",
       "type": "authority.strategy_blog",
       "targetKey": "post-event-production-debrief",
-      "status": "in_review",
+      "status": "completed",
       "cadence": "daily",
       "dispatchedAt": "2026-09-03T16:37:00.993Z",
       "runId": "run-c87250d5-ec5d-4032-8511-3d1f493e9457"
+    },
+    {
+      "taskId": "authority.strategy_blog:touring-show-technical-riders-for-planners",
+      "type": "authority.strategy_blog",
+      "targetKey": "touring-show-technical-riders-for-planners",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-03T19:11:29.417Z",
+      "runId": "run-933f02e3-cedf-4004-9980-232c0e2589c5"
     }
   ]
 }
