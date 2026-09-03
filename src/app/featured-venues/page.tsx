@@ -17,7 +17,7 @@ const PAGE_PATH = '/featured-venues';
 export const metadata: Metadata = {
   title: 'Featured Venues: Corporate Event Production Guide',
   description:
-    'Venue production guide for corporate planners — hotel ballrooms, convention centers, resorts, and unique spaces. Site visit checklists, AV scaling, and what to send your production vendor.',
+    'Venue production guide for corporate planners — hotel ballrooms, convention centers, resorts, and unique spaces. Site visit checklists, house AV scope, union labor, and what to send your production vendor.',
   openGraph: {
     title: 'Featured Venues | Latest Craze Productions',
     description:
