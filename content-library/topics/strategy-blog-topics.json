@@ -108,7 +108,8 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 81,
-      "status": "queued",
+      "status": "published",
+      "publishedAt": "2026-09-03",
       "primaryKeyword": "touring event technical rider",
       "serviceCta": "/nationwide-event-production"
     },
