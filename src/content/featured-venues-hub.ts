@@ -29,7 +29,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
   lead:
     'Production considerations for hotels, convention centers, resorts, and non-traditional spaces — what to verify before you sign and what to hand your AV partner before load-in.',
   intro:
-    'Venue selection and production design are the same decision split in half. A ballroom that photographs well for the sales tour can still fail your keynote when ceiling height caps truss height, house power cannot feed a 40-foot LED wall, or the freight elevator stops at 5 p.m. on Fridays. This guide covers venue categories, what to measure on a site visit, and the packet your production vendor needs to quote accurately — not a list of properties we prefer, but the technical questions seasoned planners ask before the contract is signed.',
+    'Venue selection and production design are the same decision split in half. A ballroom that photographs well on the sales tour can still fail your keynote when ceiling height caps truss height, house power cannot feed a 40-foot LED wall, or the freight elevator locks at 5 p.m. on Fridays. This guide covers venue categories, what to measure on a site visit, how house AV and your production partner divide labor, and the packet your vendor needs to quote accurately — not a list of properties we prefer, but the technical questions seasoned planners ask before the contract is signed.',
   primaryCta: { label: 'Plan your venue production', href: '/contact' },
   sections: [
     {
@@ -55,6 +55,18 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
         'FOH and camera positions — rear center sight lines, balcony sight lines, ADA seating sight lines, no-go zones for stream framing',
         'Noise and curfew — amplified sound cutoff, strike deadline, and whether the hotel enforces decibel limits during cocktail hour next door',
         'Storage and overnight hold — where cases sit between load-in and show day, and whether the venue clears the room for another event overnight',
+      ],
+    },
+    {
+      title: 'House AV, union labor, and who owns what',
+      body: 'Most venue failures are scope gaps, not bad gear. House AV sells a package; your production partner sells a show. If nobody writes down who patches the clicker, who runs the switcher, and who gets called when the union steward says your truss is 30 minutes early, you will find out at load-in.',
+      bullets: [
+        'House AV scope — projectors, basic PA, lectern mic, and a tech who knows the room; rarely includes IMAG, show calling, or custom lighting looks',
+        'Union jurisdiction — who can touch cable, who can climb, and whether your vendor\'s crew can operate house gear or must use house labor',
+        'Rigging and motors — house points vs ground-support-only; who supplies motors, who signs the rigging plot, and who holds insurance for overhead work',
+        'Power handoff — house distro vs supplemental generator; who coordinates tie-in and who pays for after-hours electrician calls',
+        'Internet and streaming — venue hardline vs cellular backup; encoder placement, VLAN access, and whether IT will be on-site show day',
+        'Change-order triggers — air-wall moves, added breakout rooms, extended rehearsal, and overnight hold all have line items; confirm them in writing before sign-off',
       ],
     },
     {
@@ -84,7 +96,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
   ],
   floorStory: {
     title: 'From the floor',
-    body: 'A planner once booked a resort ballroom for a product reveal without walking the load path. The wide-format LED arrived on a 53-foot trailer; the service road gate clearance was 12 feet 6 inches. The truck sat on a public road while production re-rigged ground-support panels through a side entrance meant for catering carts. The show looked flawless. The load-in schedule did not. The venue was fine — the brief never mentioned truck dimensions or the golf-cart-only path from the service gate to the ballroom. Measure the boring parts first. The creative takes care of itself when the truck can actually arrive.',
+    body: 'A general session moved into a convention center ballroom with a published 22-foot ceiling. The house rigging plot showed points at 20 feet — fine for a modest truss. What the CAD did not show was a HVAC soffit downstage left that dropped effective height to 16 feet 6 inches exactly where the LED wall needed to sit. Production discovered it during focus, not during the site visit, because nobody measured at the stage lip. Ground-support saved the day. The soffit did not move. The lesson is boring: measure at downstage center, not at the room centerline on the sales PDF. Venues are not wrong when their documents are incomplete. Planners who walk the stage footprint are.',
   },
   capabilitiesTitle: 'Production capabilities by venue',
   capabilities: [
@@ -101,6 +113,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
     { href: '/nationwide-event-production', label: 'Nationwide production' },
     { href: '/resources/event-production-checklist', label: 'Production checklist' },
     { href: '/blog/led-wall-sizing-for-events', label: 'LED wall sizing guide' },
+    { href: '/blog/hybrid-event-av-checklist', label: 'Hybrid event AV checklist' },
     { href: '/work', label: 'Case studies' },
   ],
 };
