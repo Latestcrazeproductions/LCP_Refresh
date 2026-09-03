@@ -26,6 +26,8 @@ jobs:
       - run: npm run seed-registry
       - run: npm ci
         working-directory: scripts/seo-orchestrator
+      - name: Validate topic queue JSON
+        run: bash scripts/validate-topic-queues.sh
       - run: npm run seo:run -- --cadence monthly --max-tasks 6
         working-directory: scripts/seo-orchestrator
         env:

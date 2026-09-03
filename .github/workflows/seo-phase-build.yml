@@ -46,6 +46,8 @@ jobs:
       - run: npm run seed-registry
       - run: npm ci
         working-directory: scripts/seo-orchestrator
+      - name: Validate topic queue JSON
+        run: bash scripts/validate-topic-queues.sh
       - name: Phase build dispatch
         run: |
           echo "Phase ${{ inputs.phase }} batch ${{ inputs.batchSize }}"

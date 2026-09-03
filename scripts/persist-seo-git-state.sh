@@ -19,8 +19,17 @@ if git diff --cached --quiet; then
 fi
 git commit -m "$msg"
 
+# seed-registry dirties tracked files (pages.jsonl). Rebase refuses a dirty worktree,
+# which is what failed persist on 2026-08-31 after Daily dispatched successfully.
+restore_clean() {
+  git restore --worktree --source=HEAD -- :/ || git checkout -- .
+}
+
+restore_clean
+
 max=5
 for i in $(seq 1 "$max"); do
+  restore_clean
   git fetch --unshallow origin development 2>/dev/null || git fetch origin development
   if git rebase origin/development && git push origin HEAD:development; then
     echo "Pushed scheduler state to development."
