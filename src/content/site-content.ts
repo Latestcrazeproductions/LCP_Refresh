@@ -298,8 +298,8 @@ export const siteContent = {
             alt: 'Concert crowd with stage lighting and building projections at an outdoor brand activation',
           },
           {
-            src: 'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Large-format projection screens flanking a corporate keynote stage in a convention hall',
+            src: 'https://images.unsplash.com/photo-1771167219393-629dd24b353e?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Architectural projection mapping on a building facade at an outdoor brand activation',
           },
         ] as Array<{ src: string; alt: string }>,
         details: {
