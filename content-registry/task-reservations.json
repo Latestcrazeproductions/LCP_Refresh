@@ -121,7 +121,7 @@
       "taskId": "authority.strategy_blog:hire-vs-in-house-av-team",
       "type": "authority.strategy_blog",
       "targetKey": "hire-vs-in-house-av-team",
-      "status": "in_review",
+      "status": "completed",
       "cadence": "daily",
       "dispatchedAt": "2026-08-21T21:32:44.728Z",
       "runId": "run-dc02d6da-2289-4447-966a-d02477e70ae7"
@@ -132,14 +132,14 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-08-25T16:40:59.694Z",
-      "runId": "run-2c0d11ff-f340-4a63-885f-5ec8bcb9738c"
+      "dispatchedAt": "2026-09-03T16:37:00.993Z",
+      "runId": "run-65ae57f3-f325-4684-b3b9-3af0231d1ffc"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
       "type": "blog.national.create",
       "targetKey": "product-launch-av-run-of-show",
-      "status": "in_review",
+      "status": "completed",
       "cadence": "daily",
       "dispatchedAt": "2026-08-21T21:32:44.728Z",
       "runId": "run-f0410d0b-8363-4979-bdce-6462eba724e4"
@@ -148,7 +148,7 @@
       "taskId": "blog.national.create:stage-deck-sizing-for-panels-and-keynotes",
       "type": "blog.national.create",
       "targetKey": "stage-deck-sizing-for-panels-and-keynotes",
-      "status": "in_review",
+      "status": "completed",
       "cadence": "daily",
       "dispatchedAt": "2026-08-24T16:42:03.043Z",
       "runId": "run-d0690d36-3fcc-4781-b7dd-906c65cbc791"
@@ -166,7 +166,7 @@
       "taskId": "authority.strategy_blog:av-budget-allocation-for-multi-city-tours",
       "type": "authority.strategy_blog",
       "targetKey": "av-budget-allocation-for-multi-city-tours",
-      "status": "in_review",
+      "status": "completed",
       "cadence": "daily",
       "dispatchedAt": "2026-08-24T16:42:03.043Z",
       "runId": "run-6c367039-583e-48da-b09a-f8ce03aa4760"
@@ -184,7 +184,7 @@
       "taskId": "blog.national.create:when-you-need-imag-and-delay-screens",
       "type": "blog.national.create",
       "targetKey": "when-you-need-imag-and-delay-screens",
-      "status": "in_review",
+      "status": "completed",
       "cadence": "daily",
       "dispatchedAt": "2026-08-24T16:42:03.043Z",
       "runId": "run-c7c4324d-9e03-4821-ae3e-3f145ba2d107"
@@ -193,7 +193,7 @@
       "taskId": "blog.national.create:backstage-flow-for-corporate-events",
       "type": "blog.national.create",
       "targetKey": "backstage-flow-for-corporate-events",
-      "status": "in_review",
+      "status": "completed",
       "cadence": "daily",
       "dispatchedAt": "2026-08-25T16:40:59.694Z",
       "runId": "run-319d7c73-c002-4845-ba27-127bf928457e"
@@ -211,10 +211,28 @@
       "taskId": "blog.national.create:rf-microphone-planning-for-conferences",
       "type": "blog.national.create",
       "targetKey": "rf-microphone-planning-for-conferences",
-      "status": "in_review",
+      "status": "completed",
       "cadence": "daily",
       "dispatchedAt": "2026-08-25T16:40:59.694Z",
       "runId": "run-b7dfee83-5494-4310-8955-d0936a6a48d2"
+    },
+    {
+      "taskId": "service.gallery_swap:/services/projection",
+      "type": "service.gallery_swap",
+      "targetKey": "/services/projection",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-03T16:37:00.993Z",
+      "runId": "run-84b3f990-c86d-45d3-9d8f-2eaecad0fd52"
+    },
+    {
+      "taskId": "authority.strategy_blog:post-event-production-debrief",
+      "type": "authority.strategy_blog",
+      "targetKey": "post-event-production-debrief",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-03T16:37:00.993Z",
+      "runId": "run-c87250d5-ec5d-4032-8511-3d1f493e9457"
     }
   ]
 }
