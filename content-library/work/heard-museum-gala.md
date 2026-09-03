@@ -2,15 +2,15 @@
 title: Heard Museum Gala — Premium Event Production
 description: Museum gala production case study — ground-supported staging, intelligent lighting, line-array audio, IMAG, and cue-to-cue awards flow for a cultural institution fundraiser.
 track: B
-dateModified: 2026-08-31
+dateModified: 2026-09-03
 eyebrow: Arts / Cultural
 ---
 
 # Heard Museum Gala — Premium Event Production
 
-This case study documents full AV and show management for the Heard Museum annual fundraising gala — seated dinner, live program, and awards inside an active cultural institution where load-in windows, artifact adjacency, and donor sight lines all compete for priority.
+Museum gala production inside a working cultural campus — not a hotel ballroom — means ground-supported staging, dual-zone audio, IMAG sight lines, and a cue-to-cue awards flow that cannot overrun curatorial hold times. This case study covers how we scoped and ran full AV and show management for the Heard Museum annual fundraising gala: seated dinner, live program, and recognition segment where load-in windows, artifact adjacency, and donor sight lines all compete for priority.
 
-[Request a consultation](/contact) for museum gala or cultural institution production.
+[Request a consultation](/contact) for museum gala or cultural institution production, or review our [galas and awards overview](/events/galas-awards).
 
 ## Client and event profile
 
@@ -81,6 +81,22 @@ The show caller ran a single intercom loop: stage manager, lighting, audio, vide
 
 ![IMAG feed and awards lighting during the recognition segment at a museum fundraising gala](/images/marketing/case-studies/heard-museum-gala-imag.jpg)
 
+## Show-day timeline
+
+Museum galas punish planners who treat show day like a single clock. We ran two parallel schedules — F&B service and production — with fixed handoff points:
+
+1. **T-4 hours** — Final walk-through with facilities; cable mats and surface protection verified; house-light presets confirmed on the museum dimmer
+2. **T-3 hours** — Stage plot locked; wireless frequencies scanned against campus RF; IMAG cameras framed against both dinner and awards lighting looks
+3. **T-2 hours** — Reception zone audio live; line-array trim verified at standing density in the cocktail corridor
+4. **T-90 minutes** — Presenters mic-checked in show positions, not at a lectern off-stage; confidence monitors tested at presenter eye line
+5. **T-60 minutes** — Cue-to-cue rehearsal block: full awards order, video rolls, walk-on music, and house-light rebuild between segments
+6. **Doors** — Walk-in lighting look; separate audio zone for reception; show caller on comms with caterer lead for dinner-service milestones
+7. **Dinner service** — Seated layout audio trim; auctioneer wireless checked from back-row tables; IMAG switched to dinner-safe exposure
+8. **Awards segment** — Numbered cue sheet active; backup playback laptop armed; stage manager calling transitions while caterer holds dessert service
+9. **Close and strike** — Written pull order begins on cue; no gear moves until curatorial hold points are photographed and signed off
+
+If your venue cannot give you a dedicated rehearsal window before doors, negotiate it in the contract — not during the pre-show huddle.
+
 ## Outcomes
 
 The production team delivered measurable results across guest experience, program flow, and operational discipline:
@@ -110,4 +126,4 @@ During rehearsal, the museum’s development director asked whether we could “
 
 The dedicated awards look took eleven seconds to build in rehearsal. On show night, nobody noticed the lighting. That is the point. The development team later said the recognition segment was the cleanest they had run in five years — which, for a museum gala, usually means nothing broke visibly enough for donors to comment on it.
 
-For [gala and awards production](/events/galas-awards), [intelligent lighting](/services/lighting), [LED walls and IMAG](/services/led-walls), [line-array audio](/services/audio), the [corporate gala production guide](/blog/corporate-gala-production-guide), and [awards show cue-to-cue planning](/blog/awards-show-cue-to-cue-for-planners), [request a consultation](/contact).
+For [gala and awards production](/events/galas-awards), [stage design and scenic](/services/stage), [intelligent lighting](/services/lighting), [LED walls and IMAG](/services/led-walls), [line-array audio](/services/audio), the [corporate gala production guide](/blog/corporate-gala-production-guide), and [awards show cue-to-cue planning](/blog/awards-show-cue-to-cue-for-planners), [request a consultation](/contact).
