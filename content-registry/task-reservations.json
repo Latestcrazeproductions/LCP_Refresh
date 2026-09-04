@@ -132,8 +132,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-03T16:37:00.993Z",
-      "runId": "run-65ae57f3-f325-4684-b3b9-3af0231d1ffc"
+      "dispatchedAt": "2026-09-04T18:54:09.751Z",
+      "runId": "run-82e4f0eb-683e-4cc2-8b43-d7d415e47736"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -242,6 +242,24 @@
       "cadence": "daily",
       "dispatchedAt": "2026-09-03T19:11:29.417Z",
       "runId": "run-933f02e3-cedf-4004-9980-232c0e2589c5"
+    },
+    {
+      "taskId": "service.gallery_swap:/services/audio",
+      "type": "service.gallery_swap",
+      "targetKey": "/services/audio",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-04T18:54:09.751Z",
+      "runId": "run-1d865865-d8ad-4613-93fd-0d03dd7ecbbd"
+    },
+    {
+      "taskId": "authority.strategy_blog:brand-consistency-across-annual-meetings",
+      "type": "authority.strategy_blog",
+      "targetKey": "brand-consistency-across-annual-meetings",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-04T18:54:09.751Z",
+      "runId": "run-7f88cfb0-4cc2-4b3d-ab35-b9715c145bb0"
     }
   ]
 }
