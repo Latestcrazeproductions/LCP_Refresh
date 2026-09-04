@@ -249,6 +249,20 @@ export const siteContent = {
         description: 'Crystal clear line-array systems for immersive sound.',
         image:
           'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop',
+        gallery: [
+          {
+            src: 'https://images.unsplash.com/photo-1764981966374-f7323993b21d?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Ground-stacked line arrays and PA towers flanking a live event stage before doors',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1766019463451-04e0b1269f37?q=80&w=2070&auto=format&fit=crop',
+            alt: 'FOH audio engineer at a digital mixing console with multitrack metering during show prep',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1768269894-1d7e1ce8894e?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Keynote presenter on stage with a wireless handheld mic and clear sight lines to the back row',
+          },
+        ] as Array<{ src: string; alt: string }>,
         details: {
           headline: 'Sonic Perfection',
           text: "In a corporate environment, clarity is king. Our precision audio systems are tuned to ensure every word of a keynote is heard with crystal-clear intelligibility, no matter where you sit. But we also bring the power. When the walk-on music hits or the video plays, our line-array systems deliver a full-range, immersive soundscape that you can feel.",
