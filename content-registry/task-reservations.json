@@ -44,8 +44,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-03T19:11:29.417Z",
-      "runId": "run-bf4d659f-f082-4b35-b835-9b12516c2598"
+      "dispatchedAt": "2026-09-07T19:42:09.987Z",
+      "runId": "run-d1a32f77-401a-4323-96e7-ea84bfefac0a"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -132,8 +132,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-04T18:54:09.751Z",
-      "runId": "run-82e4f0eb-683e-4cc2-8b43-d7d415e47736"
+      "dispatchedAt": "2026-09-07T19:42:09.987Z",
+      "runId": "run-7e57b19d-4636-429a-93a0-f911e4a2642f"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -260,6 +260,15 @@
       "cadence": "daily",
       "dispatchedAt": "2026-09-04T18:54:09.751Z",
       "runId": "run-7f88cfb0-4cc2-4b3d-ab35-b9715c145bb0"
+    },
+    {
+      "taskId": "authority.strategy_blog:capital-vs-operating-budget-event-technology",
+      "type": "authority.strategy_blog",
+      "targetKey": "capital-vs-operating-budget-event-technology",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-07T19:42:09.987Z",
+      "runId": "run-ac514ef3-f888-446c-af8a-c83a9bbf698b"
     }
   ]
 }
