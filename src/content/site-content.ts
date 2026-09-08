@@ -230,6 +230,20 @@ export const siteContent = {
         description: 'Custom fabrication blending physical and digital worlds.',
         image:
           'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop',
+        gallery: [
+          {
+            src: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Wide event stage with scenic lighting rig and audience sight lines from the floor',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Modular keynote stage with scenic backdrop panels and flanking projection screens in a convention hall',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Multi-tier general session stage with deck risers and branded scenic elements before load-in',
+          },
+        ] as Array<{ src: string; alt: string }>,
         details: {
           headline: 'Physical meets Digital',
           text: "We believe the stage is more than a platform; it's a statement. Our scenic design team combines custom fabrication with digital elements to build stages that feel like modern art installations. We integrate LED surfaces into physical structures, create multi-dimensional depth, and ensure every angle looks perfect for both the live audience and the camera.",
