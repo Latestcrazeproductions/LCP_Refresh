@@ -137,8 +137,8 @@ export const siteContent = {
             alt: 'Ultra-wide seamless LED backdrop behind a presenter at a corporate general session',
           },
           {
-            src: 'https://images.unsplash.com/photo-1670941371382-993b971d70c9?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Full event stage with a center LED wall, side LED columns, and stage lighting',
+            src: 'https://images.unsplash.com/photo-1516450360412-c074710272a4?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Ground-stacked LED wall panels flanking a keynote stage with clean sight lines from the floor',
           },
         ] as Array<{ src: string; alt: string }>,
         details: {
