@@ -156,12 +156,12 @@ export const siteContent = {
           {
             question: 'What pixel pitch do I need for a corporate keynote?',
             answer:
-              'Match pitch to your farthest seat, not the stage lip. For most hotel ballrooms with seats 10–25 feet from the wall, 2.3–2.6mm is the practical sweet spot. Thrust stages and exhibit booths under 10 feet need 1.5–1.9mm. Rooms deeper than 50 feet often benefit from delay screens instead of chasing finer pitch on one hero wall. Finer pitch also means more sending cards and more things that can fail during a CEO walk-on — balance visual quality against failure surface area.',
+              'Match pitch to your farthest seat, not the stage lip. For most hotel ballrooms with seats 10–25 feet from the wall, 2.3–2.6mm is the practical sweet spot. Thrust stages and exhibit booths under 10 feet need 1.5–1.9mm. Rooms deeper than 50 feet often benefit from delay screens instead of chasing finer pitch on one hero wall. Finer pitch also means more sending cards and more things that can fail during a CEO walk-on — balance visual quality against failure surface area. See our LED wall sizing guide for viewing-distance tiers.',
           },
           {
             question: 'Do your LED walls include redundancy for live events?',
             answer:
-              'Yes — mission-critical general sessions get dual-path processing, hot spares where the show file demands it, and module-level failover planning before load-in. We also spec who owns processor spares in the contract, because discovering a sending card has opinions mid-show is a specific kind of pain. Failover paths get documented in pre-pro so show callers know exactly what happens if a section drops.',
+              'Yes — mission-critical general sessions get dual-path processing, hot spares where the show file demands it, and module-level failover planning before load-in. We also spec who owns processor spares in the contract, because discovering a sending card has opinions mid-show is a specific kind of pain. Failover paths get documented in pre-pro so show callers know exactly what happens if a section drops. Full-field calibration gets scheduled before doors — not twenty minutes before the CEO walk-on.',
           },
           {
             question: 'Can you configure curved, corner, or ultra-wide aspect ratio walls?',
@@ -171,7 +171,7 @@ export const siteContent = {
           {
             question: 'When should I use delay screens instead of one large wall?',
             answer:
-              'Deep convention halls with chevron seating often need a center LED plus delay screens on the same feed — closer to the back half, better sight lines, less explaining during rehearsal. One monolithic wall sized for a photo op but unreadable from row 18 is a specific kind of pain. We run sight-line studies before you sign dimensions, and we will tell you when a smaller center wall plus delays beats a hero install on cost and readability.',
+              'Deep convention halls with chevron seating often need a center LED plus delay screens on the same feed — closer to the back half, better sight lines, less explaining during rehearsal. One monolithic wall sized for a photo op but unreadable from row 18 is a specific kind of pain. We run sight-line studies before you sign dimensions, and we will tell you when a smaller center wall plus delays beats a hero install — sometimes the back row needs IMAG more than it needs a bigger canvas.',
           },
           {
             question: 'What content resolution and frame rate should we deliver for the wall?',
@@ -182,6 +182,21 @@ export const siteContent = {
             question: 'Can IMAG, slides, and video share the same wall during a live keynote?',
             answer:
               'Yes — that is the standard general-session layout. We size each zone for its job: the IMAG zone can run slightly lower effective resolution because faces are forgiving, while the slide zone gets sized for type legibility at the farthest seat. Layout changes mid-show (full-screen video, split presenter, board Q&A) get programmed into the switcher before rehearsal so the show caller is not improvising on a live fade.',
+          },
+          {
+            question: 'What venue constraints should I check before signing wall dimensions?',
+            answer:
+              'Start with load-in path, ceiling height, and power — a wall that does not clear the lighting truss or fit through the truck dock is a sizing problem you discover at midnight. Send floor plans, rigging plots, and dock dimensions early; we flag conflicts before you commit to dimensions. Ballroom airwalls, chandelier clusters, and balcony overhangs also eat sight lines — a cross-section sketch beats a surprise on rehearsal day.',
+          },
+          {
+            question: 'When should I choose an LED wall over projection mapping?',
+            answer:
+              'LED wins when house lights stay up, cameras are shooting at broadcast ISO, or fine type must read from the back row without squinting. Projection wins when the surface is irregular geometry, the room goes dark for a cinematic beat, or you need a temporary hero moment without trucking a wall. Hybrid setups are common — LED for the general session, mapping on scenic for the reveal. We size the format to the show flow, not the vendor catalog.',
+          },
+          {
+            question: 'How do LED walls behave on camera and for live broadcast?',
+            answer:
+              'Emissive panels read bright and saturated on camera without the wash-out projection fights at ISO 800+. Match wall refresh rate to camera shutter (typically 50 or 60 Hz) to avoid rolling banding in IMAG feeds. Fine pitch reduces moire on wide shots, but camera distance and lens choice matter as much as panel spec — we coordinate with your broadcast director during pre-pro and run a camera rehearsal before doors.',
           },
           {
             question: 'How far in advance should I book an LED wall?',
@@ -230,6 +245,20 @@ export const siteContent = {
         description: 'Custom fabrication blending physical and digital worlds.',
         image:
           'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop',
+        gallery: [
+          {
+            src: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Wide event stage with scenic lighting rig and audience sight lines from the floor',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Modular keynote stage with scenic backdrop panels and flanking projection screens in a convention hall',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Multi-tier general session stage with deck risers and branded scenic elements before load-in',
+          },
+        ] as Array<{ src: string; alt: string }>,
         details: {
           headline: 'Physical meets Digital',
           text: "We believe the stage is more than a platform; it's a statement. Our scenic design team combines custom fabrication with digital elements to build stages that feel like modern art installations. We integrate LED surfaces into physical structures, create multi-dimensional depth, and ensure every angle looks perfect for both the live audience and the camera.",
