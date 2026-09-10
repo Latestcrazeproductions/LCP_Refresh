@@ -206,7 +206,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             <section className="relative py-16 px-6 max-w-4xl mx-auto border-t border-white/10">
               <h2 className="text-2xl md:text-3xl font-bold mb-3">Common questions</h2>
               <p className="text-gray-400 mb-10">
-                Practical answers for producers sizing walls, locking content, and planning failover.
+                Practical answers for producers sizing walls, locking content, planning failover, and choosing the right display format.
               </p>
               <dl className="space-y-8">
                 {serviceFaqs.map((item) => (
@@ -220,6 +220,10 @@ export default async function ServiceDetailPage({ params }: Props) {
                 For viewing-distance tiers and RFP checklist items, read our{' '}
                 <Link href="/blog/led-wall-sizing-for-events" className="text-blue-400 hover:text-blue-300 underline">
                   LED wall sizing guide
+                </Link>
+                . Comparing LED to projection for a brand reveal? See{' '}
+                <Link href="/blog/projection-vs-led-for-brand-moments" className="text-blue-400 hover:text-blue-300 underline">
+                  projection mapping vs LED walls
                 </Link>
                 . Ready to scope your room?{' '}
                 <Link href="/contact" className="text-blue-400 hover:text-blue-300 underline font-medium">
