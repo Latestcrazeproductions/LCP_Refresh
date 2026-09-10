@@ -118,9 +118,11 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 80,
-      "status": "queued",
+      "status": "published",
+      "publishedAt": "2026-09-04",
       "primaryKeyword": "brand consistency corporate events",
-      "serviceCta": "/services/lighting"
+      "serviceCta": "/services/lighting",
+      "rationale": "Published 2026-09-04; production brand standards and business outcomes for multi-market annual meeting programs."
     },
     {
       "slug": "capital-vs-operating-budget-event-technology",
