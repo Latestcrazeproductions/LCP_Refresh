@@ -27,7 +27,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
   h1: 'Featured Venues',
   eyebrow: 'Venue production',
   lead:
-    'Production considerations for hotels, convention centers, resorts, and non-traditional spaces — what to verify before you sign and what to hand your AV partner before load-in.',
+    'Production considerations for hotels, convention centers, resorts, and non-traditional spaces — what to verify before you sign, what to send your AV partner, and where house rules quietly cap your show.',
   intro:
     'Venue selection and production design are the same decision split in half. A ballroom that photographs well on the sales tour can still fail your keynote when ceiling height caps truss height, house power cannot feed a 40-foot LED wall, or the freight elevator locks at 5 p.m. on Fridays. This guide covers venue categories, what to measure on a site visit, how house AV and your production partner divide labor, and the packet your vendor needs to quote accurately — not a list of properties we prefer, but the technical questions seasoned planners ask before the contract is signed.',
   primaryCta: { label: 'Plan your venue production', href: '/contact' },
@@ -44,12 +44,12 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
       ],
     },
     {
-      title: 'Site visit checklist — measure before you mood-board',
-      body: 'Bring a tape measure, your phone camera, and someone who cares about sight lines — not just the catering manager. Photos beat memory when the production company asks for ceiling height six weeks later.',
-      bullets: [
-        'Ceiling height at stage downstage center and at FOH position — rigged truss vs ground-support changes everything',
+      title: 'Site visit through vendor packet — one pass, no gaps',
+      body: 'Bring a tape measure, your phone camera, and someone who cares about sight lines — not just the catering manager. What you capture on the walkthrough becomes the production quote. Vendors fill gaps with assumptions; three competent companies will assume three different things from the same incomplete packet.',
+      numbered: [
+        'Ceiling height at stage downstage center and at FOH — rigged truss vs ground-support changes everything',
         'Column locations and spacing — mark them on a floor plan; they dictate LED width and camera cross-shoot angles',
-        'Power — house cam-lock locations, amperage per leg, generator pad access if you need supplemental distro',
+        'Power — house cam-lock locations, amperage per leg, generator pad access if supplemental distro is required',
         'Rigging — house points on CAD, weight limits, dead-hang vs bridled spans, and whether motors are in-house or BYO',
         'Load-in path — dock height, freight elevator dimensions and hours, distance from dock to ballroom, union escort rules',
         'FOH and camera positions — rear center sight lines, balcony sight lines, ADA seating sight lines, no-go zones for stream framing',
@@ -74,18 +74,22 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
       body: 'Vendors quote against the information they receive. A floor plan without column marks and a one-line "load-in at 8 a.m." produces three different numbers from three competent companies — because each filled a different gap with a different assumption.',
       numbered: [
         'Marked floor plan — stage footprint, FOH, camera positions, cable paths, and ADA seating blocks',
+        'FOH and camera positions — rear center sight lines, balcony sight lines, ADA seating sight lines, stream safe zones',
+        'Noise and curfew — amplified sound cutoff, strike deadline, decibel limits during cocktail hour next door',
+        'Marked floor plan for vendor — stage footprint, FOH, camera positions, cable paths, and ADA seating blocks',
         'Venue tech packet — house AV contact, rigging plot, power one-line, union rules if applicable',
         'Agenda and format — general session length, panel count, awards segment, hybrid stream yes/no, breakout rooms tied to main show',
-        'Audience size and seating style — theater, classroom, rounds; affects PA design and camera count',
         'Content inventory — slide aspect ratio, video rolls, IMAG needs, LED vs projection preference',
-        'Load-in and rehearsal windows — actual hours, not "morning of"; note when the room must be clear for another event',
+        'Load-in and rehearsal windows — actual hours, not "morning of"; note when the room must clear for another event',
         'Photos from site visit — ceiling, columns, dock path, and anything the CAD will not show',
       ],
     },
     {
-      title: 'Scaling production to the room — not the brochure',
-      body: 'The same creative brief produces different gear lists in a 400-seat breakout vs a 2,000-seat general session. Match production scope to room geometry, not to the last show the client liked on Instagram.',
+      title: 'House AV, union rules, and scaling to the room',
+      body: 'The same creative brief produces different gear lists in a 400-seat breakout vs a 2,000-seat general session. Match production scope to room geometry and house constraints — not to the last show the client liked on Instagram. Clarify who owns what before load-in day; that conversation is cheaper at contract stage than at 6 a.m. on the dock.',
       bullets: [
+        'In-house AV vs outside vendor — exclusivity clauses, patch fees, and whether house staff operate your gear or only theirs',
+        'Union jurisdiction — which trades touch your load-in, minimum call times, and whether your crew can touch truss after house riggers fly it',
         'LED wall sizing — farthest-seat readability, pixel pitch, and whether ground-support avoids a rigging fight',
         'Audio — line array vs point-source for the room volume; delay speakers for deep ballroom throws; RF coordination with house Wi-Fi',
         'Lighting — keynote looks vs awards looks; haze policy; whether the house chandelier must stay on and how that affects front light',
@@ -97,6 +101,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
   floorStory: {
     title: 'From the floor',
     body: 'A general session moved into a convention center ballroom with a published 22-foot ceiling. The house rigging plot showed points at 20 feet — fine for a modest truss. What the CAD did not show was a HVAC soffit downstage left that dropped effective height to 16 feet 6 inches exactly where the LED wall needed to sit. Production discovered it during focus, not during the site visit, because nobody measured at the stage lip. Ground-support saved the day. The soffit did not move. The lesson is boring: measure at downstage center, not at the room centerline on the sales PDF. Venues are not wrong when their documents are incomplete. Planners who walk the stage footprint are.',
+    body: 'A general session once shared an air wall with a trade show that ran amplified demos until noon. Our keynote sound check started at 11:30. The house plot showed a solid partition; the wall was two layers of fabric over a steel track with a four-inch gap at the ceiling. Every bass hit from the expo side arrived in the ballroom like a second kick drum. Production added a delay speaker ring and pushed FOH gain — reasonable fixes for a room, not for a wall that was never going to be a wall. The show ran clean after a 40-minute negotiation to pause demos next door. The venue was fine. The site visit had measured ceiling height and column spacing but nobody knocked on the shared partition. When your room touches another event, listen through the wall before you sign.',
   },
   capabilitiesTitle: 'Production capabilities by venue',
   capabilities: [
