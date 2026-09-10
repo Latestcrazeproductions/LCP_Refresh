@@ -44,8 +44,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-08-25T16:40:59.694Z",
-      "runId": "run-316a701a-e43a-462e-81d7-fde1ee9761c1"
+      "dispatchedAt": "2026-09-09T19:09:19.676Z",
+      "runId": "run-60527435-7a82-4d64-a36d-57cd7bf55ed9"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -132,8 +132,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-03T16:37:00.993Z",
-      "runId": "run-65ae57f3-f325-4684-b3b9-3af0231d1ffc"
+      "dispatchedAt": "2026-09-09T19:09:19.676Z",
+      "runId": "run-c631fd7f-f9a6-46b0-97b4-c30ddab7df90"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -177,8 +177,8 @@
       "targetKey": "daily-venue-guide",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-08-24T16:42:03.043Z",
-      "runId": "run-390d924c-f304-4927-b3d5-82d32f9c8e2f"
+      "dispatchedAt": "2026-09-08T19:19:45.782Z",
+      "runId": "run-01d23cc9-6b50-4186-970c-0d91f674bfa9"
     },
     {
       "taskId": "blog.national.create:when-you-need-imag-and-delay-screens",
@@ -229,10 +229,64 @@
       "taskId": "authority.strategy_blog:post-event-production-debrief",
       "type": "authority.strategy_blog",
       "targetKey": "post-event-production-debrief",
-      "status": "in_review",
+      "status": "completed",
       "cadence": "daily",
       "dispatchedAt": "2026-09-03T16:37:00.993Z",
       "runId": "run-c87250d5-ec5d-4032-8511-3d1f493e9457"
+    },
+    {
+      "taskId": "authority.strategy_blog:touring-show-technical-riders-for-planners",
+      "type": "authority.strategy_blog",
+      "targetKey": "touring-show-technical-riders-for-planners",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-03T19:11:29.417Z",
+      "runId": "run-933f02e3-cedf-4004-9980-232c0e2589c5"
+    },
+    {
+      "taskId": "service.gallery_swap:/services/audio",
+      "type": "service.gallery_swap",
+      "targetKey": "/services/audio",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-04T18:54:09.751Z",
+      "runId": "run-1d865865-d8ad-4613-93fd-0d03dd7ecbbd"
+    },
+    {
+      "taskId": "authority.strategy_blog:brand-consistency-across-annual-meetings",
+      "type": "authority.strategy_blog",
+      "targetKey": "brand-consistency-across-annual-meetings",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-04T18:54:09.751Z",
+      "runId": "run-7f88cfb0-4cc2-4b3d-ab35-b9715c145bb0"
+    },
+    {
+      "taskId": "authority.strategy_blog:capital-vs-operating-budget-event-technology",
+      "type": "authority.strategy_blog",
+      "targetKey": "capital-vs-operating-budget-event-technology",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-07T19:42:09.987Z",
+      "runId": "run-ac514ef3-f888-446c-af8a-c83a9bbf698b"
+    },
+    {
+      "taskId": "service.gallery_swap:/services/stage",
+      "type": "service.gallery_swap",
+      "targetKey": "/services/stage",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-08T19:19:45.782Z",
+      "runId": "run-91f886bd-e56d-436d-ac69-489c8287d9cd"
+    },
+    {
+      "taskId": "authority.strategy_blog:production-partners-for-high-stakes-keynotes",
+      "type": "authority.strategy_blog",
+      "targetKey": "production-partners-for-high-stakes-keynotes",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-08T19:19:45.782Z",
+      "runId": "run-dbb76ef0-0137-4146-b3b8-98829605e159"
     }
   ]
 }
