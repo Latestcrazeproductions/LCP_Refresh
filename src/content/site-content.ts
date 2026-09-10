@@ -171,7 +171,7 @@ export const siteContent = {
           {
             question: 'When should I use delay screens instead of one large wall?',
             answer:
-              'Deep convention halls with chevron seating often need a center LED plus delay screens on the same feed — closer to the back half, better sight lines, less explaining during rehearsal. One monolithic wall sized for a photo op but unreadable from row 18 is a specific kind of pain. We run sight-line studies before you sign dimensions, and we will tell you when a smaller center wall plus delays beats a hero install on cost and readability.',
+              'Deep convention halls with chevron seating often need a center LED plus delay screens on the same feed — closer to the back half, better sight lines, less explaining during rehearsal. One monolithic wall sized for a photo op but unreadable from row 18 is a specific kind of pain. We run sight-line studies before you sign dimensions, and we will tell you when a smaller center wall plus delays beats a hero install — sometimes the back row needs IMAG more than it needs a bigger canvas.',
           },
           {
             question: 'What content resolution and frame rate should we deliver for the wall?',
@@ -245,6 +245,20 @@ export const siteContent = {
         description: 'Custom fabrication blending physical and digital worlds.',
         image:
           'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop',
+        gallery: [
+          {
+            src: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Wide event stage with scenic lighting rig and audience sight lines from the floor',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Modular keynote stage with scenic backdrop panels and flanking projection screens in a convention hall',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Multi-tier general session stage with deck risers and branded scenic elements before load-in',
+          },
+        ] as Array<{ src: string; alt: string }>,
         details: {
           headline: 'Physical meets Digital',
           text: "We believe the stage is more than a platform; it's a statement. Our scenic design team combines custom fabrication with digital elements to build stages that feel like modern art installations. We integrate LED surfaces into physical structures, create multi-dimensional depth, and ensure every angle looks perfect for both the live audience and the camera.",
@@ -264,6 +278,20 @@ export const siteContent = {
         description: 'Crystal clear line-array systems for immersive sound.',
         image:
           'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop',
+        gallery: [
+          {
+            src: 'https://images.unsplash.com/photo-1764981966374-f7323993b21d?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Ground-stacked line arrays and PA towers flanking a live event stage before doors',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1766019463451-04e0b1269f37?q=80&w=2070&auto=format&fit=crop',
+            alt: 'FOH audio engineer at a digital mixing console with multitrack metering during show prep',
+          },
+          {
+            src: 'https://images.unsplash.com/photo-1768269894-1d7e1ce8894e?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Keynote presenter on stage with a wireless handheld mic and clear sight lines to the back row',
+          },
+        ] as Array<{ src: string; alt: string }>,
         details: {
           headline: 'Sonic Perfection',
           text: "In a corporate environment, clarity is king. Our precision audio systems are tuned to ensure every word of a keynote is heard with crystal-clear intelligibility, no matter where you sit. But we also bring the power. When the walk-on music hits or the video plays, our line-array systems deliver a full-range, immersive soundscape that you can feel.",
