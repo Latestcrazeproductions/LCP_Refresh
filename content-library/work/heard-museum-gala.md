@@ -3,6 +3,7 @@ title: Heard Museum Gala — Premium Event Production
 description: Museum gala production case study — ground-supported staging, intelligent lighting, line-array audio, IMAG, and cue-to-cue awards flow for a cultural institution fundraiser.
 track: B
 dateModified: 2026-09-07
+dateModified: 2026-09-09
 eyebrow: Arts / Cultural
 ---
 
@@ -104,6 +105,19 @@ Museum galas fail in the handoffs — not the gear. We built the run of show aro
 
 The show caller ran a single intercom loop: stage manager, lighting, audio, video, and the client point person. Every cue had a number, a department owner, and a fallback if the primary path failed (backup laptop for playback, spare wireless on standby at stage left).
 
+## Stakeholder roles and comms
+
+Museum galas have more owners than a ballroom show. Assign these before load-in — not during the pre-show huddle:
+
+- **Show caller (production)** — owns the numbered cue sheet, intercom discipline, and timing between program segments; does not negotiate F&B changes mid-show
+- **Development director or client point (institution)** — approves run-of-show order, honoree names, and any deviation from the locked script; the only voice on stage content changes
+- **Facilities lead (museum)** — sign-off on cable paths, surface protection, strike windows, and house-light presets on the museum dimmer
+- **Curatorial liaison** — holds the line on clearance from displays and sculpture; photographs strike positions when required
+- **Caterer lead** — owns the dinner-service clock; receives milestone pings from show caller (doors, dessert hold, awards start)
+- **Security / access** — badge list, load-in door schedule, vendor parking or shuttle rules
+
+Escalation on show day: tech issues go to the TD and show caller; guest-facing issues go to the client point; anything touching a wall, case, or preserved surface goes to facilities before production moves gear.
+
 ![IMAG feed and awards lighting during the recognition segment at a museum fundraising gala](/images/marketing/case-studies/heard-museum-gala-imag.jpg)
 
 ## Show-day timeline
@@ -135,6 +149,7 @@ The production team delivered measurable results across guest experience, progra
 - **Presenter confidence held through transitions** — honorees returned from video rolls to live remarks without visible fumbling; the awards lighting look masked the two-second house-light rebuild between segments
 - **Milestone calendar held without scope creep** — every production decision locked on its assigned week; no last-minute stage resize or content additions after the 72-hour content lock
 - **Rear-table sight lines verified before doors** — IMAG framing tested from the farthest paid seat; no post-dinner camera repositioning when donors complained
+- **Stakeholder roles stayed clear through strike** — no mid-show debates about who could move a cable mat or call a house-light preset; facilities, curatorial, and production each had a named owner on comms
 
 ## Lessons for museum and cultural galas
 
