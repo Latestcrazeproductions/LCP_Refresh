@@ -44,8 +44,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-03T19:11:29.417Z",
-      "runId": "run-bf4d659f-f082-4b35-b835-9b12516c2598"
+      "dispatchedAt": "2026-09-09T19:09:19.676Z",
+      "runId": "run-60527435-7a82-4d64-a36d-57cd7bf55ed9"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -132,8 +132,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-04T18:54:09.751Z",
-      "runId": "run-82e4f0eb-683e-4cc2-8b43-d7d415e47736"
+      "dispatchedAt": "2026-09-09T19:09:19.676Z",
+      "runId": "run-c631fd7f-f9a6-46b0-97b4-c30ddab7df90"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -177,8 +177,8 @@
       "targetKey": "daily-venue-guide",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-03T19:11:29.417Z",
-      "runId": "run-54da1808-9c7b-48f5-a98f-a100b4d1cd96"
+      "dispatchedAt": "2026-09-08T19:19:45.782Z",
+      "runId": "run-01d23cc9-6b50-4186-970c-0d91f674bfa9"
     },
     {
       "taskId": "blog.national.create:when-you-need-imag-and-delay-screens",
@@ -260,6 +260,33 @@
       "cadence": "daily",
       "dispatchedAt": "2026-09-04T18:54:09.751Z",
       "runId": "run-7f88cfb0-4cc2-4b3d-ab35-b9715c145bb0"
+    },
+    {
+      "taskId": "authority.strategy_blog:capital-vs-operating-budget-event-technology",
+      "type": "authority.strategy_blog",
+      "targetKey": "capital-vs-operating-budget-event-technology",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-07T19:42:09.987Z",
+      "runId": "run-ac514ef3-f888-446c-af8a-c83a9bbf698b"
+    },
+    {
+      "taskId": "service.gallery_swap:/services/stage",
+      "type": "service.gallery_swap",
+      "targetKey": "/services/stage",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-08T19:19:45.782Z",
+      "runId": "run-91f886bd-e56d-436d-ac69-489c8287d9cd"
+    },
+    {
+      "taskId": "authority.strategy_blog:production-partners-for-high-stakes-keynotes",
+      "type": "authority.strategy_blog",
+      "targetKey": "production-partners-for-high-stakes-keynotes",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-08T19:19:45.782Z",
+      "runId": "run-dbb76ef0-0137-4146-b3b8-98829605e159"
     }
   ]
 }
