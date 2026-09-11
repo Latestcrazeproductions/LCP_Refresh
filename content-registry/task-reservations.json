@@ -44,8 +44,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-09T19:09:19.676Z",
-      "runId": "run-60527435-7a82-4d64-a36d-57cd7bf55ed9"
+      "dispatchedAt": "2026-09-11T19:02:58.322Z",
+      "runId": "run-3c3d84e0-c8a1-43a0-8946-31dd3ada1307"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -177,8 +177,8 @@
       "targetKey": "daily-venue-guide",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-08T19:19:45.782Z",
-      "runId": "run-01d23cc9-6b50-4186-970c-0d91f674bfa9"
+      "dispatchedAt": "2026-09-11T19:02:58.322Z",
+      "runId": "run-0a20cf6c-519c-4f49-a87c-1f6e17dcf53a"
     },
     {
       "taskId": "blog.national.create:when-you-need-imag-and-delay-screens",
