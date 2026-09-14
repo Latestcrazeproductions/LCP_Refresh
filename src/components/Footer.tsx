@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { useContent } from '@/context/ContentContext';
+import { CONSENT_COOKIE } from '@/lib/consent';
 
 export default function Footer() {
   const { brand, contact, services, eventTypes } = useContent();
@@ -180,7 +181,7 @@ export default function Footer() {
                 <button
                   type="button"
                   onClick={() => {
-                    document.cookie = 'lcp_consent=; path=/; max-age=0';
+                    document.cookie = `${CONSENT_COOKIE}=; path=/; max-age=0`;
                     window.location.reload();
                   }}
                   className="text-gray-500 hover:text-white transition-colors text-sm"

@@ -48,6 +48,7 @@ Marketing and events website for Latest Craze Productions, built with Next.js 15
 - [Deploy to Vercel](docs/DEPLOY_VERCEL.md)
 - [CMS Setup](docs/CMS_SETUP.md)
 - [Forms & Google Sheets](docs/FORMS_GOOGLE_SHEETS.md)
+- [Google Analytics 4](docs/GA4.md)
 - [LASSO Contacts](docs/LASSO_CONTACTS_CRON.md)
 
 ## Deployment

@@ -2,28 +2,15 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-
-const CONSENT_COOKIE = 'lcp_consent';
-const VISITOR_COOKIE = 'lcp_visitor';
-const COOKIE_MAX_AGE = 365 * 24 * 60 * 60; // 1 year
-
-type ConsentState = {
-  essential: boolean;
-  analytics: boolean;
-  marketing: boolean;
-  preferences: boolean;
-  ts: number;
-};
-
-function getCookie(name: string): string | null {
-  if (typeof document === 'undefined') return null;
-  const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
-  return match ? decodeURIComponent(match[2]) : null;
-}
-
-function setCookie(name: string, value: string, maxAge: number = COOKIE_MAX_AGE) {
-  document.cookie = `${name}=${encodeURIComponent(value)};path=/;max-age=${maxAge};SameSite=Lax`;
-}
+import {
+  CONSENT_COOKIE,
+  VISITOR_COOKIE,
+  dispatchConsentChange,
+  getCookie,
+  parseConsentCookie,
+  setCookie,
+  type ConsentState,
+} from '@/lib/consent';
 
 function randomId(): string {
   return crypto.randomUUID?.() ?? `v-${Date.now()}-${Math.random().toString(36).slice(2, 11)}`;
@@ -37,21 +24,8 @@ export default function CookieConsent() {
   const [showEmailCapture, setShowEmailCapture] = useState(false);
 
   useEffect(() => {
-    const consentStr = getCookie(CONSENT_COOKIE);
-    if (!consentStr) {
-      setIsVisible(true);
-      return;
-    }
-    try {
-      const parsed = JSON.parse(consentStr) as ConsentState;
-      if (parsed && typeof parsed.ts === 'number') {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-    } catch {
-      setIsVisible(true);
-    }
+    const parsed = parseConsentCookie(getCookie(CONSENT_COOKIE));
+    setIsVisible(!parsed);
   }, []);
 
   async function saveConsent(
@@ -91,6 +65,7 @@ export default function CookieConsent() {
 
     const state: ConsentState = { essential, analytics, marketing, preferences, ts: Date.now() };
     setCookie(CONSENT_COOKIE, JSON.stringify(state));
+    dispatchConsentChange(state);
     setIsVisible(false);
     setIsCustomizing(false);
   }
@@ -129,7 +104,7 @@ export default function CookieConsent() {
         {!isCustomizing ? (
           <>
             <p id="cookie-consent-desc" className="text-gray-300 text-sm md:text-base mb-4">
-              We use cookies to improve your experience, analyze traffic, and support marketing. Essential cookies are required. You can accept all, reject non-essential, or customize. By opting into marketing, you consent to us using your data for business growth. See our{' '}
+              We use cookies to improve your experience, analyze traffic, and support marketing. Essential cookies and first-party analytics run by default so we can measure the site. You can reject non-essential cookies to opt out of analytics, or customize. Marketing cookies stay off unless you accept them. See our{' '}
               <Link href="/privacy" className="text-blue-400 hover:text-blue-300 underline">
                 Privacy Policy
               </Link>.

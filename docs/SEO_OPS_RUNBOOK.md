@@ -82,8 +82,10 @@ Adjust targets in `content-registry/config.json` → `topicQueues`. Human review
 
 1. Export GSC queries + pages CSV → `content-registry/gsc-snapshot/YYYY-MM/`
 2. Update `content-registry/competitor-scan.json` for priority keywords
-3. Update `content-registry/metrics.json` actuals from GA4 + CRM
+3. Update `content-registry/metrics.json` actuals from GA4 + CRM (GA4: Reports → Acquisition → Traffic acquisition, and Landing page; organic sessions and `generate_lead` count)
 4. Commit before monthly workflow runs (1st of month)
+
+GA4 wiring: [GA4.md](./GA4.md). Production Measurement ID is `G-W2K2ZKCHVZ` (also the code default). Override with `NEXT_PUBLIC_GA_MEASUREMENT_ID` on Vercel if the stream changes.
 
 ## Review agent PRs
 
