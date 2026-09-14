@@ -132,8 +132,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-10T19:00:54.114Z",
-      "runId": "run-e4832f83-8a7a-412c-b87c-2c69c6870fd2"
+      "dispatchedAt": "2026-09-14T20:12:37.472Z",
+      "runId": "run-84ba0d34-ac56-4a15-ab7d-6b5527784949"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -159,8 +159,8 @@
       "targetKey": "/services/lighting",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-08-24T16:42:03.043Z",
-      "runId": "run-2952fdce-7e41-4aa8-afa2-44906faf8e0f"
+      "dispatchedAt": "2026-09-14T20:12:37.472Z",
+      "runId": "run-38c5065f-2a00-4c0e-994d-3aa89597ef8d"
     },
     {
       "taskId": "authority.strategy_blog:av-budget-allocation-for-multi-city-tours",
