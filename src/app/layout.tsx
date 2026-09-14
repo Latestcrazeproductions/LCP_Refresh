@@ -5,6 +5,7 @@ import DeferredCookieConsent from '@/components/DeferredCookieConsent';
 import AuthHashHandler from '@/components/AuthHashHandler';
 import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -105,6 +106,7 @@ export default function RootLayout({
         {children}
         <AuthHashHandler />
         <DeferredCookieConsent />
+        <GoogleAnalytics />
         <Analytics />
         <SpeedInsights />
       </body>
