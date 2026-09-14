@@ -18,6 +18,13 @@ function gtag(...args: unknown[]) {
   window.gtag?.(...args);
 }
 
+/** Analytics is on unless the visitor explicitly opted out (Reject / Customize). */
+export function analyticsAllowed(): boolean {
+  const consent = readConsent();
+  if (!consent) return true;
+  return consent.analytics;
+}
+
 export function applyGoogleConsent(state: Pick<ConsentState, 'analytics' | 'marketing'>) {
   gtag('consent', 'update', {
     analytics_storage: state.analytics ? 'granted' : 'denied',
@@ -28,7 +35,7 @@ export function applyGoogleConsent(state: Pick<ConsentState, 'analytics' | 'mark
 }
 
 export function trackPageView(path: string) {
-  if (!readConsent()?.analytics) return;
+  if (!analyticsAllowed()) return;
   gtag('event', 'page_view', {
     page_path: path,
     page_title: typeof document !== 'undefined' ? document.title : undefined,
@@ -40,6 +47,6 @@ export function trackEvent(
   name: string,
   params?: Record<string, string | number | boolean | undefined>
 ) {
-  if (!readConsent()?.analytics) return;
+  if (!analyticsAllowed()) return;
   gtag('event', name, params);
 }

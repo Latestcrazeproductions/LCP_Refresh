@@ -104,7 +104,7 @@ export default function CookieConsent() {
         {!isCustomizing ? (
           <>
             <p id="cookie-consent-desc" className="text-gray-300 text-sm md:text-base mb-4">
-              We use cookies to improve your experience, analyze traffic, and support marketing. Essential cookies are required. You can accept all, reject non-essential, or customize. By opting into marketing, you consent to us using your data for business growth. See our{' '}
+              We use cookies to improve your experience, analyze traffic, and support marketing. Essential cookies and first-party analytics run by default so we can measure the site. You can reject non-essential cookies to opt out of analytics, or customize. Marketing cookies stay off unless you accept them. See our{' '}
               <Link href="/privacy" className="text-blue-400 hover:text-blue-300 underline">
                 Privacy Policy
               </Link>.

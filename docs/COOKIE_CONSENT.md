@@ -92,4 +92,4 @@ Users can reopen the consent dialog via **Cookie preferences** in the footer. Th
 
 ## Google Analytics 4
 
-GA4 loads only when `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set. Consent Mode defaults to **denied**. After the visitor accepts analytics (Accept all, or Customize → Analytics), the tag updates `analytics_storage` to granted and sends page views. Contact form success fires a `generate_lead` event (event type and referral source only — no name, email, or phone). See [GA4.md](./GA4.md).
+GA4 loads when `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set. Analytics is **on by default** (opt-out). Consent Mode starts with `analytics_storage=granted`. Ads/marketing stay denied until Accept all or Customize → Marketing. **Reject non-essential** sets analytics to denied and stops hits. Contact form success fires `generate_lead` (event type and referral source only — no name, email, or phone). See [GA4.md](./GA4.md).

@@ -26,8 +26,8 @@ Locally, add the same line to `.env.local`. The tag is a no-op if the env var is
 
 | When | Event | Notes |
 |------|--------|--------|
-| Analytics cookies accepted | Consent Mode `analytics_storage=granted` | Default is denied until the banner |
-| Each route (including client navigations) | `page_view` | Only after analytics consent |
+| Page load | Consent Mode `analytics_storage=granted` | Opt-out: no banner click required. **Reject non-essential** turns it off. |
+| Each route (including client navigations) | `page_view` | Skipped only after an explicit analytics opt-out |
 | Contact form success | `generate_lead` | Params: `event_type`, `referral_source`. No PII |
 
 Marketing cookies map to Google `ad_storage` / ads personalization. They stay denied unless the visitor accepts marketing.
@@ -48,4 +48,4 @@ Mark `generate_lead` as a **key event** (Admin → Events) so it shows in conver
 Copy into `content-registry/metrics.json`:
 
 - `monthlyOrganicSessions` — Traffic acquisition, last calendar month, `google / organic`
-- `monthlyOrganicLeads` — `generate_lead` count for that month (still reconcile with Supabase `contact_submissions`; GA4 only counts consented visits)
+- `monthlyOrganicLeads` — `generate_lead` count for that month (still reconcile with Supabase `contact_submissions`; GA4 misses visitors who rejected analytics)

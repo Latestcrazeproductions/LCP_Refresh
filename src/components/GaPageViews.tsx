@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { usePathname } from 'next/navigation';
 import { CONSENT_CHANGE_EVENT, readConsent, type ConsentState } from '@/lib/consent';
-import { applyGoogleConsent, trackPageView } from '@/lib/ga';
+import { analyticsAllowed, applyGoogleConsent, trackPageView } from '@/lib/ga';
 
 export default function GaPageViews() {
   const pathname = usePathname();
@@ -30,7 +30,7 @@ export default function GaPageViews() {
 
   useEffect(() => {
     if (!pathname) return;
-    if (!readConsent()?.analytics) return;
+    if (!analyticsAllowed()) return;
     if (lastPath.current === pathname) return;
     lastPath.current = pathname;
     trackPageView(pathname);

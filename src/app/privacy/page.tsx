@@ -23,7 +23,7 @@ export default async function PrivacyPage() {
         <Navbar />
         <article className="pt-32 pb-24 px-6 max-w-3xl mx-auto">
           <h1 className="text-4xl font-bold mb-8">Privacy Policy</h1>
-          <p className="text-gray-400 mb-6">Last updated: March 2025</p>
+          <p className="text-gray-400 mb-6">Last updated: September 2026</p>
 
           <section className="space-y-6 text-gray-300">
             <h2 className="text-xl font-semibold text-white">Overview</h2>
@@ -33,18 +33,18 @@ export default async function PrivacyPage() {
 
             <h2 className="text-xl font-semibold text-white">Cookies</h2>
             <p>
-              We use cookies and similar technologies to improve your experience, analyze site traffic, and support marketing. You can customize your cookie preferences when you first visit or at any time by clearing cookies and revisiting.
+              We use cookies and similar technologies to improve your experience, measure how the site is used, and (only if you opt in) support marketing. First-party analytics (Google Analytics 4) runs by default. You can opt out anytime with <strong>Reject non-essential</strong> on the cookie banner, or <strong>Cookie preferences</strong> in the footer.
             </p>
             <ul className="list-disc list-inside space-y-2">
               <li><strong>Essential:</strong> Required for the site to function.</li>
-              <li><strong>Analytics:</strong> Help us understand how visitors use our site. When you allow analytics cookies, we load Google Analytics 4 to measure page views, traffic source, and form submissions. IP addresses are anonymized.</li>
-              <li><strong>Marketing:</strong> Enable personalized outreach and business growth.</li>
+              <li><strong>Analytics:</strong> Google Analytics 4 measures page views, traffic source, and form submissions so we can see whether content is working. IP addresses are anonymized. This runs unless you opt out.</li>
+              <li><strong>Marketing:</strong> Enable personalized outreach and business growth. Off until you accept.</li>
               <li><strong>Preferences:</strong> Remember your cookie choices.</li>
             </ul>
 
             <h2 className="text-xl font-semibold text-white">Data We Collect</h2>
             <p>
-              When you consent to cookies, we may collect: anonymized identifiers (e.g., hashed IP), consent preferences, device/browser signals, geographic region, referral source, and—if you opt in—your email address for marketing communications.
+              We collect usage data through Google Analytics 4 (page path, referrer, device, approximate location). When you use the consent banner, we may also store consent preferences, anonymized identifiers (e.g., hashed IP), and—if you opt into marketing—your email address.
             </p>
 
             <h2 className="text-xl font-semibold text-white">How We Use Your Data</h2>
