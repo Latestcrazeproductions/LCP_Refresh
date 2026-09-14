@@ -186,7 +186,17 @@ export const siteContent = {
           {
             question: 'What venue constraints should I check before signing wall dimensions?',
             answer:
-              'Start with load-in path, ceiling height, and power — a wall that does not clear the lighting truss or fit through the truck dock is a sizing problem you discover at midnight. Send floor plans, rigging plots, and dock dimensions early; we flag conflicts before you commit to dimensions. Ballroom airwalls, chandelier clusters, and balcony overhangs also eat sight lines — a cross-section sketch beats a surprise on rehearsal day.',
+              'Start with load-in path, ceiling height, rigging points, and power — a wall that does not clear the lighting truss or fit through the truck dock is a sizing problem you discover at midnight. Confirm ground load at the stage lip and whether the venue allows ground-stacked towers vs flown rigging; both change footprint and sight lines. Send floor plans, rigging plots, and dock dimensions early; we flag conflicts before you commit to dimensions. Ballroom airwalls, chandelier clusters, and balcony overhangs also eat sight lines — a cross-section sketch beats a surprise on rehearsal day.',
+          },
+          {
+            question: 'What electrical and rigging details should I confirm with the venue?',
+            answer:
+              'Ask for dedicated circuits, available amperage at the stage, and whether the house electrician can tie in during load-in — LED walls pull serious load and hotel breakers have opinions. Confirm rigging point locations, weight limits, and who signs off on flown structures. Ground-stacked builds still need level deck and cable paths that do not trip the fire marshal. Send us the venue tech packet early; we return a one-page power and rigging ask list you can forward before the contract is signed.',
+          },
+          {
+            question: 'How do you protect brand color accuracy on an HDR wall?',
+            answer:
+              'We calibrate to your brand guidelines before content hits the wall — not after the CMO walks in. Request Pantone or hex references, sample video, and the slide master your team actually uses; we map those through the processor color pipeline and document the target gamma. HDR10 headroom helps saturated brand reds and deep blacks without crushing detail, but source files still need to be built in the right color space. A camera rehearsal confirms skin tones and logo colors on IMAG, not just on the wall in an empty room.',
           },
           {
             question: 'When should I choose an LED wall over projection mapping?',
@@ -201,7 +211,7 @@ export const siteContent = {
           {
             question: 'How far in advance should I book an LED wall?',
             answer:
-              'Four to six weeks covers most single-market keynotes with standard rigging — send room dimensions and load-in constraints early so we can flag truck dock or ceiling issues before you sign. Multi-market tours or custom aspect builds with full-field calibration windows need 8–12 weeks. Rush timelines are possible depending on inventory and venue access; contact us with your dates and we will tell you honestly what is feasible.',
+              'Four to six weeks covers most single-market keynotes with standard rigging — send room dimensions and load-in constraints early so we can flag truck dock or ceiling issues before you sign. Multi-market tours or custom aspect builds with full-field calibration windows need 8–12 weeks. Q4 conference season and January sales kickoffs book inventory early; if your dates fall in those windows, earlier is better. Rush timelines are possible depending on inventory and venue access — contact us with your dates and we will tell you honestly what is feasible.',
           },
         ],
       },
