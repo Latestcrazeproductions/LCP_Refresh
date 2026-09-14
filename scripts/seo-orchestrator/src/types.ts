@@ -92,6 +92,7 @@ export interface ContentTopic {
   title: string;
   track: Track;
   status: 'queued' | 'published';
+  siteId?: string;
 }
 
 export interface QaIssue {

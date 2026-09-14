@@ -61,7 +61,7 @@ const CORE_PAGES: SitePageEntry[] = [
 ];
 
 const MARKET_PAGES: SitePageEntry[] = [
-  { path: '/phoenix-av-production', title: 'Phoenix AV production' },
+  { path: '/phoenix-av-production', title: 'Corporate event production in Phoenix' },
 ];
 
 const LEGAL_PAGES: SitePageEntry[] = [

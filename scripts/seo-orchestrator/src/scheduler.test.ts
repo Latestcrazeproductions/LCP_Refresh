@@ -84,10 +84,39 @@ test('weekly scheduler refreshes a live nationwide hub', () => {
   assert.equal(tasks.some((task) => task.type === 'service.date_touch'), true);
 });
 
+const geoTopics: ContentTopic[] = [
+  {
+    slug: 'phoenix-hybrid-event-production-guide',
+    title: 'Hybrid Event Production in Phoenix, AZ',
+    track: 'A',
+    status: 'queued',
+    siteId: 'phoenix-az',
+  },
+  {
+    slug: 'dallas-conference-production-trends',
+    title: 'Conference Production Trends in Dallas, TX',
+    track: 'A',
+    status: 'queued',
+    siteId: 'dallas-tx',
+  },
+];
+
+const livePhoenixPage: PageRecord = {
+  url: '/phoenix-av-production',
+  layer: 'geo',
+  type: 'geo_landing',
+  track: 'A',
+  tier: 'monthly',
+  phase: 1,
+  implementationStatus: 'live',
+  siteId: 'phoenix-az',
+};
+
 function daily(
   pages: PageRecord[],
   rotationOverride: Partial<RotationState> = {},
-  blockedTargetKeys = new Set<string>()
+  blockedTargetKeys = new Set<string>(),
+  geoTopicList: ContentTopic[] = geoTopics
 ) {
   return scheduleTasks({
     cadence: 'daily',
@@ -98,14 +127,16 @@ function daily(
     maxTasks: 5,
     nationalTopics: topics,
     strategyTopics: [{ slug: 'strategy-topic', title: 'Strategy', track: 'B', status: 'queued' }],
+    geoTopics: geoTopicList,
     blockedTargetKeys,
   });
 }
 
-test('daily scheduler emits one task per category', () => {
+test('daily scheduler emits national capture, service, strategy, and authority', () => {
   const tasks = daily([]);
-  assert.equal(tasks.length, 5);
-  assert.equal(tasks.filter((t) => t.type === 'blog.national.create').length, 2);
+  assert.equal(tasks.length, 4);
+  assert.equal(tasks.filter((t) => t.type === 'blog.national.create').length, 1);
+  assert.equal(tasks.some((t) => t.type === 'blog.geo.create'), false);
   assert.ok(tasks.some((t) => t.type === 'service.gallery_swap'));
   assert.ok(tasks.some((t) => t.type === 'authority.strategy_blog'));
   assert.ok(tasks.some((t) => t.type === 'authority.case_study'));
@@ -115,4 +146,46 @@ test('daily scheduler skips reserved capture topics and picks next', () => {
   const tasks = daily([], {}, new Set(['reserved-topic']));
   const blogs = tasks.filter((t) => t.type === 'blog.national.create');
   assert.ok(blogs.every((t) => t.targetKey === 'next-topic'));
+  assert.equal(blogs.length, 1);
+});
+
+test('daily scheduler does not use planned geoBatch cities while expansion is gated', () => {
+  const tasks = daily([], { geoBatchA: ['dallas-tx', 'scottsdale-az'] });
+  assert.equal(tasks.some((t) => t.type === 'blog.geo.create'), false);
+  assert.equal(tasks.filter((t) => t.type === 'blog.national.create').length, 1);
+});
+
+test('daily scheduler dispatches a queued geo blog for a live city', () => {
+  const tasks = daily([livePhoenixPage]);
+  const geo = tasks.find((t) => t.type === 'blog.geo.create');
+  assert.equal(geo?.targetKey, 'phoenix-hybrid-event-production-guide');
+  assert.equal(geo?.siteId, 'phoenix-az');
+  assert.equal(tasks.filter((t) => t.type === 'blog.national.create').length, 1);
+  assert.equal(tasks.length, 5);
+});
+
+test('daily scheduler skips geo slot when the live-city topic is already published', () => {
+  const publishedGeo: ContentTopic[] = geoTopics.map((topic) =>
+    topic.siteId === 'phoenix-az' ? { ...topic, status: 'published' as const } : topic
+  );
+  const tasks = daily(
+    [
+      livePhoenixPage,
+      {
+        url: '/blog/phoenix-hybrid-event-production-guide',
+        layer: 'geo',
+        type: 'blog',
+        track: 'A',
+        tier: 'monthly',
+        phase: 1,
+        implementationStatus: 'live',
+        siteId: 'phoenix-az',
+      },
+    ],
+    {},
+    new Set(),
+    publishedGeo
+  );
+  assert.equal(tasks.some((t) => t.type === 'blog.geo.create'), false);
+  assert.equal(tasks.length, 4);
 });

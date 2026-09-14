@@ -103,7 +103,7 @@ export default function Contact() {
   }
   const sideVisual = resolveSeoImage(
     sideImageRef,
-    `${content.brand?.nameFull ?? 'Latest Craze Productions'} — contact us for corporate event production`
+    `${content.brand?.nameFull ?? 'Latest Craze Productions'} — contact and production quote`
   );
   const [formData, setFormData] = useState<IntakeFormData>(initialFormState);
   const [eventDateRange, setEventDateRange] = useState<[Date | null, Date | null]>([null, null]);

@@ -11,7 +11,7 @@ export interface TopicQueueSnapshot {
 }
 
 export const DEFAULT_TOPIC_QUEUE_TARGETS: TopicQueueTargets = {
-  /** ~2 capture blogs/day × 22 weekdays (capture + geo fallback slots). */
+  /** ~1 capture blog/day × 22 weekdays (geo slot is live-city blogs, not a second national). */
   nationalCaptureMinQueued: 45,
   /** ~1 strategy blog/day × 22 weekdays. */
   strategyMinQueued: 22,

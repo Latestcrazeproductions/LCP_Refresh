@@ -102,7 +102,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
   ],
   relatedLinks: [
     { href: '/services', label: 'All services' },
-    { href: '/phoenix-av-production', label: 'Phoenix AV production' },
+    { href: '/phoenix-av-production', label: 'Corporate event production in Phoenix' },
     { href: '/nationwide-event-production', label: 'Nationwide production' },
     { href: '/resources/event-production-checklist', label: 'Production checklist' },
     { href: '/blog/led-wall-sizing-for-events', label: 'LED wall sizing guide' },

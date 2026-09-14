@@ -118,6 +118,6 @@ export const NATIONWIDE_HUB: NationwideHubContent = {
     { href: '/blog/led-wall-sizing-for-events', label: 'LED wall sizing guide' },
     { href: '/resources/event-production-checklist', label: 'Production checklist' },
     { href: '/work', label: 'Case studies' },
-    { href: '/phoenix-av-production', label: 'Phoenix AV production' },
+    { href: '/phoenix-av-production', label: 'Corporate event production in Phoenix' },
   ],
 };
