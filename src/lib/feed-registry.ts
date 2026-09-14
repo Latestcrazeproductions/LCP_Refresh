@@ -14,13 +14,20 @@ export interface FeedRegistryEntry {
   implementationStatus: string;
 }
 
-/** Preview set — expand as layout is approved */
-export const FEED_PREVIEW_PATHS = [
+/** Head-term hubs that are indexable. Do not expand to the full matrix from here. */
+export const FEED_INDEXABLE_PATHS = [
   '/feeds/event-production',
-  '/feeds/av-production-galas-awards',
+  '/feeds/av-production',
   '/feeds/led-walls',
+] as const;
+
+/** Layout previews — remain noindex. */
+export const FEED_PREVIEW_PATHS = [
+  '/feeds/av-production-galas-awards',
   '/feeds/av-production/phoenix-az',
 ] as const;
+
+export const FEED_ROUTABLE_PATHS = [...FEED_INDEXABLE_PATHS, ...FEED_PREVIEW_PATHS] as const;
 
 const REGISTRY_PATH = path.join(process.cwd(), 'content-registry/pages.jsonl');
 
@@ -69,9 +76,17 @@ export function slugFromFeedPath(feedPath: string): string[] {
   return feedPath.replace(/^\/feeds\/?/, '').split('/').filter(Boolean);
 }
 
+export function isFeedIndexable(feedPath: string): boolean {
+  return (FEED_INDEXABLE_PATHS as readonly string[]).includes(feedPath);
+}
+
+export function isFeedRoutable(feedPath: string): boolean {
+  return (FEED_ROUTABLE_PATHS as readonly string[]).includes(feedPath);
+}
+
 export function listFeedPreviewEntries(): FeedRegistryEntry[] {
   const registry = loadRegistry();
-  return FEED_PREVIEW_PATHS.map((url) => registry.get(url)).filter(
+  return FEED_ROUTABLE_PATHS.map((url) => registry.get(url)).filter(
     (entry): entry is FeedRegistryEntry => entry !== undefined
   );
 }

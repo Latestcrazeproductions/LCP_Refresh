@@ -102,6 +102,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
   ],
   relatedLinks: [
     { href: '/services', label: 'All services' },
+    { href: '/feeds/event-production', label: 'Corporate event production' },
     { href: '/phoenix-av-production', label: 'Corporate event production in Phoenix' },
     { href: '/nationwide-event-production', label: 'Nationwide production' },
     { href: '/resources/event-production-checklist', label: 'Production checklist' },

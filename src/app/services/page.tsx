@@ -108,6 +108,9 @@ export default async function ServicesPage() {
         <section className="relative py-12 px-6 max-w-4xl mx-auto border-t border-white/10">
           <h2 className="text-xl font-semibold text-gray-400 mb-4">See also</h2>
           <ul className="flex flex-wrap gap-4">
+            <li><Link href="/feeds/event-production" className="text-blue-400 hover:text-blue-300 underline">Corporate event production</Link></li>
+            <li><Link href="/feeds/av-production" className="text-blue-400 hover:text-blue-300 underline">AV production company</Link></li>
+            <li><Link href="/feeds/led-walls" className="text-blue-400 hover:text-blue-300 underline">LED walls for events</Link></li>
             <li><Link href="/phoenix-av-production" className="text-blue-400 hover:text-blue-300 underline">Corporate event production in Phoenix</Link></li>
             <li><Link href="/events" className="text-blue-400 hover:text-blue-300 underline">Events we create</Link></li>
             <li><Link href="/about" className="text-blue-400 hover:text-blue-300 underline">About Latest Craze Productions</Link></li>
