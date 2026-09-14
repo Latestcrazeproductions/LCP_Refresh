@@ -7,6 +7,7 @@ import DatePicker from 'react-datepicker';
 import { format } from 'date-fns';
 import { ArrowRight, Mail, Phone, MapPin, Loader2, CheckCircle2, CalendarRange } from 'lucide-react';
 import { useContent } from '@/context/ContentContext';
+import { trackEvent } from '@/lib/ga';
 import { getImageSrc, resolveSeoImage, type SeoImageInput } from '@/lib/seo-image';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -152,6 +153,11 @@ export default function Contact() {
         throw new Error(data.error ?? 'Something went wrong');
       }
       setStatus('success');
+      trackEvent('generate_lead', {
+        event_category: 'contact',
+        event_type: formData.eventType || undefined,
+        referral_source: formData.referralSource || undefined,
+      });
       setFormData(initialFormState);
       setEventDateRange([null, null]);
       setTurnstileToken(null);

@@ -37,7 +37,7 @@ export default async function PrivacyPage() {
             </p>
             <ul className="list-disc list-inside space-y-2">
               <li><strong>Essential:</strong> Required for the site to function.</li>
-              <li><strong>Analytics:</strong> Help us understand how visitors use our site.</li>
+              <li><strong>Analytics:</strong> Help us understand how visitors use our site. When you allow analytics cookies, we load Google Analytics 4 to measure page views, traffic source, and form submissions. IP addresses are anonymized.</li>
               <li><strong>Marketing:</strong> Enable personalized outreach and business growth.</li>
               <li><strong>Preferences:</strong> Remember your cookie choices.</li>
             </ul>

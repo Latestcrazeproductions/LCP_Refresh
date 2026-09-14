@@ -89,3 +89,7 @@ Request body:
 ## Cookie Preferences
 
 Users can reopen the consent dialog via **Cookie preferences** in the footer. This clears the consent cookie and reloads the page to show the banner again.
+
+## Google Analytics 4
+
+GA4 loads only when `NEXT_PUBLIC_GA_MEASUREMENT_ID` is set. Consent Mode defaults to **denied**. After the visitor accepts analytics (Accept all, or Customize → Analytics), the tag updates `analytics_storage` to granted and sends page views. Contact form success fires a `generate_lead` event (event type and referral source only — no name, email, or phone). See [GA4.md](./GA4.md).
