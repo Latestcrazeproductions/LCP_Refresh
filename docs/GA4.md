@@ -7,7 +7,7 @@ GA4 is the traffic and engagement layer for the inbound engine (funnel step 3 in
 1. Open [Google Analytics](https://analytics.google.com) with the same Google account that owns Search Console for `latestcrazeproductions.com`.
 2. **Admin → Create → Property**. Name it `Latest Craze Productions`. Time zone `America/Phoenix`. Currency USD.
 3. Create a **Web** data stream. URL `https://latestcrazeproductions.com`.
-4. Copy the **Measurement ID** (`G-XXXXXXXXXX`).
+4. Copy the **Measurement ID** (`G-XXXXXXXXXX`). Production uses **`G-W2K2ZKCHVZ`**.
 5. Under the stream, **Configure tag settings → Linked products** (or Admin → Product links) and link **Search Console** for the URL-prefix property `https://latestcrazeproductions.com/`.
 
 ## Wire the site
@@ -15,10 +15,10 @@ GA4 is the traffic and engagement layer for the inbound engine (funnel step 3 in
 Set on Vercel **Production** (and Preview if you want staging data separate):
 
 ```
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-W2K2ZKCHVZ
 ```
 
-Redeploy after adding it. `NEXT_PUBLIC_*` is baked in at build time.
+The site also defaults to `G-W2K2ZKCHVZ` in code if the env var is missing. Redeploy after changing it. `NEXT_PUBLIC_*` is baked in at build time.
 
 Locally, add the same line to `.env.local`. The tag is a no-op if the env var is missing or not a `G-` id.
 

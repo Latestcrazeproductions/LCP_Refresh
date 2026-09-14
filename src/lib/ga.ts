@@ -1,6 +1,9 @@
 import { readConsent, type ConsentState } from '@/lib/consent';
 
-export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() ?? '';
+const DEFAULT_GA_MEASUREMENT_ID = 'G-W2K2ZKCHVZ';
+
+export const GA_MEASUREMENT_ID =
+  process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() || DEFAULT_GA_MEASUREMENT_ID;
 
 export function isGaMeasurementId(id: string): boolean {
   return /^G-[A-Z0-9]+$/i.test(id);

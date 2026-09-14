@@ -34,7 +34,7 @@ In your Vercel project **Settings → Environment Variables**, add:
 | `NEXT_PUBLIC_SITE_URL` | Yes** | Production URL (e.g. `https://yourdomain.com`) |
 | `NEXT_PUBLIC_SEMRUSH_API_URL` | No | Semrush proxy API URL (default: localhost; set for CMS reports) |
 | `NEXT_PUBLIC_SEMRUSH_ENABLED` | No | Set to `true` to enable Semrush Reports in CMS |
-| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | No* | GA4 Measurement ID (`G-XXXXXXXXXX`). Required to track organic landing pages and contact `generate_lead`. See [GA4.md](./GA4.md). |
+| `NEXT_PUBLIC_GA_MEASUREMENT_ID` | No | GA4 Measurement ID. Defaults to `G-W2K2ZKCHVZ` in code. Override in Vercel if you rotate the stream. See [GA4.md](./GA4.md). |
 | `GOOGLE_SHEETS_*_URL` | No | Apps Script web app URLs for forms (see `docs/FORMS_GOOGLE_SHEETS.md`) |
 
 \* Without `SMTP_USER` + `SMTP_PASS`, form submissions still save to Supabase but no email is sent.
