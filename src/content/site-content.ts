@@ -224,8 +224,8 @@ export const siteContent = {
           'https://images.unsplash.com/photo-1563089145-599997674d42?q=80&w=2070&auto=format&fit=crop',
         gallery: [
           {
-            src: 'https://images.unsplash.com/photo-1540039155733-5bb897311005?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Overhead rig of intelligent moving-head fixtures and color washes on a live event stage',
+            src: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Gala awards stage with intelligent lighting rig, audience seating, and scenic washes before doors',
           },
           {
             src: 'https://images.unsplash.com/photo-1429962714459-bb934a5a40b6?q=80&w=2070&auto=format&fit=crop',
