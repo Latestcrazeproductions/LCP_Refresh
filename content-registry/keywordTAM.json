@@ -3,10 +3,13 @@
   "lastUpdated": null,
   "terms": [
     { "keyword": "event production company", "layer": "national", "monthlySearchesEstimate": null, "targetUrl": "/nationwide-event-production" },
-    { "keyword": "corporate event production", "layer": "national", "monthlySearchesEstimate": null, "targetUrl": "/services/event-production" },
+    { "keyword": "corporate event production", "layer": "national", "monthlySearchesEstimate": null, "targetUrl": "/feeds/event-production" },
     { "keyword": "conference av production", "layer": "national", "monthlySearchesEstimate": null, "targetUrl": null },
-    { "keyword": "led wall rental", "layer": "national", "monthlySearchesEstimate": null, "targetUrl": null },
-    { "keyword": "av production services", "layer": "national", "monthlySearchesEstimate": null, "targetUrl": null },
-    { "keyword": "event production phoenix", "layer": "geo", "monthlySearchesEstimate": null, "targetUrl": "/phoenix-av-production" }
+    { "keyword": "led wall rental", "layer": "national", "monthlySearchesEstimate": null, "targetUrl": "/feeds/led-walls" },
+    { "keyword": "led walls for events", "layer": "national", "monthlySearchesEstimate": null, "targetUrl": "/feeds/led-walls" },
+    { "keyword": "av production company", "layer": "national", "monthlySearchesEstimate": null, "targetUrl": "/feeds/av-production" },
+    { "keyword": "av production services", "layer": "national", "monthlySearchesEstimate": null, "targetUrl": "/feeds/av-production" },
+    { "keyword": "event production phoenix", "layer": "geo", "monthlySearchesEstimate": null, "targetUrl": "/phoenix-av-production" },
+    { "keyword": "corporate event production in phoenix", "layer": "geo", "monthlySearchesEstimate": null, "targetUrl": "/phoenix-av-production" }
   ]
 }

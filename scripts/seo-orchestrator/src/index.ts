@@ -73,10 +73,13 @@ async function main() {
   const strategyTopics = readTopicsFile(
     path.join(REPO_ROOT, 'content-library/topics/strategy-blog-topics.json')
   );
+  const geoTopics = readTopicsFile(
+    path.join(REPO_ROOT, 'content-library/topics/geo-blog-topics.json')
+  );
   const reservations = reconcileReservations(
     loadReservations(paths.root),
     pages,
-    [...nationalTopics.topics, ...strategyTopics.topics]
+    [...nationalTopics.topics, ...strategyTopics.topics, ...geoTopics.topics]
   );
 
   const effectiveMax = Math.min(maxTasks, config.maxTasksPerRun ?? 5);
@@ -91,6 +94,7 @@ async function main() {
     maxTasks: scheduleCap,
     nationalTopics: nationalTopics.topics,
     strategyTopics: strategyTopics.topics,
+    geoTopics: geoTopics.topics,
     blockedTargetKeys: blockedTargetKeys(reservations, retryTarget),
   });
 

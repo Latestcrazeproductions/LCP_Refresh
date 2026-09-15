@@ -24,6 +24,7 @@ interface ScheduleInput {
   maxTasks: number;
   nationalTopics?: ContentTopic[];
   strategyTopics?: ContentTopic[];
+  geoTopics?: ContentTopic[];
   blockedTargetKeys?: Set<string>;
 }
 
@@ -43,6 +44,32 @@ function task(
     description,
     ...extra,
   };
+}
+
+function liveGeoSiteIds(pages: PageRecord[]): string[] {
+  const ids = pages
+    .filter((page) => page.layer === 'geo' && page.implementationStatus === 'live' && page.siteId)
+    .map((page) => page.siteId as string);
+  return [...new Set(ids)];
+}
+
+function queuedGeoTopic(
+  topics: ContentTopic[] = [],
+  pages: PageRecord[],
+  blocked: Set<string>,
+  liveSiteIds: string[]
+): ContentTopic | undefined {
+  if (!liveSiteIds.length) return undefined;
+  return topics.find(
+    (topic) =>
+      topic.status === 'queued' &&
+      Boolean(topic.siteId) &&
+      liveSiteIds.includes(topic.siteId as string) &&
+      !blocked.has(topic.slug) &&
+      !pages.some(
+        (page) => page.url === `/blog/${topic.slug}` && page.implementationStatus === 'live'
+      )
+  );
 }
 
 function queuedTopic(
@@ -70,16 +97,15 @@ function oldestServicePage(pages: PageRecord[], filter?: (p: PageRecord) => bool
 }
 
 function scheduleDailyTasks(
-  config: RegistryConfig,
+  _config: RegistryConfig,
   rotation: RotationState,
   pages: PageRecord[],
   nationalTopics: ContentTopic[] | undefined,
   strategyTopics: ContentTopic[] | undefined,
-  blockedTargetKeys: Set<string>
+  blockedTargetKeys: Set<string>,
+  geoTopics: ContentTopic[] | undefined
 ): Task[] {
   const tasks: Task[] = [];
-  const geoAllowed = config.allowNewGeoSites && isNationwideHubLive(pages, config.nationwideHubUrl);
-  const nationalOnly = config.phase < 2 || !geoAllowed;
   const usedNationalSlugs = new Set(blockedTargetKeys);
 
   const captureTopic = queuedTopic(nationalTopics, pages, usedNationalSlugs);
@@ -146,22 +172,15 @@ function scheduleDailyTasks(
     );
   }
 
-  if (!nationalOnly && rotation.geoBatchA.length > 0) {
-    const siteId = rotation.geoBatchA[rotation.serviceRotationIndex % rotation.geoBatchA.length];
-    if (siteId) {
-      tasks.push(
-        task('blog.geo.create', 'A', `Daily geo blog for ${siteId}`, `${siteId}:blog`, { siteId })
-      );
-    }
-  } else {
-    const geoFallback = queuedTopic(nationalTopics, pages, usedNationalSlugs);
-    if (geoFallback) {
-      tasks.push(
-        task('blog.national.create', 'A', `Geo-slot capture blog: ${geoFallback.title}`, geoFallback.slug, {
-          url: `/blog/${geoFallback.slug}`,
-        })
-      );
-    }
+  const liveSites = liveGeoSiteIds(pages);
+  const geoTopic = queuedGeoTopic(geoTopics, pages, blockedTargetKeys, liveSites);
+  if (geoTopic?.siteId) {
+    tasks.push(
+      task('blog.geo.create', 'A', `Daily geo blog: ${geoTopic.title}`, geoTopic.slug, {
+        url: `/blog/${geoTopic.slug}`,
+        siteId: geoTopic.siteId,
+      })
+    );
   }
 
   return tasks;
@@ -176,6 +195,7 @@ export function scheduleTasks(input: ScheduleInput): Task[] {
     maxTasks,
     nationalTopics,
     strategyTopics,
+    geoTopics,
     blockedTargetKeys = new Set<string>(),
   } = input;
   const tasks: Task[] = [];
@@ -307,7 +327,8 @@ export function scheduleTasks(input: ScheduleInput): Task[] {
       pages,
       nationalTopics,
       strategyTopics,
-      blockedTargetKeys
+      blockedTargetKeys,
+      geoTopics
     ).slice(0, maxTasks);
   }
 

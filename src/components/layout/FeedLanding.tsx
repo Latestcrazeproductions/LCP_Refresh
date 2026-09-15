@@ -3,7 +3,7 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 import ContactCta from '@/components/ContactCta';
 import type { FeedPageContent } from '@/content/feed-examples';
 import type { SiteContent } from '@/lib/content';
-import type { FeedRegistryEntry } from '@/lib/feed-registry';
+import { isFeedIndexable, type FeedRegistryEntry } from '@/lib/feed-registry';
 import { ContentProvider } from '@/context/ContentContext';
 import { ImagePlaceholder } from './ImagePlaceholder';
 import { PageShell } from './PageShell';
@@ -18,6 +18,7 @@ interface FeedLandingProps {
 
 export function FeedLanding({ entry, page, siteContent }: FeedLandingProps) {
   const isGeo = entry.layer === 'geo';
+  const indexable = isFeedIndexable(entry.url);
 
   return (
     <ContentProvider content={siteContent}>
@@ -30,11 +31,23 @@ export function FeedLanding({ entry, page, siteContent }: FeedLandingProps) {
             <div className="absolute bottom-0 left-0 w-full p-8 md:p-12">
               <div className="mx-auto max-w-7xl">
                 <nav className="mb-3 text-sm text-gray-400">
-                  <Link href="/feeds" className="transition-colors hover:text-white">
-                    Feed previews
-                  </Link>
-                  <span className="mx-2">/</span>
-                  <span className="text-white">{entry.pattern}</span>
+                  {indexable ? (
+                    <>
+                      <Link href="/services" className="transition-colors hover:text-white">
+                        Services
+                      </Link>
+                      <span className="mx-2">/</span>
+                      <span className="text-white">{page.h1}</span>
+                    </>
+                  ) : (
+                    <>
+                      <Link href="/feeds" className="transition-colors hover:text-white">
+                        Feed previews
+                      </Link>
+                      <span className="mx-2">/</span>
+                      <span className="text-white">{entry.pattern}</span>
+                    </>
+                  )}
                 </nav>
                 <p className="mb-2 text-xs font-semibold uppercase tracking-widest text-blue-400">
                   {page.eyebrow}

@@ -4,7 +4,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { ContentProvider } from '@/context/ContentContext';
 import { getSiteContent } from '@/lib/content';
 import { getFeedPageContent } from '@/content/feed-examples';
-import { listFeedPreviewEntries } from '@/lib/feed-registry';
+import { isFeedIndexable, listFeedPreviewEntries } from '@/lib/feed-registry';
 import { PageShell } from '@/components/layout/PageShell';
 import { PageHero } from '@/components/layout/PageHero';
 import { SectionHeader } from '@/components/layout/SectionHeader';
@@ -35,7 +35,7 @@ export default async function FeedsIndexPage() {
         <PageHero
           eyebrow="Layout preview"
           title="Feed landing pages"
-          lead="Sample SEO feed pages for layout review. Each example represents a different matrix pattern. Images are placeholders until programmatic generation is ready."
+          lead="Three national head-term hubs are indexable. Remaining examples stay layout previews (noindex) until we expand the matrix on purpose."
         />
 
         <section className="px-6 pb-24">
@@ -48,6 +48,7 @@ export default async function FeedsIndexPage() {
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               {previews.map((entry) => {
                 const content = getFeedPageContent(entry);
+                const live = isFeedIndexable(entry.url);
                 return (
                   <Link
                     key={entry.url}
@@ -58,13 +59,21 @@ export default async function FeedsIndexPage() {
                       <span className="rounded-full border border-blue-500/30 bg-blue-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-blue-300">
                         {PATTERN_LABELS[entry.pattern] ?? entry.pattern}
                       </span>
-                      <span className="text-xs text-gray-500">{entry.layer}</span>
+                      <span
+                        className={
+                          live
+                            ? 'rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-emerald-300'
+                            : 'rounded-full border border-white/15 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-gray-500'
+                        }
+                      >
+                        {live ? 'Indexable' : 'Preview · noindex'}
+                      </span>
                     </div>
                     <h2 className="text-xl font-bold group-hover:text-blue-100">{content.h1}</h2>
                     <p className="mt-2 line-clamp-2 text-sm text-gray-400">{content.lead}</p>
                     <p className="mt-4 font-mono text-xs text-gray-500">{entry.url}</p>
                     <div className="mt-4 flex items-center gap-2 text-sm font-medium text-blue-400">
-                      Preview layout
+                      {live ? 'Open page' : 'Preview layout'}
                       <ArrowUpRight className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                     </div>
                   </Link>

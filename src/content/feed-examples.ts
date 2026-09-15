@@ -23,9 +23,9 @@ const BRAND = 'Latest Craze Productions';
 
 const SAMPLE_CONTENT: Record<string, FeedPageContent> = {
   '/feeds/event-production': {
-    h1: 'Event Production for Corporate Events',
+    h1: 'Corporate Event Production',
     eyebrow: 'National · Full service',
-    lead: `${BRAND} plans and executes corporate event production nationwide — LED video, intelligent lighting, precision audio, staging, and show management for keynotes, conferences, galas, and brand activations.`,
+    lead: `${BRAND} provides corporate event production nationwide — LED video, intelligent lighting, precision audio, staging, and show management for keynotes, conferences, galas, and brand activations.`,
     primaryCta: { label: 'Request a production consult', href: '/contact' },
     sections: [
       {
@@ -63,12 +63,76 @@ const SAMPLE_CONTENT: Record<string, FeedPageContent> = {
         question: 'How far in advance should we book?',
         answer: 'For major general sessions and galas, 8–12 weeks is ideal. Tighter timelines are possible depending on scope and venue.',
       },
+      {
+        question: 'How is this different from nationwide event production?',
+        answer:
+          'This page is corporate event production as a service — what we put on stage. Nationwide event production is the touring model: one technical standard across markets. Phoenix-local programs start at corporate event production in Phoenix.',
+      },
     ],
     relatedLinks: [
+      { href: '/feeds/av-production', label: 'AV production company' },
+      { href: '/feeds/led-walls', label: 'LED walls for events' },
+      { href: '/nationwide-event-production', label: 'Nationwide event production' },
+      { href: '/phoenix-av-production', label: 'Corporate event production in Phoenix' },
       { href: '/services', label: 'All services' },
-      { href: '/events', label: 'Events we create' },
-      { href: '/feeds/conference-production', label: 'Conference production' },
-      { href: '/feeds/av-production', label: 'AV production' },
+    ],
+  },
+
+  '/feeds/av-production': {
+    h1: 'AV Production Company',
+    eyebrow: 'National · Technical production',
+    lead: `${BRAND} is an AV production company for corporate programs — LED walls, lighting, audio, staging, and show operation under one technical director, not a rental list with a different crew in every room.`,
+    primaryCta: { label: 'Request an AV production consult', href: '/contact' },
+    sections: [
+      {
+        title: 'What an AV production partner owns',
+        body: 'AV production is the signal path, the cue, and the person who calls the show. We spec the wall, light the presenter for camera, mix the room and the stream, and run rehearsal against a hard out — then we stay on headset through strike. Gear without that ownership is a quote, not a show.',
+        bullets: [
+          'LED, lighting, audio, and staging as one plot — not four vendors',
+          'Show caller and TD who own the file from rehearsal through encore',
+          'Processor, RF, and backup paths written into the rider',
+          'Same technical standard in Phoenix and on the road',
+        ],
+        imageLabel: 'Corporate AV production — LED, lighting, and audio',
+      },
+      {
+        title: 'When you need a production company, not a rental house',
+        body: 'Rental is the right buy when you have an in-house TD and a simple breakout. It fails when the CEO walks on, IMAG has to match the wall, and house AV is exclusive after 6 p.m. We bid the show: crew, cueing, and the failure modes — monsoon internet, soffit height, union dock windows — not just panel count.',
+        imageLabel: 'General session AV — IMAG and line array',
+      },
+    ],
+    capabilitiesTitle: 'AV production stack',
+    capabilities: [
+      'LED video walls & IMAG',
+      'Intelligent lighting',
+      'Line-array audio & RF',
+      'Stage & scenic',
+      'Show calling & TD',
+      'Hybrid / streaming paths',
+    ],
+    faq: [
+      {
+        question: 'What is the difference between AV rental and AV production?',
+        answer:
+          'Rental delivers gear. Production delivers a show: design, crew, cue-to-cue, and someone accountable when the room or the stream breaks. We do both, but we quote production first.',
+      },
+      {
+        question: 'Do you work outside Phoenix?',
+        answer:
+          'Yes. Phoenix is headquarters and warehouse. Touring crews run the same standard nationwide — see nationwide event production when the program hits multiple markets.',
+      },
+      {
+        question: 'Can you work with in-house or venue AV?',
+        answer:
+          'Yes. We write who patches the clicker, who owns the switcher, and who talks to the union steward before load-in. Unwritten splits are how shows miss the first cue.',
+      },
+    ],
+    relatedLinks: [
+      { href: '/feeds/event-production', label: 'Corporate event production' },
+      { href: '/feeds/led-walls', label: 'LED walls for events' },
+      { href: '/nationwide-event-production', label: 'Nationwide event production' },
+      { href: '/phoenix-av-production', label: 'Corporate event production in Phoenix' },
+      { href: '/services', label: 'All services' },
     ],
   },
 
@@ -116,16 +180,16 @@ const SAMPLE_CONTENT: Record<string, FeedPageContent> = {
     ],
     relatedLinks: [
       { href: '/events/galas-awards', label: 'Gala events overview' },
-      { href: '/feeds/event-production', label: 'Event production' },
+      { href: '/feeds/event-production', label: 'Corporate event production' },
       { href: '/blog/corporate-gala-production-guide', label: 'Gala planning guide' },
       { href: '/work', label: 'Case studies' },
     ],
   },
 
   '/feeds/led-walls': {
-    h1: 'LED Walls for Corporate Events',
+    h1: 'LED Walls for Events',
     eyebrow: 'LED video · Technical capability',
-    lead: 'Ultra-wide LED video walls, IMAG, and stage-backdrop displays for corporate keynotes, product launches, and general sessions — engineered for sight lines, processor redundancy, and clean content delivery.',
+    lead: 'LED walls for events — ultra-wide video, IMAG, and stage-backdrop displays for corporate keynotes, product launches, and general sessions, engineered for sight lines, processor redundancy, and clean content delivery.',
     primaryCta: { label: 'Discuss LED for your event', href: '/contact' },
     sections: [
       {
@@ -159,11 +223,17 @@ const SAMPLE_CONTENT: Record<string, FeedPageContent> = {
         question: 'How do you determine the right pixel pitch?',
         answer: 'We factor viewing distance, room depth, IMAG usage, and budget. Tighter pitch for camera-heavy keynotes; optimized pitch for larger ballroom sight lines.',
       },
+      {
+        question: 'Is this LED wall rental or production?',
+        answer:
+          'We provide the wall as part of a production: spec, processor path, content, and an onsite technician. Pure rental without show operation is a different quote — see the LED walls service page for capability detail.',
+      },
     ],
     relatedLinks: [
       { href: '/services/led-walls', label: 'LED walls service page' },
-      { href: '/feeds/event-production', label: 'Event production' },
-      { href: '/feeds/av-production-corporate-keynotes', label: 'AV for keynotes' },
+      { href: '/feeds/event-production', label: 'Corporate event production' },
+      { href: '/feeds/av-production', label: 'AV production company' },
+      { href: '/blog/led-wall-sizing-for-events', label: 'LED wall sizing guide' },
     ],
   },
 
@@ -210,8 +280,8 @@ const SAMPLE_CONTENT: Record<string, FeedPageContent> = {
       },
     ],
     relatedLinks: [
-      { href: '/phoenix-av-production', label: 'Phoenix AV production hub' },
-      { href: '/feeds/av-production/scottsdale-az', label: 'Scottsdale AV production' },
+      { href: '/phoenix-av-production', label: 'Corporate event production in Phoenix' },
+      { href: '/feeds/av-production', label: 'AV production company' },
       { href: '/services', label: 'All services' },
       { href: '/featured-venues', label: 'Featured venues' },
     ],

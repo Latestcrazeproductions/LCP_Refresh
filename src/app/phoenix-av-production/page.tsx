@@ -37,13 +37,13 @@ const heroNavLinks: { label: string; href: string }[] = [
 ];
 
 export const metadata: Metadata = {
-  title: 'Phoenix AV Production',
+  title: 'Corporate Event Production in Phoenix',
   description:
-    'Corporate Phoenix AV production: LED walls, lighting, audio, and staging from Latest Craze Productions. 4035 E Magnolia St, Phoenix.',
+    'Corporate event production in Phoenix — LED walls, lighting, audio, and staging from Latest Craze Productions. Warehouse at 4035 E Magnolia St. Valley shows and nationwide crews.',
   openGraph: {
-    title: 'Phoenix AV Production | Latest Craze Productions',
+    title: 'Corporate Event Production in Phoenix | Latest Craze Productions',
     description:
-      'Corporate Phoenix AV production — LED, lighting, audio, staging — from Latest Craze Productions.',
+      'Corporate event production in Phoenix — LED, lighting, audio, and staging from a Phoenix warehouse, with crews that travel.',
     url: `${SITE_URL}${PAGE_PATH}`,
     images: [
       {
@@ -82,11 +82,11 @@ export default async function PhoenixAvProductionPage() {
 
           <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 pt-24 pb-16 md:pt-28 md:pb-20 text-center max-w-4xl mx-auto w-full">
             <h1 className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white mb-5 drop-shadow-lg">
-              Phoenix AV production
+              Corporate event production in Phoenix
             </h1>
             <p className="text-lg md:text-xl text-gray-200 leading-relaxed max-w-2xl drop-shadow-md mb-12 md:mb-14">
-              Corporate event production from Latest Craze — LED walls, lighting, audio, and staging
-              for the Valley and the road —{' '}
+              LED walls, lighting, audio, and staging from our Phoenix warehouse — Valley venues and
+              nationwide crews from one technical standard.{' '}
               <span className="text-gray-300">4035 E Magnolia St, Phoenix, AZ 85034</span>
             </p>
 
@@ -108,33 +108,42 @@ export default async function PhoenixAvProductionPage() {
         </header>
 
         <article className="px-6 py-16 max-w-4xl mx-auto border-t border-white/10">
-          <h2 className="text-2xl md:text-3xl font-bold mb-6">Phoenix corporate AV</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-6">Phoenix warehouse, Valley load-ins</h2>
           <p className="text-lg text-gray-300 leading-relaxed mb-6">
-            Latest Craze Productions runs Phoenix AV production for keynotes, conferences, galas, and
-            launches: LED video walls, lighting, precision audio, stage design, and show operation.
-            We work across the Valley plus nationwide when you want one crew and technical standard
-            throughout.
+            Latest Craze Productions is the local crew for corporate event production in Phoenix:
+            keynotes, conferences, galas, and launches with LED video walls, lighting, precision
+            audio, stage design, and show operation. Shows get prepped at 4035 E Magnolia St, then
+            loaded into hotel ballrooms, resorts, and the convention center — or they travel with
+            the same standard{' '}
+            <Link href="/nationwide-event-production" className="text-blue-400 hover:text-blue-300 underline">
+              nationwide
+            </Link>
+            .
           </p>
           <p className="text-gray-400 leading-relaxed mb-8">
             See{' '}
             <Link href="/services" className="text-blue-400 hover:text-blue-300 underline">
               full services
-            </Link>{' '}
-            or{' '}
+            </Link>
+            ,{' '}
             <Link href="/featured-venues" className="text-blue-400 hover:text-blue-300 underline">
               venue production
             </Link>
             , or{' '}
+            <Link href="/blog/phoenix-hybrid-event-production-guide" className="text-blue-400 hover:text-blue-300 underline">
+              hybrid production in Phoenix
+            </Link>
+            . Send dates and venue to{' '}
             <Link href="/contact" className="text-blue-400 hover:text-blue-300 underline">
-              reach out
-            </Link>{' '}
-            with your dates and venue.
+              request a quote
+            </Link>
+            .
           </p>
           <Link
             href="/contact"
             className="inline-flex items-center rounded-lg bg-blue-600 px-6 py-3 text-sm font-semibold text-white hover:bg-blue-500 transition-colors"
           >
-            Plan Phoenix AV production
+            Request a Phoenix production quote
           </Link>
         </article>
 

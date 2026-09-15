@@ -1,6 +1,8 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { getSiteContent } from '@/lib/content';
+import { FEED_INDEXABLE_PATHS, getFeedEntry } from '@/lib/feed-registry';
+import { getFeedPageContent } from '@/content/feed-examples';
 import { getMarkdownPage, listMarkdownPages } from '@/lib/markdown-pages';
 
 export type SitePageEntry = {
@@ -61,7 +63,7 @@ const CORE_PAGES: SitePageEntry[] = [
 ];
 
 const MARKET_PAGES: SitePageEntry[] = [
-  { path: '/phoenix-av-production', title: 'Phoenix AV production' },
+  { path: '/phoenix-av-production', title: 'Corporate event production in Phoenix' },
 ];
 
 const LEGAL_PAGES: SitePageEntry[] = [
@@ -161,6 +163,11 @@ export async function getSitePageIndex(): Promise<SitePageGroup[]> {
   if (hasNationwideHub()) {
     hubs.push({ path: '/nationwide-event-production', title: 'Nationwide event production' });
   }
+  for (const url of FEED_INDEXABLE_PATHS) {
+    const entry = getFeedEntry(url);
+    const title = entry ? getFeedPageContent(entry).h1 : url;
+    hubs.push({ path: url, title });
+  }
 
   const services: SitePageEntry[] = (content?.services?.items ?? []).map((item) => ({
     path: `/services/${item.id}`,
@@ -218,7 +225,8 @@ export function sitePagesToSitemapEntries(
     if (pathname === '/') return 1;
     if (pathname === '/contact' || pathname.startsWith('/services') || pathname.startsWith('/events'))
       return 0.9;
-    if (pathname === '/nationwide-event-production') return 0.9;
+    if (pathname === '/nationwide-event-production' || pathname.startsWith('/feeds/'))
+      return 0.9;
     if (pathname.startsWith('/blog') || pathname.startsWith('/work')) return 0.75;
     if (pathname.startsWith('/resources')) return 0.7;
     if (pathname === '/privacy' || pathname === '/terms') return 0.5;

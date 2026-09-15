@@ -49,7 +49,8 @@ export default function Footer() {
               {safeBrand.nameFull}
             </h3>
             <p className="text-gray-400 text-sm mb-6 max-w-xs">
-              Corporate event production in Phoenix. LED video walls, lighting, audio, stage design for keynotes, product launches, galas, and brand activations.
+              Phoenix headquarters. LED video walls, lighting, audio, and staging for corporate
+              events — Valley load-ins and nationwide crews.
             </p>
             <address className="not-italic space-y-2 text-sm text-gray-400">
               <a
@@ -82,7 +83,9 @@ export default function Footer() {
               <li><Link href="/events" className="text-gray-400 hover:text-white transition-colors text-sm">Events We Create</Link></li>
               <li><Link href="/about" className="text-gray-400 hover:text-white transition-colors text-sm">About Us</Link></li>
               <li><Link href="/featured-venues" className="text-gray-400 hover:text-white transition-colors text-sm">Featured Venues</Link></li>
-              <li><Link href="/phoenix-av-production" className="text-gray-400 hover:text-white transition-colors text-sm">Phoenix AV Production</Link></li>
+              <li><Link href="/feeds/event-production" className="text-gray-400 hover:text-white transition-colors text-sm">Corporate event production</Link></li>
+              <li><Link href="/feeds/av-production" className="text-gray-400 hover:text-white transition-colors text-sm">AV production company</Link></li>
+              <li><Link href="/phoenix-av-production" className="text-gray-400 hover:text-white transition-colors text-sm">Corporate event production in Phoenix</Link></li>
               <li><Link href="/digital-signage" className="text-gray-400 hover:text-white transition-colors text-sm">Digital Signage</Link></li>
               <li><Link href="/#expertise" className="text-gray-400 hover:text-white transition-colors text-sm">Expertise</Link></li>
               <li><Link href="/#faq" className="text-gray-400 hover:text-white transition-colors text-sm">FAQ</Link></li>
