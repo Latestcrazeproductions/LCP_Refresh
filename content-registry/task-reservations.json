@@ -44,8 +44,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-11T19:02:58.322Z",
-      "runId": "run-3c3d84e0-c8a1-43a0-8946-31dd3ada1307"
+      "dispatchedAt": "2026-09-15T19:35:03.270Z",
+      "runId": "run-efd633ae-6849-4492-a5a5-2ca128510f3d"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -132,8 +132,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-14T20:12:37.472Z",
-      "runId": "run-84ba0d34-ac56-4a15-ab7d-6b5527784949"
+      "dispatchedAt": "2026-09-15T19:35:03.270Z",
+      "runId": "run-458224af-7083-4b0d-b3c1-9309589f3fcd"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
