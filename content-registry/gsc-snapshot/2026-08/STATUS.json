@@ -1,0 +1,18 @@
+{
+  "period": "2026-08",
+  "startDate": "2026-08-01",
+  "endDate": "2026-08-31",
+  "propertyType": "url-prefix",
+  "propertyUrl": "https://latestcrazeproductions.com/",
+  "status": "pending_export",
+  "expectedFiles": ["queries.csv", "pages.csv"],
+  "optionalFiles": ["countries.csv", "devices.csv", "search-appearance.csv", "Filters.csv"],
+  "checkedAt": "2026-09-16",
+  "note": "No Search Console API credentials in the agent environment. Missing CSVs are not zero impressions. Steve: export Performance CSV for 2026-08 into this folder per README.md.",
+  "stevePaste": {
+    "searchConsole": "Performance → Search results → custom dates 2026-08-01 to 2026-08-31 → Export CSV → save as queries.csv and pages.csv in this folder",
+    "ga4OrganicSessions": "GA4 G-W2K2ZKCHVZ → Traffic acquisition → 2026-08-01 to 2026-08-31 → filter google / organic → Sessions → metrics.json actuals.monthlyOrganicSessions",
+    "ga4GenerateLead": "GA4 → Events → generate_lead Event count for 2026-08 → reconcile in PR description",
+    "contactSubmissions": "Supabase production qsccsddknmvidvcfpffu.contact_submissions row count where created_at >= 2026-08-01 and created_at < 2026-09-01 → metrics.json actuals.monthlyOrganicLeads"
+  }
+}
