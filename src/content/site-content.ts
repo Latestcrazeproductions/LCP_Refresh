@@ -343,8 +343,8 @@ export const siteContent = {
           'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2070&auto=format&fit=crop',
         gallery: [
           {
-            src: 'https://images.unsplash.com/photo-1767969456847-ffeb76d7d4d0?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Stage projection with digital patterns and blue lighting on a live event set',
+            src: 'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Dual blended projection canvases on a corporate keynote stage before general session doors',
           },
           {
             src: 'https://images.unsplash.com/photo-1765277902916-9fabeb82e2bf?q=80&w=2070&auto=format&fit=crop',
