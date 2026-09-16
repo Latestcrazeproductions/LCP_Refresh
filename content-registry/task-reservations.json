@@ -60,9 +60,10 @@
       "taskId": "blog.national.create:general-session-design-tips",
       "type": "blog.national.create",
       "targetKey": "general-session-design-tips",
-      "status": "in_review",
+      "status": "completed",
       "cadence": "weekly",
-      "dispatchedAt": "2026-08-10T16:55:33.828Z"
+      "dispatchedAt": "2026-08-10T16:55:33.828Z",
+      "error": "Stale in_review cleared 2026-09-16 so weekday cron can create the unpublished slug."
     },
     {
       "taskId": "service.faq_refresh:/services/audio",
@@ -202,7 +203,7 @@
       "taskId": "authority.strategy_blog:production-rfp-questions-for-marketing-leaders",
       "type": "authority.strategy_blog",
       "targetKey": "production-rfp-questions-for-marketing-leaders",
-      "status": "in_review",
+      "status": "completed",
       "cadence": "daily",
       "dispatchedAt": "2026-08-25T16:40:59.694Z",
       "runId": "run-a6d27030-2dd6-4c6e-a06c-ad7de59ff6bc"

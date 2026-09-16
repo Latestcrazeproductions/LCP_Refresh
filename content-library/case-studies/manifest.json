@@ -8,6 +8,15 @@
       "industry": "Arts / Cultural",
       "status": "live",
       "minWords": 800
+    },
+    {
+      "slug": "night-of-hope",
+      "title": "Night of Hope — Corporate Gala Production",
+      "track": "B",
+      "client": "Night of Hope",
+      "industry": "Fundraising / Gala",
+      "status": "live",
+      "minWords": 800
     }
   ]
 }

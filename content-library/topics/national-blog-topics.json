@@ -1,17 +1,419 @@
 {
   "quarter": "2026-Q3",
   "cadenceNote": "Target 45 queued capture topics (config.topicQueues.nationalCaptureMinQueued). ResearchAgent replenishes monthly on the 1st.",
-  "lastTrendingRefresh": "2026-08-01",
+  "lastTrendingRefresh": "2026-09-16",
   "topics": [
     {
       "slug": "general-session-design-tips",
       "title": "General Session Design That Keeps Attendees Engaged",
       "track": "A",
-      "opportunityScore": 55,
+      "opportunityScore": 88,
       "status": "queued",
       "primaryKeyword": "general session design",
       "serviceCta": "/services/stage",
-      "rationale": "Conference/session intent; pairs with /feeds/conference-production once live."
+      "rationale": "Unblocked 2026-09-16 (stale in_review reservation cleared). Conference/session intent; pairs with /feeds/conference-production once live. Do not put a city in the title."
+    },
+    {
+      "slug": "broadcast-keynote-production-checklist",
+      "title": "Broadcast-Grade Keynote Production: A Planner's Checklist",
+      "track": "A",
+      "opportunityScore": 86,
+      "status": "queued",
+      "primaryKeyword": "broadcast keynote production",
+      "serviceCta": "/services/led-walls",
+      "rationale": "Research 2026-08 gap: multi-camera keynotes with in-room vs remote design. Long-tail only — do not target conference production company."
+    },
+    {
+      "slug": "confidence-monitor-placement-for-keynotes",
+      "title": "Confidence Monitor Placement for Keynotes (Without the Presenter Squint)",
+      "track": "A",
+      "opportunityScore": 85,
+      "status": "queued",
+      "primaryKeyword": "confidence monitor placement keynote",
+      "serviceCta": "/services/stage"
+    },
+    {
+      "slug": "load-in-timeline-for-hotel-ballrooms",
+      "title": "Hotel Ballroom Load-In Timeline: What Planners Should Put in the Contract",
+      "track": "A",
+      "opportunityScore": 84,
+      "status": "queued",
+      "primaryKeyword": "hotel ballroom load in timeline",
+      "serviceCta": "/services/stage"
+    },
+    {
+      "slug": "house-av-vs-production-vendor-scope",
+      "title": "House AV vs Production Vendor: How to Split Scope Without Gaps",
+      "track": "A",
+      "opportunityScore": 83,
+      "status": "queued",
+      "primaryKeyword": "house av vs production vendor",
+      "serviceCta": "/services"
+    },
+    {
+      "slug": "rehearsal-day-run-of-show-for-planners",
+      "title": "Rehearsal-Day Run-of-Show: What Planners Should Protect on the Clock",
+      "track": "A",
+      "opportunityScore": 82,
+      "status": "queued",
+      "primaryKeyword": "event rehearsal run of show",
+      "serviceCta": "/services/stage"
+    },
+    {
+      "slug": "ground-supported-vs-flown-led-walls",
+      "title": "Ground-Supported vs Flown LED Walls: How to Choose for Corporate Rooms",
+      "track": "A",
+      "opportunityScore": 81,
+      "status": "queued",
+      "primaryKeyword": "ground supported vs flown led wall",
+      "serviceCta": "/services/led-walls",
+      "rationale": "Decision content. Do not retarget 'led wall rental' head term owned by /feeds/led-walls."
+    },
+    {
+      "slug": "power-and-rigging-asks-for-venue-contracts",
+      "title": "Power and Rigging Asks to Put in the Venue Contract",
+      "track": "A",
+      "opportunityScore": 80,
+      "status": "queued",
+      "primaryKeyword": "event venue power and rigging",
+      "serviceCta": "/services/stage"
+    },
+    {
+      "slug": "content-lock-deadlines-for-event-playback",
+      "title": "Content Lock Deadlines for Event Playback (and What Happens If You Miss Them)",
+      "track": "A",
+      "opportunityScore": 79,
+      "status": "queued",
+      "primaryKeyword": "event playback content lock",
+      "serviceCta": "/services/led-walls"
+    },
+    {
+      "slug": "camera-platform-planning-for-corporate-livestreams",
+      "title": "Camera Platform Planning for Corporate Livestreams",
+      "track": "A",
+      "opportunityScore": 78,
+      "status": "queued",
+      "primaryKeyword": "corporate livestream camera plan",
+      "serviceCta": "/services/led-walls"
+    },
+    {
+      "slug": "union-labor-planning-for-corporate-events",
+      "title": "Union Labor Planning for Corporate Events: What Planners Should Ask Early",
+      "track": "A",
+      "opportunityScore": 77,
+      "status": "queued",
+      "primaryKeyword": "union labor corporate event av",
+      "serviceCta": "/nationwide-event-production"
+    },
+    {
+      "slug": "scenic-elements-that-integrate-with-led",
+      "title": "Scenic Elements That Integrate With LED (Instead of Fighting It)",
+      "track": "A",
+      "opportunityScore": 76,
+      "status": "queued",
+      "primaryKeyword": "scenic design with led walls",
+      "serviceCta": "/services/scenic"
+    },
+    {
+      "slug": "gobo-and-brand-color-lighting-for-galas",
+      "title": "Gobo and Brand-Color Lighting for Galas: What to Spec Before Design Starts",
+      "track": "A",
+      "opportunityScore": 75,
+      "status": "queued",
+      "primaryKeyword": "gala brand lighting gobos",
+      "serviceCta": "/services/lighting"
+    },
+    {
+      "slug": "wireless-ie-pack-planning-for-presenters",
+      "title": "Wireless IEM and Presenter Pack Planning for Corporate Stages",
+      "track": "A",
+      "opportunityScore": 74,
+      "status": "queued",
+      "primaryKeyword": "presenter in ear monitor events",
+      "serviceCta": "/services/audio"
+    },
+    {
+      "slug": "overflow-room-av-for-sold-out-sessions",
+      "title": "Overflow Room AV for Sold-Out Sessions",
+      "track": "A",
+      "opportunityScore": 73,
+      "status": "queued",
+      "primaryKeyword": "overflow room av conference",
+      "serviceCta": "/services/audio"
+    },
+    {
+      "slug": "pre-function-digital-signage-for-conferences",
+      "title": "Pre-Function Digital Signage for Conferences: Wayfinding That Actually Works",
+      "track": "A",
+      "opportunityScore": 72,
+      "status": "queued",
+      "primaryKeyword": "conference digital signage wayfinding",
+      "serviceCta": "/digital-signage"
+    },
+    {
+      "slug": "walk-in-look-design-for-general-sessions",
+      "title": "Walk-In Look Design for General Sessions",
+      "track": "A",
+      "opportunityScore": 71,
+      "status": "queued",
+      "primaryKeyword": "general session walk in lighting",
+      "serviceCta": "/services/lighting"
+    },
+    {
+      "slug": "presenter-confidence-systems-beyond-slides",
+      "title": "Presenter Confidence Systems Beyond Slides: Timers, Notes, and Return Feeds",
+      "track": "A",
+      "opportunityScore": 70,
+      "status": "queued",
+      "primaryKeyword": "presenter confidence system events",
+      "serviceCta": "/services/stage"
+    },
+    {
+      "slug": "awards-walk-on-music-and-lighting-cues",
+      "title": "Awards Walk-On Music and Lighting Cues Planners Should Number",
+      "track": "A",
+      "opportunityScore": 69,
+      "status": "queued",
+      "primaryKeyword": "awards show walk on cues",
+      "serviceCta": "/services/lighting",
+      "rationale": "Complements published awards-show-cue-to-cue-for-planners; do not duplicate that slug."
+    },
+    {
+      "slug": "cable-path-planning-for-ballroom-events",
+      "title": "Cable Path Planning for Ballroom Events (Ramps, Mats, Fire Marshal)",
+      "track": "A",
+      "opportunityScore": 68,
+      "status": "queued",
+      "primaryKeyword": "event cable path planning",
+      "serviceCta": "/services/stage"
+    },
+    {
+      "slug": "simultaneous-interpretation-av-for-conferences",
+      "title": "Simultaneous Interpretation AV for Multi-Language Conferences",
+      "track": "A",
+      "opportunityScore": 67,
+      "status": "queued",
+      "primaryKeyword": "simultaneous interpretation av conference",
+      "serviceCta": "/services/audio"
+    },
+    {
+      "slug": "product-reveal-lighting-and-playback",
+      "title": "Product Reveal Lighting and Playback: A Planner's Sequence",
+      "track": "A",
+      "opportunityScore": 66,
+      "status": "queued",
+      "primaryKeyword": "product reveal lighting playback",
+      "serviceCta": "/services/lighting"
+    },
+    {
+      "slug": "brand-activation-footprint-and-power-plan",
+      "title": "Brand Activation Footprint and Power Plan Before You Sign the Booth",
+      "track": "A",
+      "opportunityScore": 65,
+      "status": "queued",
+      "primaryKeyword": "brand activation power plan",
+      "serviceCta": "/events/brand-activations"
+    },
+    {
+      "slug": "outdoor-event-av-weather-contingency",
+      "title": "Outdoor Event AV Weather Contingency: What to Put in Writing",
+      "track": "A",
+      "opportunityScore": 64,
+      "status": "queued",
+      "primaryKeyword": "outdoor event av weather plan",
+      "serviceCta": "/services/audio"
+    },
+    {
+      "slug": "multi-day-conference-changeover-playbook",
+      "title": "Multi-Day Conference Changeover Playbook",
+      "track": "A",
+      "opportunityScore": 63,
+      "status": "queued",
+      "primaryKeyword": "conference room changeover av",
+      "serviceCta": "/events/conferences"
+    },
+    {
+      "slug": "executive-town-hall-av-minimums",
+      "title": "Executive Town Hall AV Minimums That Protect the Brand",
+      "track": "A",
+      "opportunityScore": 62,
+      "status": "queued",
+      "primaryKeyword": "executive town hall av",
+      "serviceCta": "/services/audio"
+    },
+    {
+      "slug": "panel-discussion-audio-and-imag",
+      "title": "Panel Discussion Audio and IMAG: A Spec List for Planners",
+      "track": "A",
+      "opportunityScore": 61,
+      "status": "queued",
+      "primaryKeyword": "panel discussion imag audio",
+      "serviceCta": "/services/audio"
+    },
+    {
+      "slug": "sponsor-activation-led-and-lighting",
+      "title": "Sponsor Activation LED and Lighting Without Hijacking the Show",
+      "track": "A",
+      "opportunityScore": 60,
+      "status": "queued",
+      "primaryKeyword": "sponsor activation led lighting",
+      "serviceCta": "/services/led-walls"
+    },
+    {
+      "slug": "rehearsal-block-scheduling-for-ceos",
+      "title": "Rehearsal Block Scheduling When the CEO Has Twenty Minutes",
+      "track": "A",
+      "opportunityScore": 59,
+      "status": "queued",
+      "primaryKeyword": "ceo keynote rehearsal schedule",
+      "serviceCta": "/services/stage"
+    },
+    {
+      "slug": "backup-playback-and-show-file-redundancy",
+      "title": "Backup Playback and Show-File Redundancy for Live Programs",
+      "track": "A",
+      "opportunityScore": 58,
+      "status": "queued",
+      "primaryKeyword": "event playback redundancy",
+      "serviceCta": "/services/led-walls"
+    },
+    {
+      "slug": "seating-and-sightline-studies-for-led",
+      "title": "Seating and Sight-Line Studies Before You Size the LED Wall",
+      "track": "A",
+      "opportunityScore": 57,
+      "status": "queued",
+      "primaryKeyword": "led wall sight line study",
+      "serviceCta": "/services/led-walls",
+      "rationale": "Complements published led-wall-sizing-for-events; this is seating/sight-line process, not pixel-pitch sizing."
+    },
+    {
+      "slug": "house-light-control-during-video-playback",
+      "title": "House Light Control During Video Playback: Who Owns the Dimmer",
+      "track": "A",
+      "opportunityScore": 56,
+      "status": "queued",
+      "primaryKeyword": "house lights during video playback",
+      "serviceCta": "/services/lighting"
+    },
+    {
+      "slug": "intercom-and-show-caller-roles-for-planners",
+      "title": "Intercom and Show-Caller Roles Planners Should Assign Before Load-In",
+      "track": "A",
+      "opportunityScore": 55,
+      "status": "queued",
+      "primaryKeyword": "event show caller intercom",
+      "serviceCta": "/services/stage"
+    },
+    {
+      "slug": "scenic-soft-goods-and-masking-for-stages",
+      "title": "Scenic Soft Goods and Masking for Corporate Stages",
+      "track": "A",
+      "opportunityScore": 54,
+      "status": "queued",
+      "primaryKeyword": "stage masking soft goods events",
+      "serviceCta": "/services/scenic"
+    },
+    {
+      "slug": "projection-screen-sizing-for-breakouts",
+      "title": "Projection Screen Sizing for Breakouts (When LED Is Overkill)",
+      "track": "A",
+      "opportunityScore": 53,
+      "status": "queued",
+      "primaryKeyword": "breakout room projection screen size",
+      "serviceCta": "/services/projection",
+      "rationale": "Complements published breakout-room-av-that-scales and projection-vs-led-for-brand-moments."
+    },
+    {
+      "slug": "hybrid-return-feed-for-remote-presenters",
+      "title": "Hybrid Return Feeds for Remote Presenters: What to Test Before Doors",
+      "track": "A",
+      "opportunityScore": 52,
+      "status": "queued",
+      "primaryKeyword": "remote presenter return feed",
+      "serviceCta": "/blog/hybrid-event-av-checklist",
+      "rationale": "Complements published hybrid-event-av-checklist; do not rewrite that page."
+    },
+    {
+      "slug": "truck-pack-and-inventory-for-touring-shows",
+      "title": "Truck Pack and Inventory Lists for Touring Corporate Shows",
+      "track": "A",
+      "opportunityScore": 51,
+      "status": "queued",
+      "primaryKeyword": "touring event truck pack",
+      "serviceCta": "/nationwide-event-production"
+    },
+    {
+      "slug": "venue-site-visit-checklist-for-av",
+      "title": "Venue Site Visit Checklist for AV (What to Photograph and Measure)",
+      "track": "A",
+      "opportunityScore": 50,
+      "status": "queued",
+      "primaryKeyword": "event venue site visit av checklist",
+      "serviceCta": "/featured-venues"
+    },
+    {
+      "slug": "fire-marshal-and-cable-ramp-planning",
+      "title": "Fire Marshal and Cable Ramp Planning for Ballroom Shows",
+      "track": "A",
+      "opportunityScore": 49,
+      "status": "queued",
+      "primaryKeyword": "event fire marshal cable ramps",
+      "serviceCta": "/services/stage"
+    },
+    {
+      "slug": "lower-thirds-and-graphics-safe-zones",
+      "title": "Lower-Thirds and Graphics Safe Zones for IMAG and LED",
+      "track": "A",
+      "opportunityScore": 48,
+      "status": "queued",
+      "primaryKeyword": "led imag graphics safe zone",
+      "serviceCta": "/services/led-walls"
+    },
+    {
+      "slug": "speaker-timer-and-confidence-workflow",
+      "title": "Speaker Timer and Confidence Workflow for Timed Keynotes",
+      "track": "A",
+      "opportunityScore": 47,
+      "status": "queued",
+      "primaryKeyword": "keynote speaker timer workflow",
+      "serviceCta": "/services/stage"
+    },
+    {
+      "slug": "cocktail-reception-zone-audio",
+      "title": "Cocktail Reception Zone Audio That Does Not Fight the Ballroom",
+      "track": "A",
+      "opportunityScore": 46,
+      "status": "queued",
+      "primaryKeyword": "cocktail reception event audio",
+      "serviceCta": "/services/audio"
+    },
+    {
+      "slug": "gala-dinner-to-program-transition",
+      "title": "Gala Dinner-to-Program Transition: Clocks, Lighting, and Comms",
+      "track": "A",
+      "opportunityScore": 45,
+      "status": "queued",
+      "primaryKeyword": "gala dinner to program transition",
+      "serviceCta": "/events/galas-awards"
+    },
+    {
+      "slug": "multi-camera-switcher-plan-for-keynotes",
+      "title": "Multi-Camera Switcher Plan for Corporate Keynotes",
+      "track": "A",
+      "opportunityScore": 44,
+      "status": "queued",
+      "primaryKeyword": "multi camera switcher keynote",
+      "serviceCta": "/services/led-walls"
+    },
+    {
+      "slug": "dmx-and-lighting-looks-for-awards-segments",
+      "title": "DMX and Named Lighting Looks for Awards Segments",
+      "track": "A",
+      "opportunityScore": 43,
+      "status": "queued",
+      "primaryKeyword": "awards show lighting looks dmx",
+      "serviceCta": "/services/lighting"
     },
     {
       "slug": "breakout-room-av-that-scales",
@@ -115,8 +517,10 @@
       "title": "Hybrid Event AV Checklist for Corporate Teams",
       "track": "A",
       "opportunityScore": 75,
-      "status": "queued",
-      "rationale": "Closes av-production-services intent gap without competing with /feeds/av-production head term."
+      "status": "published",
+      "primaryKeyword": "hybrid event av checklist",
+      "serviceCta": "/nationwide-event-production",
+      "rationale": "Published 2026-08-03; was still marked queued. Maintain via faq_refresh. Do not compete with /feeds/av-production head term."
     },
     {
       "slug": "corporate-gala-production-guide",
