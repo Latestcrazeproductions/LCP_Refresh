@@ -1,5 +1,11 @@
 {
   "primaryCtaPaths": ["/contact"],
   "requiredPatterns": ["href=\"/contact\"", "Get a Quote", "Request a Consultation", "Contact"],
-  "pageScores": {}
+  "pageScores": {
+    "/contact": {
+      "ctaClarity": 8,
+      "formFit": 8,
+      "notes": "Quote-intent H1, event-first fields, Get a Quote CTA. Form still posts to /api/contact and fires GA4 generate_lead."
+    }
+  }
 }
