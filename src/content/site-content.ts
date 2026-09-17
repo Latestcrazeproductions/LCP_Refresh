@@ -517,7 +517,7 @@ export const siteContent = {
     phone: '+1 (480) 626-5231',
     address: '4035 E Magnolia St Phoenix, AZ 85034',
     image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&auto=format&fit=crop',
-    ctaText: 'Contact Us',
+    ctaText: 'Get a Quote',
     copyright: '© 2025 Latest Craze Productions. All rights reserved.',
     footerLinks: [
       { label: 'Privacy', href: '/privacy' },
