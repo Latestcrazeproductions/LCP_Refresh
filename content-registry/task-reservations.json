@@ -44,8 +44,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-15T19:35:03.270Z",
-      "runId": "run-efd633ae-6849-4492-a5a5-2ca128510f3d"
+      "dispatchedAt": "2026-09-17T19:37:08.550Z",
+      "runId": "run-ec07a7a0-2211-49b8-9e56-42e58fd96623"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -60,10 +60,10 @@
       "taskId": "blog.national.create:general-session-design-tips",
       "type": "blog.national.create",
       "targetKey": "general-session-design-tips",
-      "status": "completed",
-      "cadence": "weekly",
-      "dispatchedAt": "2026-08-10T16:55:33.828Z",
-      "error": "Stale in_review cleared 2026-09-16 so weekday cron can create the unpublished slug."
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-17T19:37:08.550Z",
+      "runId": "run-9d2d14f2-efc7-41c1-a7d5-19fbbc5a0034"
     },
     {
       "taskId": "service.faq_refresh:/services/audio",
@@ -133,8 +133,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-15T19:35:03.270Z",
-      "runId": "run-458224af-7083-4b0d-b3c1-9309589f3fcd"
+      "dispatchedAt": "2026-09-17T19:37:08.550Z",
+      "runId": "run-6aaa4ddb-c8e3-4ce7-9afb-afdda5b294cf"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -288,6 +288,15 @@
       "cadence": "daily",
       "dispatchedAt": "2026-09-08T19:19:45.782Z",
       "runId": "run-dbb76ef0-0137-4146-b3b8-98829605e159"
+    },
+    {
+      "taskId": "authority.strategy_blog:when-to-own-vs-rent-event-technology",
+      "type": "authority.strategy_blog",
+      "targetKey": "when-to-own-vs-rent-event-technology",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-17T19:37:08.550Z",
+      "runId": "run-464282a4-ce5b-42a2-b934-9c58966067b2"
     }
   ]
 }
