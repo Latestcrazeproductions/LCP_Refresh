@@ -1,9 +1,11 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import { siteContent } from '@/content/site-content';
 import { getSiteContent } from '@/lib/content';
 import { FEED_INDEXABLE_PATHS, getFeedEntry } from '@/lib/feed-registry';
 import { getFeedPageContent } from '@/content/feed-examples';
 import { getMarkdownPage, listMarkdownPages } from '@/lib/markdown-pages';
+import { buildEventTypeSitemapPages } from '@/lib/sitemap-event-types';
 
 export type SitePageEntry = {
   path: string;
@@ -90,11 +92,6 @@ function loadRegistryPages(): RegistryPage[] {
     .map((line) => JSON.parse(line) as RegistryPage);
 }
 
-function hasNationwideHub(): boolean {
-  const hubPage = path.join(process.cwd(), 'src/app/nationwide-event-production/page.tsx');
-  return fs.existsSync(hubPage);
-}
-
 function titleFromMarkdown(url: string): { title?: string; lastModified?: string } {
   if (url.startsWith('/blog/')) {
     const page = getMarkdownPage('blogs', url.slice('/blog/'.length));
@@ -159,10 +156,11 @@ export function getDemandEnginePageIndex(): SitePageGroup[] {
 export async function getSitePageIndex(): Promise<SitePageGroup[]> {
   const content = await getSiteContent();
 
-  const hubs: SitePageEntry[] = [];
-  if (hasNationwideHub()) {
-    hubs.push({ path: '/nationwide-event-production', title: 'Nationwide event production' });
-  }
+  const hubs: SitePageEntry[] = [
+    // Always list the hub. existsSync on src/app/.../page.tsx fails on Vercel's
+    // serverless filesystem even though the compiled route is live.
+    { path: '/nationwide-event-production', title: 'Nationwide event production' },
+  ];
   for (const url of FEED_INDEXABLE_PATHS) {
     const entry = getFeedEntry(url);
     const title = entry ? getFeedPageContent(entry).h1 : url;
@@ -174,10 +172,10 @@ export async function getSitePageIndex(): Promise<SitePageGroup[]> {
     title: item.title,
   }));
 
-  const events: SitePageEntry[] = (content?.eventTypes?.items ?? []).map((item) => ({
-    path: `/events/${item.id}`,
-    title: item.title,
-  }));
+  const events: SitePageEntry[] = buildEventTypeSitemapPages(
+    siteContent.eventTypes.items,
+    content?.eventTypes?.items
+  );
 
   const blogs: SitePageEntry[] = listMarkdownPages('blogs').map((page) => ({
     path: `/blog/${page.slug}`,

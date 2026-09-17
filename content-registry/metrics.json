@@ -19,5 +19,29 @@
     "monthlyOrganicLeads": null,
     "monthlyOrganicOpportunities": null,
     "monthlyOrganicRevenue": null
+  },
+  "sources": {
+    "checkedAt": "2026-09-16",
+    "period": "2026-08",
+    "periodStart": "2026-08-01",
+    "periodEnd": "2026-08-31",
+    "note": "Null actuals mean not yet exported — not zero. Agent environment on 2026-09-16 had no GSC API, GA4 Data API, or SUPABASE_SERVICE_ROLE_KEY. Do not copy the March 2026 Semrush sidecar (0 organic keywords) into actuals.",
+    "gscSnapshot": {
+      "path": "content-registry/gsc-snapshot/2026-08/",
+      "status": "pending_export",
+      "expectedFiles": ["queries.csv", "pages.csv"]
+    },
+    "ga4": {
+      "measurementId": "G-W2K2ZKCHVZ",
+      "status": "pending_export",
+      "monthlyOrganicSessions": "Reports → Acquisition → Traffic acquisition → filter google / organic → Sessions",
+      "generateLeadEvents": "Reports → Engagement → Events → generate_lead → Event count"
+    },
+    "supabase": {
+      "projectRef": "qsccsddknmvidvcfpffu",
+      "table": "contact_submissions",
+      "status": "pending_export",
+      "monthlyOrganicLeads": "row count where created_at >= 2026-08-01 and created_at < 2026-09-01 (count only, no PII)"
+    }
   }
 }

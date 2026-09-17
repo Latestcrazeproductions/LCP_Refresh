@@ -181,7 +181,7 @@ export const siteContent = {
           {
             question: 'Can IMAG, slides, and video share the same wall during a live keynote?',
             answer:
-              'Yes — that is the standard general-session layout. We size each zone for its job: the IMAG zone can run slightly lower effective resolution because faces are forgiving, while the slide zone gets sized for type legibility at the farthest seat. Layout changes mid-show (full-screen video, split presenter, board Q&A) get programmed into the switcher before rehearsal so the show caller is not improvising on a live fade.',
+              'Yes — that is the standard general-session layout. We size each zone for its job: the IMAG zone can run slightly lower effective resolution because faces are forgiving, while the slide zone gets sized for type legibility at the farthest seat. Layout changes mid-show (full-screen video, split presenter, board Q&A) get programmed into the switcher before rehearsal so the show caller is not improvising on a live fade. Deep rooms with panels or walking presenters usually need a camera package too — if the back row cannot read faces without magnification, IMAG belongs in the base spec, not the change-order column.',
           },
           {
             question: 'What venue constraints should I check before signing wall dimensions?',
@@ -207,6 +207,26 @@ export const siteContent = {
             question: 'How do LED walls behave on camera and for live broadcast?',
             answer:
               'Emissive panels read bright and saturated on camera without the wash-out projection fights at ISO 800+. Match wall refresh rate to camera shutter (typically 50 or 60 Hz) to avoid rolling banding in IMAG feeds. Fine pitch reduces moire on wide shots, but camera distance and lens choice matter as much as panel spec — we coordinate with your broadcast director during pre-pro and run a camera rehearsal before doors.',
+          },
+          {
+            question: 'Should the wall be ground-stacked or flown?',
+            answer:
+              'Ground-stacked wins when the venue restricts overhead rigging, the deck cannot take point loads from truss, or you need a faster strike between general sessions. Flown wins when floor space is tight, sight lines need the wall elevated above heads in the first rows, or scenic integrates the wall into overhead structure. Ceiling height, weight limits, and shared rigging time with lighting usually decide it — not aesthetics alone. We return a rigging recommendation with your quote so you can forward one ask list to the venue before the contract is signed.',
+          },
+          {
+            question: 'How long does LED wall load-in and setup take?',
+            answer:
+              'Ground-stacked builds in a hotel ballroom typically need one full load-in day for rig, processor tie-in, and initial mapping — plus a half-day calibration window before rehearsal. Flown walls with truss integration can stretch to two load-in days depending on venue rigging access and shared ceiling time with lighting. We send a load-in schedule with your quote so you can block dock access, power tie-in, and the calibration slot before anyone books the CEO for a quick walk-through that is not quick.',
+          },
+          {
+            question: 'Who operates the wall and content playback during the show?',
+            answer:
+              'We provide the LED tech who owns processor health, failover, and wall mapping; your show caller drives cue timing and the video director (ours or yours) handles IMAG and source switching. Slide playback from a dedicated machine stays with whoever owns content QA — we integrate their output into the switcher but we do not guess on unrehearsed deck edits. Roles get documented in pre-pro so load-in is not the first conversation about who hits black during a live reset.',
+          },
+          {
+            question: 'What do hybrid and streamed audiences need from the LED wall?',
+            answer:
+              'Remote viewers inherit whatever the room camera sees — so wall brightness, refresh rate, and IMAG framing matter as much as in-house sight lines. We feed the switcher output to your streaming encoder with matched color pipeline, confirm safe title areas for lower-thirds and captions, and rehearse slide transitions on the stream delay. If virtual attendees get a separate content channel, lock that layout before graphics are built; rebuilding a 32:9 wall graphic for a 16:9 stream crop on load-in day is a predictable kind of pain.',
           },
           {
             question: 'How far in advance should I book an LED wall?',
@@ -517,7 +537,7 @@ export const siteContent = {
     phone: '+1 (480) 626-5231',
     address: '4035 E Magnolia St Phoenix, AZ 85034',
     image: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=1600&auto=format&fit=crop',
-    ctaText: 'Contact Us',
+    ctaText: 'Get a Quote',
     copyright: '© 2025 Latest Craze Productions. All rights reserved.',
     footerLinks: [
       { label: 'Privacy', href: '/privacy' },

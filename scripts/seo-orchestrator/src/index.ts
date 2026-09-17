@@ -23,6 +23,7 @@ import {
 } from './reservations.js';
 import { buildFunnelGapReport, formatGapReportMarkdown } from './demand-math.js';
 import { formatCtaAuditMarkdown, runCtaAudit } from './conversion-audit.js';
+import { formatGscSnapshotMarkdown, loadGscSnapshot } from './gsc-snapshot.js';
 import { dispatchTasks, getAgentRef, getStartingRef } from './dispatch.js';
 import type { Cadence, ContentTopic } from './types.js';
 import { DAILY_CATEGORY_ORDER } from './types.js';
@@ -133,6 +134,7 @@ async function main() {
       'metrics.json'
     );
     console.log('\n' + formatGapReportMarkdown(buildFunnelGapReport(metrics)));
+    console.log('\n' + formatGscSnapshotMarkdown(loadGscSnapshot(paths)));
 
     const { rows } = runCtaAudit(pages, {});
     console.log('\n' + formatCtaAuditMarkdown(rows));
