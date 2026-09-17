@@ -1,18 +1,25 @@
 import type { Metadata } from 'next';
 import { ContentHubIndex } from '@/components/layout/ContentHubIndex';
+import { DEFAULT_OG_IMAGE, SITE_URL, twitterLargeImageFields } from '@/lib/article-metadata';
 import { getSiteContent } from '@/lib/content';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://latestcrazeproductions.com';
+const title = 'Blog';
+const description =
+  'Event production insights for corporate planners and marketing teams — AV strategy, venue logistics, and show-day execution.';
+const og = twitterLargeImageFields(
+  'Blog | Latest Craze Productions',
+  'Production insights for corporate events.',
+  DEFAULT_OG_IMAGE.url
+);
 
 export const metadata: Metadata = {
-  title: 'Blog',
-  description:
-    'Event production insights for corporate planners and marketing teams — AV strategy, venue logistics, and show-day execution.',
+  title,
+  description,
   openGraph: {
-    title: 'Blog | Latest Craze Productions',
-    description: 'Production insights for corporate events.',
+    ...og.openGraph,
     url: `${SITE_URL}/blog`,
   },
+  twitter: og.twitter,
   alternates: { canonical: `${SITE_URL}/blog` },
 };
 

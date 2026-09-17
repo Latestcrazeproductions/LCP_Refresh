@@ -35,7 +35,7 @@ export default function ContactCta({ content }: ContactCtaProps) {
     email: contact?.email ?? 'info@latestcrazeproductions.com',
     phone: contact?.phone ?? '+1 (480) 626-5231',
     address: contact?.address ?? '4035 E Magnolia St Phoenix, AZ 85034',
-    ctaText: contact?.ctaText ?? 'Contact Us',
+    ctaText: contact?.ctaText ?? 'Get a Quote',
   };
 
   return (

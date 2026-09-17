@@ -3,11 +3,13 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { CheckCircle2, ArrowUpRight } from 'lucide-react';
+import { siteContent } from '@/content/site-content';
 import { getSiteContent } from '@/lib/content';
 import { ContentProvider } from '@/context/ContentContext';
 import { getServiceIcon } from '@/lib/service-icons';
 import { getOptimizedImageUrl } from '@/lib/image-utils';
 import { getImageSrc, resolveSeoImage } from '@/lib/seo-image';
+import { indexableEventTypeSlugs } from '@/lib/sitemap-event-types';
 import Navbar from '@/components/Navbar';
 import { ImageGallery } from '@/components/ImageGallery';
 import ContactCta from '@/components/ContactCta';
@@ -18,16 +20,24 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://latestcrazeproduct
 
 type Props = { params: Promise<{ slug: string }> };
 
+function resolveEventType(slug: string, cmsItems: EventTypeItem[] | undefined): EventTypeItem | undefined {
+  const fromCms = cmsItems?.find((item) => item.id === slug);
+  if (fromCms) return fromCms;
+  return siteContent.eventTypes.items.find((item) => item.id === slug) as EventTypeItem | undefined;
+}
+
 export async function generateStaticParams() {
   const content = await getSiteContent();
-  const items = content?.eventTypes?.items ?? [];
-  return items.map((item) => ({ slug: item.id }));
+  return indexableEventTypeSlugs(
+    siteContent.eventTypes.items.map((item) => item.id),
+    (content?.eventTypes?.items ?? []).map((item) => item.id)
+  ).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const content = await getSiteContent();
-  const eventType = content?.eventTypes?.items?.find((e) => e.id === slug);
+  const eventType = resolveEventType(slug, content?.eventTypes?.items);
   if (!eventType) return { title: 'Event Not Found' };
 
   const title = `${eventType.title} | Latest Craze Productions`;
@@ -58,7 +68,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function EventTypePage({ params }: Props) {
   const { slug } = await params;
   const content = await getSiteContent();
-  const eventType = content?.eventTypes?.items?.find((e) => e.id === slug) as EventTypeItem;
+  const eventType = resolveEventType(slug, content?.eventTypes?.items);
   const allEventTypes = content?.eventTypes?.items ?? [];
 
   if (!eventType) notFound();

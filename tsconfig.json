@@ -38,6 +38,7 @@
     "node_modules",
     "packages",
     "scripts",
-    "semrush-report"
+    "semrush-report",
+    "src/**/*.test.ts"
   ]
 }

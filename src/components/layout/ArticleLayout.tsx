@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import type { SeoImageInput } from '@/lib/seo-image';
 import { SeoPageHero } from './SeoPageHero';
 
 interface ArticleLayoutProps {
@@ -9,6 +10,8 @@ interface ArticleLayoutProps {
   backHref: string;
   backLabel: string;
   imageLabel?: string;
+  images?: SeoImageInput[];
+  share?: ReactNode;
   children: ReactNode;
   footer?: ReactNode;
 }
@@ -21,6 +24,8 @@ export function ArticleLayout({
   backHref,
   backLabel,
   imageLabel,
+  images,
+  share,
   children,
   footer,
 }: ArticleLayoutProps) {
@@ -34,8 +39,11 @@ export function ArticleLayout({
         backHref={backHref}
         backLabel={backLabel}
         imageLabel={imageLabel ?? title}
+        images={images}
         size="article"
-      />
+      >
+        {share}
+      </SeoPageHero>
 
       <section className="px-6 py-12">
         <article className="mx-auto max-w-3xl">{children}</article>

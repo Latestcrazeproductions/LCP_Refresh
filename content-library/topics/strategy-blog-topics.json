@@ -1,8 +1,231 @@
 {
   "quarter": "2026-Q3",
   "cadenceNote": "Target 22 queued strategy topics (config.topicQueues.strategyMinQueued). ResearchAgent replenishes monthly on the 1st.",
-  "lastTrendingRefresh": "2026-08-01",
+  "lastTrendingRefresh": "2026-09-16",
   "topics": [
+    {
+      "slug": "when-to-own-vs-rent-event-technology",
+      "title": "When to Own vs Rent Event Technology (Without a CapEx Surprise)",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 91,
+      "status": "published",
+      "publishedAt": "2026-09-17",
+      "primaryKeyword": "own vs rent event technology",
+      "serviceCta": "/services",
+      "rationale": "Published 2026-09-17; own vs rent operating decision for event technology inventory — complements capital-vs-operating-budget-event-technology."
+    },
+    {
+      "slug": "building-a-multi-year-event-production-playbook",
+      "title": "Building a Multi-Year Event Production Playbook",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 90,
+      "status": "queued",
+      "primaryKeyword": "event production playbook",
+      "serviceCta": "/nationwide-event-production"
+    },
+    {
+      "slug": "how-marketing-leaders-brief-production-partners",
+      "title": "How Marketing Leaders Should Brief Production Partners",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 89,
+      "status": "queued",
+      "primaryKeyword": "brief event production partner",
+      "serviceCta": "/contact"
+    },
+    {
+      "slug": "production-kpis-for-annual-meetings",
+      "title": "Production KPIs for Annual Meetings Executives Will Actually Read",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 88,
+      "status": "queued",
+      "primaryKeyword": "annual meeting production kpis",
+      "serviceCta": "/work"
+    },
+    {
+      "slug": "vendor-scorecards-for-event-production",
+      "title": "Vendor Scorecards for Event Production Partners",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 87,
+      "status": "queued",
+      "primaryKeyword": "event production vendor scorecard",
+      "serviceCta": "/contact"
+    },
+    {
+      "slug": "reducing-show-day-risk-without-overstaffing",
+      "title": "Reducing Show-Day Risk Without Overstaffing the Call",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 86,
+      "status": "queued",
+      "primaryKeyword": "event production show day risk",
+      "serviceCta": "/resources/event-production-checklist"
+    },
+    {
+      "slug": "content-operations-for-multi-market-events",
+      "title": "Content Operations for Multi-Market Events",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 85,
+      "status": "queued",
+      "primaryKeyword": "multi market event content operations",
+      "serviceCta": "/nationwide-event-production"
+    },
+    {
+      "slug": "executive-experience-design-for-keynotes",
+      "title": "Executive Experience Design for High-Stakes Keynotes",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 84,
+      "status": "queued",
+      "primaryKeyword": "executive keynote experience design",
+      "serviceCta": "/services/stage",
+      "rationale": "Complements published production-partners-for-high-stakes-keynotes and executive-briefing-production-standards."
+    },
+    {
+      "slug": "when-hybrid-is-worth-the-production-cost",
+      "title": "When Hybrid Is Worth the Production Cost (and When It Is Not)",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 83,
+      "status": "queued",
+      "primaryKeyword": "hybrid event production cost decision",
+      "serviceCta": "/blog/hybrid-event-av-checklist"
+    },
+    {
+      "slug": "aligning-brand-guidelines-with-live-production",
+      "title": "Aligning Brand Guidelines With Live Production",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 82,
+      "status": "queued",
+      "primaryKeyword": "brand guidelines live event production",
+      "serviceCta": "/services/lighting"
+    },
+    {
+      "slug": "production-change-control-for-late-scope",
+      "title": "Production Change Control When Scope Arrives Late",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 81,
+      "status": "queued",
+      "primaryKeyword": "event production change control",
+      "serviceCta": "/contact"
+    },
+    {
+      "slug": "how-to-read-an-event-production-proposal",
+      "title": "How to Read an Event Production Proposal Without Getting Lost in Line Items",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 80,
+      "status": "queued",
+      "primaryKeyword": "read event production proposal",
+      "serviceCta": "/contact"
+    },
+    {
+      "slug": "internal-stakeholder-alignment-for-galas",
+      "title": "Internal Stakeholder Alignment for Corporate Galas",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 79,
+      "status": "queued",
+      "primaryKeyword": "corporate gala stakeholder alignment",
+      "serviceCta": "/events/galas-awards"
+    },
+    {
+      "slug": "measuring-attendee-engagement-from-production",
+      "title": "Measuring Attendee Engagement From Production Choices",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 78,
+      "status": "queued",
+      "primaryKeyword": "attendee engagement event production",
+      "serviceCta": "/work"
+    },
+    {
+      "slug": "succession-planning-for-in-house-av-leads",
+      "title": "Succession Planning for In-House AV Leads",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 77,
+      "status": "queued",
+      "primaryKeyword": "in house av lead succession",
+      "serviceCta": "/blog/hire-vs-in-house-av-team"
+    },
+    {
+      "slug": "touring-show-vs-local-vendor-hybrid-model",
+      "title": "Touring Show vs Local Vendor: When a Hybrid Crew Model Wins",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 76,
+      "status": "queued",
+      "primaryKeyword": "touring vs local event production crew",
+      "serviceCta": "/nationwide-event-production"
+    },
+    {
+      "slug": "procurement-timelines-for-flagship-events",
+      "title": "Procurement Timelines for Flagship Events",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 75,
+      "status": "queued",
+      "primaryKeyword": "event production procurement timeline",
+      "serviceCta": "/contact"
+    },
+    {
+      "slug": "brand-safety-on-live-camera-and-led",
+      "title": "Brand Safety on Live Camera and LED",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 74,
+      "status": "queued",
+      "primaryKeyword": "brand safety live event camera",
+      "serviceCta": "/services/led-walls"
+    },
+    {
+      "slug": "post-show-asset-reuse-for-marketing",
+      "title": "Post-Show Asset Reuse for Marketing (Without Relitigating the Show File)",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 73,
+      "status": "queued",
+      "primaryKeyword": "event production asset reuse marketing",
+      "serviceCta": "/contact"
+    },
+    {
+      "slug": "when-to-add-a-show-caller-to-the-budget",
+      "title": "When to Add a Show Caller to the Budget",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 72,
+      "status": "queued",
+      "primaryKeyword": "event show caller budget",
+      "serviceCta": "/services/stage"
+    },
+    {
+      "slug": "production-insurance-and-contingency-planning",
+      "title": "Production Insurance and Contingency Planning for Corporate Events",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 71,
+      "status": "queued",
+      "primaryKeyword": "event production contingency planning",
+      "serviceCta": "/resources/event-production-checklist"
+    },
+    {
+      "slug": "evaluating-production-partners-after-year-one",
+      "title": "Evaluating Production Partners After Year One",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 70,
+      "status": "queued",
+      "primaryKeyword": "evaluate event production partner",
+      "serviceCta": "/contact"
+    },
     {
       "slug": "event-production-roi-for-planners",
       "title": "Event Production ROI: What Executives Should Measure",
@@ -42,10 +265,10 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 87,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "event production rfp questions",
       "serviceCta": "/contact",
-      "rationale": "Published 2026-08-25; RFP qualification questions for marketing leaders evaluating production partners."
+      "rationale": "Published 2026-08-25; was still marked queued. RFP qualification questions for marketing leaders evaluating production partners."
     },
     {
       "slug": "measuring-event-production-quality",
@@ -53,10 +276,10 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 86,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "event production quality metrics",
       "serviceCta": "/work",
-      "rationale": "Published 2026-08-26; pre-event scorecards and post-show quality metrics for marketing and event leaders."
+      "rationale": "Published 2026-08-26; was still marked queued. Pre-event scorecards and post-show quality metrics for marketing and event leaders."
     },
     {
       "slug": "standardize-av-vendors-across-markets",

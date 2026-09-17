@@ -11,6 +11,17 @@ export interface MarkdownPage {
   track?: string;
   dateModified?: string;
   eyebrow?: string;
+  /** Optional share/OG image from frontmatter (`image` or `ogImage`). */
+  image?: string;
+}
+
+/** First markdown image in the body — used for Open Graph when frontmatter has none. */
+export function extractFirstMarkdownImage(body: string): { src: string; alt: string } | null {
+  const match = body.match(/!\[([^\]]*)\]\(([^)]+)\)/);
+  if (!match) return null;
+  const src = match[2].trim();
+  if (!src) return null;
+  return { src, alt: match[1].trim() };
 }
 
 const ROOT = path.join(process.cwd(), 'content-library');
@@ -63,6 +74,7 @@ export function getMarkdownPage(section: ContentSection, slug: string): Markdown
   if (!fs.existsSync(file)) return null;
   const raw = fs.readFileSync(file, 'utf8');
   const { meta, body } = parseFrontmatter(raw);
+  const image = (meta.image || meta.ogImage || '').trim() || undefined;
   return {
     slug,
     title: meta.title ?? slug,
@@ -71,6 +83,7 @@ export function getMarkdownPage(section: ContentSection, slug: string): Markdown
     track: meta.track,
     dateModified: meta.dateModified,
     eyebrow: meta.eyebrow,
+    image,
   };
 }
 

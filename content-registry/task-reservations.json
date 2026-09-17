@@ -44,8 +44,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-11T19:02:58.322Z",
-      "runId": "run-3c3d84e0-c8a1-43a0-8946-31dd3ada1307"
+      "dispatchedAt": "2026-09-17T19:37:08.550Z",
+      "runId": "run-ec07a7a0-2211-49b8-9e56-42e58fd96623"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -61,8 +61,9 @@
       "type": "blog.national.create",
       "targetKey": "general-session-design-tips",
       "status": "in_review",
-      "cadence": "weekly",
-      "dispatchedAt": "2026-08-10T16:55:33.828Z"
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-17T19:37:08.550Z",
+      "runId": "run-9d2d14f2-efc7-41c1-a7d5-19fbbc5a0034"
     },
     {
       "taskId": "service.faq_refresh:/services/audio",
@@ -132,8 +133,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-14T20:12:37.472Z",
-      "runId": "run-84ba0d34-ac56-4a15-ab7d-6b5527784949"
+      "dispatchedAt": "2026-09-17T19:37:08.550Z",
+      "runId": "run-6aaa4ddb-c8e3-4ce7-9afb-afdda5b294cf"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -177,8 +178,8 @@
       "targetKey": "daily-venue-guide",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-11T19:02:58.322Z",
-      "runId": "run-0a20cf6c-519c-4f49-a87c-1f6e17dcf53a"
+      "dispatchedAt": "2026-09-16T19:26:32.541Z",
+      "runId": "run-516a1ba4-21f2-4505-9fbc-fd0f2a742902"
     },
     {
       "taskId": "blog.national.create:when-you-need-imag-and-delay-screens",
@@ -202,7 +203,7 @@
       "taskId": "authority.strategy_blog:production-rfp-questions-for-marketing-leaders",
       "type": "authority.strategy_blog",
       "targetKey": "production-rfp-questions-for-marketing-leaders",
-      "status": "in_review",
+      "status": "completed",
       "cadence": "daily",
       "dispatchedAt": "2026-08-25T16:40:59.694Z",
       "runId": "run-a6d27030-2dd6-4c6e-a06c-ad7de59ff6bc"
@@ -222,8 +223,8 @@
       "targetKey": "/services/projection",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-03T16:37:00.993Z",
-      "runId": "run-84b3f990-c86d-45d3-9d8f-2eaecad0fd52"
+      "dispatchedAt": "2026-09-16T19:26:32.541Z",
+      "runId": "run-9119f16e-1797-463e-b8bc-b507313acfa2"
     },
     {
       "taskId": "authority.strategy_blog:post-event-production-debrief",
@@ -287,6 +288,15 @@
       "cadence": "daily",
       "dispatchedAt": "2026-09-08T19:19:45.782Z",
       "runId": "run-dbb76ef0-0137-4146-b3b8-98829605e159"
+    },
+    {
+      "taskId": "authority.strategy_blog:when-to-own-vs-rent-event-technology",
+      "type": "authority.strategy_blog",
+      "targetKey": "when-to-own-vs-rent-event-technology",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-17T19:37:08.550Z",
+      "runId": "run-464282a4-ce5b-42a2-b934-9c58966067b2"
     }
   ]
 }

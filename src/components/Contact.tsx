@@ -170,15 +170,11 @@ export default function Contact() {
     }
   }
   const safeContact = {
-    headline: contact?.headline ?? "LET'S MAKE YOU\nTHE HERO.",
-    subhead: contact?.subhead ?? "We're here to help.",
     email: contact?.email ?? 'info@latestcrazeproductions.com',
     phone: contact?.phone ?? '+1 (480) 626-5231',
     address: contact?.address ?? '4035 E Magnolia St Phoenix, AZ 85034',
-      ctaText: contact?.ctaText ?? 'Contact Us',
-    copyright: contact?.copyright ?? '© 2025 Latest Craze Productions.',
-    footerLinks: Array.isArray(contact?.footerLinks) ? contact.footerLinks : [],
   };
+  const submitLabel = 'Get a Quote';
 
   return (
     <section id="contact" className="py-24 bg-black text-white relative overflow-hidden">
@@ -187,12 +183,13 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           <div>
-            <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-8">
-              {safeContact.headline.split('\n').map((line, i, arr) => (
-                <span key={i}>{line}{i < arr.length - 1 && <br />}</span>
-              ))}
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+              Phoenix warehouse. National crews.
             </h2>
-            <p className="text-xl text-gray-400 mb-12 max-w-md">{safeContact.subhead}</p>
+            <p className="text-lg text-gray-400 mb-10 max-w-md">
+              Already have a rider or venue packet? Call or email. Otherwise send the form — we reply
+              with a production plan, not a rental catalog.
+            </p>
 
             <div className="relative aspect-[4/3] max-w-md rounded-2xl overflow-hidden border border-white/10 mb-12">
               <Image
@@ -228,10 +225,17 @@ export default function Contact() {
 
           <div className="bg-[#0A0A0A] p-8 md:p-12 rounded-3xl border border-white/5">
             <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <h3 className="text-2xl font-bold tracking-tight mb-2">Event details</h3>
+                <p className="text-sm text-gray-400">
+                  Name and email are required so we can reply. Event fields help us quote LED, lighting,
+                  stage, and show calling accurately.
+                </p>
+              </div>
               {status === 'success' && (
                 <div className="flex items-center gap-2 p-4 rounded-lg bg-green-500/10 text-green-400 border border-green-500/20">
                   <CheckCircle2 className="w-5 h-5 shrink-0" />
-                  <p>Thank you! We&apos;ve received your message and sent a confirmation to your email.</p>
+                  <p>Thank you! We received your quote request and sent a confirmation to your email.</p>
                 </div>
               )}
               {status === 'error' && (
@@ -239,69 +243,6 @@ export default function Contact() {
                   {errorMessage}
                 </div>
               )}
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label htmlFor="contact-name" className="text-xs uppercase tracking-widest text-gray-500">Name</label>
-                  <input
-                    id="contact-name"
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
-                    placeholder="John Doe"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="contact-company" className="text-xs uppercase tracking-widest text-gray-500">Company</label>
-                  <input
-                    id="contact-company"
-                    type="text"
-                    value={formData.company}
-                    onChange={(e) => setFormData((p) => ({ ...p, company: e.target.value }))}
-                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
-                    placeholder="Tech Corp"
-                  />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label htmlFor="contact-email" className={labelClass}>Email</label>
-                  <input
-                    id="contact-email"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
-                    className={inputClass}
-                    placeholder="john@example.com"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="contact-phone" className={labelClass}>Phone</label>
-                  <input
-                    id="contact-phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData((p) => ({ ...p, phone: e.target.value }))}
-                    className={inputClass}
-                    placeholder="(480) 555-1234"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="contact-location" className={labelClass}>Event Location</label>
-                <input
-                  id="contact-location"
-                  type="text"
-                  value={formData.eventLocation}
-                  onChange={(e) => setFormData((p) => ({ ...p, eventLocation: e.target.value }))}
-                  className={inputClass}
-                  placeholder="City, state or venue name"
-                />
-              </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
@@ -323,6 +264,20 @@ export default function Contact() {
                     ))}
                   </select>
                 </div>
+                <div className="space-y-2">
+                  <label htmlFor="contact-location" className={labelClass}>Event Location</label>
+                  <input
+                    id="contact-location"
+                    type="text"
+                    value={formData.eventLocation}
+                    onChange={(e) => setFormData((p) => ({ ...p, eventLocation: e.target.value }))}
+                    className={inputClass}
+                    placeholder="City, state or venue name"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="contact-event-date" className={labelClass}>
                     Event date <span className="text-gray-600 normal-case tracking-normal">(optional range)</span>
@@ -357,20 +312,6 @@ export default function Contact() {
                     />
                   </div>
                 </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label htmlFor="contact-attendees" className={labelClass}>Approximate Attendees</label>
-                  <input
-                    id="contact-attendees"
-                    type="text"
-                    value={formData.attendeeCount}
-                    onChange={(e) => setFormData((p) => ({ ...p, attendeeCount: e.target.value }))}
-                    className={inputClass}
-                    placeholder="e.g. 200–500"
-                  />
-                </div>
                 <div className="space-y-2">
                   <label htmlFor="contact-timeline" className={labelClass}>Timeline</label>
                   <select
@@ -393,6 +334,82 @@ export default function Contact() {
               </div>
 
               <div className="space-y-2">
+                <label htmlFor="contact-attendees" className={labelClass}>Approximate Attendees</label>
+                <input
+                  id="contact-attendees"
+                  type="text"
+                  value={formData.attendeeCount}
+                  onChange={(e) => setFormData((p) => ({ ...p, attendeeCount: e.target.value }))}
+                  className={inputClass}
+                  placeholder="e.g. 200–500"
+                />
+              </div>
+
+              <div className="space-y-2">
+                <label htmlFor="contact-details" className={labelClass}>What does the room need to do?</label>
+                <textarea
+                  id="contact-details"
+                  rows={4}
+                  value={formData.projectDetails}
+                  onChange={(e) => setFormData((p) => ({ ...p, projectDetails: e.target.value }))}
+                  className={`${inputClass} resize-none`}
+                  placeholder="Keynote, reveal, awards flow, IMAG, touring markets…"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="contact-name" className="text-xs uppercase tracking-widest text-gray-500">Name</label>
+                  <input
+                    id="contact-name"
+                    type="text"
+                    required
+                    value={formData.name}
+                    onChange={(e) => setFormData((p) => ({ ...p, name: e.target.value }))}
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+                    placeholder="Jane Planner"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="contact-company" className="text-xs uppercase tracking-widest text-gray-500">Company</label>
+                  <input
+                    id="contact-company"
+                    type="text"
+                    value={formData.company}
+                    onChange={(e) => setFormData((p) => ({ ...p, company: e.target.value }))}
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-blue-500 transition-colors"
+                    placeholder="Agency or brand"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="contact-email" className={labelClass}>Email</label>
+                  <input
+                    id="contact-email"
+                    type="email"
+                    required
+                    value={formData.email}
+                    onChange={(e) => setFormData((p) => ({ ...p, email: e.target.value }))}
+                    className={inputClass}
+                    placeholder="jane@example.com"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label htmlFor="contact-phone" className={labelClass}>Phone</label>
+                  <input
+                    id="contact-phone"
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData((p) => ({ ...p, phone: e.target.value }))}
+                    className={inputClass}
+                    placeholder="(480) 555-1234"
+                  />
+                </div>
+              </div>
+
+              <div className="space-y-2">
                 <label htmlFor="contact-referral" className={labelClass}>How did you hear about us?</label>
                 <select
                   id="contact-referral"
@@ -410,18 +427,6 @@ export default function Contact() {
                     </option>
                   ))}
                 </select>
-              </div>
-
-              <div className="space-y-2">
-                <label htmlFor="contact-details" className={labelClass}>Project Details</label>
-                <textarea
-                  id="contact-details"
-                  rows={4}
-                  value={formData.projectDetails}
-                  onChange={(e) => setFormData((p) => ({ ...p, projectDetails: e.target.value }))}
-                  className={`${inputClass} resize-none`}
-                    placeholder="Tell us about your event..."
-                />
               </div>
 
               {TURNSTILE_SITE_KEY ? (
@@ -457,7 +462,7 @@ export default function Contact() {
                 ) : (
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 )}
-                <span>{status === 'loading' ? 'Sending...' : safeContact.ctaText}</span>
+                <span>{status === 'loading' ? 'Sending quote request...' : submitLabel}</span>
               </button>
             </form>
           </div>
