@@ -1,18 +1,25 @@
 import type { Metadata } from 'next';
 import { ContentHubIndex } from '@/components/layout/ContentHubIndex';
+import { DEFAULT_OG_IMAGE, SITE_URL, twitterLargeImageFields } from '@/lib/article-metadata';
 import { getSiteContent } from '@/lib/content';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://latestcrazeproductions.com';
+const title = 'Case Studies';
+const description =
+  'Case studies and event production work from Latest Craze Productions — galas, keynotes, and brand activations.';
+const og = twitterLargeImageFields(
+  'Case Studies | Latest Craze Productions',
+  'Production outcomes from corporate events nationwide.',
+  DEFAULT_OG_IMAGE.url
+);
 
 export const metadata: Metadata = {
-  title: 'Case Studies',
-  description:
-    'Case studies and event production work from Latest Craze Productions — galas, keynotes, and brand activations.',
+  title,
+  description,
   openGraph: {
-    title: 'Case Studies | Latest Craze Productions',
-    description: 'Production outcomes from corporate events nationwide.',
+    ...og.openGraph,
     url: `${SITE_URL}/work`,
   },
+  twitter: og.twitter,
   alternates: { canonical: `${SITE_URL}/work` },
 };
 
