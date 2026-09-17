@@ -27,9 +27,9 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
   h1: 'Featured Venues',
   eyebrow: 'Venue production',
   lead:
-    'Production considerations for hotels, convention centers, resorts, and non-traditional spaces — what to verify before you sign, what to send your AV partner, and where house rules quietly cap your show.',
+    'Production considerations for hotels, convention centers, resorts, and non-traditional spaces — what to verify before you sign, what to send your AV partner, and where house rules quietly cap your show before load-in day.',
   intro:
-    'Venue selection and production design are the same decision split in half. A ballroom that photographs well on the sales tour can still fail your keynote when ceiling height caps truss height, house power cannot feed a 40-foot LED wall, or the freight elevator locks at 5 p.m. on Fridays. This guide covers venue categories, what to measure on a site visit, how house AV and your production partner divide labor, and the packet your vendor needs to quote accurately — not a list of properties we prefer, but the technical questions seasoned planners ask before the contract is signed.',
+    'Venue selection and production design are the same decision split in half. A ballroom that photographs well on the sales tour can still fail your keynote when ceiling height caps truss height, house power cannot feed a 40-foot LED wall, or the freight elevator locks at 5 p.m. on Fridays. This guide covers venue categories, what to measure on a site visit, how house AV and your production partner divide labor, multi-day hold rules that nobody mentions on the sales call, and the packet your vendor needs to quote accurately — not a list of properties we prefer, but the technical questions seasoned planners ask before the contract is signed.',
   primaryCta: { label: 'Plan your venue production', href: '/contact' },
   sections: [
     {
@@ -40,6 +40,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
         'Convention centers — house rigging plots, union call times, power distro locations, and whether your general session shares air walls with another show',
         'Resort properties — outdoor ceremony backup, golf-cart load paths, generator placement away from guest rooms, and AV storage overnight',
         'Non-traditional spaces — warehouses, museums, and rooftop terraces: ground-support-only staging, weather holds, and permit lead times for amplified sound',
+        'Historic theaters and performing arts centers — fixed grid height, orchestra pit covers, union house crew minimums, and load-in through the stage door only',
         'Hybrid-ready venues — dedicated encoder room, hardline internet handoff, and camera positions that work for both IMAG and a 16:9 stream frame',
       ],
     },
@@ -58,6 +59,8 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
         'Venue tech packet — house AV contact, rigging plot, power one-line, union rules if applicable',
         'Agenda and format — general session length, panel count, awards segment, hybrid stream yes/no, breakout rooms tied to main show',
         'Content inventory — slide aspect ratio, video rolls, IMAG needs, LED vs projection preference',
+        'Load-in and rehearsal windows — actual hours, not "morning of"; note when the room must clear for another event or a room flip',
+        'Audience size and seating style — theater, classroom, rounds; affects PA design, camera count, and sight-line checks',
         'Photos from site visit — ceiling, columns, dock path, and anything the CAD will not show',
       ],
     },
@@ -71,6 +74,19 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
         'Power handoff — house distro vs supplemental generator; who coordinates tie-in and who pays for after-hours electrician calls',
         'Internet and streaming — venue hardline vs cellular backup; encoder placement, VLAN access, and whether IT will be on-site show day',
         'Change-order triggers — air-wall moves, added breakout rooms, extended rehearsal, and overnight hold all have line items; confirm them in writing before sign-off',
+        'In-house AV exclusivity — outside-vendor patch fees, mandatory house tech hours, and whether your switcher operator can touch the house projector',
+      ],
+    },
+    {
+      title: 'Multi-day holds, room turnover, and compound layouts',
+      body: 'Single-day shows are the easy math. Multi-day conferences, galas with a separate rehearsal day, and programs that span a ballroom plus three breakouts plus an outdoor dinner add storage, power, and access questions the venue sales sheet rarely covers. Ask these before you sign — not when housekeeping needs the room at 6 a.m. on day two.',
+      bullets: [
+        'Overnight case storage — locked cage, ballroom floor, or dock hold; who has keys and whether climate-controlled storage costs extra',
+        'Room flip windows — hours between your strike and the next group\'s load-in; whether scenic or truss can stay dressed overnight',
+        'Compound layouts — general session in one room, breakouts elsewhere, gala outdoors; shared FOH, duplicate switchers, and cable paths between spaces',
+        'Power lockout — venues that kill breakers overnight; who re-energizes at load-in and whether your gear can stay patched',
+        'Housekeeping and catering access — when staff can enter to reset tables while production is still in the room (it happens)',
+        'Multi-day rigging holds — whether motors stay flown between days or must come down nightly per fire marshal or house policy',
       ],
     },
     {
@@ -89,7 +105,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
   ],
   floorStory: {
     title: 'From the floor',
-    body: 'Load-in for a corporate awards show started at 6 a.m. on a convention center dock. The outside vendor\'s truck was on time. The union steward was also on time, with a clipboard showing no rigging permit on file. House rigging would not touch the motors until the form was signed by the exhibitor services manager, who arrives at 8. Ground-support for the LED went up instead — slower, but no paperwork. The permit appeared at 8:15. The truss the vendor originally planned was already irrelevant. The show looked fine. The lesson is administrative: union venues have gates that are not physical. Ask for the rigging submission deadline when you book, not when the truck idles on the dock.',
+    body: 'Load-in for a downtown hotel general session was scheduled for Friday at 2 p.m. — reasonable on the run-of-show. Production arrived with road cases on pallet jacks. The only freight elevator to the ballroom level closed at 5 p.m. and did not reopen until Monday at 7 a.m. The show was Saturday. Everything that did not fit through the service stairwell by 4:45 sat in a dock cage over the weekend. The vendor had assumed "hotel ballroom" meant normal freight hours. The BEO said "elevator by appointment." Those are different documents. Confirm elevator hours in writing alongside the hold fee, not the day your truck is scheduled.',
   },
   capabilitiesTitle: 'Production capabilities by venue',
   capabilities: [
