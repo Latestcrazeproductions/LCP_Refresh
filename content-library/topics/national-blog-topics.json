@@ -8,10 +8,10 @@
       "title": "General Session Design That Keeps Attendees Engaged",
       "track": "A",
       "opportunityScore": 88,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "general session design",
       "serviceCta": "/services/stage",
-      "rationale": "Unblocked 2026-09-16 (stale in_review reservation cleared). Conference/session intent; pairs with /feeds/conference-production once live. Do not put a city in the title."
+      "rationale": "Published 2026-09-17; maintain via faq_refresh. Conference/session intent; pairs with /feeds/conference-production once live. Do not put a city in the title."
     },
     {
       "slug": "broadcast-keynote-production-checklist",
