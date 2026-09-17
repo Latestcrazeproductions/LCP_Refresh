@@ -9,10 +9,11 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 91,
-      "status": "queued",
+      "status": "published",
+      "publishedAt": "2026-09-17",
       "primaryKeyword": "own vs rent event technology",
       "serviceCta": "/services",
-      "rationale": "Complements published capital-vs-operating-budget-event-technology; this is the own/rent operating decision, not the budget category."
+      "rationale": "Published 2026-09-17; own vs rent operating decision for event technology inventory — complements capital-vs-operating-budget-event-technology."
     },
     {
       "slug": "building-a-multi-year-event-production-playbook",
