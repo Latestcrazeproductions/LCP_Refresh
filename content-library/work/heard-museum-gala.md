@@ -2,7 +2,7 @@
 title: Heard Museum Gala — Premium Event Production
 description: Museum gala production case study — ground-supported staging, intelligent lighting, line-array audio, IMAG, and cue-to-cue awards flow for a cultural institution fundraiser.
 track: B
-dateModified: 2026-09-17
+dateModified: 2026-09-18
 eyebrow: Arts / Cultural
 ---
 
@@ -57,6 +57,19 @@ Bring these to your vendor advance — museum galas punish vague scope:
 - **Lighting** — four distinct looks (walk-in, dinner, awards, video playback); house-light coordination for IMAG; awards look rehearsed as a timed cue, not a live improvisation
 - **Show management** — single intercom loop (stage manager, LD, A1, V1, client point); numbered cue sheet with department owners and backup paths for playback and wireless
 - **Load-in / strike** — written sequence aligned with museum security; no overnight hold; strike order defined before the first case comes off the truck
+
+## RF and wireless on museum campuses
+
+Museum galas run in buildings that were not designed for clean RF. Security radios, curatorial paging, HVAC wireless sensors, and guest Wi-Fi all share the same neighborhood as your presenter lavs. Hotel ballrooms at least pretend to have inventory lists. Cultural campuses often require you to build one on load-in day.
+
+- **Site scan on load-in day, not a week earlier** — half the museum staff radios may be home during a pre-site walk; scan again after catering sets up (microwave banks add noise)
+- **Coordination with security and facilities** — get staff radio channels in writing; note whether any are fixed or trunked before you assign presenter frequencies
+- **Presenter inventory sized for the full run of show** — emcee, auctioneer, three honoree lavs, presenter spare, and a backup handheld at stage left; museum galas have more wireless handoffs than hotel shows
+- **Dedicated auction channel isolated from presenter lavs** — if the auctioneer frequency shares a harmonic with a security radio, resolve it before doors, not during lot three
+- **Monitor levels modest during tribute playback** — reflective surfaces and low ceilings in historic rooms make IFB bleed and feedback more likely; keep stage monitors conservative during video rolls
+- **Channel plan signed by facilities** — document the final assignment in the advance packet; we had one swap on rehearsal day when a new security vendor appeared with a trunked system nobody had mentioned in the first walk
+
+The campus RF scan looked clean until mid-afternoon, when catering fired up a microwave in the prep room down the hall. We re-scanned at T-2 hours. That is normal on museum campuses — plan for it, not around it.
 
 ## The production challenge
 
@@ -178,16 +191,14 @@ The production team delivered measurable results across guest experience, progra
 - **Awards segment ran on schedule** — no unscripted gaps waiting for slides or mics; walk-on music and lighting hits landed within two seconds of show-caller cues
 - **Rear and side sight lines held** — IMAG kept presenter faces and award graphics legible from back tables, which matters when ticket tiers map to seating sections
 - **Audio intelligibility scored in the money seats** — post-event feedback from the development team noted that auction calls and honoree remarks were clear without staff repeating lines from the floor
+- **Wireless held clean through the full program** — one channel swap on rehearsal day after a new security vendor appeared; no dropouts during auction or awards after the T-2 re-scan
 - **Load-out completed inside the contracted window** — museum operations resumed on time; no overnight hold penalty or curatorial escalation
-- **Content pipeline stayed ahead of show day** — all video rolls and slide decks were in the production queue 72 hours before doors, with a labeled backup laptop at FOH
+- **Content pipeline stayed ahead of show day** — all six video rolls and slide decks were in the production queue 72 hours before doors, with a labeled backup laptop at FOH
 - **Zero unplanned rigging or surface contact** — ground-supported positions and cable mats kept the advance plan intact; curatorial staff signed off on strike photos the next morning
 - **Presenter confidence held through transitions** — honorees returned from video rolls to live remarks without visible fumbling; the awards lighting look masked the two-second house-light rebuild between segments
 - **Milestone calendar held without scope creep** — every production decision locked on its assigned week; no last-minute stage resize or content additions after the 72-hour content lock
-- **Rear-table sight lines verified before doors** — IMAG framing tested from the farthest paid seat; no post-dinner camera repositioning when donors complained
 - **Stakeholder roles stayed clear through strike** — no mid-show debates about who could move a cable mat or call a house-light preset; facilities, curatorial, and production each had a named owner on comms
-- **Auction segment kept dinner service on schedule** — lot descriptions were intelligible from back-row tables without staff repeating bids; transition to awards landed inside the caterer's dessert hold window
-- **Tribute video transitions held without dead air** — all six pre-recorded segments played from the primary queue; backup files were never needed, but every roll had one armed at FOH
-- **Content lock held through show day** — no same-day video exports after the 72-hour deadline; development received a single rejection list for files that failed QC, not a negotiation on show morning
+- **Auction segment kept dinner service on schedule** — lot descriptions were intelligible from back-row tables; transition to awards landed inside the caterer's dessert hold window
 - **Donor photography delivered without blocking IMAG** — official photographer worked from a cleared stage-left lane; no mid-awards repositioning when development needed a hero still
 
 ## Lessons for museum and cultural galas
@@ -203,6 +214,7 @@ Cultural institution events reward planners who treat the venue like a collabora
 - **Scope the auction as its own segment** — dedicated wireless, lighting look, and a written handoff to awards; do not fold paddle calls into a generic dinner audio preset
 - **QC tribute videos like live cues** — frame rate, audio routing, and video-to-live return paths need rehearsal time equal to any presenter walk-on
 - **Plan photography lanes before scenic is built** — IMAG operators and official photographers compete for the same sight lines; assign zones in the advance packet
+- **Scan RF on load-in day, not just the site walk** — museum campuses change when staff, catering, and security are all on-site; budget a re-scan before doors
 
 ## From the floor
 
@@ -214,4 +226,6 @@ After the last lot closed, the auctioneer handed the mic back without a dead-air
 
 The tribute roll that worried us most was a four-minute family interview with mixed archival footage — the kind of file that usually arrives as a screen recording. It passed QC on Tuesday. On show night, the return to live was cue fifty-one: house lights rebuilt, IMAG cut to camera two, and the honoree’s lav already open before the last frame faded. Nobody in the room knew we had rehearsed that transition four times.
 
-For [gala and awards production](/events/galas-awards), [stage design and scenic](/services/stage), [intelligent lighting](/services/lighting), [LED walls and IMAG](/services/led-walls), [line-array audio](/services/audio), the [corporate gala production guide](/blog/corporate-gala-production-guide), and [awards show cue-to-cue planning](/blog/awards-show-cue-to-cue-for-planners), [request a consultation](/contact).
+The only production hiccup anyone might have noticed — if they were standing near FOH with a spectrum analyzer — was the mid-afternoon RF re-scan. The auctioneer’s channel moved one slot. On show night, lot four went out clean. The microwave in catering did not get a credit line in the program. It earned one in the debrief.
+
+For [gala and awards production](/events/galas-awards), [stage design and scenic](/services/stage), [intelligent lighting](/services/lighting), [LED walls and IMAG](/services/led-walls), [line-array audio](/services/audio), [RF microphone planning](/blog/rf-microphone-planning-for-conferences), the [corporate gala production guide](/blog/corporate-gala-production-guide), and [awards show cue-to-cue planning](/blog/awards-show-cue-to-cue-for-planners), [request a consultation](/contact).
