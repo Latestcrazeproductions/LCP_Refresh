@@ -21,9 +21,11 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 90,
-      "status": "queued",
+      "status": "published",
+      "publishedAt": "2026-09-18",
       "primaryKeyword": "event production playbook",
-      "serviceCta": "/nationwide-event-production"
+      "serviceCta": "/nationwide-event-production",
+      "rationale": "Published 2026-09-18; multi-year production governance, tier framework, and business outcomes for recurring corporate event programs."
     },
     {
       "slug": "how-marketing-leaders-brief-production-partners",
