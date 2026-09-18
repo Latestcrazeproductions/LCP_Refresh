@@ -310,8 +310,8 @@ export const siteContent = {
           'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop',
         gallery: [
           {
-            src: 'https://images.unsplash.com/photo-1764981966374-f7323993b21d?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Ground-stacked line arrays and PA towers flanking a live event stage before doors',
+            src: 'https://images.unsplash.com/photo-1563680401337-b77b5e0be9f7?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Close-up of suspended line-array speaker clusters rigged stage-left before show call',
           },
           {
             src: 'https://images.unsplash.com/photo-1766019463451-04e0b1269f37?q=80&w=2070&auto=format&fit=crop',
