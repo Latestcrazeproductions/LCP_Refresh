@@ -28,9 +28,10 @@
       "title": "Confidence Monitor Placement for Keynotes (Without the Presenter Squint)",
       "track": "A",
       "opportunityScore": 85,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "confidence monitor placement keynote",
-      "serviceCta": "/services/stage"
+      "serviceCta": "/services/stage",
+      "rationale": "Published 2026-09-21; maintain via faq_refresh. Presenter workflow and placement only — does not duplicate IMAG or LED sizing articles."
     },
     {
       "slug": "load-in-timeline-for-hotel-ballrooms",
