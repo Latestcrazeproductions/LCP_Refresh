@@ -41,9 +41,11 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 88,
-      "status": "queued",
+      "status": "published",
+      "publishedAt": "2026-09-22",
       "primaryKeyword": "annual meeting production kpis",
-      "serviceCta": "/work"
+      "serviceCta": "/work",
+      "rationale": "Published 2026-09-22; executive-facing production KPI framework for multi-day annual meeting programs — pre-meeting brief, show-week reporting, post-event scorecard."
     },
     {
       "slug": "vendor-scorecards-for-event-production",
