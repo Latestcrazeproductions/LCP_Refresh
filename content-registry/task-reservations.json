@@ -133,8 +133,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-18T18:55:58.742Z",
-      "runId": "run-b69b5496-d9f3-4ff9-981f-515ccf8c4f20"
+      "dispatchedAt": "2026-09-22T19:37:45.928Z",
+      "runId": "run-e4895927-0801-4b11-b524-0eebef5e1e75"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -277,8 +277,8 @@
       "targetKey": "/services/stage",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-08T19:19:45.782Z",
-      "runId": "run-91f886bd-e56d-436d-ac69-489c8287d9cd"
+      "dispatchedAt": "2026-09-22T19:37:45.928Z",
+      "runId": "run-6507bae5-2665-4917-834c-1f96da9249e0"
     },
     {
       "taskId": "authority.strategy_blog:production-partners-for-high-stakes-keynotes",
@@ -333,6 +333,24 @@
       "cadence": "daily",
       "dispatchedAt": "2026-09-21T20:19:02.513Z",
       "runId": "run-0cf38037-a1cd-4929-9b81-becf3f953c4d"
+    },
+    {
+      "taskId": "blog.national.create:load-in-timeline-for-hotel-ballrooms",
+      "type": "blog.national.create",
+      "targetKey": "load-in-timeline-for-hotel-ballrooms",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-22T19:37:45.928Z",
+      "runId": "run-fbf859af-c946-4135-b7fa-dcaf57727622"
+    },
+    {
+      "taskId": "authority.strategy_blog:production-kpis-for-annual-meetings",
+      "type": "authority.strategy_blog",
+      "targetKey": "production-kpis-for-annual-meetings",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-22T19:37:45.928Z",
+      "runId": "run-e402a860-d0a2-45c8-96c9-20803f4be191"
     }
   ]
 }
