@@ -281,8 +281,8 @@ export const siteContent = {
             alt: 'Wide event stage with scenic lighting rig and audience sight lines from the floor',
           },
           {
-            src: 'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Modular keynote stage with scenic backdrop panels and flanking projection screens in a convention hall',
+            src: 'https://images.unsplash.com/photo-1670941371382-993b971d70c9?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Full corporate event stage with center LED backdrop, scenic side columns, and lighting truss before load-in',
           },
           {
             src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop',
