@@ -44,8 +44,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-21T20:19:02.513Z",
-      "runId": "run-45cc67a3-cc60-4470-ad03-8fba4d7e8bcc"
+      "dispatchedAt": "2026-09-23T19:33:45.282Z",
+      "runId": "run-bcc89a2c-4876-447b-b549-c67323f50a7a"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -133,8 +133,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-22T19:37:45.928Z",
-      "runId": "run-e4895927-0801-4b11-b524-0eebef5e1e75"
+      "dispatchedAt": "2026-09-23T19:33:45.282Z",
+      "runId": "run-1f3ee265-82c7-40d6-8668-f3d77e14ee9f"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -347,10 +347,28 @@
       "taskId": "authority.strategy_blog:production-kpis-for-annual-meetings",
       "type": "authority.strategy_blog",
       "targetKey": "production-kpis-for-annual-meetings",
-      "status": "in_review",
+      "status": "completed",
       "cadence": "daily",
       "dispatchedAt": "2026-09-22T19:37:45.928Z",
       "runId": "run-e402a860-d0a2-45c8-96c9-20803f4be191"
+    },
+    {
+      "taskId": "blog.national.create:house-av-vs-production-vendor-scope",
+      "type": "blog.national.create",
+      "targetKey": "house-av-vs-production-vendor-scope",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-23T19:33:45.282Z",
+      "runId": "run-615bee6b-c4a0-48f9-b267-78befa3cc148"
+    },
+    {
+      "taskId": "authority.strategy_blog:vendor-scorecards-for-event-production",
+      "type": "authority.strategy_blog",
+      "targetKey": "vendor-scorecards-for-event-production",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-23T19:33:45.282Z",
+      "runId": "run-245c513d-4a8b-4854-a29c-f879e031fba0"
     }
   ]
 }
