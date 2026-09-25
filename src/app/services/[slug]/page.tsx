@@ -206,7 +206,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             <section className="relative py-16 px-6 max-w-4xl mx-auto border-t border-white/10">
               <h2 className="text-2xl md:text-3xl font-bold mb-3">Common questions</h2>
               <p className="text-gray-400 mb-10">
-                Practical answers for producers sizing walls, locking content, planning rigging and failover, and feeding hybrid audiences without a last-minute crop.
+                Practical answers for producers sizing walls, locking content delivery, planning rigging and failover, integrating with stage and lighting, and feeding hybrid audiences without a last-minute crop.
               </p>
               <dl className="space-y-8">
                 {serviceFaqs.map((item) => (
@@ -228,6 +228,10 @@ export default async function ServiceDetailPage({ params }: Props) {
                 . Back-row sight lines and delay screens? Read{' '}
                 <Link href="/blog/when-you-need-imag-and-delay-screens" className="text-blue-400 hover:text-blue-300 underline">
                   IMAG and delay screens
+                </Link>
+                . Multi-city programs? See{' '}
+                <Link href="/blog/touring-show-technical-riders-for-planners" className="text-blue-400 hover:text-blue-300 underline">
+                  touring show technical riders
                 </Link>
                 . Ready to scope your room?{' '}
                 <Link href="/contact" className="text-blue-400 hover:text-blue-300 underline font-medium">

@@ -161,7 +161,7 @@ export const siteContent = {
           {
             question: 'Do your LED walls include redundancy for live events?',
             answer:
-              'Yes — mission-critical general sessions get dual-path processing, hot spares where the show file demands it, and module-level failover planning before load-in. We also spec who owns processor spares in the contract, because discovering a sending card has opinions mid-show is a specific kind of pain. Failover paths get documented in pre-pro so show callers know exactly what happens if a section drops. Full-field calibration gets scheduled before doors — not twenty minutes before the CEO walk-on.',
+              'Yes — mission-critical general sessions get dual-path processing, hot spares where the show file demands it, and module-level failover planning before load-in. We also spec who owns processor spares in the contract, because discovering a sending card has opinions mid-show is a specific kind of pain. Failover paths get documented in pre-pro so show callers know exactly what happens if a section drops — including mapped bypass routes if a single module faults mid-show. Full-field calibration gets scheduled before doors — not twenty minutes before the CEO walk-on.',
           },
           {
             question: 'Can you configure curved, corner, or ultra-wide aspect ratio walls?',
@@ -227,6 +227,26 @@ export const siteContent = {
             question: 'What do hybrid and streamed audiences need from the LED wall?',
             answer:
               'Remote viewers inherit whatever the room camera sees — so wall brightness, refresh rate, and IMAG framing matter as much as in-house sight lines. We feed the switcher output to your streaming encoder with matched color pipeline, confirm safe title areas for lower-thirds and captions, and rehearse slide transitions on the stream delay. If virtual attendees get a separate content channel, lock that layout before graphics are built; rebuilding a 32:9 wall graphic for a 16:9 stream crop on load-in day is a predictable kind of pain.',
+          },
+          {
+            question: 'When should final wall content be delivered before show day?',
+            answer:
+              'Lock motion graphics and full-screen video at least one week before load-in — longer for multi-zone layouts or 32:9 canvases your team has never built before. Slide decks can arrive closer, but the master deck should be frozen before rehearsal so font substitutions and last-minute aspect-ratio surprises do not become a load-in sport. We run a content test on the actual processor path during tech rehearsal; discovering a 24fps clip on a 60 Hz wall during the CEO walk-through is avoidable with a calendar. Send ProRes or high-bitrate H.264 for video, native-resolution PNG or PDF exports for stills, and one contact who owns change control.',
+          },
+          {
+            question: 'Is this LED wall rental-only, or full production with onsite support?',
+            answer:
+              'We deliver the wall as part of a production — spec, processor path, calibration, failover planning, and an onsite LED tech who owns the wall through strike. Pure gear rental without show operation is a different quote and a different risk profile; you are signing up to be the integrator. Most corporate keynotes and general sessions want the production package so load-in, rehearsal, and show day share one technical owner. If you only need panels for a controlled install with your in-house team, say that upfront — we will tell you honestly whether that fits the show.',
+          },
+          {
+            question: 'What media formats and color space should we deliver for the wall?',
+            answer:
+              'Video: ProRes 422 or high-bitrate H.264 at the wall\'s native frame rate (typically 50 or 60 Hz). Stills and slides: PNG or PDF at full canvas resolution — not a 16:9 deck stretched on a 32:9 wall. Color: Rec.709 for most corporate content; PQ/HDR only when the show file and brand guidelines actually use HDR headroom. We publish exact pixel dimensions, safe action areas, and gamma targets before your motion team starts — building in sRGB and hoping the processor fixes it is a rehearsal-day tradition we skip.',
+          },
+          {
+            question: 'How does the LED wall integrate with stage, scenic, and lighting?',
+            answer:
+              'The wall is one surface in a stage picture — not a rectangle dropped behind whatever scenic built yesterday. We coordinate trim height with deck elevation, mask lines with set pieces, and backlight levels so presenters are not silhouetted against a wall that outruns the key light. Lighting gets a wall brightness target before focus; scenic gets processor-safe masking zones before fabrication. Shared rigging time with lighting and audio gets scheduled in pre-pro so the ceiling is not a negotiation at load-in. One technical director ties the stack together so IMAG, wall content, and stage wash read as one show — not three vendors defending their corners.',
           },
           {
             question: 'How far in advance should I book an LED wall?',
