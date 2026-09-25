@@ -44,8 +44,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-23T19:33:45.282Z",
-      "runId": "run-bcc89a2c-4876-447b-b549-c67323f50a7a"
+      "dispatchedAt": "2026-09-25T19:54:47.347Z",
+      "runId": "run-5037bd3d-c37b-45d2-aa23-8e8dc61b2e25"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -133,8 +133,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-23T19:33:45.282Z",
-      "runId": "run-1f3ee265-82c7-40d6-8668-f3d77e14ee9f"
+      "dispatchedAt": "2026-09-25T19:54:47.347Z",
+      "runId": "run-dd2d8493-6799-4124-a7a2-354d1c04e612"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -387,6 +387,24 @@
       "cadence": "daily",
       "dispatchedAt": "2026-09-24T19:53:06.273Z",
       "runId": "run-4554abb9-3d74-41d0-9889-282e1b8a8f72"
+    },
+    {
+      "taskId": "blog.national.create:ground-supported-vs-flown-led-walls",
+      "type": "blog.national.create",
+      "targetKey": "ground-supported-vs-flown-led-walls",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-25T19:54:47.347Z",
+      "runId": "run-8be2f32f-e869-46a0-9d89-d3507364a6eb"
+    },
+    {
+      "taskId": "authority.strategy_blog:content-operations-for-multi-market-events",
+      "type": "authority.strategy_blog",
+      "targetKey": "content-operations-for-multi-market-events",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-25T19:54:47.347Z",
+      "runId": "run-37726015-0b1e-45ec-ae2a-127279118dde"
     }
   ]
 }
