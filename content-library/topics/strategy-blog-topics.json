@@ -83,7 +83,8 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 84,
-      "status": "queued",
+      "status": "published",
+      "publishedAt": "2026-09-28",
       "primaryKeyword": "executive keynote experience design",
       "serviceCta": "/services/stage",
       "rationale": "Complements published production-partners-for-high-stakes-keynotes and executive-briefing-production-standards."
