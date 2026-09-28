@@ -2,7 +2,7 @@
 title: Heard Museum Gala — Premium Event Production
 description: Museum gala production case study — ground-supported staging, intelligent lighting, line-array audio, IMAG, and cue-to-cue awards flow for a cultural institution fundraiser.
 track: B
-dateModified: 2026-09-22
+dateModified: 2026-09-28
 eyebrow: Arts / Cultural
 ---
 
@@ -46,6 +46,23 @@ Lock these answers before you draw a stage plot — museum staff will not negoti
 - **Curatorial hold points** — Which galleries, cases, or sculpture bases cannot move; what is the minimum clearance from stage edge?
 - **Security and access** — Load-in door schedule, badge requirements, and whether vendor vehicles can stage on campus or must shuttle from the street
 - **Photography policy** — Flash restrictions, tripod rules, and whether donor communications need a separate camera pass from the live IMAG feed
+- **Power tie-in and generator policy** — Which circuits production may use, whether a generator is permitted on campus, and who signs off on distro before load-in
+- **RF inventory on campus** — Security radios, building automation, and any fixed wireless systems that share UHF bands with presenter mics
+
+## RF and wireless planning on cultural campuses
+
+Hotel ballrooms publish RF coordination as a line item. Museum campuses rarely do — until six presenter lavs, an auctioneer handheld, intercom IFB, and a campus security net all land on overlapping spectrum during the cocktail hour.
+
+For this gala, we scheduled a site RF scan four weeks before load-in and again on show morning. The first pass found a security repeater in the UHF band that did not appear on any advance packet. The second pass caught guest cell density at reception — enough to raise noise floor on backup channels if we had not pre-assigned fallbacks.
+
+- **Campus RF inventory request** — Ask facilities and security for a list of fixed wireless systems (radios, door access, building automation) before you allocate mic channels
+- **Scan at two room states** — Empty campus during weekday load-in tells you one story; standing reception density at doors tells another
+- **Dedicated auction channel** — Never share the auctioneer handheld with presenter lavs; gain structure and squelch verified before the paddle segment opens
+- **Intercom isolation** — Production intercom on its own band or wired loop; do not stack IFB and presenter wireless on adjacent channels without a scan
+- **Backup channel map** — Every primary wireless assignment gets a pre-planned fallback channel written on the cue sheet, not chosen from the floor
+- **Show-morning re-scan** — Campus operations change daily; a 30-minute RF pass before doors catches new interference from neighboring events or vendor gear
+
+If your venue cannot provide an RF contact or a quiet window for a scan, budget an extra half-day on load-in for wireless coordination — not a five-minute check at the lectern.
 
 ## Campus load-in, truck access, and strike logistics
 
@@ -71,6 +88,8 @@ Bring these to your vendor advance — museum galas punish vague scope:
 - **Lighting** — four distinct looks (walk-in, dinner, awards, video playback); house-light coordination for IMAG; awards look rehearsed as a timed cue, not a live improvisation
 - **Show management** — single intercom loop (stage manager, LD, A1, V1, client point); numbered cue sheet with department owners and backup paths for playback and wireless
 - **Load-in / strike** — written sequence aligned with museum security; no overnight hold; strike order defined before the first case comes off the truck
+- **Power** — distro from approved campus circuits only; no generator on preserved surfaces; tie-in signed by facilities before first powered-on test
+- **Wireless** — six-channel plan with dedicated auction frequency, intercom on isolated band, backup map on the cue sheet; RF scan at load-in and show morning
 
 ## The production challenge
 
@@ -198,6 +217,7 @@ The production team delivered measurable results across guest experience, progra
 - **Auction-to-awards handoff held dinner service** — lot descriptions finished inside the caterer's dessert hold window; transition to the first honoree landed as a numbered cue, not a floor negotiation
 - **Tribute video transitions held without dead air** — every pre-recorded segment played from the primary queue; video-to-live returns were rehearsed as single numbered cues with lavs open before the last frame faded
 - **Stakeholder roles stayed clear through strike** — facilities, curatorial, and production each had a named owner on comms; no mid-show debates about cable mats or house-light presets
+- **Wireless plan held through reception and awards** — show-morning RF scan caught one new interference source; backup channel map was never needed, but every primary mic had a fallback assigned before doors
 
 ## Lessons for museum and cultural galas
 
@@ -213,8 +233,11 @@ Cultural institution events reward planners who treat the venue like a collabora
 - **QC tribute videos like live cues** — frame rate, audio routing, and video-to-live return paths need rehearsal time equal to any presenter walk-on
 - **Plan photography lanes before scenic is built** — IMAG operators and official photographers compete for the same sight lines; assign zones in the advance packet
 - **Write truck access and strike before load-in day** — campus galas fail when the first case arrives and nobody knows which gate is open; vehicle staging and hard out times belong in the advance packet, not a group text at midnight
+- **Treat RF as a campus problem, not a mic rental** — request security and facilities wireless inventory early; scan at load-in and again before doors when guest density changes the noise floor
 
 ## From the floor
+
+During load-in, the RF scan picked up a security repeater nobody had listed on the advance packet. We moved two presenter channels and re-printed the cue sheet before the first mic check — which is why the show-morning scan was a formality instead of a crisis.
 
 During rehearsal, the museum’s development director asked whether we could “just skip the separate awards lighting look to save five minutes.” We did not skip it. During the live show, three honorees in a row had pre-recorded tribute videos followed immediately by live remarks — the kind of sequence where house lights at the wrong level makes the return to stage look like an accident.
 
