@@ -44,8 +44,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-25T19:54:47.347Z",
-      "runId": "run-5037bd3d-c37b-45d2-aa23-8e8dc61b2e25"
+      "dispatchedAt": "2026-09-29T20:33:05.886Z",
+      "runId": "run-45193e0c-9f06-4cc7-85b0-fa35010650d5"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -178,8 +178,8 @@
       "targetKey": "daily-venue-guide",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-24T19:53:06.273Z",
-      "runId": "run-02cb740e-9404-4bec-8798-68a0f132554a"
+      "dispatchedAt": "2026-09-29T20:33:05.886Z",
+      "runId": "run-2e50b503-dda9-47fe-9455-3f70894b4f2e"
     },
     {
       "taskId": "blog.national.create:when-you-need-imag-and-delay-screens",
@@ -423,6 +423,24 @@
       "cadence": "daily",
       "dispatchedAt": "2026-09-28T21:41:30.135Z",
       "runId": "run-d148f47e-9770-4c90-907f-60ecb36b5932"
+    },
+    {
+      "taskId": "blog.national.create:content-lock-deadlines-for-event-playback",
+      "type": "blog.national.create",
+      "targetKey": "content-lock-deadlines-for-event-playback",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-29T20:33:05.886Z",
+      "runId": "run-41ab2268-49aa-44b2-9ae1-95ce275986f7"
+    },
+    {
+      "taskId": "authority.strategy_blog:when-hybrid-is-worth-the-production-cost",
+      "type": "authority.strategy_blog",
+      "targetKey": "when-hybrid-is-worth-the-production-cost",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-29T20:33:05.886Z",
+      "runId": "run-6854e133-ce78-4746-b163-8abaf6bd5ace"
     }
   ]
 }
