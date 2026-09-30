@@ -133,8 +133,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-28T21:41:30.135Z",
-      "runId": "run-83fefd7b-b1ac-462e-a492-4b4443f7a51b"
+      "dispatchedAt": "2026-09-30T20:39:12.042Z",
+      "runId": "run-2ba9268c-71e1-4be6-aac1-0c6fd5542956"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -223,8 +223,8 @@
       "targetKey": "/services/projection",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-16T19:26:32.541Z",
-      "runId": "run-9119f16e-1797-463e-b8bc-b507313acfa2"
+      "dispatchedAt": "2026-09-30T20:39:12.042Z",
+      "runId": "run-855877a6-ad5e-4ce0-987b-00d7f313f968"
     },
     {
       "taskId": "authority.strategy_blog:post-event-production-debrief",
@@ -441,6 +441,24 @@
       "cadence": "daily",
       "dispatchedAt": "2026-09-29T20:33:05.886Z",
       "runId": "run-6854e133-ce78-4746-b163-8abaf6bd5ace"
+    },
+    {
+      "taskId": "blog.national.create:camera-platform-planning-for-corporate-livestreams",
+      "type": "blog.national.create",
+      "targetKey": "camera-platform-planning-for-corporate-livestreams",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-30T20:39:12.042Z",
+      "runId": "run-88d733ae-be0c-4740-a831-b94b90f936f6"
+    },
+    {
+      "taskId": "authority.strategy_blog:aligning-brand-guidelines-with-live-production",
+      "type": "authority.strategy_blog",
+      "targetKey": "aligning-brand-guidelines-with-live-production",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-09-30T20:39:12.042Z",
+      "runId": "run-6838689b-bd3a-4a1c-b45e-0a259d16ffcd"
     }
   ]
 }
