@@ -81,9 +81,11 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 85,
-      "status": "queued",
+      "status": "published",
+      "publishedAt": "2026-09-25",
       "primaryKeyword": "multi market event content operations",
-      "serviceCta": "/nationwide-event-production"
+      "serviceCta": "/nationwide-event-production",
+      "rationale": "Published 2026-09-25; content operations pipeline for multi-market programs — asset governance, capture specs, delivery timelines, and business outcomes for marketing and event leaders."
     },
     {
       "slug": "executive-experience-design-for-keynotes",
