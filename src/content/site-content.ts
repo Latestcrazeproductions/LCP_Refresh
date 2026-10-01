@@ -367,8 +367,8 @@ export const siteContent = {
             alt: 'Dual blended projection canvases on a corporate keynote stage before general session doors',
           },
           {
-            src: 'https://images.unsplash.com/photo-1765277902916-9fabeb82e2bf?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Concert crowd with stage lighting and building projections at an outdoor brand activation',
+            src: 'https://images.unsplash.com/photo-1767969456847-ffeb76d7d4d0?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Stage projection mapping with digital content patterns and blue scenic wash on a branded event set',
           },
           {
             src: 'https://images.unsplash.com/photo-1771167219393-629dd24b353e?q=80&w=2070&auto=format&fit=crop',
