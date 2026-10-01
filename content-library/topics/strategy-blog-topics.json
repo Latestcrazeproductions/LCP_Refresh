@@ -116,9 +116,10 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 82,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "brand guidelines live event production",
-      "serviceCta": "/services/lighting"
+      "serviceCta": "/services/lighting",
+      "rationale": "Published 2026-09-30; bridges marketing brand standards and live production specs for general sessions."
     },
     {
       "slug": "production-change-control-for-late-scope",
