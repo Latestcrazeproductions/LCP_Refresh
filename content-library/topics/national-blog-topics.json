@@ -1,7 +1,7 @@
 {
   "quarter": "2026-Q3",
   "cadenceNote": "Target 45 queued capture topics (config.topicQueues.nationalCaptureMinQueued). ResearchAgent replenishes monthly on the 1st.",
-  "lastTrendingRefresh": "2026-09-16",
+  "lastTrendingRefresh": "2026-10-01",
   "topics": [
     {
       "slug": "general-session-design-tips",
@@ -17,7 +17,7 @@
       "slug": "broadcast-keynote-production-checklist",
       "title": "Broadcast-Grade Keynote Production: A Planner's Checklist",
       "track": "A",
-      "opportunityScore": 86,
+      "opportunityScore": 94,
       "status": "queued",
       "primaryKeyword": "broadcast keynote production",
       "serviceCta": "/services/led-walls",
@@ -27,7 +27,7 @@
       "slug": "confidence-monitor-placement-for-keynotes",
       "title": "Confidence Monitor Placement for Keynotes (Without the Presenter Squint)",
       "track": "A",
-      "opportunityScore": 85,
+      "opportunityScore": 88,
       "status": "queued",
       "primaryKeyword": "confidence monitor placement keynote",
       "serviceCta": "/services/stage"
@@ -36,7 +36,7 @@
       "slug": "load-in-timeline-for-hotel-ballrooms",
       "title": "Hotel Ballroom Load-In Timeline: What Planners Should Put in the Contract",
       "track": "A",
-      "opportunityScore": 84,
+      "opportunityScore": 86,
       "status": "queued",
       "primaryKeyword": "hotel ballroom load in timeline",
       "serviceCta": "/services/stage"
@@ -45,7 +45,7 @@
       "slug": "house-av-vs-production-vendor-scope",
       "title": "House AV vs Production Vendor: How to Split Scope Without Gaps",
       "track": "A",
-      "opportunityScore": 83,
+      "opportunityScore": 91,
       "status": "queued",
       "primaryKeyword": "house av vs production vendor",
       "serviceCta": "/services"
@@ -328,7 +328,7 @@
       "slug": "hybrid-return-feed-for-remote-presenters",
       "title": "Hybrid Return Feeds for Remote Presenters: What to Test Before Doors",
       "track": "A",
-      "opportunityScore": 52,
+      "opportunityScore": 76,
       "status": "queued",
       "primaryKeyword": "remote presenter return feed",
       "serviceCta": "/blog/hybrid-event-av-checklist",
@@ -392,7 +392,7 @@
       "slug": "gala-dinner-to-program-transition",
       "title": "Gala Dinner-to-Program Transition: Clocks, Lighting, and Comms",
       "track": "A",
-      "opportunityScore": 45,
+      "opportunityScore": 72,
       "status": "queued",
       "primaryKeyword": "gala dinner to program transition",
       "serviceCta": "/events/galas-awards"

@@ -1,7 +1,7 @@
 {
   "quarter": "2026-Q3",
   "cadenceNote": "Target 22 queued strategy topics (config.topicQueues.strategyMinQueued). ResearchAgent replenishes monthly on the 1st.",
-  "lastTrendingRefresh": "2026-09-16",
+  "lastTrendingRefresh": "2026-10-01",
   "topics": [
     {
       "slug": "when-to-own-vs-rent-event-technology",
@@ -20,7 +20,7 @@
       "title": "Building a Multi-Year Event Production Playbook",
       "track": "B",
       "minWords": 1200,
-      "opportunityScore": 90,
+      "opportunityScore": 92,
       "status": "queued",
       "primaryKeyword": "event production playbook",
       "serviceCta": "/nationwide-event-production"
@@ -52,7 +52,7 @@
       "title": "Vendor Scorecards for Event Production Partners",
       "track": "B",
       "minWords": 1200,
-      "opportunityScore": 87,
+      "opportunityScore": 90,
       "status": "queued",
       "primaryKeyword": "event production vendor scorecard",
       "serviceCta": "/contact"
@@ -93,7 +93,7 @@
       "title": "When Hybrid Is Worth the Production Cost (and When It Is Not)",
       "track": "B",
       "minWords": 1200,
-      "opportunityScore": 83,
+      "opportunityScore": 86,
       "status": "queued",
       "primaryKeyword": "hybrid event production cost decision",
       "serviceCta": "/blog/hybrid-event-av-checklist"
@@ -173,7 +173,7 @@
       "title": "Procurement Timelines for Flagship Events",
       "track": "B",
       "minWords": 1200,
-      "opportunityScore": 75,
+      "opportunityScore": 82,
       "status": "queued",
       "primaryKeyword": "event production procurement timeline",
       "serviceCta": "/contact"
