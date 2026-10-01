@@ -1,5 +1,5 @@
 {
-  "quarter": "2026-Q4",
+  "quarter": "2026-Q3",
   "cadenceNote": "Target 45 queued capture topics (config.topicQueues.nationalCaptureMinQueued). ResearchAgent replenishes monthly on the 1st.",
   "lastTrendingRefresh": "2026-10-01",
   "topics": [
@@ -17,11 +17,11 @@
       "slug": "broadcast-keynote-production-checklist",
       "title": "Broadcast-Grade Keynote Production: A Planner's Checklist",
       "track": "A",
-      "opportunityScore": 88,
+      "opportunityScore": 94,
       "status": "queued",
       "primaryKeyword": "broadcast keynote production",
       "serviceCta": "/services/led-walls",
-      "rationale": "Research 2026-08 gap: multi-camera keynotes with in-room vs remote design. Long-tail only — do not target conference production company. Score bumped 2026-10: broadcast-grade keynotes remain top industry signal."
+      "rationale": "Research 2026-08 gap: multi-camera keynotes with in-room vs remote design. Long-tail only — do not target conference production company."
     },
     {
       "slug": "streaming-backup-and-failover-for-corporate-livestreams",
@@ -37,8 +37,8 @@
       "slug": "confidence-monitor-placement-for-keynotes",
       "title": "Confidence Monitor Placement for Keynotes (Without the Presenter Squint)",
       "track": "A",
-      "opportunityScore": 85,
-      "status": "published",
+      "opportunityScore": 88,
+      "status": "queued",
       "primaryKeyword": "confidence monitor placement keynote",
       "serviceCta": "/services/stage",
       "rationale": "Published 2026-09-21; maintain via faq_refresh. Presenter workflow and placement only — does not duplicate IMAG or LED sizing articles."
@@ -47,8 +47,8 @@
       "slug": "load-in-timeline-for-hotel-ballrooms",
       "title": "Hotel Ballroom Load-In Timeline: What Planners Should Put in the Contract",
       "track": "A",
-      "opportunityScore": 84,
-      "status": "published",
+      "opportunityScore": 86,
+      "status": "queued",
       "primaryKeyword": "hotel ballroom load in timeline",
       "serviceCta": "/services/stage",
       "rationale": "Published 2026-09-22; maintain via faq_refresh."
@@ -57,7 +57,7 @@
       "slug": "house-av-vs-production-vendor-scope",
       "title": "House AV vs Production Vendor: How to Split Scope Without Gaps",
       "track": "A",
-      "opportunityScore": 83,
+      "opportunityScore": 91,
       "status": "queued",
       "primaryKeyword": "house av vs production vendor",
       "serviceCta": "/services"
@@ -67,7 +67,7 @@
       "title": "Rehearsal-Day Run-of-Show: What Planners Should Protect on the Clock",
       "track": "A",
       "opportunityScore": 82,
-      "status": "published",
+      "status": "queued",
       "primaryKeyword": "event rehearsal run of show",
       "serviceCta": "/services/stage",
       "rationale": "Published 2026-09-24; maintain via faq_refresh. Rehearsal-day run-of-show capture; pairs with /services/stage. Do not put a city in the title."
@@ -77,10 +77,10 @@
       "title": "Ground-Supported vs Flown LED Walls: How to Choose for Corporate Rooms",
       "track": "A",
       "opportunityScore": 81,
-      "status": "published",
+      "status": "queued",
       "primaryKeyword": "ground supported vs flown led wall",
       "serviceCta": "/services/led-walls",
-      "rationale": "Published 2026-09-25; maintain via faq_refresh. Decision content. Do not retarget 'led wall rental' head term owned by /feeds/led-walls."
+      "rationale": "Decision content. Do not retarget 'led wall rental' head term owned by /feeds/led-walls."
     },
     {
       "slug": "power-and-rigging-asks-for-venue-contracts",
@@ -105,7 +105,7 @@
       "title": "Camera Platform Planning for Corporate Livestreams",
       "track": "A",
       "opportunityScore": 78,
-      "status": "published",
+      "status": "queued",
       "primaryKeyword": "corporate livestream camera plan",
       "serviceCta": "/services/led-walls"
     },
@@ -341,7 +341,7 @@
       "slug": "hybrid-return-feed-for-remote-presenters",
       "title": "Hybrid Return Feeds for Remote Presenters: What to Test Before Doors",
       "track": "A",
-      "opportunityScore": 52,
+      "opportunityScore": 76,
       "status": "queued",
       "primaryKeyword": "remote presenter return feed",
       "serviceCta": "/blog/hybrid-event-av-checklist",
@@ -405,7 +405,7 @@
       "slug": "gala-dinner-to-program-transition",
       "title": "Gala Dinner-to-Program Transition: Clocks, Lighting, and Comms",
       "track": "A",
-      "opportunityScore": 45,
+      "opportunityScore": 72,
       "status": "queued",
       "primaryKeyword": "gala dinner to program transition",
       "serviceCta": "/events/galas-awards"

@@ -1,5 +1,5 @@
 {
-  "quarter": "2026-Q4",
+  "quarter": "2026-Q3",
   "cadenceNote": "Target 22 queued strategy topics (config.topicQueues.strategyMinQueued). ResearchAgent replenishes monthly on the 1st.",
   "lastTrendingRefresh": "2026-10-01",
   "topics": [
@@ -20,7 +20,7 @@
       "title": "Building a Multi-Year Event Production Playbook",
       "track": "B",
       "minWords": 1200,
-      "opportunityScore": 91,
+      "opportunityScore": 92,
       "status": "queued",
       "publishedAt": "2026-09-18",
       "primaryKeyword": "event production playbook",
@@ -56,7 +56,7 @@
       "title": "Vendor Scorecards for Event Production Partners",
       "track": "B",
       "minWords": 1200,
-      "opportunityScore": 87,
+      "opportunityScore": 90,
       "status": "queued",
       "publishedAt": "2026-09-23",
       "primaryKeyword": "event production vendor scorecard",
@@ -104,7 +104,7 @@
       "title": "When Hybrid Is Worth the Production Cost (and When It Is Not)",
       "track": "B",
       "minWords": 1200,
-      "opportunityScore": 84,
+      "opportunityScore": 86,
       "status": "queued",
       "publishedAt": "2026-09-29",
       "primaryKeyword": "hybrid event production cost decision",
@@ -187,7 +187,7 @@
       "title": "Procurement Timelines for Flagship Events",
       "track": "B",
       "minWords": 1200,
-      "opportunityScore": 75,
+      "opportunityScore": 82,
       "status": "queued",
       "primaryKeyword": "event production procurement timeline",
       "serviceCta": "/contact"
