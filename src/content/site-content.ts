@@ -229,6 +229,26 @@ export const siteContent = {
               'Remote viewers inherit whatever the room camera sees — so wall brightness, refresh rate, and IMAG framing matter as much as in-house sight lines. We feed the switcher output to your streaming encoder with matched color pipeline, confirm safe title areas for lower-thirds and captions, and rehearse slide transitions on the stream delay. If virtual attendees get a separate content channel, lock that layout before graphics are built; rebuilding a 32:9 wall graphic for a 16:9 stream crop on load-in day is a predictable kind of pain.',
           },
           {
+            question: 'When should final wall content be delivered before show day?',
+            answer:
+              'Lock motion graphics and full-screen video at least one week before load-in — longer for multi-zone layouts or 32:9 canvases your team has never built before. Slide decks can arrive closer, but the master deck should be frozen before rehearsal so font substitutions and last-minute aspect-ratio surprises do not become a load-in sport. We run a content test on the actual processor path during tech rehearsal; discovering a 24fps clip on a 60 Hz wall during the CEO walk-through is avoidable with a calendar. Send ProRes or high-bitrate H.264 for video, native-resolution PNG or PDF exports for stills, and one contact who owns change control.',
+          },
+          {
+            question: 'Is this LED wall rental-only, or full production with onsite support?',
+            answer:
+              'We deliver the wall as part of a production — spec, processor path, calibration, failover planning, and an onsite LED tech who owns the wall through strike. Pure gear rental without show operation is a different quote and a different risk profile; you are signing up to be the integrator. Most corporate keynotes and general sessions want the production package so load-in, rehearsal, and show day share one technical owner. If you only need panels for a controlled install with your in-house team, say that upfront — we will tell you honestly whether that fits the show.',
+          },
+          {
+            question: 'What media formats and color space should we deliver for the wall?',
+            answer:
+              'Video: ProRes 422 or high-bitrate H.264 at the wall\'s native frame rate (typically 50 or 60 Hz). Stills and slides: PNG or PDF at full canvas resolution — not a 16:9 deck stretched on a 32:9 wall. Color: Rec.709 for most corporate content; PQ/HDR only when the show file and brand guidelines actually use HDR headroom. We publish exact pixel dimensions, safe action areas, and gamma targets before your motion team starts — building in sRGB and hoping the processor fixes it is a rehearsal-day tradition we skip.',
+          },
+          {
+            question: 'How does the LED wall integrate with stage, scenic, and lighting?',
+            answer:
+              'The wall is one surface in a stage picture — not a rectangle dropped behind whatever scenic built yesterday. We coordinate trim height with deck elevation, mask lines with set pieces, and backlight levels so presenters are not silhouetted against a wall that outruns the key light. Lighting gets a wall brightness target before focus; scenic gets processor-safe masking zones before fabrication. Shared rigging time with lighting and audio gets scheduled in pre-pro so the ceiling is not a negotiation at load-in. One technical director ties the stack together so IMAG, wall content, and stage wash read as one show — not three vendors defending their corners.',
+          },
+          {
             question: 'How far in advance should I book an LED wall?',
             answer:
               'Four to six weeks covers most single-market keynotes with standard rigging — send room dimensions and load-in constraints early so we can flag truck dock or ceiling issues before you sign. Multi-market tours or custom aspect builds with full-field calibration windows need 8–12 weeks. Q4 conference season and January sales kickoffs book inventory early; if your dates fall in those windows, earlier is better. Rush timelines are possible depending on inventory and venue access — contact us with your dates and we will tell you honestly what is feasible.',
