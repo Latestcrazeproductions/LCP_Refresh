@@ -206,7 +206,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             <section className="relative py-16 px-6 max-w-4xl mx-auto border-t border-white/10">
               <h2 className="text-2xl md:text-3xl font-bold mb-3">Common questions</h2>
               <p className="text-gray-400 mb-10">
-                Practical answers for producers sizing walls, preparing quote packets and RFPs, locking content delivery, planning rigging and failover, and feeding hybrid audiences without a last-minute crop.
+                Practical answers for producers sizing walls, locking content, planning rigging and failover, prepping quote packets and RFPs, and feeding hybrid audiences without a last-minute crop.
               </p>
               <dl className="space-y-8">
                 {serviceFaqs.map((item) => (
@@ -233,13 +233,9 @@ export default async function ServiceDetailPage({ params }: Props) {
                 <Link href="/blog/when-you-need-imag-and-delay-screens" className="text-blue-400 hover:text-blue-300 underline">
                   IMAG and delay screens
                 </Link>
-                . Drafting an RFP? See{' '}
+                . Building an RFP? See{' '}
                 <Link href="/blog/production-rfp-questions-for-marketing-leaders" className="text-blue-400 hover:text-blue-300 underline">
-                  production RFP questions
-                </Link>
-                . Multi-city programs? Read{' '}
-                <Link href="/blog/touring-show-technical-riders-for-planners" className="text-blue-400 hover:text-blue-300 underline">
-                  touring show technical riders
+                  production RFP questions for marketing leaders
                 </Link>
                 . Ready to scope your room?{' '}
                 <Link href="/contact" className="text-blue-400 hover:text-blue-300 underline font-medium">
