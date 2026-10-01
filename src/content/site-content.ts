@@ -289,6 +289,16 @@ export const siteContent = {
               'Usually yes — the emissive wall behind them is bright, and turning to read slides on it reads poorly on camera. Downstage confidence monitors (often flanked, sometimes teleprompter-fed) keep eyes forward while the audience reads the upstage wall. Placement depends on camera positions, lectern height, and whether panels walk — we plot monitor lines in pre-pro alongside wall and IMAG layout so rehearsal is not the first time someone discovers they cannot see their transitions.',
           },
           {
+            question: 'When should wall content be locked before load-in?',
+            answer:
+              'Lock motion graphics and full-screen video at least two weeks before load-in; slide decks at least 72 hours before doors for a real QA pass on native resolution. Late renders force untested files onto the processor during calibration — the wall will play them, but nobody has checked lower-thirds, brand colors, or frame rate on camera. We publish canvas dimensions and safe zones early so your team builds once; change orders after content lock belong in the run-of-show, not in a fresh After Effects export at 6 AM.',
+          },
+          {
+            question: 'How do you split LED wall scope between house AV and a production vendor?',
+            answer:
+              'House AV typically owns house power tie-in, venue rigging points, and sometimes a basic projection package — not processor redundancy, custom aspect walls, IMAG integration, or show-day failover. Split-scope shows need one document that names who owns the switcher feed, spares, calibration, and the call if a section drops mid-keynote. We coordinate with house teams on power and rigging early; we do not assume their estimate includes your wall spec unless it is written line-by-line.',
+          },
+          {
             question: 'Can you configure walls for trade shows with daily build and strike?',
             answer:
               'Yes — booth and expo builds favor smaller footprints, finer pitch for close viewing, and modular towers you can rebuild each morning without a full re-calibration from zero. Confirm floor power, amp draw, and whether the hall allows ground stack vs truss before creative locks dimensions. Daily strike windows are tight; we plan case count, dolly path, and a calibration routine that fits between hall open and first scan at the booth.',
