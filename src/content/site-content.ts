@@ -239,6 +239,16 @@ export const siteContent = {
               'Start with a floor plan or ballroom diagram: seating count, style (chevron, classroom, theater), and the farthest occupied row. Add ceiling height, rigging plot or venue tech packet, load-in and strike windows, and how content will run (slides only, IMAG, full-screen video, hybrid stream). Photos of the room beat guessing when CAD is not available. We return canvas dimensions, pitch recommendation, rigging approach, and conflict flags — not a panel count pulled from a spreadsheet.',
           },
           {
+            question: 'What should an LED wall RFP include beyond dimensions and pixel pitch?',
+            answer:
+              'Ask for farthest-seat readability standards (e.g., minimum character height at the back row), native resolution and refresh rate for every content source, processor redundancy and who owns spares, load-in footprint (module size, case count, ground vs flown weight), and a calibration window before doors — not twenty minutes before the CEO walk-on. Request a comparable-room reference, not just a spec sheet. Bids that cannot describe a show like yours at this distance are guessing with your budget.',
+          },
+          {
+            question: 'Do presenters need confidence monitors when the room has a large LED wall?',
+            answer:
+              'Usually yes — the emissive wall behind them is bright, and turning to read slides on it reads poorly on camera. Downstage confidence monitors (often flanked, sometimes teleprompter-fed) keep eyes forward while the audience reads the upstage wall. Placement depends on camera positions, lectern height, and whether panels walk — we plot monitor lines in pre-pro alongside wall and IMAG layout so rehearsal is not the first time someone discovers they cannot see their transitions.',
+          },
+          {
             question: 'Can you configure walls for trade shows with daily build and strike?',
             answer:
               'Yes — booth and expo builds favor smaller footprints, finer pitch for close viewing, and modular towers you can rebuild each morning without a full re-calibration from zero. Confirm floor power, amp draw, and whether the hall allows ground stack vs truss before creative locks dimensions. Daily strike windows are tight; we plan case count, dolly path, and a calibration routine that fits between hall open and first scan at the booth.',
