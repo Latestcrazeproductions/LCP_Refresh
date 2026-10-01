@@ -161,7 +161,7 @@ export const siteContent = {
           {
             question: 'Do your LED walls include redundancy for live events?',
             answer:
-              'Yes — mission-critical general sessions get dual-path processing, hot spares where the show file demands it, and module-level failover planning before load-in. We also spec who owns processor spares in the contract, because discovering a sending card has opinions mid-show is a specific kind of pain. Failover paths get documented in pre-pro so show callers know exactly what happens if a section drops. Full-field calibration gets scheduled before doors — not twenty minutes before the CEO walk-on.',
+              'Yes — mission-critical general sessions get dual-path processing, hot spares where the show file demands it, and module-level failover planning before load-in. We also spec who owns processor spares in the contract, because discovering a sending card has opinions mid-show is a specific kind of pain. Failover paths get documented in pre-pro so show callers know exactly what happens if a section drops — including mapped bypass routes if a single module faults mid-show. Full-field calibration gets scheduled before doors — not twenty minutes before the CEO walk-on.',
           },
           {
             question: 'Can you configure curved, corner, or ultra-wide aspect ratio walls?',
@@ -232,6 +232,21 @@ export const siteContent = {
             question: 'How far in advance should I book an LED wall?',
             answer:
               'Four to six weeks covers most single-market keynotes with standard rigging — send room dimensions and load-in constraints early so we can flag truck dock or ceiling issues before you sign. Multi-market tours or custom aspect builds with full-field calibration windows need 8–12 weeks. Q4 conference season and January sales kickoffs book inventory early; if your dates fall in those windows, earlier is better. Rush timelines are possible depending on inventory and venue access — contact us with your dates and we will tell you honestly what is feasible.',
+          },
+          {
+            question: 'What should I send when requesting an LED wall quote?',
+            answer:
+              'Start with a floor plan or ballroom diagram: seating count, style (chevron, classroom, theater), and the farthest occupied row. Add ceiling height, rigging plot or venue tech packet, load-in and strike windows, and how content will run (slides only, IMAG, full-screen video, hybrid stream). Photos of the room beat guessing when CAD is not available. We return canvas dimensions, pitch recommendation, rigging approach, and conflict flags — not a panel count pulled from a spreadsheet.',
+          },
+          {
+            question: 'Can you configure walls for trade shows with daily build and strike?',
+            answer:
+              'Yes — booth and expo builds favor smaller footprints, finer pitch for close viewing, and modular towers you can rebuild each morning without a full re-calibration from zero. Confirm floor power, amp draw, and whether the hall allows ground stack vs truss before creative locks dimensions. Daily strike windows are tight; we plan case count, dolly path, and a calibration routine that fits between hall open and first scan at the booth.',
+          },
+          {
+            question: 'How do multi-city tours keep the same wall look across venues?',
+            answer:
+              'Lock creative to a defined canvas size and color pipeline before city two — not per-market guesses. We travel matched processors, stored calibration profiles, and a packing list tied to the show file so a different ballroom does not reshape your motion graphics. Venue differences (ceiling height, power, rigging) get solved with documented alt configs, not new content builds. Send every venue packet in the pre-pro batch so load-in day is execution, not re-spec.',
           },
         ],
       },
