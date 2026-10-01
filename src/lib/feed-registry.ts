@@ -25,6 +25,13 @@ export const FEED_INDEXABLE_PATHS = [
 export const FEED_PREVIEW_PATHS = [
   '/feeds/av-production-galas-awards',
   '/feeds/av-production/phoenix-az',
+  '/feeds/event-production/scottsdale-az',
+  '/feeds/av-production/scottsdale-az',
+  '/feeds/conference-production/scottsdale-az',
+  '/feeds/led-walls/scottsdale-az',
+  '/feeds/event-lighting/scottsdale-az',
+  '/feeds/audio-systems/scottsdale-az',
+  '/feeds/staging/scottsdale-az',
 ] as const;
 
 export const FEED_ROUTABLE_PATHS = [...FEED_INDEXABLE_PATHS, ...FEED_PREVIEW_PATHS] as const;
