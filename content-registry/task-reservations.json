@@ -25,8 +25,8 @@
       "targetKey": "monthly-keyword-gap",
       "status": "in_review",
       "cadence": "monthly",
-      "dispatchedAt": "2026-08-01T17:05:45.668Z",
-      "runId": "run-c4ab08a6-577b-4b98-ae15-567814557e00"
+      "dispatchedAt": "2026-10-01T20:58:44.424Z",
+      "runId": "run-f49ba1eb-c83c-46e3-a6dc-49d35680cb7b"
     },
     {
       "taskId": "research.trending_topics:monthly-trends",
@@ -34,16 +34,17 @@
       "targetKey": "monthly-trends",
       "status": "in_review",
       "cadence": "monthly",
-      "dispatchedAt": "2026-08-01T17:05:45.668Z",
-      "runId": "run-34d2191b-2771-47eb-bf65-662d0b1bb0e5"
+      "dispatchedAt": "2026-10-01T20:58:44.424Z",
+      "runId": "run-dd863f37-96ef-4ce4-9072-659ebbe31ea3"
     },
     {
       "taskId": "service.faq_refresh:/services/led-walls",
       "type": "service.faq_refresh",
       "targetKey": "/services/led-walls",
       "status": "in_review",
-      "cadence": "daily",
-      "dispatchedAt": "2026-10-01T20:53:55.566Z"
+      "cadence": "monthly",
+      "dispatchedAt": "2026-10-01T20:58:44.424Z",
+      "runId": "run-8fc33019-bf9e-420b-b2ad-4480e5bc7489"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -499,6 +500,15 @@
       "status": "in_review",
       "cadence": "daily",
       "dispatchedAt": "2026-10-01T20:53:55.566Z"
+    },
+    {
+      "taskId": "research.topic_queue_replenish:monthly-topic-replenish",
+      "type": "research.topic_queue_replenish",
+      "targetKey": "monthly-topic-replenish",
+      "status": "in_review",
+      "cadence": "monthly",
+      "dispatchedAt": "2026-10-01T20:58:44.424Z",
+      "runId": "run-dd2d8783-39a0-4a4e-b36b-9ad7b20624ca"
     }
   ]
 }
