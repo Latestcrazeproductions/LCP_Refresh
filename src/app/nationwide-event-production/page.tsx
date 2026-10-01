@@ -18,7 +18,7 @@ const PAGE_PATH = '/nationwide-event-production';
 export const metadata: Metadata = {
   title: 'Nationwide Event Production',
   description:
-    'Corporate event production across the United States — one technical standard, touring crews, and show operation from Latest Craze Productions. Phoenix HQ, nationwide deployment.',
+    'Nationwide corporate event production — one technical standard, touring crews, and show operation across the United States. When touring beats local AV, RFP specs, and budget tiers from Latest Craze Productions.',
   openGraph: {
     title: 'Nationwide Event Production | Latest Craze Productions',
     description:
@@ -66,11 +66,9 @@ export default async function NationwideEventProductionPage() {
           <section className="border-t border-slate-200 px-6 py-16">
             <div className="mx-auto max-w-3xl">
               <p className="text-lg leading-relaxed text-slate-700">{page.intro}</p>
-              <p className="mt-4 leading-relaxed text-slate-600">
-                Latest Craze Productions is headquartered in Phoenix with warehouse prep, QC, and
-                show-ready inventory. We deploy nationwide for keynotes, conferences, galas, product
-                launches, and multi-city programs where brand moments cannot reset between markets.
-              </p>
+              {page.introSecondary && (
+                <p className="mt-4 leading-relaxed text-slate-600">{page.introSecondary}</p>
+              )}
             </div>
           </section>
 
