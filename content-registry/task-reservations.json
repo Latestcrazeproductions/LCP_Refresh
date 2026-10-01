@@ -14,11 +14,10 @@
       "taskId": "hub.nationwide_refresh:/nationwide-event-production",
       "type": "hub.nationwide_refresh",
       "targetKey": "/nationwide-event-production",
-      "status": "failed",
-      "cadence": "phase",
-      "dispatchedAt": "2026-07-31T19:27:43.938Z",
-      "runId": "run-31444b30-8e34-404a-83f9-6d1786cd6907",
-      "error": "Agent run finished with error status"
+      "status": "in_review",
+      "cadence": "quarterly",
+      "dispatchedAt": "2026-10-01T20:41:51.682Z",
+      "runId": "run-8d3e33b7-4a8f-4fc7-ad69-ce5d76f84aaf"
     },
     {
       "taskId": "research.keyword_gap_scan:monthly-keyword-gap",
@@ -459,6 +458,33 @@
       "cadence": "daily",
       "dispatchedAt": "2026-09-30T20:39:12.042Z",
       "runId": "run-6838689b-bd3a-4a1c-b45e-0a259d16ffcd"
+    },
+    {
+      "taskId": "research.competitor_audit:quarterly-competitor-audit",
+      "type": "research.competitor_audit",
+      "targetKey": "quarterly-competitor-audit",
+      "status": "in_review",
+      "cadence": "quarterly",
+      "dispatchedAt": "2026-10-01T20:41:51.682Z",
+      "runId": "run-e9de7a9f-7df3-45f0-8554-815337748df7"
+    },
+    {
+      "taskId": "geo.batch_deep_refresh:scottsdale-az",
+      "type": "geo.batch_deep_refresh",
+      "targetKey": "scottsdale-az",
+      "status": "in_review",
+      "cadence": "quarterly",
+      "dispatchedAt": "2026-10-01T20:41:51.682Z",
+      "runId": "run-66dc563b-b9a5-4e6b-8e4e-7bdcbba9a956"
+    },
+    {
+      "taskId": "demand.tool_page:/resources/event-production-checklist",
+      "type": "demand.tool_page",
+      "targetKey": "/resources/event-production-checklist",
+      "status": "in_review",
+      "cadence": "quarterly",
+      "dispatchedAt": "2026-10-01T20:41:51.682Z",
+      "runId": "run-28f454c9-66ef-41a5-83da-763be2d6595a"
     }
   ]
 }
