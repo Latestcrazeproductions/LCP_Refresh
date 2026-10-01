@@ -2,7 +2,7 @@
 title: Heard Museum Gala — Premium Event Production
 description: Museum gala production case study — ground-supported staging, intelligent lighting, line-array audio, IMAG, and cue-to-cue awards flow for a cultural institution fundraiser.
 track: B
-dateModified: 2026-09-28
+dateModified: 2026-09-30
 eyebrow: Arts / Cultural
 ---
 
@@ -77,6 +77,21 @@ For this gala, we scheduled a site RF scan four weeks before load-in and again o
 - **Show-morning re-scan** — Campus operations change daily; a 30-minute RF pass before doors catches new interference from neighboring events or vendor gear
 
 If your venue cannot provide an RF contact or a quiet window for a scan, budget an extra half-day on load-in for wireless coordination — not a five-minute check at the lectern.
+
+## Power distribution on cultural campuses
+
+Museum facilities teams think in terms of gallery circuits and preservation — not a touring distro package with six moving-light racks and a 40-foot LED wall. Production power on a cultural campus is negotiated, labeled, and photographed before the first lamp turns on.
+
+For this gala, we submitted a one-line power ask eight weeks out: total amperage by position, cable path from the tie-in to stage left and FOH, and a list of what stays on campus power versus what cannot run on shared circuits with house dimmers. Facilities returned a marked floor plan with three approved tie-in points and one surface where a generator was explicitly forbidden — adjacent to a preserved courtyard wall.
+
+- **Amperage budget by position** — Stage, FOH, LED processor rack, and catering warmers on separate line items; no lump-sum "production power" that facilities cannot map to breakers
+- **Tie-in location photos** — Facilities signs off on distro placement with dated photos; strike photos match load-in positions so nothing gets disputed at hard out
+- **House dimmer isolation** — Production cannot share a circuit with museum house-light presets; confirm which breakers the LD may not touch during the show
+- **Generator rules in writing** — Distance from walls, exhaust path, noise curfew, and fuel delivery window; many campuses ban generators entirely
+- **Cable path overlap with guest routes** — Power runs parallel to AV cable paths but on separate mats where possible; facilities approves both on the same advance drawing
+- **First power-on sequence** — LED processors and moving lights powered in stages so facilities can verify draw before the full rig is live
+
+Ground-fault and weather matter when cocktail hour spills onto a courtyard terrace. We kept all distro under covered mats with labeled cord caps — not because the museum required it for the indoor room, but because the reception zone crossed an exterior door that stayed open for two hours.
 
 ## Campus load-in, truck access, and strike logistics
 
@@ -233,6 +248,7 @@ The production team delivered measurable results across guest experience, progra
 - **Tribute video transitions held without dead air** — every pre-recorded segment played from the primary queue; video-to-live returns were rehearsed as single numbered cues with lavs open before the last frame faded
 - **Stakeholder roles stayed clear through strike** — facilities, curatorial, and production each had a named owner on comms; no mid-show debates about cable mats or house-light presets
 - **Wireless plan held through reception and awards** — show-morning RF scan caught one new interference source; backup channel map was never needed, but every primary mic had a fallback assigned before doors
+- **Power tie-in matched the advance drawing** — facilities signed off on distro positions at load-in; no mid-show breaker trips or unplanned extension cord runs across guest paths
 
 ## Lessons for museum and cultural galas
 
@@ -249,10 +265,13 @@ Cultural institution events reward planners who treat the venue like a collabora
 - **Plan photography lanes before scenic is built** — IMAG operators and official photographers compete for the same sight lines; assign zones in the advance packet
 - **Write truck access and strike before load-in day** — campus galas fail when the first case arrives and nobody knows which gate is open; vehicle staging and hard out times belong in the advance packet, not a group text at midnight
 - **Treat RF as a campus problem, not a mic rental** — request security and facilities wireless inventory early; scan at load-in and again before doors when guest density changes the noise floor
+- **Submit a one-line power ask early** — amperage by position, tie-in locations, and generator rules in writing; facilities cannot approve a distro package they cannot map to breakers
 
 ## From the floor
 
 During load-in, the RF scan picked up a security repeater nobody had listed on the advance packet. We moved two presenter channels and re-printed the cue sheet before the first mic check — which is why the show-morning scan was a formality instead of a crisis.
+
+Facilities also flagged a tie-in point that sat six inches from a courtyard threshold the caterer planned to roll carts across. We moved distro to the approved position on the advance drawing and sent a photo before first power-on. The carts never crossed a cable mat.
 
 During rehearsal, the museum’s development director asked whether we could “just skip the separate awards lighting look to save five minutes.” We did not skip it. During the live show, three honorees in a row had pre-recorded tribute videos followed immediately by live remarks — the kind of sequence where house lights at the wrong level makes the return to stage look like an accident.
 
