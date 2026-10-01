@@ -129,8 +129,8 @@ export const siteContent = {
           'https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop',
         gallery: [
           {
-            src: 'https://images.unsplash.com/photo-1772587001625-1bbcccb2f030?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Presenter seated in front of a large LED screen on an event stage',
+            src: 'https://images.unsplash.com/photo-1670941371382-993b971d70c9?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Full general session stage with center LED wall, side column displays, and trimmed house lighting before doors',
           },
           {
             src: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=2070&auto=format&fit=crop',
