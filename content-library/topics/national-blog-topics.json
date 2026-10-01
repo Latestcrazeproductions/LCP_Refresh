@@ -38,9 +38,10 @@
       "title": "Hotel Ballroom Load-In Timeline: What Planners Should Put in the Contract",
       "track": "A",
       "opportunityScore": 84,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "hotel ballroom load in timeline",
-      "serviceCta": "/services/stage"
+      "serviceCta": "/services/stage",
+      "rationale": "Published 2026-09-22; maintain via faq_refresh."
     },
     {
       "slug": "house-av-vs-production-vendor-scope",
