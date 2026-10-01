@@ -1,6 +1,8 @@
 {
-  "lastScanAt": "2026-08-01T17:06:00.000Z",
-  "lastScanCadence": "monthly",
+  "lastScanAt": "2026-10-01T20:45:00.000Z",
+  "lastScanCadence": "quarterly",
+  "lastCompetitorAuditAt": "2026-10-01T20:45:00.000Z",
+  "lastCompetitorAuditQuarter": "2026-Q4",
   "lastTrendingScanAt": "2026-08-01T17:07:00.000Z",
   "lastTrendingCadence": "monthly-trends",
   "dataSources": {
@@ -253,8 +255,8 @@
       "layer": "national",
       "keyword": null,
       "targetUrl": null,
-      "description": "All 3 tier-1 head-service matrix pages (/feeds/av-production, /feeds/conference-production, /feeds/event-production) remain planned with nextAction create. Zero national head-service pages are live beyond the nationwide hub.",
-      "recommendedAction": "Create /feeds/av-production and /feeds/conference-production in Phase 1. Hold /feeds/event-production — hub owns 'event production company'.",
+      "description": "Two of three tier-1 head feeds are live (/feeds/av-production, /feeds/event-production since 2026-09). /feeds/conference-production remains planned — Q4 competitor audit confirms highest SERP gap among tier-1 heads.",
+      "recommendedAction": "Create /feeds/conference-production first. Refresh live av-production and event-production feeds with competitor-style FAQ and case-study modules. Hold duplicate head page for 'event production company' — hub owns that term.",
       "cannibalizationRisk": "high"
     },
     {
@@ -280,22 +282,51 @@
       "cannibalizationRisk": null
     }
   ],
-  "competitorNotes": [],
+  "competitorNotes": [
+    {
+      "id": "comp-serp-service-pages-win",
+      "severity": "high",
+      "keyword": null,
+      "summary": "Commercial head terms reward dedicated service pages with FAQ blocks, case-study proof, and strong CTAs — not blogs. Directories (EPD, DesignRush) occupy fixed slots; do not chase listicle rankings.",
+      "recommendedAction": "Refresh live /feeds/av-production, /feeds/event-production, /feeds/led-walls with competitor-style FAQ (in-house AV, multi-city, booking lead time) and case-study modules.",
+      "source": "competitor-scan.json 2026-Q4"
+    },
+    {
+      "id": "comp-conference-production-gap",
+      "severity": "high",
+      "keyword": "conference production company",
+      "summary": "Tier-1 conference production SERP has no LCP page. Top results (ETS, Prime AV, XSEM) use venue name-drops, hybrid sections, and downloadable RFP/run-of-show templates.",
+      "recommendedAction": "Prioritize /feeds/conference-production create; model on Prime AV conference page with links to breakout-room-av and event-production-checklist.",
+      "source": "competitor-scan.json 2026-Q4"
+    },
+    {
+      "id": "comp-geo-phoenix-venue-depth",
+      "severity": "medium",
+      "keyword": "event production phoenix",
+      "summary": "Phoenix SERP dominated by national brands with dedicated geo landings (Meeting Tomorrow, Centric) plus local shops. Venue specificity (Convention Center, resort ballrooms, house-AV scope FAQ) separates winners.",
+      "recommendedAction": "Expand /phoenix-av-production with venue FAQ and cross-link /featured-venues Arizona entries; publish phoenix-hybrid-event-production-guide from geo queue.",
+      "source": "competitor-scan.json 2026-Q4"
+    },
+    {
+      "id": "comp-led-rental-spec-faq",
+      "severity": "medium",
+      "keyword": "led wall rental",
+      "summary": "LED rental SERP is product-page heavy: pixel pitch, package tiers, indoor/outdoor, lead-time FAQ. LCP blog covers sizing logic but feed page must surface specs above fold.",
+      "recommendedAction": "Refresh /feeds/led-walls with sizing FAQ and prominent link to /blog/led-wall-sizing-for-events; keep /services/led-walls on supporting keyword only.",
+      "source": "competitor-scan.json 2026-Q4"
+    },
+    {
+      "id": "comp-lcp-blog-cluster-advantage",
+      "severity": "info",
+      "keyword": null,
+      "summary": "Competitors lack planner-grade capture blogs (hybrid checklists, RF mic planning, breakout scaling). LCP blog cluster is a differentiation asset — interlink from service feeds once conference production ships.",
+      "recommendedAction": "Continue capture/strategy cadence; use competitor audit to inform service-page FAQ, not duplicate blog topics.",
+      "source": "competitor-scan.json 2026-Q4"
+    }
+  ],
   "priorityQueue": [
     {
       "rank": 1,
-      "url": "/feeds/av-production",
-      "keyword": "av production company",
-      "layer": "national",
-      "type": "service",
-      "pattern": "head-service",
-      "phase": 1,
-      "nextAction": "create",
-      "opportunityScore": 92,
-      "rationale": "Tier-1 head term; no live page; no cannibalization conflict; keywordTAM gap for 'av production services' resolves here."
-    },
-    {
-      "rank": 2,
       "url": "/feeds/conference-production",
       "keyword": "conference production company",
       "layer": "national",
@@ -303,8 +334,20 @@
       "pattern": "head-service",
       "phase": 1,
       "nextAction": "create",
-      "opportunityScore": 90,
-      "rationale": "Tier-1 head term; closes 'conference av production' TAM gap when paired with event-variant feed."
+      "opportunityScore": 94,
+      "rationale": "Q4 competitor audit: only tier-1 head term with no LCP page in SERP. Competitors rank with venue FAQ, hybrid sections, RFP templates — highest-impact create."
+    },
+    {
+      "rank": 2,
+      "url": "/feeds/av-production",
+      "keyword": "av production company",
+      "layer": "national",
+      "type": "service",
+      "pattern": "head-service",
+      "phase": 1,
+      "nextAction": "faq_refresh",
+      "opportunityScore": 88,
+      "rationale": "Live since 2026-09. Competitor SERP shows FAQ + case-study modules as table stakes (Meeting Tomorrow, Catalyst). Refresh before net-new creates."
     },
     {
       "rank": 3,
@@ -314,9 +357,9 @@
       "type": "service",
       "pattern": "core-service",
       "phase": 1,
-      "nextAction": "create",
-      "opportunityScore": 85,
-      "rationale": "Core service head page; resolves 'led wall rental' TAM gap; live /services/led-walls remains supporting only."
+      "nextAction": "faq_refresh",
+      "opportunityScore": 86,
+      "rationale": "Live since 2026-09. Rental SERP is spec/FAQ heavy — surface pixel-pitch and sizing FAQ; link /blog/led-wall-sizing-for-events prominently."
     },
     {
       "rank": 4,
@@ -362,9 +405,9 @@
       "type": "geo_landing",
       "pattern": null,
       "phase": 1,
-      "nextAction": "keyword_refresh",
-      "opportunityScore": 68,
-      "rationale": "Only live geo page; keywordTAM target assigned; geo creation otherwise deferred."
+      "nextAction": "faq_refresh",
+      "opportunityScore": 72,
+      "rationale": "Q4 audit: national brands with geo landings outrank local-only shops. Add Convention Center/resort venue FAQ and house-AV scope comparison."
     },
     {
       "rank": 8,
@@ -379,7 +422,7 @@
       "rationale": "Core service with live /services/lighting supporting page; no head-term conflict."
     }
   ],
-  "lastScanTask": "research.keyword_gap_scan",
+  "lastScanTask": "research.competitor_audit",
   "scanInputs": {
     "gscSnapshot": {
       "status": "missing",
@@ -398,7 +441,7 @@
     "geoExpansionBlocked": true,
     "liveToPlannedRatio": "29/1111",
     "phase1NationalHeadCorePlanned": 10,
-    "phase1NationalHeadCoreLive": 0,
+    "phase1NationalHeadCoreLive": 3,
     "keywordTAMWithLiveTarget": 2,
     "keywordTAMWithoutPage": 4,
     "livePagesMissingKeyword": 8,

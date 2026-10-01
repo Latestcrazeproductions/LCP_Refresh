@@ -1,22 +1,246 @@
 {
-  "_instructions": "Manual SERP review per priority keyword. Update monthly or before ResearchAgent runs.",
-  "lastUpdated": null,
+  "_instructions": "Manual SERP review per priority keyword. Update quarterly (competitor audit) or when ResearchAgent runs keyword-gap refresh.",
+  "lastUpdated": "2026-10-01T20:45:00.000Z",
+  "auditCadence": "quarterly",
+  "auditQuarter": "2026-Q4",
+  "reviewedBy": "ResearchAgent",
   "keywords": [
     {
       "keyword": "event production company",
-      "serpPageTypes": [],
-      "competitorsUseCityPages": null,
-      "competitorsUseCaseStudies": null,
-      "recommendedLcpAngle": null,
-      "notes": ""
+      "layer": "national",
+      "searchIntent": "commercial",
+      "serpPageTypes": [
+        "service_page",
+        "directory",
+        "listicle",
+        "agency_homepage"
+      ],
+      "competitorsUseCityPages": true,
+      "competitorsUseCaseStudies": true,
+      "competitorsUseVenueGuides": false,
+      "buyerQuestionCoverage": "strong",
+      "ctaStrength": "high",
+      "topSerpPatterns": [
+        "Full-service provider service pages (Merestone, Ansera, IDEKO, Event Solutions) with Fortune 500 proof and retention stats",
+        "Multi-city agency pages with embedded case-study galleries (Stoelt Productions)",
+        "Industry directories and listicles (EPD, DesignRush, Cvent Top 50) occupy 2–4 organic slots",
+        "Nationwide positioning with named metro hubs (LA, NYC, Miami, Austin) without deep geo content"
+      ],
+      "recommendedLcpAngle": "Hub owns head term via /nationwide-event-production. Differentiate with planner checklists, venue production guides, and case-study proof — not another generic 'full-service nationwide' brochure. Emphasize show-caller accountability and multi-city consistency (CitiView/Meeting Tomorrow angle) with LCP insider technical detail.",
+      "lcpOwnerUrl": "/nationwide-event-production",
+      "notes": "Oct 2026 SERP: Google rewards dedicated service landing pages with social proof, not blogs. Directories are entrenched — do not chase listicle rankings. Competitors lead with client logos, retention %, and end-to-end scope lists. LCP gap: live hub exists but lacks competitor-level case-study density and downloadable RFP/run-of-show assets on the page itself."
     },
     {
-      "keyword": "corporate event production phoenix",
-      "serpPageTypes": [],
-      "competitorsUseCityPages": null,
-      "competitorsUseCaseStudies": null,
-      "recommendedLcpAngle": null,
-      "notes": ""
+      "keyword": "av production company",
+      "layer": "national",
+      "searchIntent": "commercial",
+      "serpPageTypes": [
+        "service_page",
+        "rental_product_page",
+        "directory"
+      ],
+      "competitorsUseCityPages": true,
+      "competitorsUseCaseStudies": true,
+      "competitorsUseVenueGuides": false,
+      "buyerQuestionCoverage": "strong",
+      "ctaStrength": "high",
+      "topSerpPatterns": [
+        "Corporate AV service pages with FAQ blocks (Meeting Tomorrow, Catalyst, Tallen)",
+        "Nationwide + multi-city production pages emphasizing single account team (Meeting Tomorrow, CitiView AV)",
+        "Equipment-forward rental pages blending into production (Prime Line AV, Tallen)",
+        "Hybrid/virtual capability sections standard on every top result"
+      ],
+      "recommendedLcpAngle": "/feeds/av-production is live — refresh with FAQ mirroring buyer questions (in-house AV, multi-city, booking lead time). Add case-study module and link capture blogs (hybrid checklist, RF mic planning) as proof of planner expertise. Avoid gear-catalog tone; lead with accountable production team model.",
+      "lcpOwnerUrl": "/feeds/av-production",
+      "notes": "Oct 2026 SERP: Top results all position as 'the team accountable for the outcome, not just equipment' (Prime AV, Meeting Tomorrow). FAQ schema common. Competitors own equipment narrative; LCP should own rehearsal/show-caller and general-session execution narrative. Blog cluster supports long-tail but service page must carry commercial intent."
+    },
+    {
+      "keyword": "conference production company",
+      "layer": "national",
+      "searchIntent": "commercial",
+      "serpPageTypes": [
+        "service_page",
+        "regional_service_page",
+        "agency_homepage"
+      ],
+      "competitorsUseCityPages": true,
+      "competitorsUseCaseStudies": true,
+      "competitorsUseVenueGuides": true,
+      "buyerQuestionCoverage": "strong",
+      "ctaStrength": "high",
+      "topSerpPatterns": [
+        "Dedicated /conference-production/ URLs with hybrid/virtual sections (The Production People, XSEM, ETS, Prime AV)",
+        "Venue-name dropping in body copy (convention centers, hotel brands) for local trust",
+        "Downloadable RFP and run-of-show templates as lead magnets (Prime AV)",
+        "Set/stage design galleries with named client work"
+      ],
+      "recommendedLcpAngle": "Priority create for /feeds/conference-production. Model page on ETS/Prime AV: general session + breakout scope, hybrid streaming, venue FAQ, and link to /blog/breakout-room-av-that-scales and /resources/event-production-checklist. Pair with /feeds/av-production-corporate-conferences for long-tail.",
+      "lcpOwnerUrl": "/feeds/conference-production",
+      "notes": "Oct 2026 SERP: No LCP page indexed. Competitors with UK/US split still rank — geographic diversity in SERP. Venue-specific paragraphs (Walter E. Washington, Gaylord National) signal local expertise even on commercial queries. Case studies embedded above fold. Highest-impact gap in tier-1 head terms."
+    },
+    {
+      "keyword": "corporate event production",
+      "layer": "national",
+      "searchIntent": "commercial",
+      "serpPageTypes": [
+        "service_page",
+        "agency_homepage",
+        "listicle"
+      ],
+      "competitorsUseCityPages": true,
+      "competitorsUseCaseStudies": true,
+      "competitorsUseVenueGuides": false,
+      "buyerQuestionCoverage": "moderate",
+      "ctaStrength": "high",
+      "topSerpPatterns": [
+        "Corporate-focused service pages with event-type taxonomy (retreats, SKOs, galas, activations)",
+        "ROI and measurable impact language on Event Solutions, Ansera",
+        "Fortune 500 client lists and years-in-business trust signals",
+        "National production partner positioning (CitiView, FOH Events, Willwork)"
+      ],
+      "recommendedLcpAngle": "/feeds/event-production owns this alias (matrix). Page is live — differentiate from 'event production company' hub by emphasizing corporate event types (/events/*) and strategy blogs (ROI, RFP questions). Do not duplicate /nationwide-event-production head-term copy.",
+      "lcpOwnerUrl": "/feeds/event-production",
+      "notes": "Oct 2026 SERP: Overlaps heavily with 'event production company' results but skews more corporate (less festival/experiential). Competitors bundle planning + production; LCP should stay production-authority, linking to capture/strategy blogs for planning depth. Cannibalization risk with hub — keep distinct H1 and keyword focus per registry."
+    },
+    {
+      "keyword": "conference av production",
+      "layer": "national",
+      "searchIntent": "commercial",
+      "serpPageTypes": [
+        "service_page",
+        "regional_service_page",
+        "blog"
+      ],
+      "competitorsUseCityPages": true,
+      "competitorsUseCaseStudies": false,
+      "competitorsUseVenueGuides": true,
+      "buyerQuestionCoverage": "moderate",
+      "ctaStrength": "medium",
+      "topSerpPatterns": [
+        "Conference/meetings AV pages with general session + breakout + hybrid sections",
+        "Regional modifiers in titles (DC/VA/MD, NYC) even for national providers",
+        "IMAG, LED wall, and webcasting called out as subsections",
+        "Some informational blog posts rank positions 8–10 (checklist/how-to)"
+      ],
+      "recommendedLcpAngle": "Route to /feeds/av-production-corporate-conferences (planned) and /feeds/conference-production. Capture blogs (breakout-room-av, rf-microphone-planning, hybrid checklist) should interlink — competitors lack this content cluster. Avoid standalone blog targeting this head phrase.",
+      "lcpOwnerUrl": "/feeds/av-production-corporate-conferences",
+      "notes": "Oct 2026 SERP: Mix of service pages and how-to content. Long-tail blog opportunity exists but head intent needs a service feed. Prime AV ranks with venue list + downloadable templates — strong pattern to emulate on conference feed."
+    },
+    {
+      "keyword": "led wall rental",
+      "layer": "national",
+      "searchIntent": "commercial",
+      "serpPageTypes": [
+        "rental_product_page",
+        "service_page",
+        "pricing_faq_page"
+      ],
+      "competitorsUseCityPages": true,
+      "competitorsUseCaseStudies": false,
+      "competitorsUseVenueGuides": false,
+      "buyerQuestionCoverage": "strong",
+      "ctaStrength": "high",
+      "topSerpPatterns": [
+        "Product-style rental pages with pixel pitch specs and package tiers (AVR Expos, Penn Group, LED Wall Systems)",
+        "Pricing range FAQ without exact quotes ($4k–$100k+ ranges)",
+        "Indoor/outdoor and corporate vs concert use-case sections",
+        "Full-show packages bundling LED + audio + lighting"
+      ],
+      "recommendedLcpAngle": "/feeds/led-walls owns head term (live). Lead with sizing/spec decision content — link /blog/led-wall-sizing-for-events prominently. Match competitor FAQ (size selection, outdoor, lead time) but avoid unapproved pricing claims; use 'contact for quote' per master plan.",
+      "lcpOwnerUrl": "/feeds/led-walls",
+      "notes": "Oct 2026 SERP: Rental intent dominates — users want specs, packages, and setup included. /services/led-walls must stay supporting only. Competitors publish pixel pitch and panel counts; LCP blog already covers sizing logic — surface that on the feed page above fold."
+    },
+    {
+      "keyword": "led walls for events",
+      "layer": "national",
+      "searchIntent": "commercial_investigation",
+      "serpPageTypes": [
+        "rental_product_page",
+        "service_page",
+        "blog"
+      ],
+      "competitorsUseCityPages": false,
+      "competitorsUseCaseStudies": false,
+      "competitorsUseVenueGuides": false,
+      "buyerQuestionCoverage": "moderate",
+      "ctaStrength": "medium",
+      "topSerpPatterns": [
+        "Similar rental providers as 'led wall rental' with event-type use cases",
+        "Corporate events listed alongside concerts and trade shows",
+        "Technical spec tables (pitch, viewing distance)",
+        "LCP blog 'led-wall-sizing-for-events' would rank if indexed strongly — already published"
+      ],
+      "recommendedLcpAngle": "Same owner as led wall rental: /feeds/led-walls. Refresh feed meta toward 'events' modifier. Blog captures informational layer; feed captures commercial. Do not publish second sizing article.",
+      "lcpOwnerUrl": "/feeds/led-walls",
+      "notes": "Oct 2026 SERP: Overlap with 'led wall rental' — Google treats as same cluster. LCP has both feed and blog live; ensure internal linking and distinct meta (feed = hire LCP, blog = how to size). Competitors lack strong educational content — LCP advantage if cross-linked."
+    },
+    {
+      "keyword": "event production phoenix",
+      "layer": "geo",
+      "searchIntent": "local_commercial",
+      "serpPageTypes": [
+        "local_service_page",
+        "city_landing_page",
+        "directory"
+      ],
+      "competitorsUseCityPages": true,
+      "competitorsUseCaseStudies": true,
+      "competitorsUseVenueGuides": true,
+      "buyerQuestionCoverage": "strong",
+      "ctaStrength": "high",
+      "topSerpPatterns": [
+        "Dedicated /phoenix/ or /phoenix-event-production/ URLs (Meeting Tomorrow, Centric Events, Rhodes AV, Audio Mix Pros)",
+        "Greater Phoenix metro lists (Scottsdale, Tempe, Mesa, Chandler)",
+        "Phoenix Convention Center and resort venue name-drops",
+        "House-AV vs outside vendor FAQ (Centric Events)",
+        "National brands with local landing pages outrank pure local shops"
+      ],
+      "recommendedLcpAngle": "/phoenix-av-production is live — expand with convention-center-specific FAQ, resort ballroom load-in notes, and link /blog/phoenix-hybrid-event-production-guide when published. Match Centric's house-AV scope comparison without attacking hotel AV — planner-practical tone.",
+      "lcpOwnerUrl": "/phoenix-av-production",
+      "notes": "Oct 2026 SERP: City in URL/title required. National providers (Meeting Tomorrow) rank above local-only shops via brand authority + dedicated geo pages. Venue specificity wins. LCP should add Scottsdale/Tempe coverage mentions and featured-venues cross-links for Arizona properties."
+    },
+    {
+      "keyword": "corporate event production in phoenix",
+      "layer": "geo",
+      "searchIntent": "local_commercial",
+      "serpPageTypes": [
+        "local_service_page",
+        "city_landing_page"
+      ],
+      "competitorsUseCityPages": true,
+      "competitorsUseCaseStudies": true,
+      "competitorsUseVenueGuides": false,
+      "buyerQuestionCoverage": "moderate",
+      "ctaStrength": "high",
+      "topSerpPatterns": [
+        "Same Phoenix providers as 'event production phoenix' with corporate modifier in title/H1",
+        "Corporate event type lists (SKO, leadership retreat, gala, product launch)",
+        "Certified technician and engineer credentials (Audio Mix Pros)",
+        "Resort and convention-center execution proof"
+      ],
+      "recommendedLcpAngle": "Same page as event production phoenix: /phoenix-av-production. Title/H1 already include 'Corporate Event Production in Phoenix'. Add corporate event-type modules linking to /events/* pages. Strategy blog on multi-market vendor standardization supports inbound from corporate planners.",
+      "lcpOwnerUrl": "/phoenix-av-production",
+      "notes": "Oct 2026 SERP: Near-identical results to 'event production phoenix' — single geo page should serve both (registry already assigns both keywords). Competitors repeat corporate modifier for relevance; LCP page title already aligned."
     }
-  ]
+  ],
+  "crossCuttingInsights": {
+    "serpWinners": [
+      "Dedicated service landing pages with FAQ schema and buyer-question H2s",
+      "Case-study galleries embedded on commercial pages (not siloed on /work only)",
+      "City landing pages from national providers for geo queries",
+      "Downloadable planner assets (RFP template, run-of-show) as soft CTAs"
+    ],
+    "lcpAdvantages": [
+      "Published capture blog cluster (hybrid, LED sizing, RF mics, breakouts) — most competitors lack planner-grade checklists",
+      "Strategy Track B content (ROI, RFP questions, vendor scorecards) — competitors frame AV as cost, not outcome",
+      "Venue guide (/featured-venues) — competitors use city pages but rarely venue production considerations",
+      "Three tier-1 feeds now live (av-production, event-production, led-walls) — Q3 gap partially closed"
+    ],
+    "priorityGaps": [
+      "/feeds/conference-production still planned — highest competitor SERP gap among tier-1 heads",
+      "Service pages need case-study modules and FAQ blocks matching Meeting Tomorrow / Prime AV pattern",
+      "Geo: Phoenix page needs venue-specific depth to compete with Centric and Meeting Tomorrow local landings",
+      "Directory/listicle slots (EPD, DesignRush) not worth pursuit — focus on service + capture content"
+    ]
+  }
 }
