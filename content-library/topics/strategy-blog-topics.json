@@ -105,7 +105,8 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 83,
-      "status": "queued",
+      "status": "published",
+      "publishedAt": "2026-09-29",
       "primaryKeyword": "hybrid event production cost decision",
       "serviceCta": "/blog/hybrid-event-av-checklist"
     },
