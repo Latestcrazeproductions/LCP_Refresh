@@ -57,9 +57,10 @@
       "title": "Rehearsal-Day Run-of-Show: What Planners Should Protect on the Clock",
       "track": "A",
       "opportunityScore": 82,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "event rehearsal run of show",
-      "serviceCta": "/services/stage"
+      "serviceCta": "/services/stage",
+      "rationale": "Published 2026-09-24; maintain via faq_refresh. Rehearsal-day run-of-show capture; pairs with /services/stage. Do not put a city in the title."
     },
     {
       "slug": "ground-supported-vs-flown-led-walls",
