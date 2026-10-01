@@ -2,7 +2,7 @@
 title: Heard Museum Gala — Premium Event Production
 description: Museum gala production case study — ground-supported staging, intelligent lighting, line-array audio, IMAG, and cue-to-cue awards flow for a cultural institution fundraiser.
 track: B
-dateModified: 2026-09-25
+dateModified: 2026-09-28
 eyebrow: Arts / Cultural
 ---
 
@@ -78,19 +78,6 @@ For this gala, we scheduled a site RF scan four weeks before load-in and again o
 
 If your venue cannot provide an RF contact or a quiet window for a scan, budget an extra half-day on load-in for wireless coordination — not a five-minute check at the lectern.
 
-## Campus RF and wireless coordination
-
-Museum campuses carry RF baggage that hotel ballrooms usually do not: security handhelds, facilities radios, visitor-assist systems, and sometimes legacy wireless in adjacent galleries. Treat the site scan as a production deliverable, not a sound-check afterthought.
-
-- **Scan before you pack the channel plan** — Walk the gala room and one corridor deep with a spectrum analyzer; note persistent carriers that will not power down for your event
-- **Coordinate with security and IT** — Get written confirmation of which frequencies are reserved for campus operations; ask whether any systems retune automatically overnight
-- **Separate presenter, auctioneer, and IFB bands** — Six wireless channels sounds generous until intermodulation eats two slots; build the plan with one spare that is not adjacent to the auctioneer channel
-- **Backup wired path for the lectern** — One cabled podium mic on a floor box saves a gala when a campus transmitter keys up mid-awards
-- **IEM and monitor isolation** — If the band or playback operator uses in-ears, verify they are not sharing a band with security radios in the load-in zone
-- **Re-scan on show morning** — Campus contractors and catering trucks can introduce new carriers between rehearsal and doors; a 15-minute sweep before wireless check is cheap insurance
-
-For this gala, a security repeater showed up during the morning walk-through on a frequency we had mapped for a presenter lav. We moved that channel during rehearsal — not during the first honoree walk-on — because the scan happened before doors, not after complaints from the floor.
-
 ## Campus load-in, truck access, and strike logistics
 
 Museum campuses are not convention centers. Truck access, badge lists, and strike windows are negotiated weeks before load-in — not resolved when the first case hits the dock.
@@ -117,19 +104,6 @@ Bring these to your vendor advance — museum galas punish vague scope:
 - **Load-in / strike** — written sequence aligned with museum security; no overnight hold; strike order defined before the first case comes off the truck
 - **Power** — distro from approved campus circuits only; no generator on preserved surfaces; tie-in signed by facilities before first powered-on test
 - **Wireless** — six-channel plan with dedicated auction frequency, intercom on isolated band, backup map on the cue sheet; RF scan at load-in and show morning
-
-## RF and wireless on museum campuses
-
-Museum galas run in buildings that were not designed for clean RF. Security radios, curatorial paging, HVAC wireless sensors, and guest Wi-Fi all share the same neighborhood as your presenter lavs. Hotel ballrooms at least pretend to have inventory lists. Cultural campuses often require you to build one on load-in day.
-
-- **Site scan on load-in day, not a week earlier** — half the museum staff radios may be home during a pre-site walk; scan again after catering sets up (microwave banks add noise)
-- **Coordination with security and facilities** — get staff radio channels in writing; note whether any are fixed or trunked before you assign presenter frequencies
-- **Presenter inventory sized for the full run of show** — emcee, auctioneer, three honoree lavs, presenter spare, and a backup handheld at stage left; museum galas have more wireless handoffs than hotel shows
-- **Dedicated auction channel isolated from presenter lavs** — if the auctioneer frequency shares a harmonic with a security radio, resolve it before doors, not during lot three
-- **Monitor levels modest during tribute playback** — reflective surfaces and low ceilings in historic rooms make IFB bleed and feedback more likely; keep stage monitors conservative during video rolls
-- **Channel plan signed by facilities** — document the final assignment in the advance packet; we had one swap on rehearsal day when a new security vendor appeared with a trunked system nobody had mentioned in the first walk
-
-The campus RF scan looked clean until mid-afternoon, when catering fired up a microwave in the prep room down the hall. We re-scanned at T-2 hours. That is normal on museum campuses — plan for it, not around it.
 
 ## The production challenge
 
@@ -258,6 +232,7 @@ The production team delivered measurable results across guest experience, progra
 - **Auction-to-awards handoff held dinner service** — lot descriptions finished inside the caterer's dessert hold window; transition to the first honoree landed as a numbered cue, not a floor negotiation
 - **Tribute video transitions held without dead air** — every pre-recorded segment played from the primary queue; video-to-live returns were rehearsed as single numbered cues with lavs open before the last frame faded
 - **Stakeholder roles stayed clear through strike** — facilities, curatorial, and production each had a named owner on comms; no mid-show debates about cable mats or house-light presets
+- **Wireless plan held through reception and awards** — show-morning RF scan caught one new interference source; backup channel map was never needed, but every primary mic had a fallback assigned before doors
 
 ## Lessons for museum and cultural galas
 
@@ -273,7 +248,7 @@ Cultural institution events reward planners who treat the venue like a collabora
 - **QC tribute videos like live cues** — frame rate, audio routing, and video-to-live return paths need rehearsal time equal to any presenter walk-on
 - **Plan photography lanes before scenic is built** — IMAG operators and official photographers compete for the same sight lines; assign zones in the advance packet
 - **Write truck access and strike before load-in day** — campus galas fail when the first case arrives and nobody knows which gate is open; vehicle staging and hard out times belong in the advance packet, not a group text at midnight
-- **Scan RF twice on campus** — once at advance walk, again on show morning; security and facilities radios do not publish a channel list on your load-in sheet
+- **Treat RF as a campus problem, not a mic rental** — request security and facilities wireless inventory early; scan at load-in and again before doors when guest density changes the noise floor
 
 ## From the floor
 
