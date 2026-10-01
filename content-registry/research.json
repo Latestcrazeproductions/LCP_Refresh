@@ -8,19 +8,23 @@
   "dataSources": {
     "gscSnapshot": {
       "status": "missing",
-      "note": "No committed export in content-registry/gsc-snapshot/. GSC property verified 2026-06-26; next monthly CSV should land before keyword_gap_scan prioritization."
+      "note": "No committed GSC CSV in content-registry/gsc-snapshot/. 2026-08 export still pending per STATUS.json; 2026-09 now due for October cadence. Missing CSVs are not zero impressions.",
+      "pendingPeriods": [
+        "2026-08",
+        "2026-09"
+      ]
     },
     "salesIntel": {
       "status": "empty",
       "lastUpdated": null,
-      "note": "sales-intel.json has no buyerQuestions, objections, or dealThemes. Trending signals weighted toward industry sources and Google Trends (directional only)."
+      "note": "sales-intel.json has no buyerQuestions, objections, or dealThemes. Gap prioritization uses matrix + keywordTAM + registry only."
     },
     "googleTrends": {
-      "status": "directional",
-      "note": "Google Trends used for term comparison and seasonality only — not search volume. Compared hybrid event production, led video wall events, corporate event av, immersive event design (Aug 2026 window)."
+      "status": "not_refreshed",
+      "note": "Trends refresh deferred to research.trending_topics task. Last directional scan August 2026."
     },
     "industrySignals": {
-      "status": "reviewed",
+      "status": "carry_forward",
       "reviewedAt": "2026-10-01",
       "sources": [
         "AV industry 2026 trend roundups (hybrid baseline, immersive stage design, broadcast-grade keynotes, ROI accountability)",
@@ -36,29 +40,33 @@
       "layer": "national",
       "contentType": "capture",
       "proposedTitle": "Hybrid Event AV Checklist for Corporate Teams",
-      "trendDirection": "rising",
-      "opportunityScore": 92,
+      "trendDirection": "sustained",
+      "opportunityScore": 78,
       "signals": [
         "Industry consensus: hybrid is baseline standard in 2026, not optional add-on",
         "Google Trends (directional): sustained interest in hybrid event production vs pre-2024 baseline",
         "Competitor AV blogs publishing hybrid production checklists; capture gap for LCP voice",
-        "Aligns with LCP services (multi-camera, streaming, lighting-for-camera) without targeting head terms"
+        "Aligns with LCP services (multi-camera, streaming, lighting-for-camera) without targeting head terms",
+        "Published 2026-08-03; hybrid baseline remains industry standard",
+        "Geo complement live: phoenix-hybrid-event-production-guide"
       ],
-      "cannibalizationNotes": "Safe — informational checklist. Do not target 'event production company' or 'av production company'. Link to /feeds/av-production and /feeds/conference-production, do not compete."
+      "cannibalizationNotes": "Published — faq_refresh. Do not compete with /feeds/av-production head term."
     },
     {
       "slug": "general-session-design-tips",
       "layer": "national",
       "contentType": "capture",
       "proposedTitle": "General Session Design That Keeps Attendees Engaged",
-      "trendDirection": "rising",
-      "opportunityScore": 88,
+      "trendDirection": "sustained",
+      "opportunityScore": 82,
       "signals": [
         "Immersive stage design and LED-as-scenic cited as top 2026 production trend",
         "Google Trends (directional): 'immersive event design' and 'led video wall corporate' holding elevated interest",
-        "Complements published led-wall-sizing-for-events without duplicating pixel-pitch content"
+        "Complements published led-wall-sizing-for-events without duplicating pixel-pitch content",
+        "Published 2026-09-17; monitor for GSC traction when snapshot available",
+        "Immersive stage design trend; complements led-wall-sizing-for-events"
       ],
-      "cannibalizationNotes": "Safe — design/decision content. Avoid H1 overlap with /feeds/event-production or /feeds/conference-production head terms."
+      "cannibalizationNotes": "Published — maintain via faq_refresh. Avoid H1 overlap with /feeds/conference-production when live."
     },
     {
       "slug": "broadcast-keynote-production-checklist",
@@ -66,16 +74,19 @@
       "contentType": "capture",
       "proposedTitle": "Broadcast-Grade Keynote Production: A Planner's Checklist",
       "trendDirection": "rising",
-      "opportunityScore": 86,
+      "opportunityScore": 90,
       "signals": [
         "2026 trend: multi-camera keynotes with separate in-room vs remote audience design",
         "Buyer pain: confidence monitors, remote presenter return feeds, untested playback routes",
         "No existing LCP blog or matrix page covers broadcast keynote production specs",
         "Google Trends (directional): 'multi camera live stream corporate' interest up vs 2025",
         "Score re-ranked 2026-10 based on sustained industry signal",
-        "Brief exists; ready for content agent assignment"
+        "Brief exists; ready for content agent assignment",
+        "Top queued capture topic (score 86); brief exists; no live page yet",
+        "Aligns with 2026 multi-camera keynote trend; complements published when-you-need-imag-and-delay-screens",
+        "Closes practical gap while /feeds/av-production-corporate-keynotes remains planned"
       ],
-      "cannibalizationNotes": "Safe — targets 'broadcast keynote production' long-tail, not 'conference production company' head term. Internal link to /feeds/av-production-corporate-keynotes when live."
+      "cannibalizationNotes": "Safe — long-tail 'broadcast keynote production'. Do not target 'conference production company' or 'av production company' head terms."
     },
     {
       "slug": "event-production-roi-for-planners",
@@ -167,26 +178,30 @@
       "contentType": "capture",
       "proposedTitle": "How to Size LED Walls for Corporate Events",
       "trendDirection": "sustained",
-      "opportunityScore": 65,
+      "opportunityScore": 60,
       "signals": [
         "LED walls remain centerpiece trend but LCP already published strong capture content 2026-07-27",
-        "Maintain with faq_refresh; deprioritize net-new LED sizing content"
+        "Maintain with faq_refresh; deprioritize net-new LED sizing content",
+        "Published; /feeds/led-walls now live owns head term",
+        "Deprioritize net-new LED sizing content; faq_refresh only"
       ],
-      "cannibalizationNotes": "Published — monitor GSC when snapshot available. Do not publish second LED sizing article."
+      "cannibalizationNotes": "Published — do not publish second LED sizing article. Head term owned by /feeds/led-walls."
     },
     {
       "slug": "building-a-multi-year-event-production-playbook",
       "layer": "national",
       "contentType": "strategy",
       "proposedTitle": "Building a Multi-Year Event Production Playbook",
-      "trendDirection": "rising",
-      "opportunityScore": 91,
+      "trendDirection": "steady",
+      "opportunityScore": 76,
       "signals": [
         "Q4 planning season drives multi-year production standardization",
         "Enterprise buyers consolidating vendor relationships into 2027 calendars",
-        "Track B queue leader after monthly replenish 2026-10"
+        "Track B queue leader after monthly replenish 2026-10",
+        "Top queued strategy topic (score 90); executive playbook intent",
+        "Strategy queue at 20/22 target — near capacity"
       ],
-      "cannibalizationNotes": "Safe — strategy/governance intent. No city names. Do not target service head terms."
+      "cannibalizationNotes": "Safe — Track B executive content. No city names. Min 1200 words."
     },
     {
       "slug": "production-standards-for-board-and-investor-events",
@@ -229,6 +244,47 @@
         "New topic added monthly replenish 2026-10"
       ],
       "cannibalizationNotes": "Strategy governance angle. Do not duplicate standardize article. No city names."
+    },
+    {
+      "slug": "house-av-vs-production-vendor-scope",
+      "layer": "national",
+      "contentType": "capture",
+      "proposedTitle": "House AV vs Production Vendor: How to Split Scope Without Gaps",
+      "trendDirection": "steady-rising",
+      "opportunityScore": 86,
+      "signals": [
+        "Queued score 83; brief exists; evergreen commercial-investigation adjacent to hire-vs-in-house strategy blog",
+        "Buyer pain: scope gaps at hotel ballrooms and convention centers",
+        "Supports inbound qualification without pricing claims"
+      ],
+      "cannibalizationNotes": "Safe — scope/split content. Link to /services and /nationwide-event-production, not head-service feeds."
+    },
+    {
+      "slug": "load-in-timeline-for-hotel-ballrooms",
+      "layer": "national",
+      "contentType": "capture",
+      "proposedTitle": "Hotel Ballroom Load-In Timeline: What Planners Should Put in the Contract",
+      "trendDirection": "steady",
+      "opportunityScore": 85,
+      "signals": [
+        "Queued score 84; brief exists; operational gap no live blog covers",
+        "Pairs with power-and-rigging-asks-for-venue-contracts in queue",
+        "Featured-venues authority asset can internal-link once published"
+      ],
+      "cannibalizationNotes": "Safe — contract/timeline content. No city names. Do not compete with /feeds/event-production."
+    },
+    {
+      "slug": "confidence-monitor-placement-for-keynotes",
+      "layer": "national",
+      "contentType": "capture",
+      "proposedTitle": "Confidence Monitor Placement for Keynotes (Without the Presenter Squint)",
+      "trendDirection": "steady",
+      "opportunityScore": 84,
+      "signals": [
+        "Queued score 85; brief exists; extends keynote production cluster",
+        "Complements broadcast-keynote-production-checklist and published keynote-stage-lighting-for-planners"
+      ],
+      "cannibalizationNotes": "Safe — presenter-tech long-tail. Link to /services/stage and keynote blogs."
     }
   ],
   "gaps": [
@@ -239,8 +295,8 @@
       "layer": null,
       "keyword": null,
       "targetUrl": null,
-      "description": "No GSC snapshot in content-registry/gsc-snapshot/. Cannot rank by impressions, position 8–30 opportunities, or high-impression/low-CTR pages.",
-      "recommendedAction": "Export GSC queries + pages CSV to content-registry/gsc-snapshot/2026-08/ before the next monthly cadence.",
+      "description": "No GSC snapshot committed. 2026-08 export pending per STATUS.json; 2026-09 now due. Cannot rank by impressions, position 8–30 opportunities, or high-impression/low-CTR pages.",
+      "recommendedAction": "Export GSC Performance CSV for 2026-08 and 2026-09 to content-registry/gsc-snapshot/ before November cadence.",
       "cannibalizationRisk": null
     },
     {
@@ -261,8 +317,8 @@
       "layer": "national",
       "keyword": "conference av production",
       "targetUrl": null,
-      "description": "Head-term gap with no registry URL. Closest matrix match is /feeds/conference-production (conference production company) and /feeds/av-production-corporate-conferences.",
-      "recommendedAction": "Prioritize /feeds/conference-production and /feeds/av-production-corporate-conferences; add targetUrl to keywordTAM.json after human review.",
+      "description": "Only keywordTAM term without a live target URL. Closest planned pages: /feeds/conference-production (head) and /feeds/av-production-corporate-conferences (event-variant).",
+      "recommendedAction": "Create /feeds/conference-production first; add targetUrl /feeds/conference-production to keywordTAM.json after human review. Supporting modifier 'conference av production' belongs in meta, not a third URL.",
       "cannibalizationRisk": "low"
     },
     {
@@ -326,8 +382,8 @@
       "layer": "national",
       "keyword": "event production markets",
       "targetUrl": "/markets",
-      "description": "Markets index is planned but not live. Required before Phase 2 geo expansion per BUILD_PLAN.md.",
-      "recommendedAction": "Queue /markets for creation after first two head-service feeds.",
+      "description": "Markets index planned but not live. Required before Phase 2 geo expansion.",
+      "recommendedAction": "Queue /markets after /feeds/conference-production and first core-service feeds.",
       "cannibalizationRisk": "low"
     },
     {
@@ -337,8 +393,71 @@
       "layer": "geo",
       "keyword": null,
       "targetUrl": null,
-      "description": "66 geo matrix pages planned; only /phoenix-av-production is live. config.allowNewGeoSites is false — geo creation correctly deferred until Phase 2.",
-      "recommendedAction": "Refresh /phoenix-av-production metadata now; defer city feed creation until Phase 2 gate opens.",
+      "description": "66 geo matrix pages planned; only /phoenix-av-production live. config.allowNewGeoSites is false — geo creation correctly deferred until Phase 2.",
+      "recommendedAction": "Maintain /phoenix-av-production; defer city feed creation until Phase 2 gate opens.",
+      "cannibalizationRisk": null
+    },
+    {
+      "id": "coverage-conference-production-head",
+      "type": "coverage_gap",
+      "severity": "high",
+      "layer": "national",
+      "keyword": "conference production company",
+      "targetUrl": "/feeds/conference-production",
+      "description": "Last remaining tier-1 head-service matrix page not live. /feeds/av-production and /feeds/event-production shipped since August scan.",
+      "recommendedAction": "Prioritize /feeds/conference-production creation in Phase 1 service sprint.",
+      "cannibalizationRisk": "medium"
+    },
+    {
+      "id": "coverage-core-service-feeds",
+      "type": "coverage_gap",
+      "severity": "medium",
+      "layer": "national",
+      "keyword": null,
+      "targetUrl": null,
+      "description": "6 of 7 tier-2 core-service feeds remain planned (/feeds/event-lighting, /feeds/staging, /feeds/audio-systems, /feeds/projection-mapping, /feeds/scenic-design, /feeds/stage-design). Only /feeds/led-walls is live.",
+      "recommendedAction": "After conference-production head page, queue /feeds/event-lighting and /feeds/staging — live /services/lighting and /services/stage are supporting pages only.",
+      "cannibalizationRisk": "medium",
+      "affectedUrls": [
+        "/feeds/event-lighting",
+        "/feeds/staging",
+        "/feeds/audio-systems",
+        "/feeds/projection-mapping",
+        "/feeds/scenic-design",
+        "/feeds/stage-design"
+      ]
+    },
+    {
+      "id": "tam-led-wall-rental-alias",
+      "type": "keyword_tam_alias",
+      "severity": "low",
+      "layer": "national",
+      "keyword": "led wall rental",
+      "targetUrl": "/feeds/led-walls",
+      "description": "Head term now has live target at /feeds/led-walls (keyword 'led walls for events'). Alias 'led wall rental' should appear in meta/aliases, not a separate URL.",
+      "recommendedAction": "faq_refresh /feeds/led-walls to include 'led wall rental' in description. Keep /services/led-walls on supporting keyword 'LED wall event production' only.",
+      "cannibalizationRisk": "high"
+    },
+    {
+      "id": "registry-nav-keywords-empty",
+      "type": "registry_metadata_gap",
+      "severity": "info",
+      "layer": "national",
+      "keyword": null,
+      "targetUrl": null,
+      "description": "10 live navigation/utility pages intentionally lack keywords (/, /services, /events, /about, /contact, /digital-signage, /privacy, /terms, /blog, /work, /resources). Not SEO landing pages.",
+      "recommendedAction": "No action — by design. Gap tracking applies to service, event, blog, hub, geo, and authority types only.",
+      "cannibalizationRisk": null
+    },
+    {
+      "id": "content-queue-near-target",
+      "type": "queue_status",
+      "severity": "info",
+      "layer": "national",
+      "keyword": null,
+      "targetUrl": null,
+      "description": "National capture queue at 44/45 queued; strategy queue at 20/22 queued. topic_queue_replenish due on monthly 1st if not already run.",
+      "recommendedAction": "Run research.topic_queue_replenish to top up +5 national / +3 strategy for November cadence.",
       "cannibalizationRisk": null
     }
   ],
@@ -394,8 +513,8 @@
       "pattern": "head-service",
       "phase": 1,
       "nextAction": "create",
-      "opportunityScore": 90,
-      "rationale": "Tier-1 head term still planned; closes conference AV TAM gap. /feeds/av-production now live — conference head remains highest planned-service gap."
+      "opportunityScore": 94,
+      "rationale": "Last tier-1 head-service gap. Closes conference av production TAM gap. av-production and event-production feeds now live."
     },
     {
       "rank": 2,
@@ -410,19 +529,19 @@
       "rationale": "Live since 2026-09. Competitor SERP shows FAQ + case-study modules as table stakes (Meeting Tomorrow, Catalyst). Refresh before net-new creates."
     },
     {
-      "rank": 5,
+      "rank": 7,
       "url": "/feeds/led-walls",
       "keyword": "led walls for events",
       "layer": "national",
       "type": "service",
       "pattern": "core-service",
       "phase": 1,
-      "nextAction": "create",
-      "opportunityScore": 85,
-      "rationale": "Core service head page; resolves led wall rental TAM gap; live /services/led-walls remains supporting only."
+      "nextAction": "faq_refresh",
+      "opportunityScore": 70,
+      "rationale": "Now live — add 'led wall rental' alias in meta; monitor GSC when snapshot available."
     },
     {
-      "rank": 8,
+      "rank": 2,
       "url": "/feeds/av-production-corporate-conferences",
       "keyword": "av production corporate conferences",
       "layer": "national",
@@ -430,11 +549,11 @@
       "pattern": "head-service-event",
       "phase": 1,
       "nextAction": "create",
-      "opportunityScore": 78,
-      "rationale": "High-intent long tail; supports conference AV TAM gap without competing with head terms."
+      "opportunityScore": 88,
+      "rationale": "High-intent long tail; supports conference AV TAM without competing with head terms."
     },
     {
-      "rank": 5,
+      "rank": 6,
       "url": "/markets",
       "keyword": "event production markets",
       "layer": "national",
@@ -470,7 +589,7 @@
       "rationale": "Q4 audit: national brands with geo landings outrank local-only shops. Add Convention Center/resort venue FAQ and house-AV scope comparison."
     },
     {
-      "rank": 8,
+      "rank": 4,
       "url": "/feeds/event-lighting",
       "keyword": "event lighting for corporate events",
       "layer": "national",
@@ -478,8 +597,8 @@
       "pattern": "core-service",
       "phase": 1,
       "nextAction": "create",
-      "opportunityScore": 65,
-      "rationale": "Core service with live /services/lighting supporting page; no head-term conflict."
+      "opportunityScore": 78,
+      "rationale": "Core service feed; live /services/lighting is supporting page with matching keyword assigned this scan."
     },
     {
       "rank": 2,
@@ -495,7 +614,7 @@
       "rationale": "Top queued strategy topic after 2026-10 replenish; Q4 planning season intent."
     },
     {
-      "rank": 3,
+      "rank": 8,
       "url": "/blog/broadcast-keynote-production-checklist",
       "keyword": "broadcast keynote production",
       "layer": "national",
@@ -504,8 +623,8 @@
       "phase": 1,
       "nextAction": "create",
       "track": "A",
-      "opportunityScore": 88,
-      "rationale": "Top queued capture topic; brief ready; broadcast-grade keynote trend sustained."
+      "opportunityScore": 68,
+      "rationale": "Top queued capture topic with brief; safe long-tail while keynote feeds remain planned."
     },
     {
       "rank": 4,
@@ -545,32 +664,104 @@
       "track": "B",
       "opportunityScore": 88,
       "rationale": "New 2026-10 strategy topic; brief ready; procurement consolidation governance."
+    },
+    {
+      "rank": 3,
+      "url": "/feeds/av-production-corporate-keynotes",
+      "keyword": "av production corporate keynotes",
+      "layer": "national",
+      "type": "service",
+      "pattern": "head-service-event",
+      "phase": 1,
+      "nextAction": "create",
+      "opportunityScore": 84,
+      "rationale": "Aligns with broadcast-keynote checklist queue and published keynote content cluster."
+    },
+    {
+      "rank": 5,
+      "url": "/feeds/staging",
+      "keyword": "corporate event staging",
+      "layer": "national",
+      "type": "service",
+      "pattern": "core-service",
+      "phase": 1,
+      "nextAction": "create",
+      "opportunityScore": 76,
+      "rationale": "Core service feed; live /services/stage supporting keyword assigned this scan."
+    },
+    {
+      "rank": 9,
+      "url": "/blog/house-av-vs-production-vendor-scope",
+      "keyword": "house av vs production vendor",
+      "layer": "national",
+      "type": "blog",
+      "pattern": null,
+      "phase": 1,
+      "nextAction": "create",
+      "opportunityScore": 66,
+      "rationale": "Queued capture with brief; evergreen scope-split content for inbound qualification."
+    },
+    {
+      "rank": 10,
+      "url": "/nationwide-event-production",
+      "keyword": "event production company",
+      "layer": "national",
+      "type": "hub",
+      "pattern": null,
+      "phase": 1,
+      "nextAction": "refresh",
+      "opportunityScore": 65,
+      "rationale": "Hub owns head term per keywordTAM; keyword assigned this scan. Quarterly refresh due."
     }
   ],
-  "lastScanTask": "research.topic_queue_replenish",
+  "lastScanTask": "research.keyword_gap_scan",
   "scanInputs": {
     "gscSnapshot": {
       "status": "missing",
       "expectedPath": "content-registry/gsc-snapshot/2026-08/",
-      "note": "No GSC CSV committed. Impression- and CTR-based prioritization deferred until next export per SEO_OPS_RUNBOOK.md."
+      "note": "No GSC CSV committed. Impression- and CTR-based prioritization deferred until export per SEO_OPS_RUNBOOK.md.",
+      "pendingPeriods": [
+        "2026-08",
+        "2026-09"
+      ],
+      "expectedPaths": [
+        "content-registry/gsc-snapshot/2026-08/",
+        "content-registry/gsc-snapshot/2026-09/"
+      ]
     },
     "matrixPages": 1110,
-    "registryPages": 1140,
-    "livePages": 29,
-    "plannedPages": 1111,
-    "keywordTAMTerms": 6,
-    "matrixRegistryAligned": true
+    "registryPages": 1169,
+    "livePages": 61,
+    "plannedPages": 1108,
+    "keywordTAMTerms": 9,
+    "matrixRegistryAligned": true,
+    "liveBlogs": 30,
+    "queuedCaptureTopics": 44,
+    "queuedStrategyTopics": 20
   },
   "coverageSummary": {
     "phase": 1,
     "geoExpansionBlocked": true,
-    "liveToPlannedRatio": "29/1111",
+    "liveToPlannedRatio": "61/1108",
     "phase1NationalHeadCorePlanned": 10,
-    "phase1NationalHeadCoreLive": 0,
-    "keywordTAMWithLiveTarget": 2,
-    "keywordTAMWithoutPage": 4,
-    "livePagesMissingKeyword": 8,
-    "headTermCannibalizationFlags": 1
+    "phase1NationalHeadCoreLive": 3,
+    "keywordTAMWithLiveTarget": 8,
+    "keywordTAMWithoutPage": 1,
+    "livePagesMissingKeyword": 0,
+    "headTermCannibalizationFlags": 3,
+    "phase1HeadServiceLive": 2,
+    "phase1HeadServicePlanned": 1,
+    "liveTrackablePagesMissingKeyword": 0,
+    "progressSinceLastScan": {
+      "lastScanAt": "2026-08-01T17:06:00.000Z",
+      "feedsShipped": [
+        "/feeds/av-production",
+        "/feeds/event-production",
+        "/feeds/led-walls"
+      ],
+      "blogsPublished": 30,
+      "registryKeywordsAssigned": 12
+    }
   },
   "cannibalizationFlags": [
     {
@@ -590,6 +781,30 @@
       "ownerUrl": "/feeds/av-production",
       "conflictUrl": "/phoenix-av-production",
       "resolution": "National head term routes to /feeds/av-production. Phoenix page keeps geo modifier 'event production phoenix' — no overlap."
+    },
+    {
+      "keyword": "event production company",
+      "ownerUrl": "/nationwide-event-production",
+      "conflictUrl": "/feeds/event-production",
+      "resolution": "Hub owns head term per keywordTAM.json (keyword now assigned on hub). /feeds/event-production keeps 'corporate event production' — matrix alias, not competing H1."
+    },
+    {
+      "keyword": "led wall rental",
+      "ownerUrl": "/feeds/led-walls",
+      "conflictUrl": "/services/led-walls",
+      "resolution": "/feeds/led-walls now live and owns head term. /services/led-walls keeps supporting keyword 'LED wall event production' only. Add 'led wall rental' to feed meta aliases."
+    },
+    {
+      "keyword": "av production company",
+      "ownerUrl": "/feeds/av-production",
+      "conflictUrl": "/phoenix-av-production",
+      "resolution": "National head term routes to /feeds/av-production (live). Phoenix page keeps geo modifier 'event production phoenix' — no overlap."
+    },
+    {
+      "keyword": "corporate event production in phoenix",
+      "ownerUrl": "/phoenix-av-production",
+      "conflictUrl": null,
+      "resolution": "Geo alias for Phoenix page — include in meta description alongside primary keyword 'event production phoenix'. Not a separate URL."
     }
   ],
   "lastReplenishAt": "2026-10-01T20:00:00.000Z",
