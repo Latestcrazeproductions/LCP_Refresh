@@ -69,9 +69,11 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 86,
-      "status": "queued",
+      "status": "published",
+      "publishedAt": "2026-09-24",
       "primaryKeyword": "event production show day risk",
-      "serviceCta": "/resources/event-production-checklist"
+      "serviceCta": "/resources/event-production-checklist",
+      "rationale": "Published 2026-09-24; tiered show-day staffing model — critical-path roles, pre-doors verification, and business outcomes without padded headcount."
     },
     {
       "slug": "content-operations-for-multi-market-events",
