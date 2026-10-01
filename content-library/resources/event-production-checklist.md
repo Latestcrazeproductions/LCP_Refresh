@@ -2,12 +2,12 @@
 title: Corporate Event Production Checklist
 description: Timeline checklist for corporate event production — AV, staging, rehearsals, vendor coordination, and show-day execution from 12 weeks out through load-out.
 track: B
-dateModified: 2026-08-19
+dateModified: 2026-10-01
 ---
 
-Use this checklist for corporate conferences, general sessions, galas, and brand activations where AV, staging, and run-of-show discipline matter. It assumes you already have a venue shortlist or contract — not a greenfield concept pitch.
+This checklist covers corporate conferences, general sessions, galas, and brand activations where AV, staging, and run-of-show discipline matter. It assumes you have a venue shortlist or signed contract — not a concept pitch still in creative review.
 
-Print it, drop items into your workback, and send the vendor sections to production partners before you ask for pricing. Gaps in weeks 8–6 cost more than gaps in week 1.
+Print it, drop items into your workback, and send the vendor sections to production partners before you ask for pricing. Gaps in weeks 8–6 cost more than gaps in week 1. Pair it with a [risk register](/blog/risk-register-for-corporate-event-production) if leadership wants failure modes documented before the PO.
 
 ## 10–12 weeks out — lock scope and stakeholders
 
@@ -17,7 +17,7 @@ Print it, drop items into your workback, and send the vendor sections to product
 - **Power and rigging** — house power vs. generator, rigging points or ground-support-only, weight limits for LED or truss.
 - **General session format** — single keynote, panel, awards, hybrid stream, or all of the above (each adds roles).
 - **Audience size and seating layout** — affects PA design, camera count, and sight-line drawings.
-- **Budget envelope for production** — separate AV/staging from décor and F&B so vendors aren't guessing scope.
+- **Budget envelope for production** — separate AV/staging from décor and F&B so vendors are not guessing scope.
 - **RFP or brief to production partners** — include floor plan, agenda draft, and photos of prior shows you liked.
 
 ## 6–8 weeks out — design and vendor alignment
@@ -25,8 +25,8 @@ Print it, drop items into your workback, and send the vendor sections to product
 - **Staging footprint and sight lines** — confirm rear and side sight lines; balcony and ADA seating included.
 - **IMAG and presentation flow** — who advances slides, who calls switcher cues, backup laptop policy.
 - **Audio plan** — lav vs. handheld for presenters, Q&A mics, playback sources, stream feed if hybrid.
-- **Lighting look** — general wash vs. keynote looks; time to build cues if you want more than “on/off.”
-- **LED or projection decision** — content resolution, aspect ratio, and who owns calibration day-of.
+- **Lighting look** — general wash vs. keynote looks; time to build cues if you want more than on/off.
+- **LED or projection decision** — content resolution, aspect ratio, pixel pitch for room depth, who owns calibration day-of.
 - **Scenic and branding** — step-and-repeat, stage backdrop, confidence monitors, sponsor integration.
 - **Vendor contracts signed** — production company, streaming partner, labor, freight if touring elements.
 - **Insurance and COI** — additional insured requirements from venue; lead times are often two weeks.
@@ -34,16 +34,25 @@ Print it, drop items into your workback, and send the vendor sections to product
 ## 3–4 weeks out — content and rehearsal planning
 
 - **Run-of-show draft v1** — segment times, walk-on music, video rolls, panel entrances, awards order.
-- **Content deadlines** — when slides, videos, and graphics must be in the production queue (not “morning of”).
+- **Content deadlines** — when slides, videos, and graphics must be in the production queue (not morning of).
 - **Rehearsal schedule** — separate block for full cue-to-cue; not a 30-minute sound check before doors.
 - **Roles and comms** — show caller, technical director, stage manager, client point person on one channel plan.
-- **Hybrid/stream requirements** — if applicable: remote presenter tests, encoder path, backup internet.
+- **Hybrid/stream requirements** — remote presenter tests, encoder path, backup internet, latency budget for Q&A.
 - **Talent and VIP needs** — green room AV, teleprompter, confidence content, accessibility requests.
 - **Walk-through with venue ops** — loading dock, storage, security, overnight hold, noise curfew.
 
-## 1 week out — verify, don't discover
+## 2 weeks out — content lock and crew prep
 
-- **Final run-of-show** — version number and distribution list; no “floating” segments without an owner.
+- **Content lock date enforced** — late decks go through show caller, not straight to the graphics operator.
+- **Advance all video and awards assets** — test codecs on show machines, not the editor's MacBook.
+- **RF coordination scheduled** — scan venue with production; log exhibitor Wi-Fi and other wireless users.
+- **Crew call sheet issued** — load-in order, department heads, meal breaks, parking passes.
+- **Client-facing run-of-show v2** — segment owners named; hold/skip authority documented.
+- **Spares inventory confirmed** — backup wireless, spare LED modules, gaff, batteries, cable labeled.
+
+## 1 week out — verify, do not discover
+
+- **Final run-of-show** — version number and distribution list; no floating segments without an owner.
 - **Walk all cues with show caller** — include video, lighting looks, and stream handoffs if hybrid.
 - **Confirm backup plans** — spare wireless mics, backup slide laptop, redundant encoder or recorder path.
 - **Production schedule posted** — load-in, focus, line check, rehearsal, doors, strike; share with client and venue.
@@ -68,10 +77,12 @@ Print it, drop items into your workback, and send the vendor sections to product
 - **Load-in diagram** — truck order, cable paths, FOH position, camera positions marked on CAD.
 - **Single invoice owner** — who consolidates subs so you are not chasing three vendors at midnight.
 
-## Worth knowing
+## From the floor
 
-A planner once sent a 40-page creative deck and a one-line load-in time to three vendors, then asked why quotes differed by six figures. The deck described the dream; the brief never said general session plus awards, hybrid stream, or that the venue banned rigging. Quotes matched the ambiguity, not the vision.
+Rehearsal was running long, so the client asked to skip the awards segment and "just do it live." The show caller said yes without checking whether the LED preset for the winner walk existed outside the cue stack. First name called, house lights came up, and the stage manager had to manually fade a blank wall while someone searched the media server.
 
-Production vendors are not mind readers. This checklist exists so your brief matches what actually happens on the floor.
+The show recovered. The post-event email did not.
 
-For [corporate event production](/services/conferences), [LED and staging](/services/led-walls), and full show-day support, [request a consultation](/contact).
+Production vendors are not mind readers. This checklist exists so your brief matches what actually happens on the floor — and so nobody treats rehearsal as optional when the run-of-show still has holes.
+
+For [corporate event production](/services/conferences), [LED and staging](/services/led-walls), [audio and show operation](/services/audio), and full show-day support, [request a consultation](/contact).
