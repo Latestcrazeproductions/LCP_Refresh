@@ -43,8 +43,7 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-29T20:33:05.886Z",
-      "runId": "run-45193e0c-9f06-4cc7-85b0-fa35010650d5"
+      "dispatchedAt": "2026-10-01T20:53:55.566Z"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -132,8 +131,7 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-30T20:39:12.042Z",
-      "runId": "run-2ba9268c-71e1-4be6-aac1-0c6fd5542956"
+      "dispatchedAt": "2026-10-01T20:53:55.566Z"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -485,6 +483,22 @@
       "cadence": "quarterly",
       "dispatchedAt": "2026-10-01T20:41:51.682Z",
       "runId": "run-28f454c9-66ef-41a5-83da-763be2d6595a"
+    },
+    {
+      "taskId": "blog.national.create:union-labor-planning-for-corporate-events",
+      "type": "blog.national.create",
+      "targetKey": "union-labor-planning-for-corporate-events",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-01T20:53:55.566Z"
+    },
+    {
+      "taskId": "authority.strategy_blog:production-change-control-for-late-scope",
+      "type": "authority.strategy_blog",
+      "targetKey": "production-change-control-for-late-scope",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-01T20:53:55.566Z"
     }
   ]
 }
