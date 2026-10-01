@@ -27,9 +27,9 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
   h1: 'Featured Venues',
   eyebrow: 'Venue production',
   lead:
-    'Production considerations for hotels, convention centers, resorts, outdoor spaces, and non-traditional venues — what to verify before you sign, what to send your AV partner, and where house rules, weather holds, and code compliance quietly cap your show before load-in day.',
+    'Production considerations for hotels, convention centers, resorts, and non-traditional spaces — what to verify before you sign, what to send your AV partner, and where house rules quietly cap your show before load-in day.',
   intro:
-    'Venue selection and production design are the same decision split in half. A ballroom that photographs well on the sales tour can still fail your keynote when ceiling height caps truss height, house power cannot feed a 40-foot LED wall, or the freight elevator locks at 5 p.m. on Fridays. Outdoor ceremonies add wind load and rain plans. Tented galas add generator noise and fire marshal walk-throughs. This guide covers venue categories, what to measure on a site visit, how house AV and your production partner divide labor, multi-day hold rules that nobody mentions on the sales call, strike windows that shrink when the next group loads at noon, and the packet your vendor needs to quote accurately — not a list of properties we prefer, but the technical questions seasoned planners ask before the contract is signed.',
+    'Venue selection and production design are the same decision split in half. A ballroom that photographs well on the sales tour can still fail your keynote when ceiling height caps truss height, house power cannot feed a 40-foot LED wall, or the freight elevator locks at 5 p.m. on Fridays. This guide covers venue categories, what to measure on a site visit, how house AV and your production partner divide labor, multi-day hold rules that nobody mentions on the sales call, and the packet your vendor needs to quote accurately — not a list of properties we prefer, but the technical questions seasoned planners ask before the contract is signed.',
   primaryCta: { label: 'Plan your venue production', href: '/contact' },
   sections: [
     {
@@ -92,18 +92,6 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
       ],
     },
     {
-      title: 'Outdoor, tented, and weather-dependent spaces',
-      body: 'Resort lawns and rooftop terraces look effortless in the brochure. Production sees tie-down points, wind load, and a rain plan that cannot be "move inside" if the ballroom is booked for dinner. Tented structures add their own code path — fire marshal approval, sidewall egress, and generator placement far enough from guest rooms that nobody calls the front desk.',
-      bullets: [
-        'Rain and wind holds — backup room on contract, not verbal; wind speed thresholds for LED, flown lighting, or scenic',
-        'Tent structure — house vs rental vendor; who owns stakes, ballast, and fire marshal inspection before first guest',
-        'Power and distro — generator sizing for full show load, refuel access during event, cable trench or ramp covers for guest paths',
-        'Noise bleed — amplified sound toward guest rooms or neighboring properties; curfew that starts during your awards segment',
-        'Ground conditions — cable ramps on grass, mud after rain, and whether golf-cart paths handle road-case weight',
-        'Sun and glare — afternoon keynotes on west-facing stages; scrim or tent peak height for IMAG camera angles',
-      ],
-    },
-    {
       title: 'Scaling production to the room — not the brochure',
       body: 'The same creative brief produces different gear lists in a 400-seat breakout vs a 2,000-seat general session. Match production scope to room geometry and house constraints — not to the last show the client liked on Instagram. Clarify who owns what before load-in day; that conversation is cheaper at contract stage than at 6 a.m. on the dock.',
       bullets: [
@@ -130,7 +118,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
   ],
   floorStory: {
     title: 'From the floor',
-    body: 'General session and breakout shared an air wall at a convention property. Rehearsal sounded fine with the wall sealed. First keynote, the breakout next door ran a panel with open mics. The air wall leaked enough that FOH heard the neighbor\'s Q&A in the PA delay. No one had checked acoustic isolation during the site visit — only sight lines and power. Production added a second air-wall layer and gaffer-taped the gap at the floor plate. It worked. The fix took forty minutes during a live hold. Ask whether shared air walls are rated for simultaneous amplified programs, not just visual separation.',
+    body: 'Load-in for a downtown hotel general session was scheduled for Friday at 2 p.m. — reasonable on the run-of-show. Production arrived with road cases on pallet jacks. The only freight elevator to the ballroom level closed at 5 p.m. and did not reopen until Monday at 7 a.m. The show was Saturday. Everything that did not fit through the service stairwell by 4:45 sat in a dock cage over the weekend. The vendor had assumed "hotel ballroom" meant normal freight hours. The BEO said "elevator by appointment." Those are different documents. Confirm elevator hours in writing alongside the hold fee, not the day your truck is scheduled.',
   },
   capabilitiesTitle: 'Production capabilities by venue',
   capabilities: [
