@@ -1,7 +1,7 @@
 {
-  "quarter": "2026-Q3",
+  "quarter": "2026-Q4",
   "cadenceNote": "Target 45 queued capture topics (config.topicQueues.nationalCaptureMinQueued). ResearchAgent replenishes monthly on the 1st.",
-  "lastTrendingRefresh": "2026-09-16",
+  "lastTrendingRefresh": "2026-10-01",
   "topics": [
     {
       "slug": "general-session-design-tips",
@@ -17,11 +17,21 @@
       "slug": "broadcast-keynote-production-checklist",
       "title": "Broadcast-Grade Keynote Production: A Planner's Checklist",
       "track": "A",
-      "opportunityScore": 86,
+      "opportunityScore": 88,
       "status": "queued",
       "primaryKeyword": "broadcast keynote production",
       "serviceCta": "/services/led-walls",
-      "rationale": "Research 2026-08 gap: multi-camera keynotes with in-room vs remote design. Long-tail only — do not target conference production company."
+      "rationale": "Research 2026-08 gap: multi-camera keynotes with in-room vs remote design. Long-tail only — do not target conference production company. Score bumped 2026-10: broadcast-grade keynotes remain top industry signal."
+    },
+    {
+      "slug": "streaming-backup-and-failover-for-corporate-livestreams",
+      "title": "Streaming Backup and Failover for Corporate Livestreams",
+      "track": "A",
+      "opportunityScore": 87,
+      "status": "queued",
+      "primaryKeyword": "corporate livestream backup failover",
+      "serviceCta": "/services/led-walls",
+      "rationale": "Monthly replenish 2026-10. Encoder redundancy and return-path failover for hybrid baseline programs. Complements camera-platform-planning-for-corporate-livestreams and hybrid-return-feed-for-remote-presenters; do not rewrite hybrid-event-av-checklist."
     },
     {
       "slug": "confidence-monitor-placement-for-keynotes",

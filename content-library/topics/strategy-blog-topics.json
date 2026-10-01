@@ -1,7 +1,7 @@
 {
-  "quarter": "2026-Q3",
+  "quarter": "2026-Q4",
   "cadenceNote": "Target 22 queued strategy topics (config.topicQueues.strategyMinQueued). ResearchAgent replenishes monthly on the 1st.",
-  "lastTrendingRefresh": "2026-09-16",
+  "lastTrendingRefresh": "2026-10-01",
   "topics": [
     {
       "slug": "when-to-own-vs-rent-event-technology",
@@ -20,12 +20,12 @@
       "title": "Building a Multi-Year Event Production Playbook",
       "track": "B",
       "minWords": 1200,
-      "opportunityScore": 90,
-      "status": "published",
+      "opportunityScore": 91,
+      "status": "queued",
       "publishedAt": "2026-09-18",
       "primaryKeyword": "event production playbook",
       "serviceCta": "/nationwide-event-production",
-      "rationale": "Published 2026-09-18; multi-year production governance, tier framework, and business outcomes for recurring corporate event programs."
+      "rationale": "Score bumped 2026-10: Q4 planning season drives multi-year playbook intent."
     },
     {
       "slug": "how-marketing-leaders-brief-production-partners",
@@ -33,7 +33,7 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 89,
-      "status": "published",
+      "status": "queued",
       "publishedAt": "2026-09-21",
       "primaryKeyword": "brief event production partner",
       "serviceCta": "/contact",
@@ -57,7 +57,7 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 87,
-      "status": "published",
+      "status": "queued",
       "publishedAt": "2026-09-23",
       "primaryKeyword": "event production vendor scorecard",
       "serviceCta": "/contact",
@@ -69,7 +69,7 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 86,
-      "status": "published",
+      "status": "queued",
       "publishedAt": "2026-09-24",
       "primaryKeyword": "event production show day risk",
       "serviceCta": "/resources/event-production-checklist",
@@ -81,7 +81,7 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 85,
-      "status": "published",
+      "status": "queued",
       "publishedAt": "2026-09-25",
       "primaryKeyword": "multi market event content operations",
       "serviceCta": "/nationwide-event-production",
@@ -93,7 +93,7 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 84,
-      "status": "published",
+      "status": "queued",
       "publishedAt": "2026-09-28",
       "primaryKeyword": "executive keynote experience design",
       "serviceCta": "/services/stage",
@@ -104,11 +104,12 @@
       "title": "When Hybrid Is Worth the Production Cost (and When It Is Not)",
       "track": "B",
       "minWords": 1200,
-      "opportunityScore": 83,
-      "status": "published",
+      "opportunityScore": 84,
+      "status": "queued",
       "publishedAt": "2026-09-29",
       "primaryKeyword": "hybrid event production cost decision",
-      "serviceCta": "/blog/hybrid-event-av-checklist"
+      "serviceCta": "/blog/hybrid-event-av-checklist",
+      "rationale": "Score bumped 2026-10: hybrid remains baseline; cost-decision intent steady into Q4."
     },
     {
       "slug": "aligning-brand-guidelines-with-live-production",
@@ -116,7 +117,7 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 82,
-      "status": "published",
+      "status": "queued",
       "primaryKeyword": "brand guidelines live event production",
       "serviceCta": "/services/lighting",
       "rationale": "Published 2026-09-30; bridges marketing brand standards and live production specs for general sessions."
@@ -384,6 +385,28 @@
       "status": "published",
       "primaryKeyword": "keynote event production partner",
       "serviceCta": "/services/stage"
+    },
+    {
+      "slug": "production-standards-for-board-and-investor-events",
+      "title": "Production Standards for Board and Investor Events",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 89,
+      "status": "queued",
+      "primaryKeyword": "board meeting event production standards",
+      "serviceCta": "/services/stage",
+      "rationale": "Monthly replenish 2026-10. Executive governance tier for board/investor programs — stricter camera, compliance, and rehearsal minimums than general keynotes. Complements published executive-briefing-production-standards; different audience and risk profile."
+    },
+    {
+      "slug": "governing-vendor-consolidation-for-event-technology",
+      "title": "Governing Vendor Consolidation for Event Technology (Without a Single Point of Failure)",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 88,
+      "status": "queued",
+      "primaryKeyword": "event technology vendor consolidation",
+      "serviceCta": "/nationwide-event-production",
+      "rationale": "Monthly replenish 2026-10. Procurement-led consolidation vs operational resilience. Complements published standardize-av-vendors-across-markets and queued touring-show-vs-local-vendor-hybrid-model."
     }
   ]
 }
