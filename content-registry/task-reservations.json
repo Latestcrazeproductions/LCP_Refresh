@@ -42,9 +42,9 @@
       "type": "service.faq_refresh",
       "targetKey": "/services/led-walls",
       "status": "in_review",
-      "cadence": "monthly",
-      "dispatchedAt": "2026-10-01T20:58:44.424Z",
-      "runId": "run-8fc33019-bf9e-420b-b2ad-4480e5bc7489"
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-02T20:30:05.393Z",
+      "runId": "run-c1e5b2e1-58bb-47f1-b797-d0c09b5e3fb8"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -132,7 +132,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-01T20:53:55.566Z"
+      "dispatchedAt": "2026-10-02T20:30:05.393Z",
+      "runId": "run-b726bdb3-cee0-4daa-a4f6-a774bf2cc3e8"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -509,6 +510,24 @@
       "cadence": "monthly",
       "dispatchedAt": "2026-10-01T20:58:44.424Z",
       "runId": "run-dd2d8783-39a0-4a4e-b36b-9ad7b20624ca"
+    },
+    {
+      "taskId": "blog.national.create:streaming-backup-and-failover-for-corporate-livestreams",
+      "type": "blog.national.create",
+      "targetKey": "streaming-backup-and-failover-for-corporate-livestreams",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-02T20:30:05.393Z",
+      "runId": "run-b7bdbbab-548d-4b5b-937c-3099c93f2ee9"
+    },
+    {
+      "taskId": "authority.strategy_blog:how-to-read-an-event-production-proposal",
+      "type": "authority.strategy_blog",
+      "targetKey": "how-to-read-an-event-production-proposal",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-02T20:30:05.393Z",
+      "runId": "run-43a4c595-15ee-43df-94ed-fe7b7a0498ee"
     }
   ]
 }
