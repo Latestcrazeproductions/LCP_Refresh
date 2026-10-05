@@ -177,8 +177,7 @@
       "targetKey": "daily-venue-guide",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-29T20:33:05.886Z",
-      "runId": "run-2e50b503-dda9-47fe-9455-3f70894b4f2e"
+      "dispatchedAt": "2026-10-05T22:23:01.791Z"
     },
     {
       "taskId": "blog.national.create:when-you-need-imag-and-delay-screens",
@@ -249,8 +248,7 @@
       "targetKey": "/services/audio",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-18T18:55:58.742Z",
-      "runId": "run-f8efe737-2b76-4b1e-a0f0-fe923193585c"
+      "dispatchedAt": "2026-10-05T22:23:01.791Z"
     },
     {
       "taskId": "authority.strategy_blog:brand-consistency-across-annual-meetings",
@@ -528,6 +526,22 @@
       "cadence": "daily",
       "dispatchedAt": "2026-10-02T20:30:05.393Z",
       "runId": "run-43a4c595-15ee-43df-94ed-fe7b7a0498ee"
+    },
+    {
+      "taskId": "blog.national.create:scenic-elements-that-integrate-with-led",
+      "type": "blog.national.create",
+      "targetKey": "scenic-elements-that-integrate-with-led",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-05T22:23:01.791Z"
+    },
+    {
+      "taskId": "authority.strategy_blog:internal-stakeholder-alignment-for-galas",
+      "type": "authority.strategy_blog",
+      "targetKey": "internal-stakeholder-alignment-for-galas",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-05T22:23:01.791Z"
     }
   ]
 }
