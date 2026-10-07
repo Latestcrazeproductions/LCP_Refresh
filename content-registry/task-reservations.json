@@ -177,7 +177,7 @@
       "targetKey": "daily-venue-guide",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-06T20:50:58.244Z"
+      "dispatchedAt": "2026-10-07T21:06:17.757Z"
     },
     {
       "taskId": "blog.national.create:when-you-need-imag-and-delay-screens",
@@ -248,7 +248,7 @@
       "targetKey": "/services/audio",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-06T20:50:58.244Z"
+      "dispatchedAt": "2026-10-07T21:06:17.757Z"
     },
     {
       "taskId": "authority.strategy_blog:brand-consistency-across-annual-meetings",
@@ -558,6 +558,22 @@
       "status": "in_review",
       "cadence": "daily",
       "dispatchedAt": "2026-10-06T20:50:58.244Z"
+    },
+    {
+      "taskId": "blog.national.create:wireless-ie-pack-planning-for-presenters",
+      "type": "blog.national.create",
+      "targetKey": "wireless-ie-pack-planning-for-presenters",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-07T21:06:17.757Z"
+    },
+    {
+      "taskId": "authority.strategy_blog:succession-planning-for-in-house-av-leads",
+      "type": "authority.strategy_blog",
+      "targetKey": "succession-planning-for-in-house-av-leads",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-07T21:06:17.757Z"
     }
   ]
 }
