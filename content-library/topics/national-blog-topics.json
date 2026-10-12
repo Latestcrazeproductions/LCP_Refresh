@@ -168,9 +168,10 @@
       "title": "Walk-In Look Design for General Sessions",
       "track": "A",
       "opportunityScore": 71,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "general session walk in lighting",
-      "serviceCta": "/services/lighting"
+      "serviceCta": "/services/lighting",
+      "rationale": "Published 2026-10-12; maintain via faq_refresh. Walk-in preset and handoff only — complements general-session-design-tips without targeting general session design head term."
     },
     {
       "slug": "presenter-confidence-systems-beyond-slides",
