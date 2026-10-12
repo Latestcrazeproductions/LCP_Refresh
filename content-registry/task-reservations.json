@@ -177,7 +177,8 @@
       "targetKey": "daily-venue-guide",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-09T20:40:40.257Z"
+      "dispatchedAt": "2026-10-12T22:48:18.204Z",
+      "runId": "run-d7e76310-c7af-4189-b9c0-384b28181f95"
     },
     {
       "taskId": "blog.national.create:when-you-need-imag-and-delay-screens",
@@ -248,7 +249,8 @@
       "targetKey": "/services/audio",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-09T20:40:40.257Z"
+      "dispatchedAt": "2026-10-12T22:48:18.204Z",
+      "runId": "run-70a7096a-b200-4a97-aceb-1aba40e8331a"
     },
     {
       "taskId": "authority.strategy_blog:brand-consistency-across-annual-meetings",
@@ -606,6 +608,24 @@
       "status": "in_review",
       "cadence": "daily",
       "dispatchedAt": "2026-10-09T20:40:40.257Z"
+    },
+    {
+      "taskId": "blog.national.create:walk-in-look-design-for-general-sessions",
+      "type": "blog.national.create",
+      "targetKey": "walk-in-look-design-for-general-sessions",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-12T22:48:18.204Z",
+      "runId": "run-a05147e2-388c-46ae-94a5-ccfbd78c93b0"
+    },
+    {
+      "taskId": "authority.strategy_blog:brand-safety-on-live-camera-and-led",
+      "type": "authority.strategy_blog",
+      "targetKey": "brand-safety-on-live-camera-and-led",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-12T22:48:18.204Z",
+      "runId": "run-dbe36b8b-2eea-4b5a-84bc-9dc2eccb3c6e"
     }
   ]
 }
