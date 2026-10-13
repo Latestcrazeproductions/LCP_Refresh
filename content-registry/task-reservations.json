@@ -43,8 +43,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-02T20:30:05.393Z",
-      "runId": "run-c1e5b2e1-58bb-47f1-b797-d0c09b5e3fb8"
+      "dispatchedAt": "2026-10-13T21:04:02.011Z",
+      "runId": "run-97970da9-1390-4661-b9e8-2feca02d6fa5"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -132,8 +132,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-02T20:30:05.393Z",
-      "runId": "run-b726bdb3-cee0-4daa-a4f6-a774bf2cc3e8"
+      "dispatchedAt": "2026-10-13T21:04:02.011Z",
+      "runId": "run-6f6e88cd-891c-4ea3-9e41-233357a36c66"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -626,6 +626,24 @@
       "cadence": "daily",
       "dispatchedAt": "2026-10-12T22:48:18.204Z",
       "runId": "run-dbe36b8b-2eea-4b5a-84bc-9dc2eccb3c6e"
+    },
+    {
+      "taskId": "blog.national.create:presenter-confidence-systems-beyond-slides",
+      "type": "blog.national.create",
+      "targetKey": "presenter-confidence-systems-beyond-slides",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-13T21:04:02.011Z",
+      "runId": "run-c6c09290-0894-401f-b6a1-3b3a1cae86e3"
+    },
+    {
+      "taskId": "authority.strategy_blog:post-show-asset-reuse-for-marketing",
+      "type": "authority.strategy_blog",
+      "targetKey": "post-show-asset-reuse-for-marketing",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-13T21:04:02.011Z",
+      "runId": "run-cc639d35-7d94-442f-9ea6-759f06179fb6"
     }
   ]
 }
