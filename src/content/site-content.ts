@@ -360,8 +360,8 @@ export const siteContent = {
             alt: 'Full corporate event stage with center LED backdrop, scenic side columns, and lighting truss before load-in',
           },
           {
-            src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Multi-tier general session stage with deck risers and branded scenic elements before load-in',
+            src: 'https://images.unsplash.com/photo-1505236858219-8359ecbfeca4?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Corporate ballroom keynote stage with raised deck, scenic backdrop, and trimmed house lighting before doors',
           },
         ] as Array<{ src: string; alt: string }>,
         details: {
