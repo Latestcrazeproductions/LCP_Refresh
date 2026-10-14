@@ -2,7 +2,7 @@
 title: Heard Museum Gala — Premium Event Production
 description: Museum gala production case study — ground-supported staging, intelligent lighting, line-array audio, IMAG, and cue-to-cue awards flow for a cultural institution fundraiser.
 track: B
-dateModified: 2026-09-30
+dateModified: 2026-10-14
 eyebrow: Arts / Cultural
 ---
 
@@ -46,6 +46,7 @@ Museum galas get vague scopes because planners copy ballroom language into a cam
 - **Written load-in / strike sequence** — aligned with museum security and curatorial hold points; strike order defined before the first case comes off the truck
 - **Content lock policy** — 72-hour cutoff for tribute videos, slide decks, and lower-thirds; no ad-hoc additions without a numbered cue revision
 - **Rehearsal block on actual positions** — cue-to-cue with presenters in show mics, not a tech-only dry run at a lectern off-stage
+- **Assistive-listening and ADA sight-line plan** — receiver count matched to seating chart, wheelchair positions on the stage plot, and IMAG lower-thirds scaled from the farthest ADA row — not verified from FOH
 
 If a vendor cannot commit to milestone dates and a written strike sequence in the proposal, the gala will cost more in change orders than the line items you skipped.
 
@@ -138,6 +139,21 @@ Ticket tiers at museum galas often map directly to seating sections — and rear
 - **Standing reception zone** — Separate audio zone; no assumption that cocktail guests will migrate to seats before the program starts
 
 Shallow rooms punish planners who size IMAG for the front row. The camera plot for this gala was built from the back table sight line first, then verified forward.
+
+## Assistive listening and inclusive sight lines
+
+Development teams often sell tables before anyone confirms wheelchair positions or how many assistive-listening receivers the room actually needs. Museum galas that skip this pass discover the gap at doors — when ushers are hunting FOH for hardware instead of seating donors.
+
+For this event, we walked ADA and companion positions at seated height during the six-week site visit and matched receiver inventory to the seating chart before load-in. Production does not guess hearing-assist counts from a ballroom template on a cultural campus.
+
+- **Receiver inventory vs. seating chart** — Count of assistive-listening units aligned to ticketed need, with spare batteries at FOH labeled by table range
+- **Wheelchair and companion sight lines** — Stage and IMAG readability from designated ADA positions; cable mats and barricades never cross approved guest paths
+- **Lower-third scale from ADA rows** — Name graphics sized for the farthest accessible row at awards lighting levels, not the walk-in look
+- **Presenter mic redundancy** — Lav plus lectern backup for honorees who may not reach a fixed stand; both checked in show positions during rehearsal
+- **Ushers with a clear FOH path** — Hand signal or radio code for mid-program receiver requests so the show caller is not interrupted mid-cue
+- **Captioning decision locked at 8 weeks** — Open captions on IMAG, dedicated caption screens, or none; font size and contrast signed off before content lock
+
+If your venue cannot provide ADA seating dimensions or a hearing-assist contact in the advance packet, budget a second site walk after the seating chart is final — not a clipboard conversation at load-in.
 
 ![Gala stage with LED backdrop, awards lighting, and IMAG screens at a cultural institution fundraiser](/images/marketing/case-studies/heard-museum-gala-stage.jpg)
 
@@ -243,11 +259,11 @@ The production team delivered measurable results across guest experience, progra
 - **Load-out completed inside the contracted window** — strike followed the written pull order; museum operations resumed on time with curatorial sign-off on surface photos
 - **Content pipeline stayed ahead of show day** — all six tribute videos and slide decks were in the playback queue 72 hours before doors, with labeled backup media at FOH
 - **Zero unplanned rigging or surface contact** — ground-supported positions and cable mats matched the advance plan; no last-minute stage resize after the 8-week footprint lock
-- **Wireless plan held through the awards block** — morning re-scan caught a campus security carrier; presenter channels were remapped in rehearsal with no dropouts during live cues
+- **Wireless plan held through reception and awards** — load-in and show-morning RF scans caught a campus security carrier; presenter channels were remapped in rehearsal with no dropouts during live cues; every primary mic had a fallback on the cue sheet
 - **Auction-to-awards handoff held dinner service** — lot descriptions finished inside the caterer's dessert hold window; transition to the first honoree landed as a numbered cue, not a floor negotiation
 - **Tribute video transitions held without dead air** — every pre-recorded segment played from the primary queue; video-to-live returns were rehearsed as single numbered cues with lavs open before the last frame faded
 - **Stakeholder roles stayed clear through strike** — facilities, curatorial, and production each had a named owner on comms; no mid-show debates about cable mats or house-light presets
-- **Wireless plan held through reception and awards** — show-morning RF scan caught one new interference source; backup channel map was never needed, but every primary mic had a fallback assigned before doors
+- **Assistive-listening inventory matched the final seating chart** — receivers distributed at doors from a labeled FOH kit; no mid-program scramble for batteries or spare units
 - **Power tie-in matched the advance drawing** — facilities signed off on distro positions at load-in; no mid-show breaker trips or unplanned extension cord runs across guest paths
 
 ## Lessons for museum and cultural galas
@@ -266,8 +282,12 @@ Cultural institution events reward planners who treat the venue like a collabora
 - **Write truck access and strike before load-in day** — campus galas fail when the first case arrives and nobody knows which gate is open; vehicle staging and hard out times belong in the advance packet, not a group text at midnight
 - **Treat RF as a campus problem, not a mic rental** — request security and facilities wireless inventory early; scan at load-in and again before doors when guest density changes the noise floor
 - **Submit a one-line power ask early** — amperage by position, tie-in locations, and generator rules in writing; facilities cannot approve a distro package they cannot map to breakers
+- **Walk ADA positions before the seating chart freezes** — IMAG and lower-thirds sized from accessible rows; assistive-listening counts tied to ticket sales, not a generic ballroom ratio
+- **Give ushers a FOH path for hearing assist** — mid-program receiver requests should not reach the show caller on the intercom loop
 
 ## From the floor
+
+At doors, an usher radioed FOH that three guests at ADA tables wanted assistive-listening units that were not on their place cards. The kit was labeled by section; the exchange took under two minutes and never hit the show-caller channel. That only worked because receiver counts were reconciled to the final seating chart the week before load-in — not because someone had a drawer of spare hardware under the console.
 
 During load-in, the RF scan picked up a security repeater nobody had listed on the advance packet. We moved two presenter channels and re-printed the cue sheet before the first mic check — which is why the show-morning scan was a formality instead of a crisis.
 
