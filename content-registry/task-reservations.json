@@ -87,8 +87,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-24T19:53:06.273Z",
-      "runId": "run-5153206f-dc82-4731-a607-584f83b374af"
+      "dispatchedAt": "2026-10-16T19:26:45.079Z",
+      "runId": "run-c611179d-8f8f-42e0-bb64-4cd475da1ccb"
     },
     {
       "taskId": "authority.strategy_blog:event-production-roi-for-planners",
@@ -132,8 +132,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-14T20:02:58.394Z",
-      "runId": "run-8d8cc73a-b950-4bbb-af44-586698626fdd"
+      "dispatchedAt": "2026-10-16T19:26:45.079Z",
+      "runId": "run-396971a9-dd17-41bd-b357-771f851a5910"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -680,6 +680,24 @@
       "cadence": "daily",
       "dispatchedAt": "2026-10-15T19:45:43.701Z",
       "runId": "run-a782a8bd-1cc3-4729-b64a-d7cd8128a6b1"
+    },
+    {
+      "taskId": "blog.national.create:simultaneous-interpretation-av-for-conferences",
+      "type": "blog.national.create",
+      "targetKey": "simultaneous-interpretation-av-for-conferences",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-16T19:26:45.079Z",
+      "runId": "run-baa37afa-5456-4aab-af36-b5dcd16ed6ea"
+    },
+    {
+      "taskId": "authority.strategy_blog:evaluating-production-partners-after-year-one",
+      "type": "authority.strategy_blog",
+      "targetKey": "evaluating-production-partners-after-year-one",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-16T19:26:45.079Z",
+      "runId": "run-c9c7ad87-7b40-4154-8ec7-3b2f819139d2"
     }
   ]
 }
