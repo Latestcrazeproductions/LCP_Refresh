@@ -133,8 +133,8 @@ export const siteContent = {
             alt: 'Full general session stage with center LED wall, side column displays, and trimmed house lighting before doors',
           },
           {
-            src: 'https://images.unsplash.com/photo-1475721027785-f74eccf877e2?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Ultra-wide seamless LED backdrop behind a presenter at a corporate general session',
+            src: 'https://images.unsplash.com/photo-1670941371559-f902cda879f2?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Wide center LED wall with vertical column displays and trimmed stage lighting before general session doors',
           },
           {
             src: 'https://images.unsplash.com/photo-1516450360412-c074710272a4?q=80&w=2070&auto=format&fit=crop',
