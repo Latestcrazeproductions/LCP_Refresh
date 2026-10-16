@@ -238,9 +238,11 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 70,
-      "status": "queued",
+      "status": "published",
+      "publishedAt": "2026-10-16",
       "primaryKeyword": "evaluate event production partner",
-      "serviceCta": "/contact"
+      "serviceCta": "/contact",
+      "rationale": "Published 2026-10-16; year-one partner evaluation framework — renewal versus rebid criteria, scorecard roll-up, and executive outcomes tied to content leverage and brief adherence."
     },
     {
       "slug": "event-production-roi-for-planners",
