@@ -208,9 +208,10 @@
       "track": "B",
       "minWords": 1200,
       "opportunityScore": 73,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "event production asset reuse marketing",
-      "serviceCta": "/contact"
+      "serviceCta": "/contact",
+      "rationale": "Published 2026-10-13; marketing export governance and capture tiers without reopening show files."
     },
     {
       "slug": "when-to-add-a-show-caller-to-the-budget",
