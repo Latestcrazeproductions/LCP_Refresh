@@ -206,7 +206,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             <section className="relative py-16 px-6 max-w-4xl mx-auto border-t border-white/10">
               <h2 className="text-2xl md:text-3xl font-bold mb-3">Common questions</h2>
               <p className="text-gray-400 mb-10">
-                Practical answers for producers sizing walls, preparing quotes and RFPs, locking content, planning rigging and failover, and feeding hybrid audiences without a last-minute crop.
+                Practical answers for producers sizing walls (indoor or outdoor), preparing quotes and RFPs, locking content, planning rigging and failover, and feeding hybrid audiences without a last-minute crop.
               </p>
               <dl className="space-y-8">
                 {serviceFaqs.map((item) => (
@@ -217,7 +217,11 @@ export default async function ServiceDetailPage({ params }: Props) {
                 ))}
               </dl>
               <p className="mt-10 text-gray-400">
-                For viewing-distance tiers and RFP checklist items, read our{' '}
+                For commercial sizing and event-type use cases, see{' '}
+                <Link href="/feeds/led-walls" className="text-blue-400 hover:text-blue-300 underline">
+                  LED walls for events
+                </Link>
+                . For viewing-distance tiers and RFP checklist items, read our{' '}
                 <Link href="/blog/led-wall-sizing-for-events" className="text-blue-400 hover:text-blue-300 underline">
                   LED wall sizing guide
                 </Link>
