@@ -156,7 +156,7 @@ export const siteContent = {
           {
             question: 'What pixel pitch do I need for a corporate keynote?',
             answer:
-              'Match pitch to your farthest seat, not the stage lip. For most hotel ballrooms with seats 10–25 feet from the wall, 2.3–2.6mm is the practical sweet spot. Thrust stages and exhibit booths under 10 feet need 1.5–1.9mm. Rooms deeper than 50 feet often benefit from delay screens instead of chasing finer pitch on one hero wall. Finer pitch also means more sending cards and more things that can fail during a CEO walk-on — balance visual quality against failure surface area. See our LED wall sizing guide for viewing-distance tiers.',
+              'Match pitch to your farthest seat, not the stage lip. For most hotel ballrooms with seats 10–25 feet from the wall, 2.3–2.6mm is the practical sweet spot. Thrust stages and exhibit booths under 10 feet need 1.5–1.9mm. Rooms deeper than 50 feet often benefit from delay screens instead of chasing finer pitch on one hero wall. Finer pitch also means more sending cards and more things that can fail during a CEO walk-on — balance visual quality against failure surface area. Bring farthest-row distance and a seating diagram to pre-pro; we map pitch tiers to your room instead of defaulting to whatever shipped last week.',
           },
           {
             question: 'Do your LED walls include redundancy for live events?',
@@ -274,19 +274,14 @@ export const siteContent = {
               'Four to six weeks covers most single-market keynotes with standard rigging — send room dimensions and load-in constraints early so we can flag truck dock or ceiling issues before you sign. Multi-market tours or custom aspect builds with full-field calibration windows need 8–12 weeks. Q4 conference season and January sales kickoffs book inventory early; if your dates fall in those windows, earlier is better. Rush timelines are possible depending on inventory and venue access — contact us with your dates and we will tell you honestly what is feasible.',
           },
           {
-            question: 'What should I send when requesting an LED wall quote?',
+            question: 'What export settings should motion designers use for the wall canvas?',
             answer:
-              'Start with a floor plan or ballroom diagram: seating count, style (chevron, classroom, theater), and the farthest occupied row. Add ceiling height, rigging plot or venue tech packet, load-in and strike windows, and how content will run (slides only, IMAG, full-screen video, hybrid stream). Photos of the room beat guessing when CAD is not available. We return canvas dimensions, pitch recommendation, rigging approach, and conflict flags — not a panel count pulled from a spreadsheet.',
+              'Build at the native pixel dimensions we publish — not 1920×1080 scaled up on a 32:9 ribbon. Video: ProRes 422 or high-bitrate H.264 at the wall refresh rate (50 or 60 Hz); avoid 24fps clips on a 60 Hz path unless everyone agrees how they will look on camera. Stills and slides: PNG or PDF at full resolution with embedded brand colors, not RGB pulled from a projector proof. Color: Rec.709 for most corporate content unless broadcast asks for something else; send reference stills so calibration targets your reds, not a generic preset. Safe zones for lower-thirds and IMAG crops get marked on the template before your team animates — rebuilding for a late stream crop is a predictable kind of pain.',
           },
           {
-            question: 'What should an LED wall RFP include beyond dimensions and pixel pitch?',
+            question: 'Can live polls, dashboards, or social feeds run on the LED wall during a general session?',
             answer:
-              'Ask for farthest-seat readability standards (e.g., minimum character height at the back row), native resolution and refresh rate for every content source, processor redundancy and who owns spares, load-in footprint (module size, case count, ground vs flown weight), and a calibration window before doors — not twenty minutes before the CEO walk-on. Request a comparable-room reference, not just a spec sheet. Bids that cannot describe a show like yours at this distance are guessing with your budget.',
-          },
-          {
-            question: 'Do presenters need confidence monitors when the room has a large LED wall?',
-            answer:
-              'Usually yes — the emissive wall behind them is bright, and turning to read slides on it reads poorly on camera. Downstage confidence monitors (often flanked, sometimes teleprompter-fed) keep eyes forward while the audience reads the upstage wall. Placement depends on camera positions, lectern height, and whether panels walk — we plot monitor lines in pre-pro alongside wall and IMAG layout so rehearsal is not the first time someone discovers they cannot see their transitions.',
+              'Yes — when the run-of-show names who owns each source and how handoffs are cued. Polling and Q&A platforms feed through a dedicated machine or browser layer we map into the switcher; dashboards need a readable type scale at the farthest seat, not a laptop screen mirrored at 1080p. Social walls need moderation and a kill switch the show caller actually knows how to hit. Rehearse every live segment on show hardware — a URL that works in the office Wi-Fi often has opinions on venue VLANs. Hybrid streams inherit the same feed, so lock lower-thirds and caption safe areas before doors.',
           },
           {
             question: 'When should wall content be locked before load-in?',
