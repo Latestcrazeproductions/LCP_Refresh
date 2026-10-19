@@ -214,9 +214,10 @@
       "title": "Product Reveal Lighting and Playback: A Planner's Sequence",
       "track": "A",
       "opportunityScore": 66,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "product reveal lighting playback",
-      "serviceCta": "/services/lighting"
+      "serviceCta": "/services/lighting",
+      "rationale": "Published 2026-10-19; maintain via faq_refresh."
     },
     {
       "slug": "brand-activation-footprint-and-power-plan",
