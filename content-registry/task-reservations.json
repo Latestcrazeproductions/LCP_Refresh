@@ -43,8 +43,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-15T19:45:43.701Z",
-      "runId": "run-1a5430b7-62ef-464b-a485-b9c6df29c90d"
+      "dispatchedAt": "2026-10-19T20:55:19.136Z",
+      "runId": "run-8ae7b43a-bb85-4313-a680-89f8fcbd3cef"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -132,8 +132,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-16T19:26:45.079Z",
-      "runId": "run-396971a9-dd17-41bd-b357-771f851a5910"
+      "dispatchedAt": "2026-10-19T20:55:19.136Z",
+      "runId": "run-87eb5db4-6a61-427b-8368-9fce219923b9"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -698,6 +698,24 @@
       "cadence": "daily",
       "dispatchedAt": "2026-10-16T19:26:45.079Z",
       "runId": "run-c9c7ad87-7b40-4154-8ec7-3b2f819139d2"
+    },
+    {
+      "taskId": "blog.national.create:product-reveal-lighting-and-playback",
+      "type": "blog.national.create",
+      "targetKey": "product-reveal-lighting-and-playback",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-19T20:55:19.136Z",
+      "runId": "run-8bb58889-ed56-4fb0-91fe-b5431f80b732"
+    },
+    {
+      "taskId": "authority.strategy_blog:production-standards-for-board-and-investor-events",
+      "type": "authority.strategy_blog",
+      "targetKey": "production-standards-for-board-and-investor-events",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-19T20:55:19.136Z",
+      "runId": "run-49872cc7-d8b6-4740-b7e0-ade8e647b217"
     }
   ]
 }
