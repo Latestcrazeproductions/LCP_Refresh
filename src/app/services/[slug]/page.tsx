@@ -206,7 +206,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             <section className="relative py-16 px-6 max-w-4xl mx-auto border-t border-white/10">
               <h2 className="text-2xl md:text-3xl font-bold mb-3">Common questions</h2>
               <p className="text-gray-400 mb-10">
-                Practical answers for producers sizing walls, preparing quotes and RFPs, locking content, planning rigging and failover, and feeding hybrid audiences without a last-minute crop.
+                Practical answers for producers sizing walls, preparing quotes and RFPs, locking content, planning rigging and failover, handling show-day deck changes, and feeding hybrid audiences without a last-minute crop.
               </p>
               <dl className="space-y-8">
                 {serviceFaqs.map((item) => (
@@ -236,6 +236,14 @@ export default async function ServiceDetailPage({ params }: Props) {
                 . Building an RFP? See{' '}
                 <Link href="/blog/production-rfp-questions-for-marketing-leaders" className="text-blue-400 hover:text-blue-300 underline">
                   production RFP questions for marketing leaders
+                </Link>
+                . Content deadlines and lock dates? Read{' '}
+                <Link href="/blog/content-lock-deadlines-for-event-playback" className="text-blue-400 hover:text-blue-300 underline">
+                  content lock deadlines for event playback
+                </Link>
+                . Ground stack vs flown? See{' '}
+                <Link href="/blog/ground-supported-vs-flown-led-walls" className="text-blue-400 hover:text-blue-300 underline">
+                  ground-supported vs flown LED walls
                 </Link>
                 . Ready to scope your room?{' '}
                 <Link href="/contact" className="text-blue-400 hover:text-blue-300 underline font-medium">
