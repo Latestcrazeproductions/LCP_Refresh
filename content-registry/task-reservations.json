@@ -159,8 +159,8 @@
       "targetKey": "/services/lighting",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-09-28T21:41:30.135Z",
-      "runId": "run-63e9bb1c-b7c9-4b28-af96-13cc1f76c2af"
+      "dispatchedAt": "2026-10-20T19:54:46.817Z",
+      "runId": "run-b8f679ba-ce79-49c1-98aa-61be2c0493c1"
     },
     {
       "taskId": "authority.strategy_blog:av-budget-allocation-for-multi-city-tours",
@@ -177,8 +177,8 @@
       "targetKey": "daily-venue-guide",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-15T19:45:43.701Z",
-      "runId": "run-7a66a4cd-cdfa-45af-81f9-f4345515808b"
+      "dispatchedAt": "2026-10-20T19:54:46.817Z",
+      "runId": "run-9b957675-99c9-4109-a3f6-dac444cf3fc9"
     },
     {
       "taskId": "blog.national.create:when-you-need-imag-and-delay-screens",
@@ -716,6 +716,24 @@
       "cadence": "daily",
       "dispatchedAt": "2026-10-19T20:55:19.136Z",
       "runId": "run-49872cc7-d8b6-4740-b7e0-ade8e647b217"
+    },
+    {
+      "taskId": "blog.national.create:brand-activation-footprint-and-power-plan",
+      "type": "blog.national.create",
+      "targetKey": "brand-activation-footprint-and-power-plan",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-20T19:54:46.817Z",
+      "runId": "run-05732d56-5003-4ef9-be33-b1061a309dcb"
+    },
+    {
+      "taskId": "authority.strategy_blog:governing-vendor-consolidation-for-event-technology",
+      "type": "authority.strategy_blog",
+      "targetKey": "governing-vendor-consolidation-for-event-technology",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-20T19:54:46.817Z",
+      "runId": "run-2692a4e6-8aff-4449-a9de-1033a3a65ce1"
     }
   ]
 }
