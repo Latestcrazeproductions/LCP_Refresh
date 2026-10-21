@@ -43,8 +43,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-19T20:55:19.136Z",
-      "runId": "run-8ae7b43a-bb85-4313-a680-89f8fcbd3cef"
+      "dispatchedAt": "2026-10-21T19:58:23.021Z",
+      "runId": "run-a6024516-368c-4d8b-9048-f484e0d5aae2"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -132,8 +132,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-19T20:55:19.136Z",
-      "runId": "run-87eb5db4-6a61-427b-8368-9fce219923b9"
+      "dispatchedAt": "2026-10-21T19:58:23.021Z",
+      "runId": "run-6b5526c3-ca5c-4127-9568-f0747d2f2d02"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -734,6 +734,15 @@
       "cadence": "daily",
       "dispatchedAt": "2026-10-20T19:54:46.817Z",
       "runId": "run-2692a4e6-8aff-4449-a9de-1033a3a65ce1"
+    },
+    {
+      "taskId": "blog.national.create:outdoor-event-av-weather-contingency",
+      "type": "blog.national.create",
+      "targetKey": "outdoor-event-av-weather-contingency",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-21T19:58:23.021Z",
+      "runId": "run-608c7bd4-bd96-4bf4-80f6-c036fcada2d9"
     }
   ]
 }
