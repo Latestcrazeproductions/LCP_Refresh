@@ -241,9 +241,10 @@
       "title": "Multi-Day Conference Changeover Playbook",
       "track": "A",
       "opportunityScore": 63,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "conference room changeover av",
-      "serviceCta": "/events/conferences"
+      "serviceCta": "/events/conferences",
+      "rationale": "Published 2026-10-22; maintain via faq_refresh."
     },
     {
       "slug": "executive-town-hall-av-minimums",
