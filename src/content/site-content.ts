@@ -446,8 +446,8 @@ export const siteContent = {
             alt: 'Stage projection mapping with digital content patterns and blue scenic wash on a branded event set',
           },
           {
-            src: 'https://images.unsplash.com/photo-1771167219393-629dd24b353e?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Architectural projection mapping on a building facade at an outdoor brand activation',
+            src: 'https://images.unsplash.com/photo-1765277902916-9fabeb82e2bf?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Nighttime outdoor brand activation with building projection mapping, stage lighting, and crowd sight lines before show call',
           },
         ] as Array<{ src: string; alt: string }>,
         details: {
