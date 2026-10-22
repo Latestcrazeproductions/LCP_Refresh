@@ -223,9 +223,10 @@
       "title": "Brand Activation Footprint and Power Plan Before You Sign the Booth",
       "track": "A",
       "opportunityScore": 65,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "brand activation power plan",
-      "serviceCta": "/events/brand-activations"
+      "serviceCta": "/events/brand-activations",
+      "rationale": "Published 2026-10-20; maintain via faq_refresh."
     },
     {
       "slug": "outdoor-event-av-weather-contingency",
