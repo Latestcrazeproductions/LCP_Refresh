@@ -221,6 +221,10 @@ export default async function ServiceDetailPage({ params }: Props) {
                 <Link href="/blog/led-wall-sizing-for-events" className="text-blue-400 hover:text-blue-300 underline">
                   LED wall sizing guide
                 </Link>
+                . Event-wide sizing and rental scope? See{' '}
+                <Link href="/feeds/led-walls" className="text-blue-400 hover:text-blue-300 underline">
+                  LED walls for events
+                </Link>
                 . Unsure whether you need IMAG or delay screens? See{' '}
                 <Link href="/blog/when-you-need-imag-and-delay-screens" className="text-blue-400 hover:text-blue-300 underline">
                   when to spec IMAG and delay screens
@@ -228,10 +232,6 @@ export default async function ServiceDetailPage({ params }: Props) {
                 . Comparing LED to projection for a brand reveal? See{' '}
                 <Link href="/blog/projection-vs-led-for-brand-moments" className="text-blue-400 hover:text-blue-300 underline">
                   projection mapping vs LED walls
-                </Link>
-                . Back-row sight lines and delay screens? Read{' '}
-                <Link href="/blog/when-you-need-imag-and-delay-screens" className="text-blue-400 hover:text-blue-300 underline">
-                  IMAG and delay screens
                 </Link>
                 . Building an RFP? See{' '}
                 <Link href="/blog/production-rfp-questions-for-marketing-leaders" className="text-blue-400 hover:text-blue-300 underline">
