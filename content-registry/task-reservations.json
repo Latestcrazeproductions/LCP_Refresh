@@ -43,8 +43,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-21T19:58:23.021Z",
-      "runId": "run-a6024516-368c-4d8b-9048-f484e0d5aae2"
+      "dispatchedAt": "2026-10-23T19:51:17.863Z",
+      "runId": "run-6426a7f6-eb0c-4922-afe4-af21933291d5"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -177,8 +177,8 @@
       "targetKey": "daily-venue-guide",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-20T19:54:46.817Z",
-      "runId": "run-9b957675-99c9-4109-a3f6-dac444cf3fc9"
+      "dispatchedAt": "2026-10-23T19:51:17.863Z",
+      "runId": "run-9f453c6b-c199-491e-9738-836bbdb311d4"
     },
     {
       "taskId": "blog.national.create:when-you-need-imag-and-delay-screens",
@@ -752,6 +752,15 @@
       "cadence": "daily",
       "dispatchedAt": "2026-10-22T19:50:11.823Z",
       "runId": "run-d567edc9-f1d5-4e0b-aa9e-2ca539507f3c"
+    },
+    {
+      "taskId": "blog.national.create:executive-town-hall-av-minimums",
+      "type": "blog.national.create",
+      "targetKey": "executive-town-hall-av-minimums",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-23T19:51:17.863Z",
+      "runId": "run-0fe65f10-7547-4416-83d0-1a3e1eb785cc"
     }
   ]
 }
