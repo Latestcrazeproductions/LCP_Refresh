@@ -206,7 +206,7 @@ export default async function ServiceDetailPage({ params }: Props) {
             <section className="relative py-16 px-6 max-w-4xl mx-auto border-t border-white/10">
               <h2 className="text-2xl md:text-3xl font-bold mb-3">Common questions</h2>
               <p className="text-gray-400 mb-10">
-                Practical answers for producers sizing walls, preparing quotes and RFPs, locking content, planning rigging and failover, and feeding hybrid audiences without a last-minute crop.
+                Practical answers for producers sizing walls, preparing quotes and RFPs, locking content, planning rigging and failover, covering outdoor and COI asks, and feeding hybrid audiences without a last-minute crop.
               </p>
               <dl className="space-y-8">
                 {serviceFaqs.map((item) => (
@@ -229,9 +229,9 @@ export default async function ServiceDetailPage({ params }: Props) {
                 <Link href="/blog/projection-vs-led-for-brand-moments" className="text-blue-400 hover:text-blue-300 underline">
                   projection mapping vs LED walls
                 </Link>
-                . Back-row sight lines and delay screens? Read{' '}
-                <Link href="/blog/when-you-need-imag-and-delay-screens" className="text-blue-400 hover:text-blue-300 underline">
-                  IMAG and delay screens
+                . Ground stack or flown? Read{' '}
+                <Link href="/blog/ground-supported-vs-flown-led-walls" className="text-blue-400 hover:text-blue-300 underline">
+                  ground-supported vs flown LED walls
                 </Link>
                 . Building an RFP? See{' '}
                 <Link href="/blog/production-rfp-questions-for-marketing-leaders" className="text-blue-400 hover:text-blue-300 underline">
