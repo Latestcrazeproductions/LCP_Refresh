@@ -244,11 +244,6 @@ export const siteContent = {
               'Usually yes — the emissive wall behind them is bright, and turning to read slides on it reads poorly on camera. Downstage confidence monitors (often flanked, sometimes teleprompter-fed) keep eyes forward while the audience reads the upstage wall. Placement depends on camera positions, lectern height, and whether panels walk — we plot monitor lines in pre-pro alongside wall and IMAG layout so rehearsal is not the first time someone discovers they cannot see their transitions.',
           },
           {
-            question: 'When should final wall content be delivered before show day?',
-            answer:
-              'Lock motion graphics and full-screen video at least one week before load-in — longer for multi-zone layouts or 32:9 canvases your team has never built before. Slide decks can arrive closer, but the master deck should be frozen before rehearsal so font substitutions and last-minute aspect-ratio surprises do not become a load-in sport. We run a content test on the actual processor path during tech rehearsal; discovering a 24fps clip on a 60 Hz wall during the CEO walk-through is avoidable with a calendar. Send ProRes or high-bitrate H.264 for video, native-resolution PNG or PDF exports for stills, and one contact who owns change control.',
-          },
-          {
             question: 'Is this LED wall rental-only, or full production with onsite support?',
             answer:
               'We deliver the wall as part of a production — spec, processor path, calibration, failover planning, and an onsite LED tech who owns the wall through strike. Pure gear rental without show operation is a different quote and a different risk profile; you are signing up to be the integrator. Most corporate keynotes and general sessions want the production package so load-in, rehearsal, and show day share one technical owner. If you only need panels for a controlled install with your in-house team, say that upfront — we will tell you honestly whether that fits the show.',
@@ -274,24 +269,9 @@ export const siteContent = {
               'Four to six weeks covers most single-market keynotes with standard rigging — send room dimensions and load-in constraints early so we can flag truck dock or ceiling issues before you sign. Multi-market tours or custom aspect builds with full-field calibration windows need 8–12 weeks. Q4 conference season and January sales kickoffs book inventory early; if your dates fall in those windows, earlier is better. Rush timelines are possible depending on inventory and venue access — contact us with your dates and we will tell you honestly what is feasible.',
           },
           {
-            question: 'What should I send when requesting an LED wall quote?',
-            answer:
-              'Start with a floor plan or ballroom diagram: seating count, style (chevron, classroom, theater), and the farthest occupied row. Add ceiling height, rigging plot or venue tech packet, load-in and strike windows, and how content will run (slides only, IMAG, full-screen video, hybrid stream). Photos of the room beat guessing when CAD is not available. We return canvas dimensions, pitch recommendation, rigging approach, and conflict flags — not a panel count pulled from a spreadsheet.',
-          },
-          {
-            question: 'What should an LED wall RFP include beyond dimensions and pixel pitch?',
-            answer:
-              'Ask for farthest-seat readability standards (e.g., minimum character height at the back row), native resolution and refresh rate for every content source, processor redundancy and who owns spares, load-in footprint (module size, case count, ground vs flown weight), and a calibration window before doors — not twenty minutes before the CEO walk-on. Request a comparable-room reference, not just a spec sheet. Bids that cannot describe a show like yours at this distance are guessing with your budget.',
-          },
-          {
-            question: 'Do presenters need confidence monitors when the room has a large LED wall?',
-            answer:
-              'Usually yes — the emissive wall behind them is bright, and turning to read slides on it reads poorly on camera. Downstage confidence monitors (often flanked, sometimes teleprompter-fed) keep eyes forward while the audience reads the upstage wall. Placement depends on camera positions, lectern height, and whether panels walk — we plot monitor lines in pre-pro alongside wall and IMAG layout so rehearsal is not the first time someone discovers they cannot see their transitions.',
-          },
-          {
             question: 'When should wall content be locked before load-in?',
             answer:
-              'Lock motion graphics and full-screen video at least two weeks before load-in; slide decks at least 72 hours before doors for a real QA pass on native resolution. Late renders force untested files onto the processor during calibration — the wall will play them, but nobody has checked lower-thirds, brand colors, or frame rate on camera. We publish canvas dimensions and safe zones early so your team builds once; change orders after content lock belong in the run-of-show, not in a fresh After Effects export at 6 AM.',
+              'Lock motion graphics and full-screen video at least two weeks before load-in — longer for multi-zone layouts or 32:9 canvases your team has never built before. Freeze slide decks at least 72 hours before doors so we can QA native resolution, fonts, and transitions on the actual processor path during tech rehearsal. Send ProRes or high-bitrate H.264 for video, native-resolution PNG or PDF for stills, and one contact who owns change control. Late renders land on the wall during calibration; discovering a 24fps clip on a 60 Hz feed during the CEO walk-through is avoidable with a calendar, not a prayer.',
           },
           {
             question: 'How do you split LED wall scope between house AV and a production vendor?',
@@ -307,6 +287,16 @@ export const siteContent = {
             question: 'How do multi-city tours keep the same wall look across venues?',
             answer:
               'Lock creative to a defined canvas size and color pipeline before city two — not per-market guesses. We travel matched processors, stored calibration profiles, and a packing list tied to the show file so a different ballroom does not reshape your motion graphics. Venue differences (ceiling height, power, rigging) get solved with documented alt configs, not new content builds. Send every venue packet in the pre-pro batch so load-in day is execution, not re-spec.',
+          },
+          {
+            question: 'Can LED walls work in daylight, tents, or partially outdoor venues?',
+            answer:
+              'Yes, with planning — outdoor and tented builds need brightness headroom, weather-rated cabling, ballast or rigging that respects wind load, and a strike plan if rain moves in. Direct sun still wins against any panel on camera; we set tent orientation, wall angle, and presenter backlight so faces are not silhouettes against a hero wall. Heat and humidity affect processors and cable runs; overnight security and power lockout rules vary by venue. Send site photos, weather windows for your dates, and available power locations early — ballroom assumptions do not transfer to a lawn.',
+          },
+          {
+            question: 'What should venues list on the COI for an LED wall build?',
+            answer:
+              'Most venues want additional insured status, waiver of subrogation, and rigging or heavy equipment endorsements that name the LED vendor and weight on structure. Ground-stacked towers still trigger floor-load and tip-over clauses; flown walls need rigging certificates and sometimes a third-party structural review. We provide a standard COI request packet with rigging plot, estimated weights, and module footprint so your risk team is not guessing. If house AV is on the certificate too, spell out who carries gear in motion versus who owns show-day operation — ambiguity shows up when something gets bumped in the dock.',
           },
         ],
       },
