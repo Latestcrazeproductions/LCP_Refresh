@@ -177,7 +177,8 @@
       "targetKey": "daily-venue-guide",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-28T20:51:45.266Z"
+      "dispatchedAt": "2026-10-29T20:56:59.734Z",
+      "runId": "run-23247e13-c4b3-428f-8e69-db38658e9d65"
     },
     {
       "taskId": "blog.national.create:when-you-need-imag-and-delay-screens",
@@ -275,7 +276,8 @@
       "targetKey": "/services/stage",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-28T20:51:45.266Z"
+      "dispatchedAt": "2026-10-29T20:56:59.734Z",
+      "runId": "run-d5ee637a-9918-4d8a-92d9-285edfc770f3"
     },
     {
       "taskId": "authority.strategy_blog:production-partners-for-high-stakes-keynotes",
@@ -785,6 +787,15 @@
       "status": "in_review",
       "cadence": "daily",
       "dispatchedAt": "2026-10-28T20:51:45.266Z"
+    },
+    {
+      "taskId": "blog.national.create:backup-playback-and-show-file-redundancy",
+      "type": "blog.national.create",
+      "targetKey": "backup-playback-and-show-file-redundancy",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-29T20:56:59.734Z",
+      "runId": "run-526f338a-2f24-4032-ab67-c537cb154146"
     }
   ]
 }
