@@ -295,10 +295,10 @@
       "title": "Seating and Sight-Line Studies Before You Size the LED Wall",
       "track": "A",
       "opportunityScore": 57,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "led wall sight line study",
       "serviceCta": "/services/led-walls",
-      "rationale": "Complements published led-wall-sizing-for-events; this is seating/sight-line process, not pixel-pitch sizing."
+      "rationale": "Published 2026-10-30; complements led-wall-sizing-for-events; maintain via faq_refresh."
     },
     {
       "slug": "house-light-control-during-video-playback",
