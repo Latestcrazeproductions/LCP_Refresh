@@ -2,13 +2,14 @@
 title: Heard Museum Gala — Premium Event Production
 description: Museum gala production case study — ground-supported staging, intelligent lighting, line-array audio, IMAG, and cue-to-cue awards flow for a cultural institution fundraiser.
 track: B
-dateModified: 2026-09-30
+dateModified: 2026-10-30
 eyebrow: Arts / Cultural
+image: /images/marketing/case-studies/heard-museum-gala-stage.jpg
 ---
 
 # Heard Museum Gala — Premium Event Production
 
-Museum gala production inside a working cultural campus — not a hotel ballroom — means ground-supported staging, dual-zone audio, IMAG sight lines, and a cue-to-cue awards flow that cannot overrun curatorial hold times. This case study covers how we scoped and ran full AV and show management for the Heard Museum annual fundraising gala: seated dinner, live auction, and recognition segment where load-in windows, artifact adjacency, and donor sight lines all compete for priority.
+Museum gala production inside a working cultural campus — not a hotel ballroom — means ground-supported staging, dual-zone audio, IMAG sight lines, and a cue-to-cue awards flow that cannot overrun curatorial hold times. This case study covers how we scoped and ran full AV and show management for the Heard Museum annual fundraising gala: seated dinner, live auction, and recognition segment where load-in windows, artifact adjacency, donor sight lines, and accessibility expectations all compete for priority.
 
 [Request a consultation](/contact) for museum gala or cultural institution production, or review our [galas and awards overview](/events/galas-awards), [AV production services](/services/av-production), and [stage production services](/services/stage).
 
@@ -205,6 +206,21 @@ Museum galas lean heavily on pre-recorded tribute content — family interviews,
 
 When a tribute video ends and the honoree steps back to the lectern, the room holds its breath for about two seconds. That gap is where galas either feel polished or amateur. Rehearsal time spent on video-to-live returns pays off more than another hour tuning the LED processor.
 
+## Accessibility on the recognition program
+
+Museum galas often mix seated donors, standing reception guests, and honorees with mobility or hearing needs in the same program block. Production cannot treat accessibility as a facilities-only checklist — sight lines, captioning, and mic discipline belong on the cue sheet with the same weight as lighting looks.
+
+For this gala, we aligned with development and facilities before the 8-week run-of-show review on how honorees would reach the stage, where open captions would appear if requested, and how IMAG framing would stay readable for guests using assistive listening in the rear third of the room.
+
+- **Stage access path in the advance packet** — ramp or lift location, handrail clearance, and whether the path crosses cable mats during the show (if yes, mats get a dedicated walk lane)
+- **Open-caption placement on IMAG** — lower-third safe area reserved in the graphics template; no last-minute name graphics that cover caption text
+- **Assistive-listening coverage map** — RF assist units tested at the farthest seated table and at one standing-reception position, not only at FOH
+- **Presenter mic redundancy** — lectern plus backup wireless for honorees who cannot use a fixed mic stand; both channels on the cue sheet before rehearsal
+- **House-light hold for ASL or interpreter visibility** — if interpreters are on stage, awards lighting look includes enough front fill that hands and faces stay visible on IMAG without blowing out the LED wall
+- **Program copy in show caller hands** — phonetic spellings for honoree names and tribal or cultural terms shared with the emcee and V1 before doors, not corrected from the floor
+
+Accessibility requests that arrive after the content lock still get answered — but they should not require rebuilding the camera plot on show morning.
+
 ## Photography and donor communications
 
 Museum development teams often need still photography and social coverage that does not match the live IMAG feed. Treating those as separate deliverables — not an afterthought for whoever has a phone — keeps donor communications usable the next morning.
@@ -247,8 +263,8 @@ The production team delivered measurable results across guest experience, progra
 - **Auction-to-awards handoff held dinner service** — lot descriptions finished inside the caterer's dessert hold window; transition to the first honoree landed as a numbered cue, not a floor negotiation
 - **Tribute video transitions held without dead air** — every pre-recorded segment played from the primary queue; video-to-live returns were rehearsed as single numbered cues with lavs open before the last frame faded
 - **Stakeholder roles stayed clear through strike** — facilities, curatorial, and production each had a named owner on comms; no mid-show debates about cable mats or house-light presets
-- **Wireless plan held through reception and awards** — show-morning RF scan caught one new interference source; backup channel map was never needed, but every primary mic had a fallback assigned before doors
 - **Power tie-in matched the advance drawing** — facilities signed off on distro positions at load-in; no mid-show breaker trips or unplanned extension cord runs across guest paths
+- **Recognition program stayed accessible end-to-end** — stage access path, assistive-listening check, and IMAG caption safe area were rehearsed as numbered cues; no ad-hoc layout changes after the 72-hour content lock
 
 ## Lessons for museum and cultural galas
 
@@ -266,6 +282,7 @@ Cultural institution events reward planners who treat the venue like a collabora
 - **Write truck access and strike before load-in day** — campus galas fail when the first case arrives and nobody knows which gate is open; vehicle staging and hard out times belong in the advance packet, not a group text at midnight
 - **Treat RF as a campus problem, not a mic rental** — request security and facilities wireless inventory early; scan at load-in and again before doors when guest density changes the noise floor
 - **Submit a one-line power ask early** — amperage by position, tie-in locations, and generator rules in writing; facilities cannot approve a distro package they cannot map to breakers
+- **Put accessibility on the cue sheet early** — stage access, caption safe area, and assistive-listening checks belong in the 8-week run-of-show review, not in a day-of email chain
 
 ## From the floor
 
