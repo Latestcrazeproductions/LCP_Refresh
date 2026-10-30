@@ -59,7 +59,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
         'Fire marshal and code — haze approval, sprinkler head clearance, occupancy load, egress paths with your scenic in place',
         'Outdoor backup — rain plan location, tent tie-down points, wind speed limits for LED or flown elements, generator pad and cable trench path',
         'Storage and overnight hold — where cases sit between load-in and show day, and whether the venue clears the room for another event overnight',
-        'Fire marshal and life safety — haze approval threshold, open-flame or pyro permits, crowd capacity vs your seating plan, egress paths with your stage footprint',
+        'Dock and freight — appointment vs open window, shared dock queues with retail or catering, holiday closures, and pallet-jack path from curb to ballroom without carpet damage fees',
         'COI and insurance — minimum liability limits, additional-insured wording, certificate delivery deadline before load-in',
         'ADA and accessibility — wheelchair zones with clear sight lines, assisted-listening RF, captioning feed path, and camera framing that includes accessible seating',
         'Obstructions at stage lip — HVAC soffits, sprinkler drops, and lighting coves that do not appear on the sales PDF centerline height',
@@ -84,6 +84,21 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
         'In-house AV exclusivity — outside-vendor patch fees, mandatory house tech hours, and whether your switcher operator can touch the house projector',
         'Comms and playback handoff — who owns the matrix, intercom channels, and show-control laptop when house and outside vendor share a room',
         'Show caller designation — one name on the run-of-show with headset authority; house tech vs production TD when both are in the booth',
+        'Billing and overtime — union minimum calls, meal penalties, and whether house tech hours bill in four-hour blocks even when the room is empty',
+      ],
+    },
+    {
+      title: 'BEO and contract addendum — production clauses worth negotiating',
+      body: 'The banquet event order is where catering, room setup, and AV meet — and where vague language becomes a change order at load-in. A production addendum or exhibit service order should mirror what your vendor quoted: hours, access, power, and who signs the rigging plot. If it is not in the signed packet, assume the venue default applies.',
+      bullets: [
+        'Load-in and strike windows — start and end times in local time, including whether setup can begin before house AV opens the room',
+        'Freight elevator and dock — operating hours, holiday exceptions, escort requirements, and fees for after-hours access',
+        'Power and tie-in — who orders the electrician, lead time for supplemental distro, and whether breakers stay live overnight',
+        'Rigging submission — deadline for weight plots, engineer of record, and whether the venue rejects ground-support-only plans for flown elements',
+        'Exclusive vendor clauses — outside AV fees, mandatory house labor minimums, and patch points your production partner is allowed to use',
+        'Rehearsal and hold fees — room rental for cue-to-cue, storage between days, and penalties if strike runs past the BEO end time',
+        'Insurance and COI — additional-insured wording, certificate due date, and whether the venue requires waivers for your crew on the dock',
+        'Cancellation and attrition — what happens to rigging deposits and labor holds if the program scales down a week out',
       ],
     },
     {
@@ -127,7 +142,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
   ],
   floorStory: {
     title: 'From the floor',
-    body: 'House AV ran the breakouts; the outside vendor ran general session — a common split to save money. Same ballroom for the keynote, two switchers, two RF coordinators, and no name on the run-of-show for headset authority. The CEO\'s lav hit the house receiver on the wrong channel. In-room audio was fine. The stream carried house music from the pre-show playlist until someone noticed on a phone in the green room. One show caller with patch authority across both systems would have caught it in the first cue. Split scope is workable. Split authority is not.',
+    body: 'Convention center load-in was booked for 6 a.m. on the dock — on paper. Two other shows shared the same marshaling lane, and house rigging would not sign the plot until the general contractor\'s insurance rider landed in email. Production sat on cases until 9:30 while the client asked why the LED wall was not built yet. The BEO listed "dock access morning of." The exhibit service order required a stamped rigging drawing 72 hours prior. Those were also different documents. Align dock time, rigging submission, and escort rules in one signed addendum before you publish the load-in schedule to speakers.',
   },
   capabilitiesTitle: 'Production capabilities by venue',
   capabilities: [
@@ -148,6 +163,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
     { href: '/blog/hybrid-event-av-checklist', label: 'Hybrid event AV checklist' },
     { href: '/blog/backstage-flow-for-corporate-events', label: 'Backstage flow for corporate events' },
     { href: '/blog/hire-vs-in-house-av-team', label: 'House AV vs production partner' },
+    { href: '/blog/load-in-timeline-for-hotel-ballrooms', label: 'Hotel ballroom load-in timeline' },
     { href: '/work', label: 'Case studies' },
   ],
 };
