@@ -17,7 +17,7 @@ const PAGE_PATH = '/featured-venues';
 export const metadata: Metadata = {
   title: 'Featured Venues: Corporate Event Production Guide',
   description:
-    'Venue production guide for corporate planners — hotel ballrooms, convention centers, resorts, and unique spaces. Site visit checklists, house AV scope, union labor, multi-day holds, and what to send your production vendor.',
+    'Venue production guide for corporate planners — hotel ballrooms, convention centers, resorts, and unique spaces. Site visit checklists, BEO contract lines, house AV scope, union labor, multi-day holds, and what to send your production vendor.',
   openGraph: {
     title: 'Featured Venues | Latest Craze Productions',
     description:
@@ -128,6 +128,13 @@ export default async function FeaturedVenuesPage() {
               ,{' '}
               <Link href="/services/led-walls" className="text-blue-700 hover:text-blue-800 underline">
                 LED and IMAG
+              </Link>
+              ,{' '}
+              <Link
+                href="/blog/load-in-timeline-for-hotel-ballrooms"
+                className="text-blue-700 hover:text-blue-800 underline"
+              >
+                hotel load-in timelines
               </Link>
               , and full show-day support at your venue,{' '}
               <Link href="/contact" className="text-blue-700 hover:text-blue-800 underline">
