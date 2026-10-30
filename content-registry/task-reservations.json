@@ -43,8 +43,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-27T20:30:28.835Z",
-      "runId": "run-aa9c39ec-3a78-4b7e-9795-0c8353b25221"
+      "dispatchedAt": "2026-10-30T20:33:56.067Z",
+      "runId": "run-1f356e46-f6e4-4019-9d9c-ac2008234cf6"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -132,8 +132,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-27T20:30:28.835Z",
-      "runId": "run-458a3891-242e-45de-a227-4b11b0c5634f"
+      "dispatchedAt": "2026-10-30T20:33:56.067Z",
+      "runId": "run-14be1b23-da8c-4a89-b97a-db02204a5718"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -796,6 +796,15 @@
       "cadence": "daily",
       "dispatchedAt": "2026-10-29T20:56:59.734Z",
       "runId": "run-526f338a-2f24-4032-ab67-c537cb154146"
+    },
+    {
+      "taskId": "blog.national.create:seating-and-sightline-studies-for-led",
+      "type": "blog.national.create",
+      "targetKey": "seating-and-sightline-studies-for-led",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-10-30T20:33:56.067Z",
+      "runId": "run-4ee41e2b-1481-4d94-9042-a3ad457e5175"
     }
   ]
 }
