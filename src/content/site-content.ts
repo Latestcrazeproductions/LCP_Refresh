@@ -352,8 +352,8 @@ export const siteContent = {
           'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop',
         gallery: [
           {
-            src: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Wide event stage with scenic lighting rig and audience sight lines from the floor',
+            src: 'https://images.unsplash.com/photo-1533177111687-e5e0fe8b41af?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Corporate general session stage with overhead truss lighting, raked seating, and back-row sight lines to the presenter area',
           },
           {
             src: 'https://images.unsplash.com/photo-1670941371382-993b971d70c9?q=80&w=2070&auto=format&fit=crop',
