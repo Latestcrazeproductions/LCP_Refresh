@@ -1,7 +1,7 @@
 {
   "quarter": "2026-Q3",
   "cadenceNote": "Target 22 queued strategy topics (config.topicQueues.strategyMinQueued). ResearchAgent replenishes monthly on the 1st.",
-  "lastTrendingRefresh": "2026-10-01",
+  "lastTrendingRefresh": "2026-11-01",
   "topics": [
     {
       "slug": "when-to-own-vs-rent-event-technology",
@@ -187,20 +187,22 @@
       "title": "Procurement Timelines for Flagship Events",
       "track": "B",
       "minWords": 1200,
-      "opportunityScore": 82,
+      "opportunityScore": 86,
       "status": "queued",
       "primaryKeyword": "event production procurement timeline",
-      "serviceCta": "/contact"
+      "serviceCta": "/contact",
+      "rationale": "Score re-ranked 2026-11: Nov SKO and annual-meeting vendor lock."
     },
     {
       "slug": "brand-safety-on-live-camera-and-led",
       "title": "Brand Safety on Live Camera and LED",
       "track": "B",
       "minWords": 1200,
-      "opportunityScore": 74,
+      "opportunityScore": 80,
       "status": "queued",
       "primaryKeyword": "brand safety live event camera",
-      "serviceCta": "/services/led-walls"
+      "serviceCta": "/services/led-walls",
+      "rationale": "Score re-ranked 2026-11: pairs with new executive-approval-gates topic."
     },
     {
       "slug": "post-show-asset-reuse-for-marketing",
@@ -391,11 +393,11 @@
       "title": "Production Standards for Board and Investor Events",
       "track": "B",
       "minWords": 1200,
-      "opportunityScore": 89,
+      "opportunityScore": 90,
       "status": "queued",
       "primaryKeyword": "board meeting event production standards",
       "serviceCta": "/services/stage",
-      "rationale": "Monthly replenish 2026-10. Executive governance tier for board/investor programs — stricter camera, compliance, and rehearsal minimums than general keynotes. Complements published executive-briefing-production-standards; different audience and risk profile."
+      "rationale": "Monthly replenish 2026-10. Executive governance tier for board/investor programs — stricter camera, compliance, and rehearsal minimums than general keynotes. Complements published executive-briefing-production-standards; different audience and risk profile. Score re-ranked 2026-11: board season governance demand."
     },
     {
       "slug": "governing-vendor-consolidation-for-event-technology",
@@ -407,6 +409,39 @@
       "primaryKeyword": "event technology vendor consolidation",
       "serviceCta": "/nationwide-event-production",
       "rationale": "Monthly replenish 2026-10. Procurement-led consolidation vs operational resilience. Complements published standardize-av-vendors-across-markets and queued touring-show-vs-local-vendor-hybrid-model."
+    },
+    {
+      "slug": "governance-for-ai-and-recorded-event-content",
+      "title": "Governance for AI and Recorded Event Content",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 87,
+      "status": "queued",
+      "primaryKeyword": "event recording ai governance",
+      "serviceCta": "/contact",
+      "rationale": "Monthly replenish 2026-11. Executive policy for AI captions, clips, and archive use post-show. No pricing claims; complements post-show-asset-reuse-for-marketing."
+    },
+    {
+      "slug": "executive-approval-gates-for-live-event-graphics",
+      "title": "Executive Approval Gates for Live Event Graphics",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 86,
+      "status": "queued",
+      "primaryKeyword": "live event graphics approval workflow",
+      "serviceCta": "/services/led-walls",
+      "rationale": "Monthly replenish 2026-11. Legal/brand sign-off workflow for lower-thirds and LED content. Complements brand-safety-on-live-camera-and-led and content-lock-deadlines capture topic."
+    },
+    {
+      "slug": "portfolio-review-cadence-for-event-production-vendors",
+      "title": "Portfolio Review Cadence for Event Production Vendors",
+      "track": "B",
+      "minWords": 1200,
+      "opportunityScore": 85,
+      "status": "queued",
+      "primaryKeyword": "event production vendor portfolio review",
+      "serviceCta": "/nationwide-event-production",
+      "rationale": "Monthly replenish 2026-11. Quarterly business review model for production partners — extends vendor-scorecards and evaluating-production-partners-after-year-one."
     }
   ]
 }

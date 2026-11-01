@@ -1,7 +1,7 @@
 {
   "quarter": "2026-Q3",
   "cadenceNote": "Target 45 queued capture topics (config.topicQueues.nationalCaptureMinQueued). ResearchAgent replenishes monthly on the 1st.",
-  "lastTrendingRefresh": "2026-10-01",
+  "lastTrendingRefresh": "2026-11-01",
   "topics": [
     {
       "slug": "general-session-design-tips",
@@ -27,11 +27,11 @@
       "slug": "streaming-backup-and-failover-for-corporate-livestreams",
       "title": "Streaming Backup and Failover for Corporate Livestreams",
       "track": "A",
-      "opportunityScore": 87,
+      "opportunityScore": 90,
       "status": "queued",
       "primaryKeyword": "corporate livestream backup failover",
       "serviceCta": "/services/led-walls",
-      "rationale": "Monthly replenish 2026-10. Encoder redundancy and return-path failover for hybrid baseline programs. Complements camera-platform-planning-for-corporate-livestreams and hybrid-return-feed-for-remote-presenters; do not rewrite hybrid-event-av-checklist."
+      "rationale": "Monthly replenish 2026-10. Encoder redundancy and return-path failover for hybrid baseline programs. Complements camera-platform-planning-for-corporate-livestreams and hybrid-return-feed-for-remote-presenters; do not rewrite hybrid-event-av-checklist. Score re-ranked 2026-11: competitor hybrid content emphasizes encoder redundancy."
     },
     {
       "slug": "confidence-monitor-placement-for-keynotes",
@@ -240,19 +240,21 @@
       "slug": "multi-day-conference-changeover-playbook",
       "title": "Multi-Day Conference Changeover Playbook",
       "track": "A",
-      "opportunityScore": 63,
+      "opportunityScore": 70,
       "status": "queued",
       "primaryKeyword": "conference room changeover av",
-      "serviceCta": "/events/conferences"
+      "serviceCta": "/events/conferences",
+      "rationale": "Score re-ranked 2026-11: 2027 conference calendar planning window."
     },
     {
       "slug": "executive-town-hall-av-minimums",
       "title": "Executive Town Hall AV Minimums That Protect the Brand",
       "track": "A",
-      "opportunityScore": 62,
+      "opportunityScore": 78,
       "status": "queued",
       "primaryKeyword": "executive town hall av",
-      "serviceCta": "/services/audio"
+      "serviceCta": "/services/audio",
+      "rationale": "Score re-ranked 2026-11: year-end town hall cycle."
     },
     {
       "slug": "panel-discussion-audio-and-imag",
@@ -341,11 +343,11 @@
       "slug": "hybrid-return-feed-for-remote-presenters",
       "title": "Hybrid Return Feeds for Remote Presenters: What to Test Before Doors",
       "track": "A",
-      "opportunityScore": 76,
+      "opportunityScore": 89,
       "status": "queued",
       "primaryKeyword": "remote presenter return feed",
       "serviceCta": "/blog/hybrid-event-av-checklist",
-      "rationale": "Complements published hybrid-event-av-checklist; do not rewrite that page."
+      "rationale": "Complements published hybrid-event-av-checklist; do not rewrite that page. Score re-ranked 2026-11: hybrid return-path failures remain top buyer pain."
     },
     {
       "slug": "truck-pack-and-inventory-for-touring-shows",
@@ -405,10 +407,11 @@
       "slug": "gala-dinner-to-program-transition",
       "title": "Gala Dinner-to-Program Transition: Clocks, Lighting, and Comms",
       "track": "A",
-      "opportunityScore": 72,
+      "opportunityScore": 88,
       "status": "queued",
       "primaryKeyword": "gala dinner to program transition",
-      "serviceCta": "/events/galas-awards"
+      "serviceCta": "/events/galas-awards",
+      "rationale": "Score re-ranked 2026-11: Q4 gala season lift."
     },
     {
       "slug": "multi-camera-switcher-plan-for-keynotes",
@@ -560,6 +563,56 @@
       "status": "published",
       "primaryKeyword": "corporate event audio checklist",
       "serviceCta": "/services/audio"
+    },
+    {
+      "slug": "hybrid-audience-q-and-a-latency-plan",
+      "title": "Hybrid Audience Q&A Latency: A Planner's Comms Loop Checklist",
+      "track": "A",
+      "opportunityScore": 86,
+      "status": "queued",
+      "primaryKeyword": "hybrid event q and a latency",
+      "serviceCta": "/blog/hybrid-event-av-checklist",
+      "rationale": "Monthly replenish 2026-11. Remote Q&A loops fail on latency and routing — distinct from return-feed and streaming failover topics. Do not target hybrid event production head terms."
+    },
+    {
+      "slug": "led-video-processor-failover-for-live-events",
+      "title": "LED Video Processor Failover for General Sessions",
+      "track": "A",
+      "opportunityScore": 85,
+      "status": "queued",
+      "primaryKeyword": "led video processor failover",
+      "serviceCta": "/services/led-walls",
+      "rationale": "Monthly replenish 2026-11. Processor/redundancy spec gap vs published led-wall-sizing-for-events. Long-tail only; /feeds/led-walls owns head terms."
+    },
+    {
+      "slug": "corporate-event-captioning-and-accessibility-minimums",
+      "title": "Corporate Event Captioning and Accessibility Minimums",
+      "track": "A",
+      "opportunityScore": 84,
+      "status": "queued",
+      "primaryKeyword": "corporate event live captioning",
+      "serviceCta": "/services/audio",
+      "rationale": "Monthly replenish 2026-11. CART/AI caption routing and compliance minimums for town halls and keynotes. Complements simultaneous-interpretation-av-for-conferences; different intent."
+    },
+    {
+      "slug": "generator-and-tie-in-handoff-for-outdoor-corporate-events",
+      "title": "Generator and Tie-In Handoff for Outdoor Corporate Events",
+      "track": "A",
+      "opportunityScore": 83,
+      "status": "queued",
+      "primaryKeyword": "outdoor corporate event generator av",
+      "serviceCta": "/services/audio",
+      "rationale": "Monthly replenish 2026-11. Power handoff depth for outdoor programs — extends outdoor-event-av-weather-contingency without duplicating weather-only framing."
+    },
+    {
+      "slug": "camera-key-light-vs-room-wash-for-broadcast-keynotes",
+      "title": "Key Light vs Room Wash for Broadcast-Grade Keynotes",
+      "track": "A",
+      "opportunityScore": 82,
+      "status": "queued",
+      "primaryKeyword": "keynote key light vs wash",
+      "serviceCta": "/services/lighting",
+      "rationale": "Monthly replenish 2026-11. Camera-optimized lighting spec for keynote cluster. Complements published keynote-stage-lighting-for-planners and queued broadcast-keynote-production-checklist."
     }
   ]
 }

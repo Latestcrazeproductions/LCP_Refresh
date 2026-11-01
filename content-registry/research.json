@@ -1,9 +1,9 @@
 {
-  "lastScanAt": "2026-10-01T20:45:00.000Z",
+  "lastScanAt": "2026-11-01T20:22:00.000Z",
   "lastScanCadence": "monthly",
   "lastCompetitorAuditAt": "2026-10-01T20:45:00.000Z",
   "lastCompetitorAuditQuarter": "2026-Q4",
-  "lastTrendingScanAt": "2026-10-01T20:01:00.000Z",
+  "lastTrendingScanAt": "2026-11-01T20:22:00.000Z",
   "lastTrendingCadence": "monthly-trends",
   "dataSources": {
     "gscSnapshot": {
@@ -25,20 +25,113 @@
     },
     "industrySignals": {
       "status": "reviewed",
-      "reviewedAt": "2026-10-01",
+      "reviewedAt": "2026-11-01",
       "sources": [
         "AV industry 2026 trend roundups (hybrid baseline, immersive stage design, broadcast-grade keynotes, ROI accountability)",
         "Competitor content patterns on hybrid checklists and multi-camera keynote specs",
         "Q4 planning season: multi-year playbook and vendor consolidation governance rising in enterprise procurement cycles",
-        "Streaming redundancy and failover specs appearing in competitor hybrid/livestream capture content",
-        "2026 AV industry consensus: hybrid as two parallel productions (not webcam-on-stage); broadcast-grade keynotes with camera-optimized lighting and redundant internet",
-        "Q4 enterprise calendar: gala/awards season, SKO and annual-meeting budget lock, vendor RFP and scorecard cycles",
-        "Competitor content patterns: multi-camera hybrid guides, house-AV scope splits, confidence-monitor and return-feed specs",
-        "Five topics published since Aug trending scan: hybrid-event-av-checklist, general-session-design-tips, phoenix-hybrid-event-production-guide, when-to-own-vs-rent-event-technology, production-kpis-for-annual-meetings"
+        "Nov 2026: AI captioning and clip governance rising in enterprise comms/legal reviews",
+        "Q4 gala and awards load-ins — dinner-to-program and captioning minimums timely",
+        "Hybrid Q&A latency and LED processor redundancy appearing in competitor technical blogs",
+        "SKO and 2027 annual-meeting vendor lock — procurement timelines and portfolio QBR content",
+        "Competitor patterns: executive graphics approval workflows bundled with hybrid packages"
       ]
     }
   },
   "trendingTopics": [
+    {
+      "slug": "governance-for-ai-and-recorded-event-content",
+      "layer": "national",
+      "contentType": "strategy",
+      "proposedTitle": "Governance for AI and Recorded Event Content",
+      "trendDirection": "rising",
+      "opportunityScore": 87,
+      "signals": [
+        "Enterprise legal/comms friction on AI captions and post-show clips",
+        "New Nov 2026 strategy topic; brief ready",
+        "Complements post-show-asset-reuse strategy article"
+      ],
+      "cannibalizationNotes": "Strategy only. No pricing. No city names."
+    },
+    {
+      "slug": "streaming-backup-and-failover-for-corporate-livestreams",
+      "layer": "national",
+      "contentType": "capture",
+      "proposedTitle": "Streaming Backup and Failover for Corporate Livestreams",
+      "trendDirection": "rising",
+      "opportunityScore": 90,
+      "signals": [
+        "Score re-ranked 2026-11 to 90",
+        "Competitor hybrid content emphasizes encoder redundancy",
+        "Brief exists; unpublished in registry"
+      ],
+      "cannibalizationNotes": "Complements hybrid checklist; no head-term targeting."
+    },
+    {
+      "slug": "hybrid-return-feed-for-remote-presenters",
+      "layer": "national",
+      "contentType": "capture",
+      "proposedTitle": "Hybrid Return Feeds for Remote Presenters: What to Test Before Doors",
+      "trendDirection": "rising",
+      "opportunityScore": 89,
+      "signals": [
+        "Score re-ranked 2026-11 to 89",
+        "Documented failure point in hybrid-as-two-productions framing"
+      ],
+      "cannibalizationNotes": "Long-tail; link to published hybrid checklist."
+    },
+    {
+      "slug": "gala-dinner-to-program-transition",
+      "layer": "national",
+      "contentType": "capture",
+      "proposedTitle": "Gala Dinner-to-Program Transition: Clocks, Lighting, and Comms",
+      "trendDirection": "seasonal-rising",
+      "opportunityScore": 88,
+      "signals": [
+        "Score re-ranked 2026-11 to 88 for Q4 gala season",
+        "Complements thin live corporate-gala-production-guide"
+      ],
+      "cannibalizationNotes": "Operational gala content; no second gala guide."
+    },
+    {
+      "slug": "hybrid-audience-q-and-a-latency-plan",
+      "layer": "national",
+      "contentType": "capture",
+      "proposedTitle": "Hybrid Audience Q&A Latency: A Planner's Comms Loop Checklist",
+      "trendDirection": "rising",
+      "opportunityScore": 86,
+      "signals": [
+        "New Nov 2026 capture topic; brief ready",
+        "Extends hybrid cluster without rewriting checklist"
+      ],
+      "cannibalizationNotes": "Distinct from return-feed and failover topics."
+    },
+    {
+      "slug": "executive-approval-gates-for-live-event-graphics",
+      "layer": "national",
+      "contentType": "strategy",
+      "proposedTitle": "Executive Approval Gates for Live Event Graphics",
+      "trendDirection": "steady-rising",
+      "opportunityScore": 86,
+      "signals": [
+        "New Nov 2026 strategy topic; brief ready",
+        "Pairs with brand-safety-on-live-camera-and-led"
+      ],
+      "cannibalizationNotes": "Workflow strategy; capture safe-zones topic remains separate."
+    },
+    {
+      "slug": "production-standards-for-board-and-investor-events",
+      "layer": "national",
+      "contentType": "strategy",
+      "proposedTitle": "Production Standards for Board and Investor Events",
+      "trendDirection": "rising",
+      "opportunityScore": 90,
+      "signals": [
+        "Score re-ranked 2026-11 to 90",
+        "Brief exists; board/investor governance tier"
+      ],
+      "cannibalizationNotes": "Distinct from executive-briefing-production-standards."
+    },
     {
       "slug": "hybrid-event-av-checklist",
       "layer": "national",
@@ -58,24 +151,6 @@
         "Cluster extensions (return feeds, hybrid cost decision) now higher priority than net-new hybrid checklist"
       ],
       "cannibalizationNotes": "Published — do not duplicate. Extend via hybrid-return-feed and when-hybrid-is-worth-the-production-cost."
-    },
-    {
-      "slug": "general-session-design-tips",
-      "layer": "national",
-      "contentType": "capture",
-      "proposedTitle": "General Session Design That Keeps Attendees Engaged",
-      "trendDirection": "published-monitor",
-      "opportunityScore": 72,
-      "signals": [
-        "Immersive stage design and LED-as-scenic cited as top 2026 production trend",
-        "Google Trends (directional): 'immersive event design' and 'led video wall corporate' holding elevated interest",
-        "Complements published led-wall-sizing-for-events without duplicating pixel-pitch content",
-        "Published 2026-09-17; monitor for GSC traction when snapshot available",
-        "Immersive stage design trend; complements led-wall-sizing-for-events",
-        "Published 2026-09-17 — immersive stage design trend captured",
-        "Monitor GSC; faq_refresh as needed. Deprioritize net-new general-session content"
-      ],
-      "cannibalizationNotes": "Published — monitor only. Do not publish competing general-session articles."
     },
     {
       "slug": "broadcast-keynote-production-checklist",
@@ -102,174 +177,6 @@
       "cannibalizationNotes": "Safe — long-tail 'broadcast keynote production'. Do not target 'conference production company' head term. Link to /services/led-walls and /services/stage."
     },
     {
-      "slug": "event-production-roi-for-planners",
-      "layer": "national",
-      "contentType": "strategy",
-      "proposedTitle": "Event Production ROI: What Executives Should Measure",
-      "trendDirection": "rising",
-      "opportunityScore": 85,
-      "signals": [
-        "Enterprise planners under pressure for measurable post-event ROI in 2026",
-        "Strategy content gap — competitors frame AV as cost center; LCP can reframe as revenue/retention lever",
-        "Track B priority for monthly cadence balance"
-      ],
-      "cannibalizationNotes": "Safe — executive/strategy intent. No city names. Do not use pricing claims."
-    },
-    {
-      "slug": "dallas-conference-production-trends",
-      "layer": "geo",
-      "contentType": "capture",
-      "siteId": "dallas-tx",
-      "proposedTitle": "Conference Production Trends in Dallas, TX",
-      "trendDirection": "deferred",
-      "opportunityScore": 55,
-      "signals": [
-        "Phase 2 pilot city — conference production is core LCP vertical",
-        "Geo layer must include city; local + national trend synthesis differentiates from national blogs",
-        "Google Trends (directional): Dallas metro shows elevated interest in corporate conference AV vs national average",
-        "Geo expansion blocked (allowNewGeoSites false) — national conference feeds take priority",
-        "Re-score when Phase 2 gate opens"
-      ],
-      "cannibalizationNotes": "Geo-safe when published — city required. Deferred until Phase 2."
-    },
-    {
-      "slug": "phoenix-hybrid-event-production-guide",
-      "layer": "geo",
-      "contentType": "capture",
-      "siteId": "phoenix-az",
-      "proposedTitle": "Hybrid Event Production in Phoenix, AZ",
-      "trendDirection": "published-monitor",
-      "opportunityScore": 70,
-      "signals": [
-        "Phoenix is live geo site — immediate publish path once content agent assigned",
-        "Hybrid baseline trend + local venue/internet redundancy angles (resort ballrooms, corporate campuses)",
-        "Fills geo gap while national hybrid checklist covers generic specs",
-        "Published 2026-09-14 — geo hybrid gap closed for Phoenix",
-        "Monitor GSC for phoenix hybrid queries; faq_refresh if needed"
-      ],
-      "cannibalizationNotes": "Published — geo-safe. Do not cannibalize /phoenix-av-production head term."
-    },
-    {
-      "slug": "hire-vs-in-house-av-team",
-      "layer": "national",
-      "contentType": "strategy",
-      "proposedTitle": "When to Hire an Event Production Partner vs In-House AV",
-      "trendDirection": "steady",
-      "opportunityScore": 78,
-      "signals": [
-        "Evergreen commercial investigation intent — rises when corporate travel/event budgets tighten",
-        "Supports inbound sales qualification without pricing claims"
-      ],
-      "cannibalizationNotes": "Safe — comparison/decision content. CTA to /contact and /nationwide-event-production."
-    },
-    {
-      "slug": "corporate-gala-production-guide",
-      "layer": "national",
-      "contentType": "capture",
-      "proposedTitle": "Corporate Gala Production: A Planner's Guide",
-      "trendDirection": "refresh-opportunity",
-      "opportunityScore": 68,
-      "signals": [
-        "Galas and awards remain tier-2 event type in matrix; live page is thin — refresh opportunity",
-        "Less 'new trend' than hybrid/immersive, but steady Q4 gala seasonality (Google Trends directional)",
-        "Live page thin — Q4 gala season makes faq_refresh timely",
-        "New queued gala-dinner-to-program-transition complements without replacing this page"
-      ],
-      "cannibalizationNotes": "Live but thin. nextAction faq_refresh; do not create second gala guide."
-    },
-    {
-      "slug": "scottsdale-corporate-event-venues",
-      "layer": "geo",
-      "contentType": "authority",
-      "siteId": "scottsdale-az",
-      "proposedTitle": "Scottsdale Corporate Event Venues: Production Considerations",
-      "trendDirection": "deferred",
-      "opportunityScore": 50,
-      "signals": [
-        "Venue guides are authority assets (15% content mix target)",
-        "Scottsdale resort venues common in LCP market — local proof asset for Phase 2 geo batch",
-        "Venue guides are authority assets but geo creation deferred",
-        "Q4 resort season relevant when Phase 2 opens"
-      ],
-      "cannibalizationNotes": "Geo-safe — venue guide, not service head term. No unapproved client names."
-    },
-    {
-      "slug": "led-wall-sizing-for-events",
-      "layer": "national",
-      "contentType": "capture",
-      "proposedTitle": "How to Size LED Walls for Corporate Events",
-      "trendDirection": "sustained",
-      "opportunityScore": 60,
-      "signals": [
-        "LED walls remain centerpiece trend but LCP already published strong capture content 2026-07-27",
-        "Maintain with faq_refresh; deprioritize net-new LED sizing content",
-        "Published; /feeds/led-walls now live owns head term",
-        "Deprioritize net-new LED sizing content; faq_refresh only"
-      ],
-      "cannibalizationNotes": "Published — do not publish second LED sizing article. Head term owned by /feeds/led-walls."
-    },
-    {
-      "slug": "building-a-multi-year-event-production-playbook",
-      "layer": "national",
-      "contentType": "strategy",
-      "proposedTitle": "Building a Multi-Year Event Production Playbook",
-      "trendDirection": "rising",
-      "opportunityScore": 90,
-      "signals": [
-        "Q4 planning season drives multi-year production standardization",
-        "Enterprise buyers consolidating vendor relationships into 2027 calendars",
-        "Track B queue leader after monthly replenish 2026-10",
-        "Top queued strategy topic (score 90); executive playbook intent",
-        "Strategy queue at 20/22 target — near capacity",
-        "Q4 budget lock for 2027 annual meetings and SKO programs — multi-year production planning is timely",
-        "Track B executive intent; complements published production-kpis-for-annual-meetings and risk-register",
-        "Industry shift: events as revenue tools requires repeatable production standards across years"
-      ],
-      "cannibalizationNotes": "Safe — strategy/playbook intent. No city names. No pricing claims."
-    },
-    {
-      "slug": "production-standards-for-board-and-investor-events",
-      "layer": "national",
-      "contentType": "strategy",
-      "proposedTitle": "Production Standards for Board and Investor Events",
-      "trendDirection": "steady-rising",
-      "opportunityScore": 89,
-      "signals": [
-        "Board and investor programs carry reputational risk beyond internal town halls",
-        "Complements published executive-briefing-production-standards with governance tier",
-        "New topic added monthly replenish 2026-10"
-      ],
-      "cannibalizationNotes": "Safe — executive strategy. Distinct from executive briefing article. No pricing claims."
-    },
-    {
-      "slug": "streaming-backup-and-failover-for-corporate-livestreams",
-      "layer": "national",
-      "contentType": "capture",
-      "proposedTitle": "Streaming Backup and Failover for Corporate Livestreams",
-      "trendDirection": "rising",
-      "opportunityScore": 87,
-      "signals": [
-        "Hybrid baseline makes failover specs table stakes, not premium add-on",
-        "Gap vs published hybrid checklist — encoder/redundancy depth missing",
-        "New topic added monthly replenish 2026-10"
-      ],
-      "cannibalizationNotes": "Complements hybrid-event-av-checklist. Do not rewrite or compete with hybrid head intent."
-    },
-    {
-      "slug": "governing-vendor-consolidation-for-event-technology",
-      "layer": "national",
-      "contentType": "strategy",
-      "proposedTitle": "Governing Vendor Consolidation for Event Technology (Without a Single Point of Failure)",
-      "trendDirection": "steady-rising",
-      "opportunityScore": 88,
-      "signals": [
-        "Procurement-led vendor consolidation vs operational resilience tension in 2026",
-        "Complements standardize-av-vendors-across-markets published article",
-        "New topic added monthly replenish 2026-10"
-      ],
-      "cannibalizationNotes": "Strategy governance angle. Do not duplicate standardize article. No city names."
-    },
-    {
       "slug": "house-av-vs-production-vendor-scope",
       "layer": "national",
       "contentType": "capture",
@@ -285,109 +192,6 @@
         "Aligns with Track B vendor-scorecards and proposal-reading topics in strategy queue"
       ],
       "cannibalizationNotes": "Safe — scope/decision content. CTA to /services. Do not compete with /feeds/av-production head term."
-    },
-    {
-      "slug": "load-in-timeline-for-hotel-ballrooms",
-      "layer": "national",
-      "contentType": "capture",
-      "proposedTitle": "Hotel Ballroom Load-In Timeline: What Planners Should Put in the Contract",
-      "trendDirection": "seasonal-rising",
-      "opportunityScore": 83,
-      "signals": [
-        "Queued score 84; brief exists; operational gap no live blog covers",
-        "Pairs with power-and-rigging-asks-for-venue-contracts in queue",
-        "Featured-venues authority asset can internal-link once published",
-        "Q4 holiday party and gala load-ins peak — contract timeline content timely for planners",
-        "Brief exists; high practical value for venue negotiation season",
-        "Google Trends (directional): hotel ballroom event production steady Q4 lift"
-      ],
-      "cannibalizationNotes": "Safe — contract/planner content. CTA to /services/stage."
-    },
-    {
-      "slug": "confidence-monitor-placement-for-keynotes",
-      "layer": "national",
-      "contentType": "capture",
-      "proposedTitle": "Confidence Monitor Placement for Keynotes (Without the Presenter Squint)",
-      "trendDirection": "rising",
-      "opportunityScore": 85,
-      "signals": [
-        "Queued score 85; brief exists; extends keynote production cluster",
-        "Complements broadcast-keynote-production-checklist and published keynote-stage-lighting-for-planners",
-        "Broadcast-grade keynote trend drives confidence-monitor spec questions",
-        "Brief already exists; queued for content agent — promote in October capture priority",
-        "Pairs with broadcast-keynote-production-checklist cluster"
-      ],
-      "cannibalizationNotes": "Safe — presenter-system long-tail. CTA to /services/stage."
-    },
-    {
-      "slug": "vendor-scorecards-for-event-production",
-      "layer": "national",
-      "contentType": "strategy",
-      "proposedTitle": "Vendor Scorecards for Event Production Partners",
-      "trendDirection": "rising",
-      "opportunityScore": 89,
-      "signals": [
-        "Q4 vendor evaluation and renewal cycles — scorecard frameworks rise with RFP season",
-        "Supports inbound qualification; pairs with house-av-vs-production-vendor-scope capture topic",
-        "Track B priority for October strategy cadence"
-      ],
-      "cannibalizationNotes": "Safe — procurement/strategy intent. CTA to /contact."
-    },
-    {
-      "slug": "hybrid-return-feed-for-remote-presenters",
-      "layer": "national",
-      "contentType": "capture",
-      "proposedTitle": "Hybrid Return Feeds for Remote Presenters: What to Test Before Doors",
-      "trendDirection": "rising",
-      "opportunityScore": 88,
-      "signals": [
-        "2026 industry framing: hybrid is two parallel productions — return feeds are a documented failure point",
-        "Complements published hybrid-event-av-checklist; extends hybrid cluster without rewriting that page",
-        "Google Trends (directional): remote presenter and hybrid return feed terms steady post-summer"
-      ],
-      "cannibalizationNotes": "Safe — technical long-tail. Internal link to /blog/hybrid-event-av-checklist. Do not cannibalize /feeds/av-production."
-    },
-    {
-      "slug": "gala-dinner-to-program-transition",
-      "layer": "national",
-      "contentType": "capture",
-      "proposedTitle": "Gala Dinner-to-Program Transition: Clocks, Lighting, and Comms",
-      "trendDirection": "seasonal-rising",
-      "opportunityScore": 86,
-      "signals": [
-        "Q4 gala and awards season — dinner-to-program transitions are a recurring show-caller pain point",
-        "Google Trends (directional): corporate gala production shows seasonal lift Sep–Nov vs summer trough",
-        "Complements live /blog/corporate-gala-production-guide (thin; faq_refresh) and awards-show-cue-to-cue"
-      ],
-      "cannibalizationNotes": "Safe — operational gala content. Link to /events/galas-awards. Do not retarget gala head terms."
-    },
-    {
-      "slug": "when-hybrid-is-worth-the-production-cost",
-      "layer": "national",
-      "contentType": "strategy",
-      "proposedTitle": "When Hybrid Is Worth the Production Cost (and When It Is Not)",
-      "trendDirection": "rising",
-      "opportunityScore": 84,
-      "signals": [
-        "Post-hybrid-checklist publish: buyers need ROI/decision framework, not just specs",
-        "Track B executive decision content; Q4 budget scrutiny amplifies hybrid cost questions",
-        "Industry: hybrid as baseline does not mean hybrid for every session — decision content gap"
-      ],
-      "cannibalizationNotes": "Safe — strategy/decision intent. Link to /blog/hybrid-event-av-checklist. No pricing claims."
-    },
-    {
-      "slug": "procurement-timelines-for-flagship-events",
-      "layer": "national",
-      "contentType": "strategy",
-      "proposedTitle": "Procurement Timelines for Flagship Events",
-      "trendDirection": "seasonal-rising",
-      "opportunityScore": 82,
-      "signals": [
-        "Oct–Nov is SKO and annual-meeting vendor lock window for Q1–Q2 2027 events",
-        "Track B; complements published sales-kickoff-production-timeline (capture) with executive procurement view",
-        "Enterprise RFP cycles align with Q4 trending refresh"
-      ],
-      "cannibalizationNotes": "Safe — timeline/strategy intent. CTA to /contact."
     }
   ],
   "gaps": [
@@ -559,8 +363,8 @@
       "layer": "national",
       "keyword": null,
       "targetUrl": null,
-      "description": "National capture queue at 44/45 queued; strategy queue at 20/22 queued. topic_queue_replenish due on monthly 1st if not already run.",
-      "recommendedAction": "Run research.topic_queue_replenish to top up +5 national / +3 strategy for November cadence.",
+      "description": "National capture queue at 50/45 status-queued (40 unpublished); strategy at 25/22 status-queued (17 unpublished). Nov 2026 replenish added +5/+3 fresh topics.",
+      "recommendedAction": "Content agents consume highest-scored unpublished queued topics; sync published status on live blogs in a registry hygiene pass.",
       "cannibalizationRisk": null
     }
   ],
@@ -607,6 +411,110 @@
     }
   ],
   "priorityQueue": [
+    {
+      "rank": 1,
+      "url": "/blog/streaming-backup-and-failover-for-corporate-livestreams",
+      "keyword": "corporate livestream backup failover",
+      "layer": "national",
+      "type": "blog",
+      "pattern": null,
+      "phase": 1,
+      "nextAction": "create",
+      "track": "A",
+      "opportunityScore": 90,
+      "rationale": "Nov 2026 top re-ranked capture topic; brief exists; hybrid redundancy cluster."
+    },
+    {
+      "rank": 2,
+      "url": "/blog/hybrid-return-feed-for-remote-presenters",
+      "keyword": "remote presenter return feed",
+      "layer": "national",
+      "type": "blog",
+      "pattern": null,
+      "phase": 1,
+      "nextAction": "create",
+      "track": "A",
+      "opportunityScore": 89,
+      "rationale": "Re-ranked 2026-11; hybrid failure-point capture."
+    },
+    {
+      "rank": 3,
+      "url": "/blog/gala-dinner-to-program-transition",
+      "keyword": "gala dinner to program transition",
+      "layer": "national",
+      "type": "blog",
+      "pattern": null,
+      "phase": 1,
+      "nextAction": "create",
+      "track": "A",
+      "opportunityScore": 88,
+      "rationale": "Q4 gala season; re-ranked 2026-11."
+    },
+    {
+      "rank": 4,
+      "url": "/blog/governance-for-ai-and-recorded-event-content",
+      "keyword": "event recording ai governance",
+      "layer": "national",
+      "type": "blog",
+      "pattern": null,
+      "phase": 1,
+      "nextAction": "create",
+      "track": "B",
+      "opportunityScore": 87,
+      "rationale": "New Nov 2026 strategy topic; brief ready; AI/recording governance."
+    },
+    {
+      "rank": 5,
+      "url": "/blog/hybrid-audience-q-and-a-latency-plan",
+      "keyword": "hybrid event q and a latency",
+      "layer": "national",
+      "type": "blog",
+      "pattern": null,
+      "phase": 1,
+      "nextAction": "create",
+      "track": "A",
+      "opportunityScore": 86,
+      "rationale": "New Nov 2026 capture topic; brief ready; hybrid Q&A comms loop."
+    },
+    {
+      "rank": 6,
+      "url": "/blog/production-standards-for-board-and-investor-events",
+      "keyword": "board meeting event production standards",
+      "layer": "national",
+      "type": "blog",
+      "pattern": null,
+      "phase": 1,
+      "nextAction": "create",
+      "track": "B",
+      "opportunityScore": 90,
+      "rationale": "Re-ranked board/investor strategy; brief exists."
+    },
+    {
+      "rank": 7,
+      "url": "/blog/executive-approval-gates-for-live-event-graphics",
+      "keyword": "live event graphics approval workflow",
+      "layer": "national",
+      "type": "blog",
+      "pattern": null,
+      "phase": 1,
+      "nextAction": "create",
+      "track": "B",
+      "opportunityScore": 86,
+      "rationale": "New Nov 2026 strategy topic; brief ready."
+    },
+    {
+      "rank": 8,
+      "url": "/blog/led-video-processor-failover-for-live-events",
+      "keyword": "led video processor failover",
+      "layer": "national",
+      "type": "blog",
+      "pattern": null,
+      "phase": 1,
+      "nextAction": "create",
+      "track": "A",
+      "opportunityScore": 85,
+      "rationale": "New Nov 2026 capture topic; brief ready; LED redundancy spec."
+    },
     {
       "rank": 2,
       "url": "/feeds/conference-production",
@@ -668,18 +576,6 @@
       "rationale": "Phase 2 geo gate dependency; index page for nationwide footprint."
     },
     {
-      "rank": 6,
-      "url": "/blog/corporate-gala-production-guide",
-      "keyword": "corporate gala production guide",
-      "layer": "national",
-      "type": "blog",
-      "pattern": null,
-      "phase": 1,
-      "nextAction": "keyword_refresh",
-      "opportunityScore": 70,
-      "rationale": "Live capture blog missing registry keyword; aligns with /events/galas-awards and planned gala feeds."
-    },
-    {
       "rank": 7,
       "url": "/phoenix-av-production",
       "keyword": "event production phoenix",
@@ -702,71 +598,6 @@
       "nextAction": "create",
       "opportunityScore": 65,
       "rationale": "Core service with live /services/lighting supporting page; no head-term conflict."
-    },
-    {
-      "rank": 11,
-      "url": "/blog/building-a-multi-year-event-production-playbook",
-      "keyword": "event production playbook",
-      "layer": "national",
-      "type": "blog",
-      "pattern": null,
-      "phase": 1,
-      "nextAction": "create",
-      "track": "B",
-      "opportunityScore": 90,
-      "rationale": "Q4 budget-lock trending strategy topic; Track B executive playbook intent."
-    },
-    {
-      "rank": 9,
-      "url": "/blog/broadcast-keynote-production-checklist",
-      "keyword": "broadcast keynote production",
-      "layer": "national",
-      "type": "blog",
-      "pattern": null,
-      "phase": 1,
-      "nextAction": "create",
-      "track": "A",
-      "opportunityScore": 94,
-      "rationale": "Oct 2026 top trending capture topic — broadcast-grade keynote cluster; queued, brief pending."
-    },
-    {
-      "rank": 4,
-      "url": "/blog/production-standards-for-board-and-investor-events",
-      "keyword": "board meeting event production standards",
-      "layer": "national",
-      "type": "blog",
-      "pattern": null,
-      "phase": 1,
-      "nextAction": "create",
-      "track": "B",
-      "opportunityScore": 89,
-      "rationale": "New 2026-10 strategy topic; brief ready; board/investor governance tier."
-    },
-    {
-      "rank": 6,
-      "url": "/blog/streaming-backup-and-failover-for-corporate-livestreams",
-      "keyword": "corporate livestream backup failover",
-      "layer": "national",
-      "type": "blog",
-      "pattern": null,
-      "phase": 1,
-      "nextAction": "create",
-      "track": "A",
-      "opportunityScore": 87,
-      "rationale": "New 2026-10 capture topic; brief ready; hybrid failover gap."
-    },
-    {
-      "rank": 7,
-      "url": "/blog/governing-vendor-consolidation-for-event-technology",
-      "keyword": "event technology vendor consolidation",
-      "layer": "national",
-      "type": "blog",
-      "pattern": null,
-      "phase": 1,
-      "nextAction": "create",
-      "track": "B",
-      "opportunityScore": 88,
-      "rationale": "New 2026-10 strategy topic; brief ready; procurement consolidation governance."
     },
     {
       "rank": 3,
@@ -794,18 +625,6 @@
     },
     {
       "rank": 10,
-      "url": "/blog/house-av-vs-production-vendor-scope",
-      "keyword": "house av vs production vendor",
-      "layer": "national",
-      "type": "blog",
-      "pattern": null,
-      "phase": 1,
-      "nextAction": "create",
-      "opportunityScore": 91,
-      "rationale": "Q4 RFP season trending capture; scope-split buyer pain; brief exists."
-    },
-    {
-      "rank": 10,
       "url": "/nationwide-event-production",
       "keyword": "event production company",
       "layer": "national",
@@ -817,7 +636,7 @@
       "rationale": "Hub owns head term per keywordTAM; keyword assigned this scan. Quarterly refresh due."
     }
   ],
-  "lastScanTask": "research.keyword_gap_scan",
+  "lastScanTask": "research.topic_queue_replenish",
   "scanInputs": {
     "gscSnapshot": {
       "status": "missing",
@@ -839,8 +658,8 @@
     "keywordTAMTerms": 6,
     "matrixRegistryAligned": true,
     "liveBlogs": 30,
-    "queuedCaptureTopics": 44,
-    "queuedStrategyTopics": 20
+    "queuedCaptureTopics": 50,
+    "queuedStrategyTopics": 25
   },
   "coverageSummary": {
     "phase": 1,
@@ -910,25 +729,41 @@
       "resolution": "Geo alias for Phoenix page — include in meta description alongside primary keyword 'event production phoenix'. Not a separate URL."
     }
   ],
-  "lastReplenishAt": "2026-10-01T20:00:00.000Z",
+  "lastReplenishAt": "2026-11-01T20:22:00.000Z",
   "topicQueueStatus": {
-    "nationalCaptureQueued": 45,
+    "nationalCaptureQueued": 50,
     "nationalCaptureTarget": 45,
-    "strategyQueued": 22,
+    "strategyQueued": 25,
     "strategyTarget": 22,
     "newTopicsAdded": {
       "national": [
-        "streaming-backup-and-failover-for-corporate-livestreams"
+        "hybrid-audience-q-and-a-latency-plan",
+        "led-video-processor-failover-for-live-events",
+        "corporate-event-captioning-and-accessibility-minimums",
+        "generator-and-tie-in-handoff-for-outdoor-corporate-events",
+        "camera-key-light-vs-room-wash-for-broadcast-keynotes"
       ],
       "strategy": [
-        "production-standards-for-board-and-investor-events",
-        "governing-vendor-consolidation-for-event-technology"
+        "governance-for-ai-and-recorded-event-content",
+        "executive-approval-gates-for-live-event-graphics",
+        "portfolio-review-cadence-for-event-production-vendors"
       ]
     },
     "briefsWritten": [
-      "streaming-backup-and-failover-for-corporate-livestreams",
-      "production-standards-for-board-and-investor-events",
-      "governing-vendor-consolidation-for-event-technology"
+      "governance-for-ai-and-recorded-event-content",
+      "executive-approval-gates-for-live-event-graphics",
+      "hybrid-audience-q-and-a-latency-plan",
+      "led-video-processor-failover-for-live-events",
+      "portfolio-review-cadence-for-event-production-vendors"
+    ],
+    "scoreReranks": [
+      "streaming-backup-and-failover-for-corporate-livestreams:90",
+      "hybrid-return-feed-for-remote-presenters:89",
+      "gala-dinner-to-program-transition:88",
+      "procurement-timelines-for-flagship-events:86",
+      "production-standards-for-board-and-investor-events:90",
+      "executive-town-hall-av-minimums:78",
+      "brand-safety-on-live-camera-and-led:80"
     ]
   },
   "lastTrendingTask": "research.trending_topics"
