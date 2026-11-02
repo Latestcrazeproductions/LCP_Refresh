@@ -87,8 +87,7 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-16T19:26:45.079Z",
-      "runId": "run-c611179d-8f8f-42e0-bb64-4cd475da1ccb"
+      "dispatchedAt": "2026-11-02T23:21:28.632Z"
     },
     {
       "taskId": "authority.strategy_blog:event-production-roi-for-planners",
@@ -132,8 +131,7 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-30T20:33:56.067Z",
-      "runId": "run-14be1b23-da8c-4a89-b97a-db02204a5718"
+      "dispatchedAt": "2026-11-02T23:21:28.632Z"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -805,6 +803,14 @@
       "cadence": "daily",
       "dispatchedAt": "2026-10-30T20:33:56.067Z",
       "runId": "run-4ee41e2b-1481-4d94-9042-a3ad457e5175"
+    },
+    {
+      "taskId": "blog.national.create:house-light-control-during-video-playback",
+      "type": "blog.national.create",
+      "targetKey": "house-light-control-during-video-playback",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-11-02T23:21:28.632Z"
     }
   ]
 }
