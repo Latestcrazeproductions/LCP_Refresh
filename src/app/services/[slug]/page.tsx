@@ -237,6 +237,10 @@ export default async function ServiceDetailPage({ params }: Props) {
                 <Link href="/blog/production-rfp-questions-for-marketing-leaders" className="text-blue-400 hover:text-blue-300 underline">
                   production RFP questions for marketing leaders
                 </Link>
+                . Locking playback files? See{' '}
+                <Link href="/blog/content-lock-deadlines-for-event-playback" className="text-blue-400 hover:text-blue-300 underline">
+                  content lock deadlines for event playback
+                </Link>
                 . Ready to scope your room?{' '}
                 <Link href="/contact" className="text-blue-400 hover:text-blue-300 underline font-medium">
                   Contact us
