@@ -132,8 +132,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-11-03T21:37:41.934Z",
-      "runId": "run-3b749117-b05f-449b-81fe-7d967725245c"
+      "dispatchedAt": "2026-11-05T21:49:51.988Z",
+      "runId": "run-63460255-2969-440c-97b3-63207a6600f8"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -159,8 +159,8 @@
       "targetKey": "/services/lighting",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-20T19:54:46.817Z",
-      "runId": "run-b8f679ba-ce79-49c1-98aa-61be2c0493c1"
+      "dispatchedAt": "2026-11-05T21:49:51.988Z",
+      "runId": "run-1b30c4f8-5e88-441d-95b5-4ab39bedb066"
     },
     {
       "taskId": "authority.strategy_blog:av-budget-allocation-for-multi-city-tours",
@@ -831,6 +831,15 @@
       "cadence": "daily",
       "dispatchedAt": "2026-11-04T21:45:31.559Z",
       "runId": "run-b0218379-2c32-4b54-8dc8-de502738708b"
+    },
+    {
+      "taskId": "blog.national.create:projection-screen-sizing-for-breakouts",
+      "type": "blog.national.create",
+      "targetKey": "projection-screen-sizing-for-breakouts",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-11-05T21:49:51.988Z",
+      "runId": "run-8f5c5b58-1e4e-45e2-ae87-0354b92ae7c1"
     }
   ]
 }
