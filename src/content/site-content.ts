@@ -323,8 +323,8 @@ export const siteContent = {
             alt: 'Gala awards stage with intelligent lighting rig, audience seating, and scenic washes before doors',
           },
           {
-            src: 'https://images.unsplash.com/photo-1429962714459-bb934a5a40b6?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Key-light and architectural uplighting on a corporate ballroom stage before doors',
+            src: 'https://images.unsplash.com/photo-1765277902916-9fabeb82e2bf?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Overhead truss with intelligent moving-head fixtures and saturated color washes on a live corporate stage',
           },
           {
             src: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbaf53?q=80&w=2070&auto=format&fit=crop',
