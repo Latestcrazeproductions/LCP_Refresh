@@ -342,10 +342,10 @@
       "title": "Hybrid Return Feeds for Remote Presenters: What to Test Before Doors",
       "track": "A",
       "opportunityScore": 76,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "remote presenter return feed",
       "serviceCta": "/blog/hybrid-event-av-checklist",
-      "rationale": "Complements published hybrid-event-av-checklist; do not rewrite that page."
+      "rationale": "Published 2026-11-06; maintain via faq_refresh. Complements hybrid-event-av-checklist; does not replace it."
     },
     {
       "slug": "truck-pack-and-inventory-for-touring-shows",
