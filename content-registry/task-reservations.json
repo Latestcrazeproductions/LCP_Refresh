@@ -43,8 +43,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-11-04T21:45:31.559Z",
-      "runId": "run-ed00e07c-f206-4284-8740-6403fa8e524e"
+      "dispatchedAt": "2026-11-06T21:22:29.302Z",
+      "runId": "run-c9d9d943-9ec8-45db-8292-35d72aa3ebb0"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -132,8 +132,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-11-05T21:49:51.988Z",
-      "runId": "run-63460255-2969-440c-97b3-63207a6600f8"
+      "dispatchedAt": "2026-11-06T21:22:29.302Z",
+      "runId": "run-3cfe81d1-11cf-4eaa-866a-c60df5c6ebae"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -840,6 +840,15 @@
       "cadence": "daily",
       "dispatchedAt": "2026-11-05T21:49:51.988Z",
       "runId": "run-8f5c5b58-1e4e-45e2-ae87-0354b92ae7c1"
+    },
+    {
+      "taskId": "blog.national.create:hybrid-return-feed-for-remote-presenters",
+      "type": "blog.national.create",
+      "targetKey": "hybrid-return-feed-for-remote-presenters",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-11-06T21:22:29.302Z",
+      "runId": "run-0396deec-47e4-4212-b57f-feac65333983"
     }
   ]
 }
