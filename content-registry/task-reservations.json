@@ -177,8 +177,8 @@
       "targetKey": "daily-venue-guide",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-11-04T21:45:31.559Z",
-      "runId": "run-73f2688f-88a3-4988-b93c-b6678003b866"
+      "dispatchedAt": "2026-11-10T00:01:25.404Z",
+      "runId": "run-d30a2a81-6423-4447-92d5-1dbc4e42da1e"
     },
     {
       "taskId": "blog.national.create:when-you-need-imag-and-delay-screens",
@@ -222,8 +222,8 @@
       "targetKey": "/services/projection",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-22T19:50:11.823Z",
-      "runId": "run-cf6690de-6365-4654-88b3-eada44ecdbab"
+      "dispatchedAt": "2026-11-10T00:01:25.404Z",
+      "runId": "run-02845c49-0b81-49c4-b3dc-c61d3deaeee8"
     },
     {
       "taskId": "authority.strategy_blog:post-event-production-debrief",
@@ -849,6 +849,15 @@
       "cadence": "daily",
       "dispatchedAt": "2026-11-06T21:22:29.302Z",
       "runId": "run-0396deec-47e4-4212-b57f-feac65333983"
+    },
+    {
+      "taskId": "blog.national.create:truck-pack-and-inventory-for-touring-shows",
+      "type": "blog.national.create",
+      "targetKey": "truck-pack-and-inventory-for-touring-shows",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-11-10T00:01:25.404Z",
+      "runId": "run-164e4a88-49f6-4f0e-8150-f840e8aaae8d"
     }
   ]
 }
