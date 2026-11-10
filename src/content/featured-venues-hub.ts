@@ -27,9 +27,9 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
   h1: 'Featured Venues',
   eyebrow: 'Venue production',
   lead:
-    'Production considerations for hotels, convention centers, resorts, and non-traditional spaces — what to verify before you sign, what belongs in the BEO, and where house rules, fire marshal approvals, and split-vendor scope quietly cap your show before load-in day.',
+    'Production considerations for hotels, convention centers, resorts, outdoor spaces, and non-traditional venues — what to verify before you sign, what belongs in the BEO and production addenda, and where dock schedules, house rules, and split-vendor scope quietly cap your show before load-in day.',
   intro:
-    'Venue selection and production design are the same decision split in half. A ballroom that photographs well on the sales tour can still fail your keynote when ceiling height caps truss height, house power cannot feed a 40-foot LED wall, or the freight elevator locks at 5 p.m. on Fridays. This guide covers venue categories, what to measure on a site visit, how house AV and your production partner divide labor and show authority, multi-day hold rules that nobody mentions on the sales call, life safety sign-offs that gate your lighting looks, and the packet your vendor needs to quote accurately — not a list of properties we prefer, but the technical questions seasoned planners ask before the contract is signed.',
+    'Venue selection and production design are the same decision split in half. A ballroom that photographs well on the sales tour can still fail your keynote when ceiling height caps truss height, house power cannot feed a 40-foot LED wall, or the freight elevator locks at 5 p.m. on Fridays. The sales CAD rarely matches field measurements. Dock time is often first-come among every group loading that morning. This guide covers venue categories, site-visit measurements, BEO language worth fighting for, how house AV and your production partner divide labor and show authority, multi-day holds, life safety sign-offs, outdoor and tented constraints, strike windows, and the packet your vendor needs to quote accurately — not a list of properties we prefer, but the technical questions seasoned planners ask before the contract is signed.',
   primaryCta: { label: 'Plan your venue production', href: '/contact' },
   sections: [
     {
@@ -56,10 +56,10 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
         'Load-in path — dock height, freight elevator dimensions and hours, distance from dock to ballroom, union escort rules',
         'FOH and camera positions — rear center sight lines, balcony sight lines, ADA seating sight lines, stream safe zones',
         'Noise and curfew — amplified sound cutoff, strike deadline, decibel limits during cocktail hour next door',
-        'Fire marshal and code — haze approval, sprinkler head clearance, occupancy load, egress paths with your scenic in place',
+        'Shared air walls — whether neighboring rooms can run amplified programs simultaneously; acoustic isolation, not just visual separation',
+        'Fire marshal and life safety — haze approval, open-flame or pyro permits, sprinkler clearance with scenic, occupancy vs seating plan, egress with your stage footprint',
         'Outdoor backup — rain plan location, tent tie-down points, wind speed limits for LED or flown elements, generator pad and cable trench path',
         'Storage and overnight hold — where cases sit between load-in and show day, and whether the venue clears the room for another event overnight',
-        'Fire marshal and life safety — haze approval threshold, open-flame or pyro permits, crowd capacity vs your seating plan, egress paths with your stage footprint',
         'COI and insurance — minimum liability limits, additional-insured wording, certificate delivery deadline before load-in',
         'ADA and accessibility — wheelchair zones with clear sight lines, assisted-listening RF, captioning feed path, and camera framing that includes accessible seating',
         'Obstructions at stage lip — HVAC soffits, sprinkler drops, and lighting coves that do not appear on the sales PDF centerline height',
@@ -68,7 +68,22 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
         'Content inventory — slide aspect ratio, video rolls, IMAG needs, LED vs projection preference',
         'Load-in and rehearsal windows — actual hours, not "morning of"; note when the room must clear for another event or a room flip',
         'Audience size and seating style — theater, classroom, rounds; affects PA design, camera count, and sight-line checks',
-        'Photos from site visit — ceiling, columns, dock path, and anything the CAD will not show',
+        'Photos from site visit — ceiling, columns, dock path, field measurements that disagree with the sales PDF',
+        'Dock and freight scheduling — assigned window vs open dock; concurrent shows sharing the same elevator bank',
+      ],
+    },
+    {
+      title: 'BEO and contract language production should own',
+      body: 'The catering BEO is not a technical document — until it becomes the only signed record of load-in hours, elevator access, and strike deadline. Production details belong in an addendum or exhibit, referenced on the master agreement, with the same signature path as the room rental. If it lives only in email, it will not survive a Saturday night dispute at the dock.',
+      bullets: [
+        'Freight elevator hours and capacity — dimensions, weight limit, escort rules, and whether access extends through strike',
+        'Dock assignment — time slot, shared vs dedicated bay, and who queues when two groups load the same hour',
+        'Load-in and strike windows — start and hard out in local time; overtime triggers and who approves extension',
+        'Power and rigging exhibits — house one-line, available points, and whether supplemental distro or motors require venue sign-off',
+        'Outside vendor clauses — exclusivity fees, mandatory house patch, and minimum house labor hours before your crew touches cable',
+        'Noise, curfew, and decibel limits — written cutoff for amplified program and strike, not “per management discretion”',
+        'Damage and floor protection — who supplies masonite or carpet shield, walk-through before final payment, and chandelier swing clearance',
+        'Cancellation and weather — outdoor rain plan room on contract, not verbal; who pays for hold if the backup room is smaller',
       ],
     },
     {
@@ -111,6 +126,30 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
       ],
     },
     {
+      title: 'Outdoor, tented, and weather-dependent spaces',
+      body: 'Resort lawns and rooftop terraces look effortless in the brochure. Production sees tie-down points, wind load, and a rain plan that cannot be “move inside” if the ballroom is already booked for dinner. Tented structures add their own code path — fire marshal approval, sidewall egress, and generator placement far enough from guest rooms that nobody calls the front desk.',
+      bullets: [
+        'Rain and wind holds — backup room on contract, not verbal; wind speed thresholds for LED, flown lighting, or scenic',
+        'Tent structure — house vs rental vendor; who owns stakes, ballast, and fire marshal inspection before first guest',
+        'Power and distro — generator sizing for full show load, refuel access during event, cable trench or ramp covers for guest paths',
+        'Noise bleed — amplified sound toward guest rooms or neighboring properties; curfew that starts during your awards segment',
+        'Ground conditions — cable ramps on grass, mud after rain, and whether golf-cart paths handle road-case weight',
+        'Sun and glare — afternoon keynotes on west-facing stages; scrim or tent peak height for IMAG camera angles',
+      ],
+    },
+    {
+      title: 'Strike, load-out, and the exit nobody schedules',
+      body: 'Planners optimize load-in and show day. Strike gets whatever hours are left — which is often less than anyone admitted when the contract was signed. A hard room flip, union overtime rules, and dock congestion at 11 p.m. all land on the same clock.',
+      bullets: [
+        'Strike window — confirmed end time in writing; whether scenic, truss, or LED must be down before housekeeping enters',
+        'Dock and elevator access — same freight restrictions as load-in; confirm Sunday or holiday closures apply to strike too',
+        'Union call minimums — last-hour crew counts and whether your vendor pays house labor if strike runs past the call',
+        'Case staging during strike — hallway holds, dock cage, and whether the venue charges per pallet overnight',
+        'Damage walk-through — who signs off on floor protection, wall touch-ups, and scenic removal before final payment',
+        'Partial strike between segments — what can stay dressed when catering resets for gala after general session',
+      ],
+    },
+    {
       title: 'Scaling production to the room — not the brochure',
       body: 'The same creative brief produces different gear lists in a 400-seat breakout vs a 2,000-seat general session. Match production scope to room geometry and house constraints — not to the last show the client liked on Instagram. Clarify who owns what before load-in day; that conversation is cheaper at contract stage than at 6 a.m. on the dock.',
       bullets: [
@@ -122,12 +161,13 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
         'Rehearsal block — cue-to-cue time is a venue constraint too; a 6 p.m. hard out means rehearsal starts earlier, not faster',
         'Strike window — how fast the room must clear affects cable paths and whether you can leave cases staged for a multi-day show',
         'Accessible production — assisted-listening distribution, open-caption displays, and presenter mic redundancy for ADA seating zones',
+        'Room measurement reality — stage depth from sales CAD vs field measure; plan ground-support LED width against actual column spacing',
       ],
     },
   ],
   floorStory: {
     title: 'From the floor',
-    body: 'House AV ran the breakouts; the outside vendor ran general session — a common split to save money. Same ballroom for the keynote, two switchers, two RF coordinators, and no name on the run-of-show for headset authority. The CEO\'s lav hit the house receiver on the wrong channel. In-room audio was fine. The stream carried house music from the pre-show playlist until someone noticed on a phone in the green room. One show caller with patch authority across both systems would have caught it in the first cue. Split scope is workable. Split authority is not.',
+    body: 'Load-in for a downtown hotel general session had a written dock slot: 7 a.m. Saturday. Production arrived at 6:50 with two 53-foot trucks. The dock had one active bay. A wedding florist had been loading since 6:30 with no slot on paper — the dock manager had said yes on the phone Thursday. By 8:15, cases were still on the sidewalk. The freight elevator opened at 8:00 and stopped accepting carts at noon because a luncheon group owned the ballroom air space. The BEO listed “morning load-in” but not a bay number or elevator cutoff. The fix was not faster crew; it was a dock exhibit on the contract the next year. Assign the bay and the elevator window like you assign the room — in writing, with a time range.',
   },
   capabilitiesTitle: 'Production capabilities by venue',
   capabilities: [
@@ -148,6 +188,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
     { href: '/blog/hybrid-event-av-checklist', label: 'Hybrid event AV checklist' },
     { href: '/blog/backstage-flow-for-corporate-events', label: 'Backstage flow for corporate events' },
     { href: '/blog/hire-vs-in-house-av-team', label: 'House AV vs production partner' },
+    { href: '/blog/load-in-timeline-for-hotel-ballrooms', label: 'Hotel ballroom load-in timeline' },
     { href: '/work', label: 'Case studies' },
   ],
 };
