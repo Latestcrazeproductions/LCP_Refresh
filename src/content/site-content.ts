@@ -389,8 +389,8 @@ export const siteContent = {
             alt: 'Close-up of suspended line-array speaker clusters rigged stage-left before show call',
           },
           {
-            src: 'https://images.unsplash.com/photo-1766019463451-04e0b1269f37?q=80&w=2070&auto=format&fit=crop',
-            alt: 'FOH audio engineer at a digital mixing console with multitrack metering during show prep',
+            src: 'https://images.unsplash.com/photo-1540575467063-178a50c2df87?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Corporate general session ballroom with flown PA clusters and delay fills checked before doors',
           },
           {
             src: 'https://images.unsplash.com/photo-1768269894-1d7e1ce8894e?q=80&w=2070&auto=format&fit=crop',
