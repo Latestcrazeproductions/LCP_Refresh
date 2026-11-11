@@ -370,9 +370,10 @@
       "title": "Fire Marshal and Cable Ramp Planning for Ballroom Shows",
       "track": "A",
       "opportunityScore": 49,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "event fire marshal cable ramps",
-      "serviceCta": "/services/stage"
+      "serviceCta": "/services/stage",
+      "rationale": "Published 2026-11-11; maintain via faq_refresh. Egress and cable ramp advance for hotel ballrooms; pairs with load-in-timeline and /services/stage."
     },
     {
       "slug": "lower-thirds-and-graphics-safe-zones",
