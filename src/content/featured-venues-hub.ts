@@ -29,7 +29,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
   lead:
     'Production considerations for hotels, convention centers, resorts, and non-traditional spaces — what to verify before you sign, what belongs in the BEO, and where house rules, fire marshal approvals, and split-vendor scope quietly cap your show before load-in day.',
   intro:
-    'Venue selection and production design are the same decision split in half. A ballroom that photographs well on the sales tour can still fail your keynote when ceiling height caps truss height, house power cannot feed a 40-foot LED wall, or the freight elevator locks at 5 p.m. on Fridays. This guide covers venue categories, what to measure on a site visit, how house AV and your production partner divide labor and show authority, multi-day hold rules that nobody mentions on the sales call, life safety sign-offs that gate your lighting looks, and the packet your vendor needs to quote accurately — not a list of properties we prefer, but the technical questions seasoned planners ask before the contract is signed.',
+    'Venue selection and production design are the same decision split in half. A ballroom that photographs well on the sales tour can still fail your keynote when ceiling height caps truss height, house power cannot feed a 40-foot LED wall, or the freight elevator locks at 5 p.m. on Fridays. This guide covers venue categories, what to measure on a site visit, contract and BEO language that protects load-in, how house AV and your production partner divide labor and show authority, multi-day hold rules that nobody mentions on the sales call, life safety sign-offs that gate your lighting looks, and the packet your vendor needs to quote accurately — not a list of properties we prefer, but the technical questions seasoned planners ask before the contract is signed.',
   primaryCta: { label: 'Plan your venue production', href: '/contact' },
   sections: [
     {
@@ -43,6 +43,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
         'Historic theaters and performing arts centers — fixed grid height, orchestra pit covers, union house crew minimums, and load-in through the stage door only',
         'Hybrid-ready venues — dedicated encoder room, hardline internet handoff, and camera positions that work for both IMAG and a 16:9 stream frame',
         'Exhibition halls and raw event spaces — floor load ratings, trench covers, overhead grid height at 30+ feet, and whether the venue treats you like a trade show or a seated general session',
+        'Airport-adjacent and atrium hotels — glass-heavy lobbies with bounce and slap, overnight noise rules near guest corridors, and load paths that cross the front desk after 10 p.m.',
       ],
     },
     {
@@ -54,12 +55,12 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
         'Power — house cam-lock locations, amperage per leg, generator pad access if supplemental distro is required',
         'Rigging — house points on CAD, weight limits, dead-hang vs bridled spans, and whether motors are in-house or BYO',
         'Load-in path — dock height, freight elevator dimensions and hours, distance from dock to ballroom, union escort rules',
+        'Dock credentials — vendor name on the security list, driver and truck plate cutoff, overnight badge pickup, and whether the dock shares a queue with banquet linen',
         'FOH and camera positions — rear center sight lines, balcony sight lines, ADA seating sight lines, stream safe zones',
         'Noise and curfew — amplified sound cutoff, strike deadline, decibel limits during cocktail hour next door',
-        'Fire marshal and code — haze approval, sprinkler head clearance, occupancy load, egress paths with your scenic in place',
+        'Fire marshal and life safety — haze approval, open-flame or pyro permits, sprinkler clearance, occupancy vs your seating plan, egress with scenic in place',
         'Outdoor backup — rain plan location, tent tie-down points, wind speed limits for LED or flown elements, generator pad and cable trench path',
         'Storage and overnight hold — where cases sit between load-in and show day, and whether the venue clears the room for another event overnight',
-        'Fire marshal and life safety — haze approval threshold, open-flame or pyro permits, crowd capacity vs your seating plan, egress paths with your stage footprint',
         'COI and insurance — minimum liability limits, additional-insured wording, certificate delivery deadline before load-in',
         'ADA and accessibility — wheelchair zones with clear sight lines, assisted-listening RF, captioning feed path, and camera framing that includes accessible seating',
         'Obstructions at stage lip — HVAC soffits, sprinkler drops, and lighting coves that do not appear on the sales PDF centerline height',
@@ -69,6 +70,20 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
         'Load-in and rehearsal windows — actual hours, not "morning of"; note when the room must clear for another event or a room flip',
         'Audience size and seating style — theater, classroom, rounds; affects PA design, camera count, and sight-line checks',
         'Photos from site visit — ceiling, columns, dock path, and anything the CAD will not show',
+      ],
+    },
+    {
+      title: 'BEO and venue contract — production clauses worth fighting for',
+      body: 'The sales packet covers catering counts and sleeping rooms. Production usually lives in the meeting-services addendum — when that addendum exists. Language you skim in redlines becomes the reason your truck waits on the street while banquet resets the room you loaded into yesterday.',
+      bullets: [
+        'Freight elevator hours — named days, start and stop times, and whether production shares the car with linen and compactor runs',
+        'Exclusive production access — who holds the room between load-in and doors; whether catering can enter for setup while truss is still overhead',
+        'Power lock-in — confirmed amperage at stated locations, who re-energizes after overnight kills, and after-hours electrician contact',
+        'Rigging approval path — house rigging lead, plot sign-off deadline, and whether outside riggers need venue escorts or house labor on every motor',
+        'Noise and curfew enforcement — written dB limits, which spaces they apply to, and strike penalties for exceeding them',
+        'Vendor credentialing — dock pass pickup deadline, truck parking allocation, and badge access for overnight crew on property',
+        'Floor and dock protection — who supplies masonite or carpet shield, and who pays when a dolly trenches soft ballroom carpet',
+        'Attrition and hold impact — what happens to stored gear and flown elements if the group shrinks midweek or a breakout cancels',
       ],
     },
     {
@@ -127,7 +142,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
   ],
   floorStory: {
     title: 'From the floor',
-    body: 'House AV ran the breakouts; the outside vendor ran general session — a common split to save money. Same ballroom for the keynote, two switchers, two RF coordinators, and no name on the run-of-show for headset authority. The CEO\'s lav hit the house receiver on the wrong channel. In-room audio was fine. The stream carried house music from the pre-show playlist until someone noticed on a phone in the green room. One show caller with patch authority across both systems would have caught it in the first cue. Split scope is workable. Split authority is not.',
+    body: 'The dock pass desk opened at 7 a.m. Production\'s truck was on the manifest; the driver was not on the hotel vendor list because catering filed the dock request under their caterer account. Security would not issue a badge without a banquet manager signature. The banquet manager\'s shift started at 10. Load-in was contracted for 8. The BEO listed "AV vendor TBD" in the vendor column — accurate, and useless to anyone with a hand truck. Vendor legal name, driver name, and truck plate need to live on the same document security reads that morning, not in an email thread the dock has never opened.',
   },
   capabilitiesTitle: 'Production capabilities by venue',
   capabilities: [
@@ -147,6 +162,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
     { href: '/blog/led-wall-sizing-for-events', label: 'LED wall sizing guide' },
     { href: '/blog/hybrid-event-av-checklist', label: 'Hybrid event AV checklist' },
     { href: '/blog/backstage-flow-for-corporate-events', label: 'Backstage flow for corporate events' },
+    { href: '/blog/load-in-timeline-for-hotel-ballrooms', label: 'Hotel ballroom load-in timeline' },
     { href: '/blog/hire-vs-in-house-av-team', label: 'House AV vs production partner' },
     { href: '/work', label: 'Case studies' },
   ],
