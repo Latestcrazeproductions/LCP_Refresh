@@ -211,7 +211,7 @@ export const siteContent = {
           {
             question: 'Should the wall be ground-stacked or flown?',
             answer:
-              'Ground-stacked wins when the venue restricts overhead rigging, the deck cannot take point loads from truss, or you need a faster strike between general sessions. Flown wins when floor space is tight, sight lines need the wall elevated above heads in the first rows, or scenic integrates the wall into overhead structure. Ceiling height, weight limits, and shared rigging time with lighting usually decide it — not aesthetics alone. We return a rigging recommendation with your quote so you can forward one ask list to the venue before the contract is signed.',
+              'Ground-stacked wins when the venue restricts overhead rigging, the deck cannot take point loads from truss, or you need a faster strike between general sessions. Flown wins when floor space is tight, sight lines need the wall elevated above heads in the first rows, or scenic integrates the wall into overhead structure. Ceiling height, weight limits, and shared rigging time with lighting usually decide it — not aesthetics alone. See our ground-supported vs flown guide for a side-by-side checklist you can paste into an RFP. We return a rigging recommendation with your quote so you can forward one ask list to the venue before the contract is signed.',
           },
           {
             question: 'How long does LED wall load-in and setup take?',
@@ -244,9 +244,9 @@ export const siteContent = {
               'Usually yes — the emissive wall behind them is bright, and turning to read slides on it reads poorly on camera. Downstage confidence monitors (often flanked, sometimes teleprompter-fed) keep eyes forward while the audience reads the upstage wall. Placement depends on camera positions, lectern height, and whether panels walk — we plot monitor lines in pre-pro alongside wall and IMAG layout so rehearsal is not the first time someone discovers they cannot see their transitions.',
           },
           {
-            question: 'When should final wall content be delivered before show day?',
+            question: 'When should wall content be locked before load-in?',
             answer:
-              'Lock motion graphics and full-screen video at least one week before load-in — longer for multi-zone layouts or 32:9 canvases your team has never built before. Slide decks can arrive closer, but the master deck should be frozen before rehearsal so font substitutions and last-minute aspect-ratio surprises do not become a load-in sport. We run a content test on the actual processor path during tech rehearsal; discovering a 24fps clip on a 60 Hz wall during the CEO walk-through is avoidable with a calendar. Send ProRes or high-bitrate H.264 for video, native-resolution PNG or PDF exports for stills, and one contact who owns change control.',
+              'Lock motion graphics and full-screen video at least two weeks before load-in — longer for multi-zone layouts or 32:9 canvases your team has never built before. Slide decks should freeze at least 72 hours before doors so we can QA native resolution, fonts, and brand colors on the actual processor path. Late renders force untested files onto the wall during calibration; it will play them, but nobody has checked lower-thirds or frame rate on camera. Send ProRes or high-bitrate H.264 for video, native-resolution PNG or PDF for stills, and one contact who owns change control. We publish canvas dimensions and safe zones early so your team builds once.',
           },
           {
             question: 'Is this LED wall rental-only, or full production with onsite support?',
@@ -274,24 +274,9 @@ export const siteContent = {
               'Four to six weeks covers most single-market keynotes with standard rigging — send room dimensions and load-in constraints early so we can flag truck dock or ceiling issues before you sign. Multi-market tours or custom aspect builds with full-field calibration windows need 8–12 weeks. Q4 conference season and January sales kickoffs book inventory early; if your dates fall in those windows, earlier is better. Rush timelines are possible depending on inventory and venue access — contact us with your dates and we will tell you honestly what is feasible.',
           },
           {
-            question: 'What should I send when requesting an LED wall quote?',
+            question: 'Can LED walls be used outdoors or on covered patios?',
             answer:
-              'Start with a floor plan or ballroom diagram: seating count, style (chevron, classroom, theater), and the farthest occupied row. Add ceiling height, rigging plot or venue tech packet, load-in and strike windows, and how content will run (slides only, IMAG, full-screen video, hybrid stream). Photos of the room beat guessing when CAD is not available. We return canvas dimensions, pitch recommendation, rigging approach, and conflict flags — not a panel count pulled from a spreadsheet.',
-          },
-          {
-            question: 'What should an LED wall RFP include beyond dimensions and pixel pitch?',
-            answer:
-              'Ask for farthest-seat readability standards (e.g., minimum character height at the back row), native resolution and refresh rate for every content source, processor redundancy and who owns spares, load-in footprint (module size, case count, ground vs flown weight), and a calibration window before doors — not twenty minutes before the CEO walk-on. Request a comparable-room reference, not just a spec sheet. Bids that cannot describe a show like yours at this distance are guessing with your budget.',
-          },
-          {
-            question: 'Do presenters need confidence monitors when the room has a large LED wall?',
-            answer:
-              'Usually yes — the emissive wall behind them is bright, and turning to read slides on it reads poorly on camera. Downstage confidence monitors (often flanked, sometimes teleprompter-fed) keep eyes forward while the audience reads the upstage wall. Placement depends on camera positions, lectern height, and whether panels walk — we plot monitor lines in pre-pro alongside wall and IMAG layout so rehearsal is not the first time someone discovers they cannot see their transitions.',
-          },
-          {
-            question: 'When should wall content be locked before load-in?',
-            answer:
-              'Lock motion graphics and full-screen video at least two weeks before load-in; slide decks at least 72 hours before doors for a real QA pass on native resolution. Late renders force untested files onto the processor during calibration — the wall will play them, but nobody has checked lower-thirds, brand colors, or frame rate on camera. We publish canvas dimensions and safe zones early so your team builds once; change orders after content lock belong in the run-of-show, not in a fresh After Effects export at 6 AM.',
+              'Yes — with outdoor-rated panels, weather contingency, and realistic brightness targets. Direct sun demands higher-nit cabinets and often a shaded or covered install; uncovered rain is a hard stop unless the show design includes a tent or roof structure. Wind load, ballast, and cable management differ from ballroom builds — we spec IP-rated gear, tie-down plans, and a weather call protocol before creative locks dimensions. Covered resort patios and drive-in general sessions are common; fully exposed festival fields need a different engineering conversation than a hotel breakout.',
           },
           {
             question: 'How do you split LED wall scope between house AV and a production vendor?',
