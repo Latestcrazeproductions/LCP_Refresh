@@ -43,8 +43,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-11-10T21:42:51.463Z",
-      "runId": "run-03b4298b-805f-4b5b-82a7-4b905d3d88d8"
+      "dispatchedAt": "2026-11-12T22:08:00.735Z",
+      "runId": "run-0edcd935-1280-47bb-afde-5e055f254ed9"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -177,8 +177,8 @@
       "targetKey": "daily-venue-guide",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-11-10T00:01:25.404Z",
-      "runId": "run-d30a2a81-6423-4447-92d5-1dbc4e42da1e"
+      "dispatchedAt": "2026-11-12T22:08:00.735Z",
+      "runId": "run-91aa6071-dfd1-40a2-a318-1158833d5477"
     },
     {
       "taskId": "blog.national.create:when-you-need-imag-and-delay-screens",
@@ -876,6 +876,15 @@
       "cadence": "daily",
       "dispatchedAt": "2026-11-11T22:32:34.650Z",
       "runId": "run-32156c37-708f-4af9-8247-9d26b36ecf1b"
+    },
+    {
+      "taskId": "blog.national.create:lower-thirds-and-graphics-safe-zones",
+      "type": "blog.national.create",
+      "targetKey": "lower-thirds-and-graphics-safe-zones",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-11-12T22:08:00.735Z",
+      "runId": "run-c0490adc-b02f-449f-aea6-f014d2a4943e"
     }
   ]
 }
