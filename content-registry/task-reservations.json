@@ -132,8 +132,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-11-11T22:32:34.650Z",
-      "runId": "run-c7b896c8-4fb2-4e38-932c-9d6fc00073e4"
+      "dispatchedAt": "2026-11-13T21:50:15.449Z",
+      "runId": "run-c83a8d98-e92f-49b4-a2ab-4f37ed20d750"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -276,8 +276,8 @@
       "targetKey": "/services/stage",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-10-29T20:56:59.734Z",
-      "runId": "run-d5ee637a-9918-4d8a-92d9-285edfc770f3"
+      "dispatchedAt": "2026-11-13T21:50:15.449Z",
+      "runId": "run-1a458fb2-d195-4192-b48a-dc0770404fb2"
     },
     {
       "taskId": "authority.strategy_blog:production-partners-for-high-stakes-keynotes",
@@ -885,6 +885,15 @@
       "cadence": "daily",
       "dispatchedAt": "2026-11-12T22:08:00.735Z",
       "runId": "run-c0490adc-b02f-449f-aea6-f014d2a4943e"
+    },
+    {
+      "taskId": "blog.national.create:speaker-timer-and-confidence-workflow",
+      "type": "blog.national.create",
+      "targetKey": "speaker-timer-and-confidence-workflow",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-11-13T21:50:15.449Z",
+      "runId": "run-7c634b2a-07e3-42e8-aa8c-7c2d12c0a2a3"
     }
   ]
 }
