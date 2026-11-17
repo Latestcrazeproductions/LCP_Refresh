@@ -27,9 +27,9 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
   h1: 'Featured Venues',
   eyebrow: 'Venue production',
   lead:
-    'Production considerations for hotels, convention centers, resorts, and non-traditional spaces — what to verify before you sign, what belongs in the BEO, and where house rules, fire marshal approvals, and split-vendor scope quietly cap your show before load-in day.',
+    'Production considerations for hotels, convention centers, resorts, and non-traditional spaces — what to verify before you sign, what belongs in the BEO, and where house rules, rigging engineering, fire marshal approvals, and split-vendor scope quietly cap your show before load-in day.',
   intro:
-    'Venue selection and production design are the same decision split in half. A ballroom that photographs well on the sales tour can still fail your keynote when ceiling height caps truss height, house power cannot feed a 40-foot LED wall, or the freight elevator locks at 5 p.m. on Fridays. This guide covers venue categories, what to measure on a site visit, how house AV and your production partner divide labor and show authority, multi-day hold rules that nobody mentions on the sales call, life safety sign-offs that gate your lighting looks, and the packet your vendor needs to quote accurately — not a list of properties we prefer, but the technical questions seasoned planners ask before the contract is signed.',
+    'Venue selection and production design are the same decision split in half. A ballroom that photographs well on the sales tour can still fail your keynote when ceiling height caps truss height, house power cannot feed a 40-foot LED wall, or the freight elevator locks at 5 p.m. on Fridays. This guide covers venue categories, what to measure on a site visit, how house AV and your production partner divide labor and show authority, multi-day hold rules that nobody mentions on the sales call, life safety and rigging sign-offs that gate your lighting looks, and the packet your vendor needs to quote accurately — not a list of properties we prefer, but the technical questions seasoned planners ask before the contract is signed.',
   primaryCta: { label: 'Plan your venue production', href: '/contact' },
   sections: [
     {
@@ -43,6 +43,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
         'Historic theaters and performing arts centers — fixed grid height, orchestra pit covers, union house crew minimums, and load-in through the stage door only',
         'Hybrid-ready venues — dedicated encoder room, hardline internet handoff, and camera positions that work for both IMAG and a 16:9 stream frame',
         'Exhibition halls and raw event spaces — floor load ratings, trench covers, overhead grid height at 30+ feet, and whether the venue treats you like a trade show or a seated general session',
+        'Corporate campuses and atriums — daytime occupancy limits, after-hours security escorts, glass atrium wind load for flown elements, and whether production can run cable through active office floors',
       ],
     },
     {
@@ -56,10 +57,11 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
         'Load-in path — dock height, freight elevator dimensions and hours, distance from dock to ballroom, union escort rules',
         'FOH and camera positions — rear center sight lines, balcony sight lines, ADA seating sight lines, stream safe zones',
         'Noise and curfew — amplified sound cutoff, strike deadline, decibel limits during cocktail hour next door',
-        'Fire marshal and code — haze approval, sprinkler head clearance, occupancy load, egress paths with your scenic in place',
+        'Fire marshal and life safety — haze approval threshold, open-flame or pyro permits, sprinkler clearance, crowd capacity vs your seating plan, egress paths with your scenic in place',
         'Outdoor backup — rain plan location, tent tie-down points, wind speed limits for LED or flown elements, generator pad and cable trench path',
         'Storage and overnight hold — where cases sit between load-in and show day, and whether the venue clears the room for another event overnight',
-        'Fire marshal and life safety — haze approval threshold, open-flame or pyro permits, crowd capacity vs your seating plan, egress paths with your stage footprint',
+        'Rigging plot deadline — venue engineering turnaround, required PE stamp, and whether motors cannot hang until sign-off (lead time measured in weeks, not days)',
+        'Dock and weight certification — certified scale on property, max pallet jack and forklift access, and whether overweight cases require an alternate load-in route',
         'COI and insurance — minimum liability limits, additional-insured wording, certificate delivery deadline before load-in',
         'ADA and accessibility — wheelchair zones with clear sight lines, assisted-listening RF, captioning feed path, and camera framing that includes accessible seating',
         'Obstructions at stage lip — HVAC soffits, sprinkler drops, and lighting coves that do not appear on the sales PDF centerline height',
@@ -99,6 +101,18 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
       ],
     },
     {
+      title: 'Rigging plots, roof loads, and engineering sign-off',
+      body: 'Anything that hangs above people needs a plot somebody with liability signs. Venues vary on who reviews it, how long that takes, and what triggers a ground-support-only downgrade. Treat rigging approval as a milestone on the same calendar as catering — not a production detail you discover when the motors arrive.',
+      bullets: [
+        'Submission format — PDF plot, point load per motor, bridling diagram, and equipment list that matches what is actually shipping',
+        'Engineering turnaround — business days from submission to approval; venues that need 10–15 days are normal, not slow',
+        'Roof load vs point load — convention grids often publish both; exceeding either blocks the fly even if the truss fits',
+        'Insurance and certificates — rigging COI, rigger certification on file, and whether the venue insists on house riggers for all overhead work',
+        'Ground-support fallback — LED wall and lighting positions that still work if engineering rejects a span or delays sign-off',
+        'As-built vs sales CAD — verify rigging points on the walkthrough; sales drawings omit HVAC, soffits, and de-rated points',
+      ],
+    },
+    {
       title: 'Multi-day holds, room turnover, and compound layouts',
       body: 'Single-day shows are the easy math. Multi-day conferences, galas with a separate rehearsal day, and programs that span a ballroom plus three breakouts plus an outdoor dinner add storage, power, and access questions the venue sales sheet rarely covers. Ask these before you sign — not when housekeeping needs the room at 6 a.m. on day two.',
       bullets: [
@@ -127,7 +141,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
   ],
   floorStory: {
     title: 'From the floor',
-    body: 'House AV ran the breakouts; the outside vendor ran general session — a common split to save money. Same ballroom for the keynote, two switchers, two RF coordinators, and no name on the run-of-show for headset authority. The CEO\'s lav hit the house receiver on the wrong channel. In-room audio was fine. The stream carried house music from the pre-show playlist until someone noticed on a phone in the green room. One show caller with patch authority across both systems would have caught it in the first cue. Split scope is workable. Split authority is not.',
+    body: 'The rigging plot went in eight days before load-in — aggressive, but the sales team promised a fast turnaround. Engineering returned it on Wednesday with one motor moved and a note that two listed points were decorative, not load-rated. Production had ground-support backups in the quote. Nobody put engineering approval on the run-of-show as a hard gate, so the LED deck shipped flown. Friday at the dock, house rigging would not hang until the revised plot was re-stamped. The wall built on deck instead. Sight lines were fine. Rehearsal lost forty minutes nobody had scheduled. The venue was not being difficult. The plot was late and the CAD was wrong. Submit early, walk the points, and name on paper who owns the downgrade call when engineering says no.',
   },
   capabilitiesTitle: 'Production capabilities by venue',
   capabilities: [
@@ -148,6 +162,7 @@ export const FEATURED_VENUES_HUB: FeaturedVenuesHubContent = {
     { href: '/blog/hybrid-event-av-checklist', label: 'Hybrid event AV checklist' },
     { href: '/blog/backstage-flow-for-corporate-events', label: 'Backstage flow for corporate events' },
     { href: '/blog/hire-vs-in-house-av-team', label: 'House AV vs production partner' },
+    { href: '/blog/union-labor-planning-for-corporate-events', label: 'Union labor planning' },
     { href: '/work', label: 'Case studies' },
   ],
 };
