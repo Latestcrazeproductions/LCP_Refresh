@@ -43,8 +43,8 @@
       "targetKey": "/services/led-walls",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-11-17T00:03:45.013Z",
-      "runId": "run-86560c6b-9f08-40e2-bb9f-3654ddca9f0a"
+      "dispatchedAt": "2026-11-18T22:52:42.011Z",
+      "runId": "run-0b2ce4b2-3aaa-4eab-9987-0867aa6d1d8e"
     },
     {
       "taskId": "blog.national.create:hybrid-event-av-checklist",
@@ -132,8 +132,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-11-17T00:03:45.013Z",
-      "runId": "run-edb586a2-7f33-48ce-b1cf-6a88d8320cc4"
+      "dispatchedAt": "2026-11-18T22:52:42.011Z",
+      "runId": "run-62b19357-2abb-429d-ac35-1bef1492cb25"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -912,6 +912,15 @@
       "cadence": "daily",
       "dispatchedAt": "2026-11-17T23:24:04.023Z",
       "runId": "run-050fdd14-07db-46de-83e6-fe921f4616be"
+    },
+    {
+      "taskId": "blog.national.create:multi-camera-switcher-plan-for-keynotes",
+      "type": "blog.national.create",
+      "targetKey": "multi-camera-switcher-plan-for-keynotes",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-11-18T22:52:42.011Z",
+      "runId": "run-12c31a47-c287-49aa-b2be-f449f2aa357b"
     }
   ]
 }
