@@ -132,8 +132,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-11-18T22:52:42.011Z",
-      "runId": "run-62b19357-2abb-429d-ac35-1bef1492cb25"
+      "dispatchedAt": "2026-11-19T22:57:00.365Z",
+      "runId": "run-e34786f8-c1d7-47af-957a-5d155d6cde54"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -159,8 +159,8 @@
       "targetKey": "/services/lighting",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-11-05T21:49:51.988Z",
-      "runId": "run-1b30c4f8-5e88-441d-95b5-4ab39bedb066"
+      "dispatchedAt": "2026-11-19T22:57:00.365Z",
+      "runId": "run-714024a4-f6fd-4b43-944a-2b190d2e2041"
     },
     {
       "taskId": "authority.strategy_blog:av-budget-allocation-for-multi-city-tours",
@@ -921,6 +921,15 @@
       "cadence": "daily",
       "dispatchedAt": "2026-11-18T22:52:42.011Z",
       "runId": "run-12c31a47-c287-49aa-b2be-f449f2aa357b"
+    },
+    {
+      "taskId": "blog.national.create:dmx-and-lighting-looks-for-awards-segments",
+      "type": "blog.national.create",
+      "targetKey": "dmx-and-lighting-looks-for-awards-segments",
+      "status": "in_review",
+      "cadence": "daily",
+      "dispatchedAt": "2026-11-19T22:57:00.365Z",
+      "runId": "run-419ecdcc-e9ef-4528-9b8e-652cada5df04"
     }
   ]
 }
