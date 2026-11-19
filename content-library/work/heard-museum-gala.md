@@ -1,8 +1,8 @@
 ---
 title: Heard Museum Gala — Premium Event Production
-description: Museum gala production case study — ground-supported staging, intelligent lighting, line-array audio, IMAG, and cue-to-cue awards flow for a cultural institution fundraiser.
+description: Museum gala production case study — ground-supported staging, courtyard reception planning, RF and power on cultural campuses, IMAG sight lines, and cue-to-cue awards flow for a fundraising gala.
 track: B
-dateModified: 2026-09-30
+dateModified: 2026-11-19
 eyebrow: Arts / Cultural
 ---
 
@@ -93,6 +93,21 @@ For this gala, we submitted a one-line power ask eight weeks out: total amperage
 
 Ground-fault and weather matter when cocktail hour spills onto a courtyard terrace. We kept all distro under covered mats with labeled cord caps — not because the museum required it for the indoor room, but because the reception zone crossed an exterior door that stayed open for two hours.
 
+## Rain plan and exterior reception
+
+Museum galas often split the evening: cocktails on a courtyard or terrace, dinner and program indoors. That split is where weather, audio bleed, and guest flow collide — especially when the building cannot absorb the full guest count if everyone moves inside at once.
+
+For this gala, reception ran on the courtyard for the first ninety minutes while dinner held indoors. We wrote a rain-and-wind plan at the six-week site walk, not the morning of:
+
+- **Guest capacity indoors vs. courtyard** — Head count the seated room can absorb if reception must move inside; overflow tables are a planning problem, not a show-caller improvisation
+- **Audio handoff zones** — Separate DSP presets for courtyard standing density and indoor corridor spill; a single line-array preset rarely covers both without riding faders all night
+- **Covered gear and distro** — Every speaker, distro leg, and cable run on the terrace needs rain covers and GFCI protection approved by facilities — not extension cords under a pop-up canopy someone bought at lunch
+- **Indoor cue in writing** — Who announces the move, which doors stay open, and whether the emcee repeats auction rules after relocation; development signs off on the script
+- **Lighting continuity** — Walk-in look on the terrace versus first indoor look documented on the cue sheet so the LD does not rebuild from scratch in a five-minute scramble
+- **Strike order if weather turns during reception** — Terrace gear pulls first on a numbered cue from the show caller; cable mats on the interior threshold stay until guest flow stops
+
+If your venue assumes “we will just go inside if it rains,” ask facilities how many extra bodies the dinner room legally holds before you sell courtyard tickets.
+
 ## Campus load-in, truck access, and strike logistics
 
 Museum campuses are not convention centers. Truck access, badge lists, and strike windows are negotiated weeks before load-in — not resolved when the first case hits the dock.
@@ -119,6 +134,7 @@ Bring these to your vendor advance — museum galas punish vague scope:
 - **Load-in / strike** — written sequence aligned with museum security; no overnight hold; strike order defined before the first case comes off the truck
 - **Power** — distro from approved campus circuits only; no generator on preserved surfaces; tie-in signed by facilities before first powered-on test
 - **Wireless** — six-channel plan with dedicated auction frequency, intercom on isolated band, backup map on the cue sheet; RF scan at load-in and show morning
+- **Exterior reception** — courtyard audio zone, covered distro, written indoor rain cue, and strike order if weather forces an early terrace pull
 
 ## The production challenge
 
@@ -243,12 +259,12 @@ The production team delivered measurable results across guest experience, progra
 - **Load-out completed inside the contracted window** — strike followed the written pull order; museum operations resumed on time with curatorial sign-off on surface photos
 - **Content pipeline stayed ahead of show day** — all six tribute videos and slide decks were in the playback queue 72 hours before doors, with labeled backup media at FOH
 - **Zero unplanned rigging or surface contact** — ground-supported positions and cable mats matched the advance plan; no last-minute stage resize after the 8-week footprint lock
-- **Wireless plan held through the awards block** — morning re-scan caught a campus security carrier; presenter channels were remapped in rehearsal with no dropouts during live cues
+- **Wireless plan held through reception and awards** — morning re-scan caught a campus security carrier; presenter channels were remapped in rehearsal with no dropouts during live cues; every primary mic had a fallback on the cue sheet before doors
 - **Auction-to-awards handoff held dinner service** — lot descriptions finished inside the caterer's dessert hold window; transition to the first honoree landed as a numbered cue, not a floor negotiation
 - **Tribute video transitions held without dead air** — every pre-recorded segment played from the primary queue; video-to-live returns were rehearsed as single numbered cues with lavs open before the last frame faded
 - **Stakeholder roles stayed clear through strike** — facilities, curatorial, and production each had a named owner on comms; no mid-show debates about cable mats or house-light presets
-- **Wireless plan held through reception and awards** — show-morning RF scan caught one new interference source; backup channel map was never needed, but every primary mic had a fallback assigned before doors
 - **Power tie-in matched the advance drawing** — facilities signed off on distro positions at load-in; no mid-show breaker trips or unplanned extension cord runs across guest paths
+- **Courtyard reception stayed on plan** — a wind advisory pushed the terrace close fifteen minutes early; the written indoor cue ran on show-caller timing without a second auction rules read or a lighting rebuild from scratch
 
 ## Lessons for museum and cultural galas
 
@@ -266,8 +282,11 @@ Cultural institution events reward planners who treat the venue like a collabora
 - **Write truck access and strike before load-in day** — campus galas fail when the first case arrives and nobody knows which gate is open; vehicle staging and hard out times belong in the advance packet, not a group text at midnight
 - **Treat RF as a campus problem, not a mic rental** — request security and facilities wireless inventory early; scan at load-in and again before doors when guest density changes the noise floor
 - **Submit a one-line power ask early** — amperage by position, tie-in locations, and generator rules in writing; facilities cannot approve a distro package they cannot map to breakers
+- **Write the rain plan before you sell courtyard tickets** — indoor legal capacity, audio presets for both zones, and a scripted indoor cue belong in the advance packet, not in a facilities group chat at 5:45 p.m.
 
 ## From the floor
+
+Thirty minutes before doors, facilities called a wind hold on the courtyard — not full rain, but enough to move the bar inside and shrink the terrace footprint. The show caller ran the numbered “reception indoor” cue from the packet we had rehearsed at the six-week walk: terrace audio muted on a DSP preset, corridor zone live, emcee script unchanged except for one line about where coats landed. Nobody re-taught auction rules; development had already signed that script.
 
 During load-in, the RF scan picked up a security repeater nobody had listed on the advance packet. We moved two presenter channels and re-printed the cue sheet before the first mic check — which is why the show-morning scan was a formality instead of a crisis.
 
