@@ -274,24 +274,14 @@ export const siteContent = {
               'Four to six weeks covers most single-market keynotes with standard rigging — send room dimensions and load-in constraints early so we can flag truck dock or ceiling issues before you sign. Multi-market tours or custom aspect builds with full-field calibration windows need 8–12 weeks. Q4 conference season and January sales kickoffs book inventory early; if your dates fall in those windows, earlier is better. Rush timelines are possible depending on inventory and venue access — contact us with your dates and we will tell you honestly what is feasible.',
           },
           {
-            question: 'What should I send when requesting an LED wall quote?',
+            question: 'Can LED walls work outdoors or under partial cover?',
             answer:
-              'Start with a floor plan or ballroom diagram: seating count, style (chevron, classroom, theater), and the farthest occupied row. Add ceiling height, rigging plot or venue tech packet, load-in and strike windows, and how content will run (slides only, IMAG, full-screen video, hybrid stream). Photos of the room beat guessing when CAD is not available. We return canvas dimensions, pitch recommendation, rigging approach, and conflict flags — not a panel count pulled from a spreadsheet.',
+              'Yes for brand activations, festival stages, and tent structures — but outdoor spec is not the same panel stack as a dark ballroom. Daylight needs higher brightness targets, and pitch is chosen for close-up viewing, not back-row type. Wind load, ballast, and rated tie-downs must be engineered for the structure you are actually building, not borrowed from an indoor quote. Partial cover (open-sided tents, courtyard canopies) still means dust, glare, and weather on load-in day — we plan tarping, power protection, and a rain-call playbook before content is built. If the wall faces direct sun during rehearsal, calibration happens with the sun angle you will fight at show time, not at 10 PM.',
           },
           {
-            question: 'What should an LED wall RFP include beyond dimensions and pixel pitch?',
+            question: 'Who owns content approvals after the wall spec is locked?',
             answer:
-              'Ask for farthest-seat readability standards (e.g., minimum character height at the back row), native resolution and refresh rate for every content source, processor redundancy and who owns spares, load-in footprint (module size, case count, ground vs flown weight), and a calibration window before doors — not twenty minutes before the CEO walk-on. Request a comparable-room reference, not just a spec sheet. Bids that cannot describe a show like yours at this distance are guessing with your budget.',
-          },
-          {
-            question: 'Do presenters need confidence monitors when the room has a large LED wall?',
-            answer:
-              'Usually yes — the emissive wall behind them is bright, and turning to read slides on it reads poorly on camera. Downstage confidence monitors (often flanked, sometimes teleprompter-fed) keep eyes forward while the audience reads the upstage wall. Placement depends on camera positions, lectern height, and whether panels walk — we plot monitor lines in pre-pro alongside wall and IMAG layout so rehearsal is not the first time someone discovers they cannot see their transitions.',
-          },
-          {
-            question: 'When should wall content be locked before load-in?',
-            answer:
-              'Lock motion graphics and full-screen video at least two weeks before load-in; slide decks at least 72 hours before doors for a real QA pass on native resolution. Late renders force untested files onto the processor during calibration — the wall will play them, but nobody has checked lower-thirds, brand colors, or frame rate on camera. We publish canvas dimensions and safe zones early so your team builds once; change orders after content lock belong in the run-of-show, not in a fresh After Effects export at 6 AM.',
+              'Name one approver per asset class — slides, motion, IMAG framing, and stream lower-thirds — before load-in. Marketing, legal, and the CEO’s office can all have a valid opinion; without a single decision path, a 32:9 master gets rebuilt three times during calibration. We publish canvas dimensions, safe zones, and a content test slot in pre-pro; changes after that slot need show-caller sign-off because they affect cue timing, not just pixels. Freeze the run-of-show content keys before tech rehearsal so load-in is not where someone discovers a new brand video in the wrong color space.',
           },
           {
             question: 'How do you split LED wall scope between house AV and a production vendor?',
