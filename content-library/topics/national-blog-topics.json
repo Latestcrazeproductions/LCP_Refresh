@@ -361,9 +361,10 @@
       "title": "Venue Site Visit Checklist for AV (What to Photograph and Measure)",
       "track": "A",
       "opportunityScore": 50,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "event venue site visit av checklist",
-      "serviceCta": "/featured-venues"
+      "serviceCta": "/featured-venues",
+      "rationale": "Published 2026-11-10; maintain via faq_refresh."
     },
     {
       "slug": "fire-marshal-and-cable-ramp-planning",
