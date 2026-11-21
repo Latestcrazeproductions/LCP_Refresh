@@ -2,8 +2,9 @@
 title: Heard Museum Gala — Premium Event Production
 description: Museum gala production case study — ground-supported staging, intelligent lighting, line-array audio, IMAG, and cue-to-cue awards flow for a cultural institution fundraiser.
 track: B
-dateModified: 2026-09-30
+dateModified: 2026-11-11
 eyebrow: Arts / Cultural
+image: /og-image.jpg
 ---
 
 # Heard Museum Gala — Premium Event Production
@@ -243,12 +244,31 @@ The production team delivered measurable results across guest experience, progra
 - **Load-out completed inside the contracted window** — strike followed the written pull order; museum operations resumed on time with curatorial sign-off on surface photos
 - **Content pipeline stayed ahead of show day** — all six tribute videos and slide decks were in the playback queue 72 hours before doors, with labeled backup media at FOH
 - **Zero unplanned rigging or surface contact** — ground-supported positions and cable mats matched the advance plan; no last-minute stage resize after the 8-week footprint lock
-- **Wireless plan held through the awards block** — morning re-scan caught a campus security carrier; presenter channels were remapped in rehearsal with no dropouts during live cues
+- **Wireless plan held through reception and awards** — load-in scan caught a campus security carrier on an unlisted channel; show-morning re-scan caught one new interference source; presenter channels were remapped in rehearsal with no dropouts during live cues, and every primary mic had a fallback on the cue sheet
 - **Auction-to-awards handoff held dinner service** — lot descriptions finished inside the caterer's dessert hold window; transition to the first honoree landed as a numbered cue, not a floor negotiation
 - **Tribute video transitions held without dead air** — every pre-recorded segment played from the primary queue; video-to-live returns were rehearsed as single numbered cues with lavs open before the last frame faded
 - **Stakeholder roles stayed clear through strike** — facilities, curatorial, and production each had a named owner on comms; no mid-show debates about cable mats or house-light presets
-- **Wireless plan held through reception and awards** — show-morning RF scan caught one new interference source; backup channel map was never needed, but every primary mic had a fallback assigned before doors
 - **Power tie-in matched the advance drawing** — facilities signed off on distro positions at load-in; no mid-show breaker trips or unplanned extension cord runs across guest paths
+
+## Frequently asked questions
+
+**Can we hang truss in a museum gallery or courtyard?**  
+Only if facilities provides signed rigging points — many cultural campuses prohibit overhead load on preserved surfaces. Default to ground-supported staging and lighting until you have written approval for every point.
+
+**When should tribute videos and honoree slides be due?**  
+Lock content 72 hours before doors. After that, accept only changes with a numbered cue-sheet revision so playback, lighting, and show calling stay aligned.
+
+**Do rear tables need IMAG at a museum gala?**  
+In shallow rooms, yes — treat IMAG as a sight-line product. Camera framing and lower-third scale should be approved from the farthest paid seat, not from FOH.
+
+**Who owns the clock during dinner versus the awards block?**  
+The caterer owns dinner service; the show caller owns program timing. Those two clocks meet at written handoff points — not in the middle of a live cue.
+
+**How far in advance should we RF-scan a cultural campus?**  
+Scan at load-in and again before doors. Guest density at reception changes the noise floor; campus security and building automation often share bands that are not listed on the advance packet.
+
+**What should be in the load-out plan before the first truck arrives?**  
+Vehicle staging, badge lists, pull order, strike photography if curatorial requires it, and the hard out time in writing — including who signs off when the room must be clear.
 
 ## Lessons for museum and cultural galas
 
