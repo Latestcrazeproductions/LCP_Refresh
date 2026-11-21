@@ -314,9 +314,10 @@
       "title": "Intercom and Show-Caller Roles Planners Should Assign Before Load-In",
       "track": "A",
       "opportunityScore": 55,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "event show caller intercom",
-      "serviceCta": "/services/stage"
+      "serviceCta": "/services/stage",
+      "rationale": "Published 2026-11-03; maintain via faq_refresh. Complements backstage-flow and rehearsal-day run-of-show; comms and caller assignment focus."
     },
     {
       "slug": "scenic-soft-goods-and-masking-for-stages",
