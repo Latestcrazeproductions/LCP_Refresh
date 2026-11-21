@@ -246,7 +246,17 @@ export const siteContent = {
           {
             question: 'When should final wall content be delivered before show day?',
             answer:
-              'Lock motion graphics and full-screen video at least one week before load-in — longer for multi-zone layouts or 32:9 canvases your team has never built before. Slide decks can arrive closer, but the master deck should be frozen before rehearsal so font substitutions and last-minute aspect-ratio surprises do not become a load-in sport. We run a content test on the actual processor path during tech rehearsal; discovering a 24fps clip on a 60 Hz wall during the CEO walk-through is avoidable with a calendar. Send ProRes or high-bitrate H.264 for video, native-resolution PNG or PDF exports for stills, and one contact who owns change control.',
+              'Lock motion graphics and full-screen video at least two weeks before load-in — one week minimum if your team has built at this canvas size before. Slide decks should freeze at least 72 hours before doors for a real QA pass on native resolution. Late renders force untested files onto the processor during calibration — the wall will play them, but nobody has checked lower-thirds, brand colors, or frame rate on camera. We run a content test on the actual processor path during tech rehearsal; discovering a 24fps clip on a 60 Hz wall during the CEO walk-through is avoidable with a calendar. Send ProRes or high-bitrate H.264 for video, native-resolution PNG or PDF exports for stills, and one contact who owns change control.',
+          },
+          {
+            question: 'How do you size wall width and height for a ballroom or general session?',
+            answer:
+              'Start with farthest-seat readability and content aspect ratio — not the widest wall that fits in the truck. We map seating depth, camera positions, and whether IMAG or delay screens share the show file, then return a canvas width and height that keeps type legible at the back row without letterboxing your 32:9 motion graphics. Scenic width, thrust depth, and side-screen needs can shrink or widen the hero wall; a cross-section sketch beats guessing from a one-line dimension in the RFP. For viewing-distance tiers and pitch pairing, use our LED wall sizing guide — then contact us with the room packet so we can flag rigging or sight-line conflicts before you sign dimensions.',
+          },
+          {
+            question: 'Can LED walls work outdoors or in direct sunlight?',
+            answer:
+              'Yes, with outdoor-rated panels, higher brightness headroom, and weather planning — not the same spec as a dimmed hotel ballroom. Daylight and partial sun mean brighter nits, shaded load-in, and backup plans for wind and moisture; ground stack and ballast rules change when the audience is on grass or a festival deck. Camera and IMAG still need rehearsal outdoors because exposure swings when clouds roll through. Send site photos, sun path, and power access early; we will tell you honestly if projection, a shaded structure, or a smaller daylight-rated wall fits the show better than pretending indoor panels will win a noon reveal.',
           },
           {
             question: 'Is this LED wall rental-only, or full production with onsite support?',
@@ -272,26 +282,6 @@ export const siteContent = {
             question: 'How far in advance should I book an LED wall?',
             answer:
               'Four to six weeks covers most single-market keynotes with standard rigging — send room dimensions and load-in constraints early so we can flag truck dock or ceiling issues before you sign. Multi-market tours or custom aspect builds with full-field calibration windows need 8–12 weeks. Q4 conference season and January sales kickoffs book inventory early; if your dates fall in those windows, earlier is better. Rush timelines are possible depending on inventory and venue access — contact us with your dates and we will tell you honestly what is feasible.',
-          },
-          {
-            question: 'What should I send when requesting an LED wall quote?',
-            answer:
-              'Start with a floor plan or ballroom diagram: seating count, style (chevron, classroom, theater), and the farthest occupied row. Add ceiling height, rigging plot or venue tech packet, load-in and strike windows, and how content will run (slides only, IMAG, full-screen video, hybrid stream). Photos of the room beat guessing when CAD is not available. We return canvas dimensions, pitch recommendation, rigging approach, and conflict flags — not a panel count pulled from a spreadsheet.',
-          },
-          {
-            question: 'What should an LED wall RFP include beyond dimensions and pixel pitch?',
-            answer:
-              'Ask for farthest-seat readability standards (e.g., minimum character height at the back row), native resolution and refresh rate for every content source, processor redundancy and who owns spares, load-in footprint (module size, case count, ground vs flown weight), and a calibration window before doors — not twenty minutes before the CEO walk-on. Request a comparable-room reference, not just a spec sheet. Bids that cannot describe a show like yours at this distance are guessing with your budget.',
-          },
-          {
-            question: 'Do presenters need confidence monitors when the room has a large LED wall?',
-            answer:
-              'Usually yes — the emissive wall behind them is bright, and turning to read slides on it reads poorly on camera. Downstage confidence monitors (often flanked, sometimes teleprompter-fed) keep eyes forward while the audience reads the upstage wall. Placement depends on camera positions, lectern height, and whether panels walk — we plot monitor lines in pre-pro alongside wall and IMAG layout so rehearsal is not the first time someone discovers they cannot see their transitions.',
-          },
-          {
-            question: 'When should wall content be locked before load-in?',
-            answer:
-              'Lock motion graphics and full-screen video at least two weeks before load-in; slide decks at least 72 hours before doors for a real QA pass on native resolution. Late renders force untested files onto the processor during calibration — the wall will play them, but nobody has checked lower-thirds, brand colors, or frame rate on camera. We publish canvas dimensions and safe zones early so your team builds once; change orders after content lock belong in the run-of-show, not in a fresh After Effects export at 6 AM.',
           },
           {
             question: 'How do you split LED wall scope between house AV and a production vendor?',
