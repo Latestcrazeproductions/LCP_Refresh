@@ -388,9 +388,10 @@
       "title": "Speaker Timer and Confidence Workflow for Timed Keynotes",
       "track": "A",
       "opportunityScore": 47,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "keynote speaker timer workflow",
-      "serviceCta": "/services/stage"
+      "serviceCta": "/services/stage",
+      "rationale": "Published 2026-11-13; maintain via faq_refresh. Pairs with confidence-monitor-placement and rehearsal run-of-show blogs."
     },
     {
       "slug": "cocktail-reception-zone-audio",
