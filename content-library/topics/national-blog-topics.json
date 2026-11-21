@@ -323,9 +323,10 @@
       "title": "Scenic Soft Goods and Masking for Corporate Stages",
       "track": "A",
       "opportunityScore": 54,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "stage masking soft goods events",
-      "serviceCta": "/services/scenic"
+      "serviceCta": "/services/scenic",
+      "rationale": "Published 2026-11-04; maintain via faq_refresh."
     },
     {
       "slug": "projection-screen-sizing-for-breakouts",
