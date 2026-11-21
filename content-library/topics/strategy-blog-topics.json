@@ -1,7 +1,7 @@
 {
   "quarter": "2026-Q3",
   "cadenceNote": "Target 22 queued strategy topics (config.topicQueues.strategyMinQueued). ResearchAgent replenishes monthly on the 1st.",
-  "lastTrendingRefresh": "2026-10-01",
+  "lastTrendingRefresh": "2026-11-01",
   "topics": [
     {
       "slug": "when-to-own-vs-rent-event-technology",
