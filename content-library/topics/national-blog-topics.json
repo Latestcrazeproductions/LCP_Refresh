@@ -397,9 +397,10 @@
       "title": "Cocktail Reception Zone Audio That Does Not Fight the Ballroom",
       "track": "A",
       "opportunityScore": 46,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "cocktail reception event audio",
-      "serviceCta": "/services/audio"
+      "serviceCta": "/services/audio",
+      "rationale": "Published 2026-11-17; maintain via faq_refresh."
     },
     {
       "slug": "gala-dinner-to-program-transition",
