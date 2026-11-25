@@ -232,9 +232,10 @@
       "title": "Outdoor Event AV Weather Contingency: What to Put in Writing",
       "track": "A",
       "opportunityScore": 64,
-      "status": "queued",
+      "status": "published",
       "primaryKeyword": "outdoor event av weather plan",
-      "serviceCta": "/services/audio"
+      "serviceCta": "/services/audio",
+      "rationale": "Published 2026-10-21; maintain via faq_refresh. Outdoor weather thresholds and contract language; pairs with /services/audio. Do not put a city in the title."
     },
     {
       "slug": "multi-day-conference-changeover-playbook",
