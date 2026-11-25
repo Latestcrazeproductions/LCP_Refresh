@@ -2,7 +2,7 @@
 title: Heard Museum Gala — Premium Event Production
 description: Museum gala production case study — ground-supported staging, intelligent lighting, line-array audio, IMAG, and cue-to-cue awards flow for a cultural institution fundraiser.
 track: B
-dateModified: 2026-09-30
+dateModified: 2026-11-25
 eyebrow: Arts / Cultural
 ---
 
@@ -243,11 +243,10 @@ The production team delivered measurable results across guest experience, progra
 - **Load-out completed inside the contracted window** — strike followed the written pull order; museum operations resumed on time with curatorial sign-off on surface photos
 - **Content pipeline stayed ahead of show day** — all six tribute videos and slide decks were in the playback queue 72 hours before doors, with labeled backup media at FOH
 - **Zero unplanned rigging or surface contact** — ground-supported positions and cable mats matched the advance plan; no last-minute stage resize after the 8-week footprint lock
-- **Wireless plan held through the awards block** — morning re-scan caught a campus security carrier; presenter channels were remapped in rehearsal with no dropouts during live cues
+- **Wireless plan held through reception and awards** — load-in scan caught a campus security carrier; show-morning re-scan caught one new interference source; presenter channels were remapped in rehearsal with no dropouts during live cues and a backup channel map assigned before doors
 - **Auction-to-awards handoff held dinner service** — lot descriptions finished inside the caterer's dessert hold window; transition to the first honoree landed as a numbered cue, not a floor negotiation
 - **Tribute video transitions held without dead air** — every pre-recorded segment played from the primary queue; video-to-live returns were rehearsed as single numbered cues with lavs open before the last frame faded
 - **Stakeholder roles stayed clear through strike** — facilities, curatorial, and production each had a named owner on comms; no mid-show debates about cable mats or house-light presets
-- **Wireless plan held through reception and awards** — show-morning RF scan caught one new interference source; backup channel map was never needed, but every primary mic had a fallback assigned before doors
 - **Power tie-in matched the advance drawing** — facilities signed off on distro positions at load-in; no mid-show breaker trips or unplanned extension cord runs across guest paths
 
 ## Lessons for museum and cultural galas
@@ -266,6 +265,34 @@ Cultural institution events reward planners who treat the venue like a collabora
 - **Write truck access and strike before load-in day** — campus galas fail when the first case arrives and nobody knows which gate is open; vehicle staging and hard out times belong in the advance packet, not a group text at midnight
 - **Treat RF as a campus problem, not a mic rental** — request security and facilities wireless inventory early; scan at load-in and again before doors when guest density changes the noise floor
 - **Submit a one-line power ask early** — amperage by position, tie-in locations, and generator rules in writing; facilities cannot approve a distro package they cannot map to breakers
+
+## Museum gala production — quick answers
+
+Planners comparing campus venues to hotel ballrooms usually ask the same questions in the first phone call. Short answers below — detail for each item sits in the sections above.
+
+### Can we fly truss over the dinner floor?
+
+Usually no on preserved cultural campuses unless facilities sign off in writing. Plan ground-supported staging, floor-mounted lighting, and LED walls sized for the footprint you can legally build — not the footprint you wish you had.
+
+### How far in advance should production advance with the museum?
+
+Eight weeks is the practical minimum for footprint, power tie-in, and curatorial clearance. Twelve weeks is better if tribute video, live auction, and a full awards block all land on one show caller’s sheet.
+
+### Do rear tables need IMAG at a museum gala?
+
+In shallow rooms, yes — for premium ticket tiers in the back third, IMAG is the primary sight-line product. Camera plot and lower-third scale should be tested from the farthest paid seat before doors, not from FOH.
+
+### Who owns dinner timing versus show timing?
+
+The caterer owns the service clock; the show caller owns program cues. Assign both owners in writing before load-in. Mid-show dessert negotiations belong in neither job description.
+
+### What breaks if we skip a cue-to-cue rehearsal?
+
+Video-to-live returns, auction-to-awards lighting rebuilds, and walk-on mic timing. Museum galas fail in transitions more often than in playback codecs. Budget rehearsal as a line item, not a courtesy hour tacked on at the end of load-in.
+
+### Is an overnight hold normal?
+
+Often no on working museum campuses. Assume strike the same night unless the contract states otherwise, and write truck order and cable pull sequence before the first case comes off the truck.
 
 ## From the floor
 
