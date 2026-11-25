@@ -271,22 +271,12 @@ export const siteContent = {
           {
             question: 'How far in advance should I book an LED wall?',
             answer:
-              'Four to six weeks covers most single-market keynotes with standard rigging — send room dimensions and load-in constraints early so we can flag truck dock or ceiling issues before you sign. Multi-market tours or custom aspect builds with full-field calibration windows need 8–12 weeks. Q4 conference season and January sales kickoffs book inventory early; if your dates fall in those windows, earlier is better. Rush timelines are possible depending on inventory and venue access — contact us with your dates and we will tell you honestly what is feasible.',
+              'Four to six weeks before load-in covers most single-market keynotes with standard rigging — that window leaves room for venue checks, processor path, and a calibration day before rehearsal. Multi-market tours or custom aspect builds with full-field calibration need 8–12 weeks. Q4 conference season and January sales kickoffs book inventory early; if your dates fall in those windows, earlier is better. Send floor plans when you request a quote — most scopes return within a few business days once dimensions and load-in constraints are clear. Rush timelines depend on inventory and venue access; contact us with your dates and we will tell you honestly what is feasible.',
           },
           {
-            question: 'What should I send when requesting an LED wall quote?',
+            question: 'Can LED walls be used outdoors or in partially exposed venues?',
             answer:
-              'Start with a floor plan or ballroom diagram: seating count, style (chevron, classroom, theater), and the farthest occupied row. Add ceiling height, rigging plot or venue tech packet, load-in and strike windows, and how content will run (slides only, IMAG, full-screen video, hybrid stream). Photos of the room beat guessing when CAD is not available. We return canvas dimensions, pitch recommendation, rigging approach, and conflict flags — not a panel count pulled from a spreadsheet.',
-          },
-          {
-            question: 'What should an LED wall RFP include beyond dimensions and pixel pitch?',
-            answer:
-              'Ask for farthest-seat readability standards (e.g., minimum character height at the back row), native resolution and refresh rate for every content source, processor redundancy and who owns spares, load-in footprint (module size, case count, ground vs flown weight), and a calibration window before doors — not twenty minutes before the CEO walk-on. Request a comparable-room reference, not just a spec sheet. Bids that cannot describe a show like yours at this distance are guessing with your budget.',
-          },
-          {
-            question: 'Do presenters need confidence monitors when the room has a large LED wall?',
-            answer:
-              'Usually yes — the emissive wall behind them is bright, and turning to read slides on it reads poorly on camera. Downstage confidence monitors (often flanked, sometimes teleprompter-fed) keep eyes forward while the audience reads the upstage wall. Placement depends on camera positions, lectern height, and whether panels walk — we plot monitor lines in pre-pro alongside wall and IMAG layout so rehearsal is not the first time someone discovers they cannot see their transitions.',
+              'Yes, with the right cabinet rating and a weather plan that is not wishful thinking. Indoor fine-pitch panels and outdoor-rated walls are different inventory — tent openings, pool-deck reveals, and plaza stages need brightness for daylight, wind load on ground stacks, and a strike call if weather turns. We spec outdoor or high-brightness cabinets, ballast or rigging as the site requires, and cable paths that keep moisture out of the processor chain. Send site photos, sun angle at show time, and whether the audience is fully covered; contact us for a quote once exposure and access are defined.',
           },
           {
             question: 'When should wall content be locked before load-in?',
