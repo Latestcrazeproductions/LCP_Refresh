@@ -393,8 +393,8 @@ export const siteContent = {
             alt: 'FOH audio engineer at a digital mixing console with multitrack metering during show prep',
           },
           {
-            src: 'https://images.unsplash.com/photo-1768269894-1d7e1ce8894e?q=80&w=2070&auto=format&fit=crop',
-            alt: 'Keynote presenter on stage with a wireless handheld mic and clear sight lines to the back row',
+            src: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070&auto=format&fit=crop',
+            alt: 'In-ear monitor rack and wireless RF antenna distribution at FOH during corporate sound check',
           },
         ] as Array<{ src: string; alt: string }>,
         details: {
