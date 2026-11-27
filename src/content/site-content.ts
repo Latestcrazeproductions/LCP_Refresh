@@ -246,7 +246,7 @@ export const siteContent = {
           {
             question: 'When should final wall content be delivered before show day?',
             answer:
-              'Lock motion graphics and full-screen video at least one week before load-in — longer for multi-zone layouts or 32:9 canvases your team has never built before. Slide decks can arrive closer, but the master deck should be frozen before rehearsal so font substitutions and last-minute aspect-ratio surprises do not become a load-in sport. We run a content test on the actual processor path during tech rehearsal; discovering a 24fps clip on a 60 Hz wall during the CEO walk-through is avoidable with a calendar. Send ProRes or high-bitrate H.264 for video, native-resolution PNG or PDF exports for stills, and one contact who owns change control.',
+              'Lock motion graphics and full-screen video at least one week before load-in — two weeks when the canvas is multi-zone or 32:9 and your team has not built to our spec before. Freeze the master slide deck before tech rehearsal so font swaps and aspect-ratio surprises stay off the load-in schedule. We test every source on the show processor during rehearsal, not on a laptop preview. Deliver ProRes or high-bitrate H.264 for video, native-resolution PNG or PDF for stills, and name one contact who owns change control. A 24fps clip on a 60 Hz wall during the CEO walk-through is a calendar problem, not a technical mystery.',
           },
           {
             question: 'Is this LED wall rental-only, or full production with onsite support?',
@@ -271,22 +271,12 @@ export const siteContent = {
           {
             question: 'How far in advance should I book an LED wall?',
             answer:
-              'Four to six weeks covers most single-market keynotes with standard rigging — send room dimensions and load-in constraints early so we can flag truck dock or ceiling issues before you sign. Multi-market tours or custom aspect builds with full-field calibration windows need 8–12 weeks. Q4 conference season and January sales kickoffs book inventory early; if your dates fall in those windows, earlier is better. Rush timelines are possible depending on inventory and venue access — contact us with your dates and we will tell you honestly what is feasible.',
+              'Four to six weeks covers most single-market keynotes with standard rigging. Send room dimensions, load-in constraints, and venue tech packet in that window so truck dock and ceiling conflicts surface before the contract is signed. Multi-city tours, custom aspect canvases, and full-field calibration before multiple rehearsals need 8–12 weeks. Q4 conference season and January sales kickoffs consume inventory first — dates in those windows should move sooner. Rush is sometimes possible when inventory and venue access align; send your hold dates and we will answer honestly what is feasible.',
           },
           {
-            question: 'What should I send when requesting an LED wall quote?',
+            question: 'How do mezzanine and balcony seats change wall height and delay placement?',
             answer:
-              'Start with a floor plan or ballroom diagram: seating count, style (chevron, classroom, theater), and the farthest occupied row. Add ceiling height, rigging plot or venue tech packet, load-in and strike windows, and how content will run (slides only, IMAG, full-screen video, hybrid stream). Photos of the room beat guessing when CAD is not available. We return canvas dimensions, pitch recommendation, rigging approach, and conflict flags — not a panel count pulled from a spreadsheet.',
-          },
-          {
-            question: 'What should an LED wall RFP include beyond dimensions and pixel pitch?',
-            answer:
-              'Ask for farthest-seat readability standards (e.g., minimum character height at the back row), native resolution and refresh rate for every content source, processor redundancy and who owns spares, load-in footprint (module size, case count, ground vs flown weight), and a calibration window before doors — not twenty minutes before the CEO walk-on. Request a comparable-room reference, not just a spec sheet. Bids that cannot describe a show like yours at this distance are guessing with your budget.',
-          },
-          {
-            question: 'Do presenters need confidence monitors when the room has a large LED wall?',
-            answer:
-              'Usually yes — the emissive wall behind them is bright, and turning to read slides on it reads poorly on camera. Downstage confidence monitors (often flanked, sometimes teleprompter-fed) keep eyes forward while the audience reads the upstage wall. Placement depends on camera positions, lectern height, and whether panels walk — we plot monitor lines in pre-pro alongside wall and IMAG layout so rehearsal is not the first time someone discovers they cannot see their transitions.',
+              'Balcony and mezzanine rows often look down on the stage — a wall sized only for main-floor sight lines can disappear under a rail or read as a bright strip with no slide detail. We model occupied sight lines from both levels, then set trim height, flown lift, or a center wall plus delayed side feeds so upper tiers get readable type, not glare. Steep rake theaters may need delays under the balcony lip even when the main floor has a hero wall. Send section drawings or photos from the upper seats; a two-minute sketch beats a full redesign at load-in.',
           },
           {
             question: 'When should wall content be locked before load-in?',
