@@ -2,7 +2,7 @@
 title: Heard Museum Gala — Premium Event Production
 description: Museum gala production case study — ground-supported staging, intelligent lighting, line-array audio, IMAG, and cue-to-cue awards flow for a cultural institution fundraiser.
 track: B
-dateModified: 2026-09-30
+dateModified: 2026-11-27
 eyebrow: Arts / Cultural
 ---
 
@@ -243,12 +243,21 @@ The production team delivered measurable results across guest experience, progra
 - **Load-out completed inside the contracted window** — strike followed the written pull order; museum operations resumed on time with curatorial sign-off on surface photos
 - **Content pipeline stayed ahead of show day** — all six tribute videos and slide decks were in the playback queue 72 hours before doors, with labeled backup media at FOH
 - **Zero unplanned rigging or surface contact** — ground-supported positions and cable mats matched the advance plan; no last-minute stage resize after the 8-week footprint lock
-- **Wireless plan held through the awards block** — morning re-scan caught a campus security carrier; presenter channels were remapped in rehearsal with no dropouts during live cues
+- **Wireless plan held through reception and awards** — morning re-scan caught a campus security carrier; presenter channels were remapped in rehearsal with no dropouts during live cues; backup channel map was never needed, but every primary mic had a fallback assigned before doors
 - **Auction-to-awards handoff held dinner service** — lot descriptions finished inside the caterer's dessert hold window; transition to the first honoree landed as a numbered cue, not a floor negotiation
 - **Tribute video transitions held without dead air** — every pre-recorded segment played from the primary queue; video-to-live returns were rehearsed as single numbered cues with lavs open before the last frame faded
 - **Stakeholder roles stayed clear through strike** — facilities, curatorial, and production each had a named owner on comms; no mid-show debates about cable mats or house-light presets
-- **Wireless plan held through reception and awards** — show-morning RF scan caught one new interference source; backup channel map was never needed, but every primary mic had a fallback assigned before doors
 - **Power tie-in matched the advance drawing** — facilities signed off on distro positions at load-in; no mid-show breaker trips or unplanned extension cord runs across guest paths
+
+## Museum gala production — common planner questions
+
+Development and facilities teams ask the same questions in every museum RFP. Short answers you can paste into a brief:
+
+- **Can we rig from the ceiling?** — Only if facilities signs written load limits and approved attachment points; default to ground-supported staging and side-light positions unless rigging is confirmed 8+ weeks out.
+- **Do we need IMAG in a shallow room?** — If rear tables cannot read presenter faces at awards lighting, yes — size the camera plot from the farthest paid seat, not from FOH.
+- **Who owns house lights during awards?** — Assign it in the advance packet: museum facilities, hotel engineering, or production on a preset call — not a debate after the first video roll.
+- **How early must tribute videos lock?** — 72 hours before doors, with codec and frame rate in writing; late exports become change-order risk, not a “quick fix” at FOH.
+- **Can the auction share presenter wireless?** — No dedicated auction channel = predictable dropout during the paddle segment; allocate it in the channel plan before you sign the vendor contract.
 
 ## Lessons for museum and cultural galas
 
