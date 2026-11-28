@@ -132,8 +132,8 @@
       "targetKey": "/work/heard-museum-gala",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-11-27T00:25:19.149Z",
-      "runId": "run-60462ddf-1a49-4b5b-8b40-2e048ec23be7"
+      "dispatchedAt": "2026-11-27T23:57:02.692Z",
+      "runId": "run-1a1e2de5-ef4e-4436-85ba-0feccd2d1173"
     },
     {
       "taskId": "blog.national.create:product-launch-av-run-of-show",
@@ -276,8 +276,8 @@
       "targetKey": "/services/stage",
       "status": "in_review",
       "cadence": "daily",
-      "dispatchedAt": "2026-11-13T21:50:15.449Z",
-      "runId": "run-1a458fb2-d195-4192-b48a-dc0770404fb2"
+      "dispatchedAt": "2026-11-27T23:57:02.692Z",
+      "runId": "run-008d5e77-40a9-4e19-9784-8e35bcd27aa1"
     },
     {
       "taskId": "authority.strategy_blog:production-partners-for-high-stakes-keynotes",
