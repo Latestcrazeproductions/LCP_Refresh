@@ -389,8 +389,8 @@ export const siteContent = {
             alt: 'Close-up of suspended line-array speaker clusters rigged stage-left before show call',
           },
           {
-            src: 'https://images.unsplash.com/photo-1766019463451-04e0b1269f37?q=80&w=2070&auto=format&fit=crop',
-            alt: 'FOH audio engineer at a digital mixing console with multitrack metering during show prep',
+            src: 'https://images.unsplash.com/photo-1764981966374-f7323993b21d?q=80&w=2070&auto=format&fit=crop',
+            alt: 'Ground-stacked line arrays and PA towers flanking a corporate keynote stage during tech rehearsal',
           },
           {
             src: 'https://images.unsplash.com/photo-1768269894-1d7e1ce8894e?q=80&w=2070&auto=format&fit=crop',
